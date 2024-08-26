@@ -1,0 +1,268 @@
+site_name: COD Lab 2024 
+site_url: https://soc.ustc.edu.cn/COD/
+# repo_name: CODLab-2024-repo
+# repo_url: https://github.com/USTC-System-Courses/COD-Web/
+
+copyright: Copyright © USTC-COD Lab 2023 - 2024
+
+theme:
+  custom_dir: overrides
+  name: material
+  language: 'zh'
+  features:
+    - navigation.tabs     # 启用上方的分栏
+    # - navigation.tabs.sticky  # 让分栏保持可见
+    - navigation.expand
+    - navigation.footer   # 启用界面下方翻页按钮
+    - content.code.copy   # 启用代码框复制按钮
+
+  icon:
+    # 对应网址为 https://fontawesome.com/
+    logo: fontawesome/solid/computer
+    repo: fontawesome/brands/github
+
+  palette:
+    - scheme: 'default'
+      primary: 'deep purple'
+      accent: 'deep purple'
+      toggle:
+        icon: material/weather-sunny
+        name: 切换到夜晚模式
+    - scheme: 'slate'
+      primary: 'indigo'
+      accent: 'indigo'
+      toggle:
+        icon: material/weather-night
+        name: 切换到白天模式
+
+plugins:
+  - search
+  - glightbox
+  - git-authors   # 显示作者 https://github.com/timvink/mkdocs-git-authors-plugin
+  - git-revision-date-localized   # 显示上次编辑时间 https://github.com/timvink/mkdocs-git-revision-date-localized-plugin
+
+
+extra:  
+  social: # 界面最下方的跳转链接
+    - icon: simple/opensourcehardware
+      link: https://soc.ustc.edu.cn
+
+    - icon: material/server
+      link: https://vlab.ustc.edu.cn
+
+
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:pymdownx.emoji.twemoji
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tabbed
+  - pymdownx.tilde
+  - admonition
+  - pymdownx.keys
+
+  - pymdownx.blocks.admonition: # 不同风格的提示块
+      types:
+      - new
+      - settings
+      - note
+      - abstract
+      - info
+      - tip
+      - success
+      - question
+      - warning
+      - failure
+      - danger
+      - bug
+      - example
+      - quote
+  - pymdownx.blocks.details:
+  - pymdownx.blocks.html:
+  - pymdownx.blocks.definition:
+  - pymdownx.blocks.tab:
+      alternate_style: True
+
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+
+# 下面是完整的目录
+
+nav:
+- 首页: index.md
+
+- Lab1: 
+  - 实验介绍: lab1/index.md
+  - 实验教程:
+    - RV32I 指令集:
+      - RARS: lab1/rars.md
+      - RV32I 指令集手册: lab1/src/RISCV_ref.pdf
+
+    - LA32R 指令集:
+      - LA32R 简介: lab1/asm.md
+      - LARS: lab1/lars.md
+      - LA32R 指令集手册: lab1/src/LA32R_ref.pdf
+
+- Lab2:
+  - 实验介绍: lab2/index.md
+  - 实验教程:
+    - 寄存器堆: lab2/RF.md
+    - ALU:  lab2/ALU.md
+    - IP 核: lab2/IP.md
+
+- Lab3:
+  - 实验介绍: lab3/index.md
+  - 实验教程:
+    - 简单单周期 CPU: lab3/CPU.md
+    - 项目框架介绍: lab3/proj.md
+    - LA32R 仿真框架使用手册: lab3/SIM_intro.md
+    - PDU 使用手册: lab3/PDU_intro.md
+  - 问题汇总: lab3/problem.md
+
+
+- Lab4:
+  - 实验介绍: lab4/index.md
+  - 实验教程:
+    - 完整单周期 CPU: lab4/CPU.md
+
+- Lab5:
+  - 实验介绍: lab5/index.md
+  - 实验教程:
+    - 流水化处理: lab5/flow.md
+    - 流水线CPU: lab5/CPU.md
+
+- Lab6:
+  - 实验介绍: lab6/index.md
+  - 实验教程:
+    - 冒险处理: lab6/hazard.md
+    - 完整流水线CPU: lab6/CPU.md
+
+- Lab7:
+  - 实验介绍: lab7/index.md
+  - 实验教程:
+    - 实验代码解析: lab7/temple_code.md
+    - Cache介绍: lab7/cache.md
+
+- 其他内容:
+  - 课程日历: other/note.md
+  - 提问的智慧: other/ask.md
+  - Markdown 教程: other/markdown.md
+  - Logisim 教程: other/logisim.md
+
+
+  # - 实验准备:
+  #   - 介绍: 2023/lab0/intro.md
+  #   - 软件使用:
+  #     - Markdown 使用教程: 2023/lab0/markdown.md
+  #     - Logisim 使用教程: 2023/lab0/logisim.md
+  #     - Vivado 安装教程: 2023/lab0/vivado.md
+  #   - 网站链接: 2023/lab0/web.md
+
+
+  # - Lab1: 
+  #   - 实验介绍: 2023/lab1/intro.md
+  #   - 实验教程:
+  #     - 1. Verilog 语法（上）: 2023/lab1/verilog1.md
+  #     - 2. Verilog 语法（下）: 2023/lab1/verilog2.md
+  #     - 3. Verilog 编程: 2023/lab1/verilog_coding.md
+  #   - 实验练习: 2023/lab1/tasks.md
+  #   - FAQ: 2023/lab1/FAQ.md
+
+
+  # - Lab2:
+  #   - 实验介绍: 2023/lab2/intro.md
+  #   - 实验教程:
+  #     - 1. 再遇 Verilog: 2023/lab2/verilog.md
+  #     - 2. 编写测试文件: 2023/lab2/testbench.md 
+  #     - 3. 使用 Vivado 进行仿真: 2023/lab2/simulation.md
+  #   - 实验练习: 2023/lab2/tasks.md
+  #   - FAQ: 2023/lab2/FAQ.md
+
+  # - Lab3:
+  #   - 实验介绍: 2023/lab3/intro.md
+  #   - 实验教程:
+  #     - 1. FPGAOL: 2023/lab3/FPGAOL.md
+  #     - 2. 综合与实现: 2023/lab3/vivado.md
+  #     - 3. 信号处理: 2023/lab3/signals.md
+  #     - 4. Verilog 常见问题分析: 2023/lab3/bugs.md
+  #   - 实验练习: 2023/lab3/tasks.md
+  #   - FAQ: 2023/lab3/FAQ.md
+
+  # - Lab4:
+  #   - 实验介绍: 2023/lab4/intro.md
+  #   - 实验教程:
+  #     - 0. 反馈: 2023/lab4/feedback.md
+  #     - 1. 设计流程: 2023/lab4/combinational.md
+  #     - 2. 案例分析: 2023/lab4/example.md
+  #     - 3. Logisim 的自动电路生成: 2023/lab4/logisim.md
+  #   - 实验练习: 2023/lab4/tasks.md
+  #   - FAQ: 2023/lab4/FAQ.md
+
+  # - Lab5:
+  #   - 实验介绍: 2023/lab5/intro.md
+  #   - 实验教程:
+  #     - 1. 时序逻辑元件: 2023/lab5/sequential.md
+  #     - 2. 有限状态机: 2023/lab5/FSM.md
+  #     - 3. 案例分析: 2023/lab5/example.md
+  #   - 实验练习: 2023/lab5/tasks.md
+  #   - FAQ: 2023/lab5/FAQ.md
+
+  # - Lab6:
+  #   - 实验介绍: 2023/lab6/intro.md
+  #   - 实验教程:
+  #     - 1. 加法器: 2023/lab6/adder.md
+  #     - 2. ALU: 2023/lab6/ALU.md
+  #   - 实验练习: 2023/lab6/tasks.md
+  #   - FAQ: 2023/lab6/FAQ.md
+
+  # - Lab7:
+  #   - 实验介绍: 2023/lab7/intro.md
+  #   - 实验教程:
+  #     - 1. 乘法器: 2023/lab7/multiplication.md
+  #     - 2. 电路性能分析: 2023/lab7/performance.md
+  #   - 实验练习: 2023/lab7/tasks.md
+  #   - FAQ: 2023/lab7/FAQ.md
+
+  # - Lab8:
+  #   - 实验介绍: 2023/lab8/intro.md
+  #   - 实验教程:
+  #     - 基础知识:
+  #       - 0.1 模块化设计: 2023/lab8/modules.md
+  #       - 0.2 IP 核与存储器: 2023/lab8/ip.md
+  #       - 0.3 开发板拓展: 2023/lab8/extools.md
+  #     - 方向 1：Logisim 应用:
+  #       - 1.1 汉字点阵显示: 2023/lab8/logisim.md
+  #     - 方向 2：串口通信:
+  #       - 2.1 串口通信协议: 2023/lab8/uart.md
+  #       - 2.2 猜数字游戏: 2023/lab8/guessnumber.md
+  #       - 2.3 LC-3 处理器: 2023/lab8/LC_3.md
+  #     - 方向 3：VGA 显示:
+  #       - 3.1 VGA 通信协议: 2023/lab8/vga.md
+  #       - 3.2 绘图板: 2023/lab8/painter.md
+  #       - 3.3 通用游戏设计: 2023/lab8/gamedesign.md
+  #   - 实验练习: 2023/lab8/tasks.md
+  #   - FAQ: 2023/lab8/FAQ.md
