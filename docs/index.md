@@ -30,20 +30,17 @@ comments: true
 
 <strong>助教</strong>
 
-  - 龚平（<gpzlx1@mail.ustc.edu.cn>）
-  - 李晓奇（<lxq@mail.ustc.edu.cn>）
-  - 贺嘉（<hej148@mail.ustc.edu.cn>）
-  - 刘良宇（<lly@mail.ustc.edu.cn>）
-  - 陈清源（<qychen@mail.ustc.edu.cn>）
   - 金泽文（<zevin@mail.ustc.edu.cn>）
-  - 许坤钊（<xkz@mail.ustc.edu.cn>）
-  - 傅申（<fushen@mail.ustc.edu.cn>）
-  - 杨柏森（<ybs87@mail.ustc.edu.cn>）
+  - 贺嘉（<hej148@mail.ustc.edu.cn>）
+  - 李晓奇（<lxq@mail.ustc.edu.cn>）
+  - 李宇哲（<lyz1810@mail.ustc.edu.cn>）
+  - 周瓯翔（<zox@mail.ustc.edu.cn>）
+  - 刘睿博（<liuruibo21@mail.ustc.edu.cn>）
 
 <strong>其它</strong>
 
-- QQ 群：805431263
-- 录课视频（需校内统一身份认证）：<https://v.ustc.edu.cn/1/2023-1/capture-course/011163.02/detail>
+- QQ 群：726310461
+- 录课视频（需校内统一身份认证）：<https://v.ustc.edu.cn/1/2024-1/capture-course/011163.02/detail>
 - 希冀实验平台（作业及实验提交）：<http://cscourse.ustc.edu.cn/>
 - 实验框架已公开，见参考资料[<sup>2</sup>](#textbook2)
 
@@ -158,7 +155,7 @@ comments: true
 
     <strong>其他方式</strong>
 
-    评论系统实际上是抓取了[这个仓库](https://github.com/wintermelon008/USTC-CODLab-Discussion)下讨论区的内容，所有的评论也会发布在这里。大家可以访问上面的仓库进行阅读。
+    评论系统实际上是抓取了[这个仓库](https://github.com/USTC-Compiler-2024/Compiler-Comments)下讨论区的内容，所有的评论也会发布在这里。大家可以访问上面的仓库进行阅读。
 
     如果你没有或者无法登录 GitHub 账号也没关系。除了文档下方的评论系统，在实验 QQ 群、各小组 QQ 群中大家也可以提出自己的问题，我们将统一进行解答。
 

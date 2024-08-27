@@ -8,8 +8,8 @@ theme:
   language: 'zh'
   features:
     - navigation.tabs     # 启用上方的分栏
-    # - navigation.tabs.sticky  # 让分栏保持可见
-    - navigation.expand
+    - navigation.tabs.sticky  # 让分栏保持可见
+    - navigation.expand   # 启用左侧导航栏的展开按钮
     - navigation.footer   # 启用界面下方翻页按钮
     - content.code.copy   # 启用代码框复制按钮
 

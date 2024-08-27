@@ -1,8 +1,8 @@
-# 中国科学技术大学计算机组成原理课程
+# 中国科学技术大学编译原理与技术课程
 
 ## README
 
-本项目为中国科学技术大学 2024 春季学期卢老师班《计算机组成原理》课程在线文档，使用 Mkdocs 搭建并在 GitHub 上托管项目。
+本项目为中国科学技术大学 2024 秋季学期李诚班《编译原理与技术》课程在线文档，使用 Mkdocs 搭建并在 GitHub 上托管项目。
 
 > 这里是[ MkDocs 文档](https://www.mkdocs.org/)，你可以访问官方文档以查询更多内容。
 
@@ -25,7 +25,7 @@
 首先将本仓库的内容从 GitHub clone 到本地。在你选定的本地路径下运行
 
 ```
-git clone https://github.com/USTC-System-Courses/COD-Web.git
+git clone https://github.com/USTC-Compiler-2024/HomePage
 ```
 
 即可。clone 完成后进入 COD-Web 目录，该目录即为我们的项目根目录。
@@ -72,7 +72,7 @@ mkdocs serve
 Mkdocs 采用 Markdown 作为文本编写语言，因此我们可以直接编辑 `docs/` 目录下的 .md 文件以实现对网页内容的更改。例如：我们的实验文档目录可以概括如下：
 
 ```
-COD-Web/
+HomePage/
 ├── docs/       <-- 这个是文档目录
 │   ├── figs/
 │   │   └── ......
@@ -101,20 +101,25 @@ COD-Web/
 
 ```
 nav:
-- 首页: index.md
-- 预备知识:
-  - 提问的智慧: other/ask.md
-  - git 的使用: other/git.md
-  - Markdown 的使用: other/markdown.md
-  - Mkdocs 的使用: other/mkdocs.md
-  - Logisim 的使用: other/logisim.md
-
-- Lab1: 
-  - 实验介绍: lab1/intro.md
-  - 初识 Verilog: lab1/verilog1.md
-  - Verilog Coding: lab1/verilog_coding.md
-  - 实验练习: lab1/tasks.md
-  - FAQ: lab1/FAQ.md
+  - 首页: index.md
+  - 课程平台介绍: exp_platform_intro/README.md
+  - 公共文档:
+    - Cminusf 语法语义介绍: common/cminusf.md
+    - Light IR 简介: common/LightIR.md
+    - C++ 介绍: common/simple_cpp.md
+    - Logging 工具使用: common/logging.md
+    - 龙芯汇编介绍: common/asm_intro.md
+  - Lab0:
+    - Lab0 简介: lab0/index.md
+    - Linux 环境配置: lab0/linux.md
+    - LLVM 等软件环境配置: lab0/software.md
+    - Git 的使用: lab0/git.md
+  - Lab1:
+    - Lab1 简介: lab1/index.md
+    - 正则表达式: lab1/正则表达式.md
+    - Flex: lab1/Flex.md
+    - Bison: lab1/Bison.md
+    - 实验细节与要求: lab1/实验细节与要求.md
 ```
 
 这里实际上就建立了网页目录与实际目录之间的映射关系。新建其他文件夹或文件时，只需要在 nav 下按照格式进行添加即可。
