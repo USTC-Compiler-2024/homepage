@@ -8,11 +8,9 @@
       
       
       
-        <link rel="canonical" href="https://soc.ustc.edu.cn/COD/">
       
       
-      
-        <link rel="next" href="lab1/">
+        <link rel="next" href="exp_platform_intro/">
       
       
       <link rel="icon" href="assets/images/favicon.png">
@@ -20,7 +18,7 @@
     
     
       
-        <title>COD Lab 2024</title>
+        <title>USTC 编译原理和技术 2023</title>
       
     
     
@@ -48,6 +46,10 @@
     
       <link rel="stylesheet" href="stylesheets/extra.css">
     
+      <link rel="stylesheet" href="css/extra.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -56,15 +58,17 @@
     
     
    <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-    html.glightbox-open { overflow: initial; height: 100%; }
-    .gslide-title { margin-top: 0px; user-select: text; }
-    .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }
-    .gscrollbar-fixer { padding-right: 15px; }
-    .gdesc-inner { font-size: 0.75rem; }
-    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="assets/javascripts/glightbox.min.js"></script></head>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -107,7 +111,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="." title="COD Lab 2024" class="md-header__button md-logo" aria-label="COD Lab 2024" data-md-component="logo">
+    <a href="." title="USTC 编译原理和技术 2023" class="md-header__button md-logo" aria-label="USTC 编译原理和技术 2023" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M384 96v224H64V96h320zM64 32C28.7 32 0 60.7 0 96v224c0 35.3 28.7 64 64 64h117.3l-10.7 32H96c-17.7 0-32 14.3-32 32s14.3 32 32 32h256c17.7 0 32-14.3 32-32s-14.3-32-32-32h-74.7l-10.7-32H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm464 0c-26.5 0-48 21.5-48 48v352c0 26.5 21.5 48 48 48h64c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48h-64zm16 64h32c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16s7.2-16 16-16zm-16 80c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16zm32 160a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
@@ -121,7 +125,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            COD Lab 2024
+            USTC 编译原理和技术 2023
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -203,6 +207,18 @@
 </div>
     
     
+      <div class="md-header__source">
+        <a href="https://github.com/USTC-Compiler-2024/HomePage" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    USTC-Compiler-2024/HomePage
+  </div>
+</a>
+      </div>
+    
   </nav>
   
 </header>
@@ -233,6 +249,59 @@
 
       </a>
     </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="exp_platform_intro/" class="md-tabs__link">
+        
+  
+    
+  
+  课程平台介绍
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="common/cminusf/" class="md-tabs__link">
+          
+  
+  公共文档
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="lab0/" class="md-tabs__link">
+          
+  
+  Lab0
+
+        </a>
+      </li>
+    
   
 
       
@@ -294,17 +363,16 @@
   
   
   
+    <li class="md-tabs__item">
+      <a href="lab4/" class="md-tabs__link">
+        
+  
     
-    
-      <li class="md-tabs__item">
-        <a href="lab4/" class="md-tabs__link">
-          
   
   Lab4
 
-        </a>
-      </li>
-    
+      </a>
+    </li>
   
 
       
@@ -312,17 +380,16 @@
   
   
   
-    
-    
-      <li class="md-tabs__item">
-        <a href="lab5/" class="md-tabs__link">
-          
+    <li class="md-tabs__item">
+      <a href="innovative-lab/" class="md-tabs__link">
+        
   
-  Lab5
-
-        </a>
-      </li>
     
+  
+  建木杯–编译原理创新实验
+
+      </a>
+    </li>
   
 
       
@@ -330,53 +397,16 @@
   
   
   
-    
-    
-      <li class="md-tabs__item">
-        <a href="lab6/" class="md-tabs__link">
-          
-  
-  Lab6
-
-        </a>
-      </li>
-    
-  
-
-      
+    <li class="md-tabs__item">
+      <a href="faq/" class="md-tabs__link">
         
   
-  
-  
     
-    
-      <li class="md-tabs__item">
-        <a href="lab7/" class="md-tabs__link">
-          
   
-  Lab7
+  FAQ
 
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="other/note/" class="md-tabs__link">
-          
-  
-  其他内容
-
-        </a>
-      </li>
-    
+      </a>
+    </li>
   
 
       
@@ -402,14 +432,26 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="COD Lab 2024" class="md-nav__button md-logo" aria-label="COD Lab 2024" data-md-component="logo">
+    <a href="." title="USTC 编译原理和技术 2023" class="md-nav__button md-logo" aria-label="USTC 编译原理和技术 2023" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M384 96v224H64V96h320zM64 32C28.7 32 0 60.7 0 96v224c0 35.3 28.7 64 64 64h117.3l-10.7 32H96c-17.7 0-32 14.3-32 32s14.3 32 32 32h256c17.7 0 32-14.3 32-32s-14.3-32-32-32h-74.7l-10.7-32H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm464 0c-26.5 0-48 21.5-48 48v352c0 26.5 21.5 48 48 48h64c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48h-64zm16 64h32c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16s7.2-16 16-16zm-16 80c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16zm32 160a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
 
     </a>
-    COD Lab 2024
+    USTC 编译原理和技术 2023
   </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/USTC-Compiler-2024/HomePage" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    USTC-Compiler-2024/HomePage
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -502,19 +544,52 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
-      课程日历
+      公告
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      教学课件
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      参考资料
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="参考资料">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      教材和参考书
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
-      课程评分
+      其他资料
     </span>
   </a>
   
@@ -526,7 +601,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       如何使用本文档？
     </span>
@@ -536,7 +611,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
       关于提示框
     </span>
@@ -545,16 +620,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      关于界面
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     <span class="md-ellipsis">
       关于搜索
     </span>
@@ -581,313 +647,16 @@
   
   
   
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Lab1
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
-            Lab1
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
     <li class="md-nav__item">
-      <a href="lab1/" class="md-nav__link">
+      <a href="exp_platform_intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    实验介绍
+    课程平台介绍
   </span>
   
 
       </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    实验教程
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2">
-            <span class="md-nav__icon md-icon"></span>
-            实验教程
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    RV32I 指令集
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2_1">
-            <span class="md-nav__icon md-icon"></span>
-            RV32I 指令集
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="lab1/rars/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    RARS
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="lab1/src/RISCV_ref.pdf" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    RV32I 指令集手册
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    LA32R 指令集
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2_2">
-            <span class="md-nav__icon md-icon"></span>
-            LA32R 指令集
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="lab1/asm/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    LA32R 简介
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="lab1/lars/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    LARS
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="lab1/src/LA32R_ref.pdf" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    LA32R 指令集手册
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -918,7 +687,7 @@
             
   
   <span class="md-ellipsis">
-    Lab2
+    公共文档
   </span>
   
 
@@ -928,7 +697,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Lab2
+            公共文档
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -939,72 +708,11 @@
   
   
     <li class="md-nav__item">
-      <a href="lab2/" class="md-nav__link">
+      <a href="common/cminusf/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    实验介绍
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    实验教程
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2">
-            <span class="md-nav__icon md-icon"></span>
-            实验教程
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="lab2/RF/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    寄存器堆
+    Cminusf 语法语义介绍
   </span>
   
 
@@ -1021,11 +729,11 @@
   
   
     <li class="md-nav__item">
-      <a href="lab2/ALU/" class="md-nav__link">
+      <a href="common/LightIR/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    ALU
+    Light IR 简介
   </span>
   
 
@@ -1042,11 +750,11 @@
   
   
     <li class="md-nav__item">
-      <a href="lab2/IP/" class="md-nav__link">
+      <a href="common/simple_cpp/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    IP 核
+    C++ 介绍
   </span>
   
 
@@ -1056,9 +764,43 @@
 
               
             
-          </ul>
-        </nav>
-      
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="common/logging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Logging 工具使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="common/asm_intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    龙芯汇编介绍
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1097,7 +839,7 @@
             
   
   <span class="md-ellipsis">
-    Lab3
+    Lab0
   </span>
   
 
@@ -1107,7 +849,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Lab3
+            Lab0
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1118,72 +860,11 @@
   
   
     <li class="md-nav__item">
-      <a href="lab3/" class="md-nav__link">
+      <a href="lab0/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    实验介绍
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    实验教程
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_2">
-            <span class="md-nav__icon md-icon"></span>
-            实验教程
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="lab3/CPU/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    简单单周期 CPU
+    Lab0 简介
   </span>
   
 
@@ -1200,11 +881,11 @@
   
   
     <li class="md-nav__item">
-      <a href="lab3/proj/" class="md-nav__link">
+      <a href="lab0/linux/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    项目框架介绍
+    Linux 环境配置
   </span>
   
 
@@ -1221,11 +902,11 @@
   
   
     <li class="md-nav__item">
-      <a href="lab3/SIM_intro/" class="md-nav__link">
+      <a href="lab0/software/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    LA32R 仿真框架使用手册
+    LLVM 等软件环境配置
   </span>
   
 
@@ -1242,40 +923,11 @@
   
   
     <li class="md-nav__item">
-      <a href="lab3/PDU_intro/" class="md-nav__link">
+      <a href="lab0/git/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    PDU 使用手册
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="lab3/problem/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    问题汇总
+    Git 的使用
   </span>
   
 
@@ -1318,7 +970,7 @@
             
   
   <span class="md-ellipsis">
-    Lab4
+    Lab1
   </span>
   
 
@@ -1328,7 +980,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            Lab4
+            Lab1
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1339,11 +991,11 @@
   
   
     <li class="md-nav__item">
-      <a href="lab4/" class="md-nav__link">
+      <a href="lab1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    实验介绍
+    Lab1 简介
   </span>
   
 
@@ -1359,52 +1011,12 @@
   
   
   
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    实验教程
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_2">
-            <span class="md-nav__icon md-icon"></span>
-            实验教程
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
     <li class="md-nav__item">
-      <a href="lab4/CPU/" class="md-nav__link">
+      <a href="lab1/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    完整单周期 CPU
+    正则表达式
   </span>
   
 
@@ -1414,9 +1026,64 @@
 
               
             
-          </ul>
-        </nav>
-      
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lab1/Flex/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flex
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lab1/Bison/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bison
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lab1/%E5%AE%9E%E9%AA%8C%E7%BB%86%E8%8A%82%E4%B8%8E%E8%A6%81%E6%B1%82/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    实验细节与要求
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1455,7 +1122,7 @@
             
   
   <span class="md-ellipsis">
-    Lab5
+    Lab2
   </span>
   
 
@@ -1465,7 +1132,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            Lab5
+            Lab2
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1476,72 +1143,11 @@
   
   
     <li class="md-nav__item">
-      <a href="lab5/" class="md-nav__link">
+      <a href="lab2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    实验介绍
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    实验教程
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_2">
-            <span class="md-nav__icon md-icon"></span>
-            实验教程
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="lab5/flow/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    流水化处理
+    Lab2 简介
   </span>
   
 
@@ -1558,11 +1164,11 @@
   
   
     <li class="md-nav__item">
-      <a href="lab5/CPU/" class="md-nav__link">
+      <a href="lab2/warmup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    流水线CPU
+    Light IR 预热
   </span>
   
 
@@ -1572,9 +1178,43 @@
 
               
             
-          </ul>
-        </nav>
-      
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lab2/visitor_pattern/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    访问者模式
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lab2/autogen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IR 自动化生成
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1613,7 +1253,7 @@
             
   
   <span class="md-ellipsis">
-    Lab6
+    Lab3
   </span>
   
 
@@ -1623,7 +1263,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            Lab6
+            Lab3
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1634,72 +1274,11 @@
   
   
     <li class="md-nav__item">
-      <a href="lab6/" class="md-nav__link">
+      <a href="lab3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    实验介绍
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    实验教程
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7_2">
-            <span class="md-nav__icon md-icon"></span>
-            实验教程
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="lab6/hazard/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    冒险处理
+    Lab3 简介
   </span>
   
 
@@ -1716,148 +1295,11 @@
   
   
     <li class="md-nav__item">
-      <a href="lab6/CPU/" class="md-nav__link">
+      <a href="lab3/guidance/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    完整流水线CPU
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
-        
-          
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Lab7
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8">
-            <span class="md-nav__icon md-icon"></span>
-            Lab7
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="lab7/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    实验介绍
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_8_2" id="__nav_8_2_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    实验教程
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8_2">
-            <span class="md-nav__icon md-icon"></span>
-            实验教程
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="lab7/temple_code/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    实验代码解析
+    Lab3 实验指导
   </span>
   
 
@@ -1874,11 +1316,11 @@
   
   
     <li class="md-nav__item">
-      <a href="lab7/cache/" class="md-nav__link">
+      <a href="lab3/environment/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Cache介绍
+    后端环境配置
   </span>
   
 
@@ -1888,9 +1330,64 @@
 
               
             
-          </ul>
-        </nav>
-      
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="common/asm_intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    龙芯汇编介绍
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lab3/stack_allocation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    栈式分配介绍
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lab3/framework/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    后端框架介绍
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1909,52 +1406,12 @@
   
   
   
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
-        
-          
-          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    其他内容
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9">
-            <span class="md-nav__icon md-icon"></span>
-            其他内容
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
     <li class="md-nav__item">
-      <a href="other/note/" class="md-nav__link">
+      <a href="lab4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    课程日历
+    Lab4
   </span>
   
 
@@ -1962,74 +1419,43 @@
     </li>
   
 
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="other/ask/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    提问的智慧
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="other/markdown/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Markdown 教程
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="other/logisim/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Logisim 教程
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
+    
       
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="innovative-lab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    建木杯–编译原理创新实验
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -2097,19 +1523,52 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
-      课程日历
+      公告
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      教学课件
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      参考资料
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="参考资料">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      教材和参考书
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
-      课程评分
+      其他资料
     </span>
   </a>
   
@@ -2121,7 +1580,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       如何使用本文档？
     </span>
@@ -2131,7 +1590,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
       关于提示框
     </span>
@@ -2140,16 +1599,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      关于界面
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     <span class="md-ellipsis">
       关于搜索
     </span>
@@ -2176,123 +1626,216 @@
                 
                   
 
+  
+  
 
-<h1 id="_1"><strong>计算机组成原理</strong></h1>
-<figure>
-<p><a class="glightbox" href="figs/logo.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="figs/logo.png" width="480" /></a></p>
-</figure>
-<!-- 标题的字体： https://www.fontspace.com/sporting-font-f102490-->
-<!-- old https://www.fontspace.com/xeroda-font-f102367 -->
 
-<!-- > 想要了解数电实验提高班？请点击这里！ -->
-
+<h1 id="_1"><strong>编译原理与技术</strong></h1>
 <div class="admonition info">
 <p class="admonition-title">说明</p>
-<p>本课程主页为 2024 春季学期卢建良老师班《计算机组成原理》课程主页，包含了理论课与实验课的相关信息。</p>
+<p>本课程主页为 2024 秋季学期李诚老师班《编译原理与技术》课程主页，包含了理论课与实验课的相关信息。</p>
 </div>
 <hr class="hr-my" data-content="(●′∀｀●) 我是分隔线 (●′∀｀●)">
 
 <h2 id="_2"><strong>课程简介</strong></h2>
-<p>中国科学技术大学《计算机组成原理》课程是面向计算机科学与技术学院本科生的一门专业核心基础课。
-本课程介绍了运算器、控制器、存储器的结构、工作原理、设计方法及互连构成整机的有关技术，
-有助于学生深刻理解现代数字计算机系统的工作原理及软硬件设计中的折中思想，
-引导学生体验完整的设计过程，解决工程设计面临的实际问题。</p>
-<!-- ![Image title](./figs/course.png){ align=right width="240"} -->
-
-<div class="admonition example">
-<p class="admonition-title">系列课程</p>
-<p>我校的计算机系统结构系列实验包括下面的几门课程：</p>
-<ul>
-<li><strong>数字电路实验</strong>：注重对数字部件的分析与设计；</li>
-<li><strong>计算机组成原理实验</strong>：注重微处理器原理与设计；</li>
-<li><strong>计算系统综合实验</strong>：注重片上系统设计与应用；</li>
-<li><strong>计算机体系结构实验</strong>：注重系统层面的优化加速。</li>
-</ul>
-<p>其中，我们的《计算机组成原理》在课程体系中起到承上启下的作用。</p>
-</div>
+<p>本课程是计算机科学与技术专业的核心课，旨在深入探讨程序设计语言的设计和实现技术，涵盖与程序设计语言理论相关的知识，并培养学生将课程中学到的概念和技术应用于软件设计和开发的能力。内容包括编译器构建的基本原理，包括词法分析、语法分析、语义分析、中间代码生成、代码优化和目标代码生成。同时，本课程结合现代编译技术和趋势，使用 LLVM 和龙芯后端，基于自主设计的教学实验框架“建木”，设计现代化的编译器工具。</p>
 <h2 id="_3"><strong>课程信息</strong></h2>
 <h3 id="_4"><strong>上课时间与地点</strong></h3>
-<p><strong>理论课（卢老师班）</strong></p>
-<ul>
-<li>教学周：1~15 周</li>
-<li>教室：3C102</li>
-<li>节次：1(6,7)、3(6,7)</li>
-</ul>
-<p><strong>实验课</strong></p>
-<ul>
-<li>时间：2024-03-18 开始，每周一、周三晚上 18:30~21:30</li>
-<li>教室：电三楼 406、408</li>
-</ul>
+<pre><code>时间：1~15 周，1(6,7) 和 3(3,4)
+地点：高新校区 GT-B212
+</code></pre>
 <h3 id="_5"><strong>联系方式</strong></h3>
 <p><strong>教师</strong></p>
 <ul>
-<li>卢建良 <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#108;&#117;&#106;&#108;&#64;&#117;&#115;&#116;&#99;&#46;&#101;&#100;&#117;&#46;&#99;&#110;">&#108;&#117;&#106;&#108;&#64;&#117;&#115;&#116;&#99;&#46;&#101;&#100;&#117;&#46;&#99;&#110;</a> </br>
-  电三楼 411 室</li>
+<li>主讲教师：李诚（<a href="http://staff.ustc.edu.cn/~chengli7/">主页</a>）</li>
 </ul>
 <p><strong>助教</strong></p>
 <ul>
-<li>吴骏东 <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#119;&#105;&#110;&#116;&#101;&#114;&#109;&#101;&#108;&#111;&#110;&#64;&#109;&#97;&#105;&#108;&#46;&#117;&#115;&#116;&#99;&#46;&#101;&#100;&#117;&#46;&#99;&#110;">&#119;&#105;&#110;&#116;&#101;&#114;&#109;&#101;&#108;&#111;&#110;&#64;&#109;&#97;&#105;&#108;&#46;&#117;&#115;&#116;&#99;&#46;&#101;&#100;&#117;&#46;&#99;&#110;</a></li>
-<li>唐灏 <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#84;&#72;&#50;&#48;&#48;&#51;&#48;&#56;&#49;&#56;&#64;&#109;&#97;&#105;&#108;&#46;&#117;&#115;&#116;&#99;&#46;&#101;&#100;&#117;&#46;&#99;&#110;">&#84;&#72;&#50;&#48;&#48;&#51;&#48;&#56;&#49;&#56;&#64;&#109;&#97;&#105;&#108;&#46;&#117;&#115;&#116;&#99;&#46;&#101;&#100;&#117;&#46;&#99;&#110;</a> </li>
-<li>刘睿博 <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#108;&#105;&#117;&#114;&#117;&#105;&#98;&#111;&#50;&#49;&#64;&#109;&#97;&#105;&#108;&#46;&#117;&#115;&#116;&#99;&#46;&#101;&#100;&#117;&#46;&#99;&#110;">&#108;&#105;&#117;&#114;&#117;&#105;&#98;&#111;&#50;&#49;&#64;&#109;&#97;&#105;&#108;&#46;&#117;&#115;&#116;&#99;&#46;&#101;&#100;&#117;&#46;&#99;&#110;</a></li>
-<li>常文正 <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#97;&#109;&#98;&#101;&#114;&#122;&#104;&#101;&#110;&#103;&#64;&#109;&#97;&#105;&#108;&#46;&#117;&#115;&#116;&#99;&#46;&#101;&#100;&#117;&#46;&#99;&#110;">&#97;&#109;&#98;&#101;&#114;&#122;&#104;&#101;&#110;&#103;&#64;&#109;&#97;&#105;&#108;&#46;&#117;&#115;&#116;&#99;&#46;&#101;&#100;&#117;&#46;&#99;&#110;</a></li>
-<li>马子睿 <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#109;&#97;&#100;&#114;&#105;&#100;&#64;&#109;&#97;&#105;&#108;&#46;&#117;&#115;&#116;&#99;&#46;&#101;&#100;&#117;&#46;&#99;&#110;">&#109;&#97;&#100;&#114;&#105;&#100;&#64;&#109;&#97;&#105;&#108;&#46;&#117;&#115;&#116;&#99;&#46;&#101;&#100;&#117;&#46;&#99;&#110;</a>        （线上）</li>
-<li>沈周毅 <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#113;&#117;&#105;&#114;&#114;&#101;&#108;&#64;&#109;&#97;&#105;&#108;&#46;&#117;&#115;&#116;&#99;&#46;&#101;&#100;&#117;&#46;&#99;&#110;">&#115;&#113;&#117;&#105;&#114;&#114;&#101;&#108;&#64;&#109;&#97;&#105;&#108;&#46;&#117;&#115;&#116;&#99;&#46;&#101;&#100;&#117;&#46;&#99;&#110;</a>      （协助）</li>
-<li>郑滕飞 <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#114;&#105;&#99;&#104;&#97;&#114;&#100;&#122;&#104;&#101;&#110;&#103;&#64;&#109;&#97;&#105;&#108;&#46;&#117;&#115;&#116;&#99;&#46;&#101;&#100;&#117;&#46;&#99;&#110;">&#114;&#105;&#99;&#104;&#97;&#114;&#100;&#122;&#104;&#101;&#110;&#103;&#64;&#109;&#97;&#105;&#108;&#46;&#117;&#115;&#116;&#99;&#46;&#101;&#100;&#117;&#46;&#99;&#110;</a>  （协助）</li>
+<li>龚平（<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#103;&#112;&#122;&#108;&#120;&#49;&#64;&#109;&#97;&#105;&#108;&#46;&#117;&#115;&#116;&#99;&#46;&#101;&#100;&#117;&#46;&#99;&#110;">&#103;&#112;&#122;&#108;&#120;&#49;&#64;&#109;&#97;&#105;&#108;&#46;&#117;&#115;&#116;&#99;&#46;&#101;&#100;&#117;&#46;&#99;&#110;</a>）</li>
+<li>李晓奇（<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#108;&#120;&#113;&#64;&#109;&#97;&#105;&#108;&#46;&#117;&#115;&#116;&#99;&#46;&#101;&#100;&#117;&#46;&#99;&#110;">&#108;&#120;&#113;&#64;&#109;&#97;&#105;&#108;&#46;&#117;&#115;&#116;&#99;&#46;&#101;&#100;&#117;&#46;&#99;&#110;</a>）</li>
+<li>贺嘉（<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#104;&#101;&#106;&#49;&#52;&#56;&#64;&#109;&#97;&#105;&#108;&#46;&#117;&#115;&#116;&#99;&#46;&#101;&#100;&#117;&#46;&#99;&#110;">&#104;&#101;&#106;&#49;&#52;&#56;&#64;&#109;&#97;&#105;&#108;&#46;&#117;&#115;&#116;&#99;&#46;&#101;&#100;&#117;&#46;&#99;&#110;</a>）</li>
+<li>刘良宇（<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#108;&#108;&#121;&#64;&#109;&#97;&#105;&#108;&#46;&#117;&#115;&#116;&#99;&#46;&#101;&#100;&#117;&#46;&#99;&#110;">&#108;&#108;&#121;&#64;&#109;&#97;&#105;&#108;&#46;&#117;&#115;&#116;&#99;&#46;&#101;&#100;&#117;&#46;&#99;&#110;</a>）</li>
+<li>陈清源（<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#113;&#121;&#99;&#104;&#101;&#110;&#64;&#109;&#97;&#105;&#108;&#46;&#117;&#115;&#116;&#99;&#46;&#101;&#100;&#117;&#46;&#99;&#110;">&#113;&#121;&#99;&#104;&#101;&#110;&#64;&#109;&#97;&#105;&#108;&#46;&#117;&#115;&#116;&#99;&#46;&#101;&#100;&#117;&#46;&#99;&#110;</a>）</li>
+<li>金泽文（<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#122;&#101;&#118;&#105;&#110;&#64;&#109;&#97;&#105;&#108;&#46;&#117;&#115;&#116;&#99;&#46;&#101;&#100;&#117;&#46;&#99;&#110;">&#122;&#101;&#118;&#105;&#110;&#64;&#109;&#97;&#105;&#108;&#46;&#117;&#115;&#116;&#99;&#46;&#101;&#100;&#117;&#46;&#99;&#110;</a>）</li>
+<li>许坤钊（<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#120;&#107;&#122;&#64;&#109;&#97;&#105;&#108;&#46;&#117;&#115;&#116;&#99;&#46;&#101;&#100;&#117;&#46;&#99;&#110;">&#120;&#107;&#122;&#64;&#109;&#97;&#105;&#108;&#46;&#117;&#115;&#116;&#99;&#46;&#101;&#100;&#117;&#46;&#99;&#110;</a>）</li>
+<li>傅申（<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#102;&#117;&#115;&#104;&#101;&#110;&#64;&#109;&#97;&#105;&#108;&#46;&#117;&#115;&#116;&#99;&#46;&#101;&#100;&#117;&#46;&#99;&#110;">&#102;&#117;&#115;&#104;&#101;&#110;&#64;&#109;&#97;&#105;&#108;&#46;&#117;&#115;&#116;&#99;&#46;&#101;&#100;&#117;&#46;&#99;&#110;</a>）</li>
+<li>杨柏森（<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#121;&#98;&#115;&#56;&#55;&#64;&#109;&#97;&#105;&#108;&#46;&#117;&#115;&#116;&#99;&#46;&#101;&#100;&#117;&#46;&#99;&#110;">&#121;&#98;&#115;&#56;&#55;&#64;&#109;&#97;&#105;&#108;&#46;&#117;&#115;&#116;&#99;&#46;&#101;&#100;&#117;&#46;&#99;&#110;</a>）</li>
 </ul>
-<p><strong>QQ 群</strong></p>
-<p>详见课堂通知。</p>
-<!-- 为了便于大家的交流，我们额外设置了匿名反馈渠道[《组成原理反馈收集》](https://www.wenjuan.com/s/UZBZJvIgkl/#)。欢迎大家在这里提供对于实验的反馈，例如难以解决的 Bugs、对实验的疑问与吐槽等。我们也将选择有价值的反馈同步到对应的在线文档中。 -->
-
-<h3 id="_6"><strong>课程日历</strong></h3>
-<p>点击<a href="other/note/">这里</a>前往。</p>
-<!-- <div class="container-block">
-    <a class="glightbox" href="./figs/building.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="./figs/building.jpg"></a>
-    <div class="inner-block">
-        <div class="slider-top-right"></div>
-    </div>
-    <div class="block-content">
-        夜晚的电三楼
-    </div>
-</div>
-
-<strong>检查时间地点（二选一）</strong>：
-
-- 周四下午 14:00 ~ 17:00、西区电三楼 406 实验室
-
-- 周四晚上 18:30 ~ 21:30、西区电三楼 406 实验室
-
-<figure markdown>
-![Image title](./figs/406.png){ width="600" }
-</figure>
-
-<strong>自由上机时间地点（仅安排答疑，不检查实验）</strong>：
-
-- 周三下午 14:00 ~ 17:00、西区电三楼 410 实验室
-
-<figure markdown>
-![Image title](./figs/410.png){ width="500" }
-</figure> 
-
-
-!!! Info "说明"
-
-    实际的检查时间以自己所在组助教的安排为准。
-
--->
-
-<h3 id="_7"><strong>课程评分</strong></h3>
-<p>本课程的评分包含以下几部分：</p>
+<p><strong>其它</strong></p>
 <ul>
-<li>理论课：60%</li>
-<li>实验课：40%</li>
-<li>考勤：10 分。<strong>通过课堂签到获取，仅当不及格时使用。</strong></li>
+<li>QQ 群：805431263</li>
+<li>录课视频（需校内统一身份认证）：<a href="https://v.ustc.edu.cn/1/2023-1/capture-course/011163.02/detail">https://v.ustc.edu.cn/1/2023-1/capture-course/011163.02/detail</a></li>
+<li>希冀实验平台（作业及实验提交）：<a href="http://cscourse.ustc.edu.cn/">http://cscourse.ustc.edu.cn/</a></li>
+<li>实验框架已公开，见参考资料<a href="#textbook2"><sup>2</sup></a></li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">提醒</p>
-<p>由于存在优秀率限制，我们最终会进行统一的保序调分，因此大家的总评成绩可能会与按照上述公式计算得到的总成绩存在一定差异。</p>
-</div>
-<h2 id="_8"><strong>如何使用本文档？</strong></h2>
-<h3 id="_9"><strong>关于提示框</strong></h3>
+<h2 id="_6">公告</h2>
+<ul>
+<li>2023-09-03：<a href="exp_platform_intro/">课程平台介绍</a> 已发布</li>
+<li>2023-09-08：<a href="lab0/">Lab0</a> 已发布，Deadline：<strong>2023 年 9 月 15 日</strong></li>
+<li>2023-09-13：第一次作业：2.1a、2.2、2.3a、2.4h、2.7c、2.15（教材<a href="#textbook"><sup>1</sup></a>），Deadline：<strong>2023 年 9 月 20 日</strong></li>
+<li>2023-09-15：<a href="lab1/">Lab1</a> 已发布，Deadline：<strong>2023 年 9 月 28 日</strong></li>
+<li>2023-09-25：第二次作业：3.1a、3.2a、3.10、3.11、3.17、3.19a（教材<a href="#textbook"><sup>1</sup></a>），Deadline：<strong>2023 年 10 月 7 日 14:00</strong></li>
+<li>2023-10-05：<a href="lab2/">Lab2</a> 已发布，注意分阶段 Deadline</li>
+<li>2023-10-11：第三次作业：3.27、3.37、4.3、4.5、4.9（教材<a href="#textbook"><sup>1</sup></a>），Deadline：<strong>2023 年 10 月 18 日 16:00</strong></li>
+<li>2023-11-01：<a href="lab3/">Lab3</a> 已发布，注意分阶段 Deadline</li>
+<li>2023-11-01：第四次作业已发布，Deadline：<strong>2023 年 11 月 8 日 17:25</strong></li>
+<li>2023-11-14：第五次作业：4.13、4.15、5.5、6.5、6.6（教材<a href="#textbook"><sup>1</sup></a>），Deadline：<strong>2023 年 11 月 21 日 09:00</strong></li>
+<li>2023-11-27：<a href="lab4/">Lab4</a> 已发布，Deadline：<strong>2023 年 12 月 18 日</strong></li>
+<li>2023-12-08：第六次作业：7.2c、7.5、7.12、8.1e、8.2e、8.6（教材<a href="#textbook"><sup>1</sup></a>），Deadline：<strong>2023 年 12 月 20 日 24:00</strong></li>
+<li>2023-12-08：第七次作业：9.1、9.2、9.3、9.15af（教材<a href="#textbook"><sup>1</sup></a>），Deadline：<strong>2024 年 1 月 3 日 24:00</strong></li>
+<li>2024-01-14：<a href="innovative-lab/">建木杯–编译原理创新实验</a> 已发布</li>
+</ul>
+<h2 id="_7">教学课件</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">日期</th>
+<th style="text-align: center;">标题</th>
+<th style="text-align: center;">课件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">2023-09-04</td>
+<td style="text-align: center;">编译原理和技术导论</td>
+<td style="text-align: center;"><a href="https://rec.ustc.edu.cn/share/be63e5f0-4bbf-11ee-ab8f-8556ef2e1b82">part1</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">2023-09-06</td>
+<td style="text-align: center;">词法分析</td>
+<td style="text-align: center;"><a href="https://rec.ustc.edu.cn/share/7c8cb640-4bfa-11ee-801b-996bfe70e4c4">part1</a>, <a href="https://rec.ustc.edu.cn/share/971f5a80-4bfa-11ee-9c40-3f9629e3618a">part2</a>, <a href="https://rec.ustc.edu.cn/share/daf23f60-4bfa-11ee-ba03-e1b373b96f27">part3</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">2023-09-11</td>
+<td style="text-align: center;">语法分析 - 上下文无关文法</td>
+<td style="text-align: center;"><a href="https://rec.ustc.edu.cn/share/1adc23a0-5043-11ee-ae58-c51868b36892">part1</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">2023-09-13</td>
+<td style="text-align: center;">语法分析 - 自顶向下 - 递归下降</td>
+<td style="text-align: center;"><a href="https://rec.ustc.edu.cn/share/11c40120-5208-11ee-8fb3-0b34e4219c8a">part2</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">2023-09-18</td>
+<td style="text-align: center;">语法分析 - 自顶向下 - LL(1) 文法</td>
+<td style="text-align: center;"><a href="https://rec.ustc.edu.cn/share/08643ef0-5564-11ee-88f3-1509f631aa4a">part3</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">2023-09-20</td>
+<td style="text-align: center;">语法分析 - 自底向上 - 移进规约 &amp; LR 分析器的简单模型</td>
+<td style="text-align: center;"><a href="https://rec.ustc.edu.cn/share/fcba4990-5772-11ee-a14c-a36e421ab311">part4</a>, <a href="https://rec.ustc.edu.cn/share/08206b90-5773-11ee-a7a9-2766281e042e">part5</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">2023-09-25</td>
+<td style="text-align: center;">语法分析 - 简单的 LR 方法 &amp; 规范的 LR 方法</td>
+<td style="text-align: center;"><a href="https://rec.ustc.edu.cn/share/1a7a4df0-5b4c-11ee-8033-1da927361dcb">part6</a>, <a href="https://rec.ustc.edu.cn/share/322166f0-5b4c-11ee-b6aa-cb031e864251">part7</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">2023-09-27</td>
+<td style="text-align: center;">中间代码表示</td>
+<td style="text-align: center;"><a href="https://rec.ustc.edu.cn/share/3fba3780-64dc-11ee-b89d-3bff5ec34c27">part1</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">2023-10-07</td>
+<td style="text-align: center;">语法制导翻译 - 语法制导定义 &amp; S/L 属性的定义</td>
+<td style="text-align: center;"><a href="https://rec.ustc.edu.cn/share/e0e4d8e0-5cdf-11ee-a097-75437996f503">part1</a>, <a href="https://rec.ustc.edu.cn/share/10e6d050-68c7-11ee-a697-13d9155d40a5">part2</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">2023-10-11</td>
+<td style="text-align: center;">语法制导翻译 - 语法制导翻译方案 &amp; L 属性定义的翻译方案</td>
+<td style="text-align: center;"><a href="https://rec.ustc.edu.cn/share/60f07260-68c7-11ee-ac16-c97fd4666cee">part3</a>, <a href="https://rec.ustc.edu.cn/share/71c78a80-68c7-11ee-b670-b5952f4e628a">part4</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">2023-10-16</td>
+<td style="text-align: center;">中间代码翻译 - 简单语句、控制流与布尔表达式</td>
+<td style="text-align: center;"><a href="https://rec.ustc.edu.cn/share/aaa7e250-81e3-11ee-b601-cf1e5b684040">part1</a>, <a href="https://rec.ustc.edu.cn/share/b97993e0-81e3-11ee-b4bf-238eae90436f">part2</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">2023-10-18</td>
+<td style="text-align: center;">中间代码翻译 - 标号回填与布尔表达式</td>
+<td style="text-align: center;"><a href="https://rec.ustc.edu.cn/share/898d59b0-81e4-11ee-a431-a7ebbdb09b39">part3</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">2023-10-30</td>
+<td style="text-align: center;">中间代码翻译 - 标号回填与控制流语句</td>
+<td style="text-align: center;"><a href="https://rec.ustc.edu.cn/share/898d59b0-81e4-11ee-a431-a7ebbdb09b39">part4</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">2023-11-01</td>
+<td style="text-align: center;">中间代码翻译 - 类型表达式 &amp; 符号表与声明语句</td>
+<td style="text-align: center;"><a href="https://rec.ustc.edu.cn/share/898d59b0-81e4-11ee-a431-a7ebbdb09b39">part5</a>, <a href="https://rec.ustc.edu.cn/share/898d59b0-81e4-11ee-a431-a7ebbdb09b39">part6</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">2023-11-06</td>
+<td style="text-align: center;">中间代码翻译 - 数组寻址 &amp; 运行时管理 - 存储组织</td>
+<td style="text-align: center;"><a href="https://rec.ustc.edu.cn/share/898d59b0-81e4-11ee-a431-a7ebbdb09b39">part7</a>, <a href="https://rec.ustc.edu.cn/share/898d59b0-81e4-11ee-a431-a7ebbdb09b39">part1</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">2023-11-08</td>
+<td style="text-align: center;">运行时管理 - 栈式分配 &amp; 代码生成 - 概述与简单机器模型</td>
+<td style="text-align: center;"><a href="https://rec.ustc.edu.cn/share/898d59b0-81e4-11ee-a431-a7ebbdb09b39">part2</a>, <a href="https://rec.ustc.edu.cn/share/898d59b0-81e4-11ee-a431-a7ebbdb09b39">part1</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">2023-11-13</td>
+<td style="text-align: center;">机器无关代码优化 - 常见的优化方式</td>
+<td style="text-align: center;"><a href="https://rec.ustc.edu.cn/share/898d59b0-81e4-11ee-a431-a7ebbdb09b39">part1</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">2023-11-15</td>
+<td style="text-align: center;">机器无关代码优化 - 数据流与到达定值、可用表达式分析、数据流与活跃变量分析</td>
+<td style="text-align: center;"><a href="https://rec.ustc.edu.cn/share/ec735a10-8372-11ee-a33f-3f4ce56e99ac">part2</a>, <a href="https://rec.ustc.edu.cn/share/f7edf830-8372-11ee-a4ee-89e3b900b6a4">part3</a>, <a href="https://rec.ustc.edu.cn/share/49526e90-9043-11ee-b984-bfcfb1e71335">part4</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">2023-11-20</td>
+<td style="text-align: center;">机器无关代码优化 - 数据流与活跃变量分析、基本块内的优化 &amp; 寄存器分配方法</td>
+<td style="text-align: center;"><a href="https://rec.ustc.edu.cn/share/49526e90-9043-11ee-b984-bfcfb1e71335">part4</a>, <a href="https://rec.ustc.edu.cn/share/6b7a21f0-9043-11ee-b553-ab6f413f1658">part5</a>, <a href="https://rec.ustc.edu.cn/share/05972ed0-9044-11ee-9278-b9679a1c57b3">part1</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">2023-11-22</td>
+<td style="text-align: center;">静态类型检查 &amp; 流图中的循环</td>
+<td style="text-align: center;"><a href="https://rec.ustc.edu.cn/share/60bbf180-9045-11ee-bc96-e388a9810d5b">part1</a>, <a href="https://rec.ustc.edu.cn/share/4ad00130-9045-11ee-a6b5-83f7236ec56e">part1</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">2023-11-27</td>
+<td style="text-align: center;">运行时刻环境 - 非局部变量的访问</td>
+<td style="text-align: center;"><a href="https://rec.ustc.edu.cn/share/bef41780-9045-11ee-8887-1ba1740d80fe">part2</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">2023-11-29</td>
+<td style="text-align: center;">面向目标机器的代码优化</td>
+<td style="text-align: center;"><a href="https://rec.ustc.edu.cn/share/d6169380-9045-11ee-8a37-87201671ab8d">part1</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">2023-12-04</td>
+<td style="text-align: center;">guest lecture</td>
+<td style="text-align: center;">无 slides</td>
+</tr>
+<tr>
+<td style="text-align: center;">2023-12-06</td>
+<td style="text-align: center;">guest lecture</td>
+<td style="text-align: center;">无 slides</td>
+</tr>
+<tr>
+<td style="text-align: center;">2023-12-13</td>
+<td style="text-align: center;">复习课</td>
+<td style="text-align: center;"><a href="https://rec.ustc.edu.cn/share/3a4ffcf0-995a-11ee-9fdc-a7ee4ffd604e">slides</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="_8">参考资料</h2>
+<h3 id="_9">教材和参考书</h3>
+<ul>
+<li><div id='textbook'></div>[1] 陈意云、张昱，编译原理（第 3 版），高等教育出版社，2014</li>
+<li><div id='textbook2'></div>[2] 李诚、徐伟，现代编译器设计与实现（实验讲义版本，高等教育出版社待出版，2023）。<a href="https://ustc-compiler-principles.github.io/textbook/">教材资源及实验框架</a></li>
+<li>A. V. Aho, M. S. Lam, R. Sethi, and J. D. Ullman 著，赵建华等译，编译原理，机械工业出版社，2017</li>
+</ul>
+<h3 id="_10">其他资料</h3>
+<ul>
+<li>Stanford 课程主页：<a href="http://web.stanford.edu/class/cs143/">http://web.stanford.edu/class/cs143/</a></li>
+<li>MIT 课程主页：<a href="http://6.035.scripts.mit.edu/fa18/">http://6.035.scripts.mit.edu/fa18/</a></li>
+</ul>
+<h2 id="_11"><strong>如何使用本文档？</strong></h2>
+<h3 id="_12"><strong>关于提示框</strong></h3>
 <p>为了便于标识，我们在文档中提供了若干提示框。它们有着不同的形式与作用。例如：</p>
 <div class="admonition note">
 <p class="admonition-title">一般的提示框长这样</p>
@@ -2309,12 +1852,7 @@
 <div class="admonition example">
 <p class="admonition-title">大家可以在后续的文档中接触到它们。</p>
 </div>
-<h3 id="_10"><strong>关于界面</strong></h3>
-<p>下图展示了一些常用的页面功能：</p>
-<figure>
-<p><a class="glightbox" href="figs/main_page.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Image title" src="figs/main_page.png" width="700" /></a></p>
-</figure>
-<h3 id="_11"><strong>关于搜索</strong></h3>
+<h3 id="_13"><strong>关于搜索</strong></h3>
 <p>你可以在右上角搜索框中输入想要查询的关键词，文档会给出对应的查询结果与跳转链接。</p>
 <details class="note" open="open">
 <summary>Tips</summary>
@@ -2322,10 +1860,6 @@
 </details>
 <hr class="hr-my" data-content="(●′∀｀●) 我是分隔线 (●′∀｀●)">
 
-<div class="admonition example">
-<p class="admonition-title">加入我们</p>
-<p>如果你对于硬件实验教学、实验平台维护、在线文档编写、硬件设计等领域感兴趣，或是想参与实际的项目开发，欢迎访问<a href="https://vlab.ustc.edu.cn/docs/recruit/">这里</a>加入我们！</p>
-</div>
 <details class="bug" open="open">
 <summary>评论系统</summary>
 <p>由于主页上的评论系统映射可能出现问题，以防万一，我们在这里进行一些补充。</p>
@@ -2358,7 +1892,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 26, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 27, 2024</span>
   </span>
 
     
@@ -2369,12 +1903,13 @@
   <span class="md-source-file__fact">
     <span class="md-icon" title="贡献者">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.536 5.536 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13v-1.75M0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20H0m24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9V20Z"/></svg>
       
     </span>
     <nav>
       
-        <a href="mailto:liuruibo21@mail.ustc.edu.cn">JYJSXX</a>
+        <a href="mailto:liuruibo21@mail.ustc.edu.cn">JYJSXX</a>, 
+        <a href="mailto:95729892+jyjsxx@users.noreply.github.com">JYJSXX</a>
     </nav>
   </span>
 
@@ -2388,20 +1923,19 @@
 
   <h2 id="__comments">评论</h2>
   <!-- Insert generated snippet here -->
-    <script src="https://giscus.app/client.js"
-        data-repo="wintermelon008/USTC-CODLab-Discussion"
-        data-repo-id="R_kgDOLYIFuA"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOLYIFuM4Cdhlu"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="0"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="preferred_color_scheme"
-        data-lang="zh-CN"
-        data-loading="lazy"
-        crossorigin="anonymous"
+  <script src="https://giscus.app/client.js"
+    data-repo="USTC-Compiler-2024/Compiler-Comments"
+    data-repo-id="R_kgDOMo0N5g"
+    data-category="Q&A"
+    data-category-id="DIC_kwDOMo0N5s4Ch9Dx"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="light"
+    data-lang="zh-CN"
+    crossorigin="anonymous"
     async>
     </script>
 
@@ -2454,13 +1988,13 @@
         
         
           
-          <a href="lab1/" class="md-footer__link md-footer__link--next" aria-label="下一页: 实验介绍">
+          <a href="exp_platform_intro/" class="md-footer__link md-footer__link--next" aria-label="下一页: 课程平台介绍">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                实验介绍
+                课程平台介绍
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2476,40 +2010,10 @@
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
   
-    <div class="md-copyright__highlight">
-      Copyright © USTC-COD Lab 2023 - 2024
-    </div>
-  
   
     Made with
     <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
       Material for MkDocs
-    </a>
-  
-</div>
-      
-        <div class="md-social">
-  
-    
-    
-    
-    
-      
-      
-    
-    <a href="https://soc.ustc.edu.cn" target="_blank" rel="noopener" title="soc.ustc.edu.cn" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.87 11.525c.071.013.13.084.13.157v3.033a.166.166 0 0 1-.13.157l-2.875.535a.243.243 0 0 0-.17.151l-.898 2.242a.252.252 0 0 0 .017.229l1.633 2.379a.167.167 0 0 1-.02.204l-2.144 2.144a.167.167 0 0 1-.203.019l-2.338-1.604a.23.23 0 0 0-.224-.008l-1.03.55a.121.121 0 0 1-.17-.062l-2.125-5.135a.161.161 0 0 1 .062-.192l.258-.158c.048-.03.113-.08.163-.125a3.354 3.354 0 1 0-3.612 0c.05.046.115.096.163.125l.258.158a.16.16 0 0 1 .062.192L8.552 21.65a.121.121 0 0 1-.17.063l-1.03-.55a.23.23 0 0 0-.224.007L4.79 22.775a.168.168 0 0 1-.204-.019l-2.145-2.144a.167.167 0 0 1-.019-.204l1.633-2.38a.251.251 0 0 0 .017-.228l-.897-2.242a.244.244 0 0 0-.17-.15L.13 14.871a.166.166 0 0 1-.13-.157v-3.032c0-.073.059-.144.13-.157l2.947-.548a.253.253 0 0 0 .175-.15l.903-2.108a.246.246 0 0 0-.014-.227L2.424 5.989a.167.167 0 0 1 .019-.203L4.587 3.64a.166.166 0 0 1 .204-.019L7.337 5.37c.06.041.163.048.229.016l2.043-.836c.07-.023.137-.1.15-.173l.567-3.047a.167.167 0 0 1 .157-.131h3.034c.073 0 .143.059.157.13l.567 3.048a.25.25 0 0 0 .15.173l2.043.836a.252.252 0 0 0 .23-.016l2.546-1.748a.166.166 0 0 1 .203.02l2.144 2.144c.052.051.06.143.02.203l-1.718 2.503a.245.245 0 0 0-.014.227l.903 2.108a.256.256 0 0 0 .175.15l2.946.548"/></svg>
-    </a>
-  
-    
-    
-    
-    
-      
-      
-    
-    <a href="https://vlab.ustc.edu.cn" target="_blank" rel="noopener" title="vlab.ustc.edu.cn" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 1h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1m0 8h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1m0 8h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1M9 5h1V3H9v2m0 8h1v-2H9v2m0 8h1v-2H9v2M5 3v2h2V3H5m0 8v2h2v-2H5m0 8v2h2v-2H5Z"/></svg>
     </a>
   
 </div>
@@ -2537,8 +2041,12 @@
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
+        <script src="javascripts/katex.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+      
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

@@ -8,13 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://soc.ustc.edu.cn/COD/lab4/">
+      
+        <link rel="prev" href="../lab3/framework/">
       
       
-        <link rel="prev" href="../lab3/problem/">
-      
-      
-        <link rel="next" href="CPU/">
+        <link rel="next" href="../innovative-lab/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>实验介绍 - COD Lab 2024</title>
+        <title>Lab4 - USTC 编译原理和技术 2023</title>
       
     
     
@@ -50,6 +48,10 @@
     
       <link rel="stylesheet" href="../stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../css/extra.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -58,15 +60,17 @@
     
     
    <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-    html.glightbox-open { overflow: initial; height: 100%; }
-    .gslide-title { margin-top: 0px; user-select: text; }
-    .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }
-    .gscrollbar-fixer { padding-right: 15px; }
-    .gdesc-inner { font-size: 0.75rem; }
-    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -85,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#4-cpu" class="md-skip">
+        <a href="#lab4-mem2reg" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +113,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href=".." title="COD Lab 2024" class="md-header__button md-logo" aria-label="COD Lab 2024" data-md-component="logo">
+    <a href=".." title="USTC 编译原理和技术 2023" class="md-header__button md-logo" aria-label="USTC 编译原理和技术 2023" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M384 96v224H64V96h320zM64 32C28.7 32 0 60.7 0 96v224c0 35.3 28.7 64 64 64h117.3l-10.7 32H96c-17.7 0-32 14.3-32 32s14.3 32 32 32h256c17.7 0 32-14.3 32-32s-14.3-32-32-32h-74.7l-10.7-32H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm464 0c-26.5 0-48 21.5-48 48v352c0 26.5 21.5 48 48 48h64c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48h-64zm16 64h32c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16s7.2-16 16-16zm-16 80c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16zm32 160a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
@@ -123,13 +127,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            COD Lab 2024
+            USTC 编译原理和技术 2023
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              实验介绍
+              Lab4
             
           </span>
         </div>
@@ -205,6 +209,18 @@
 </div>
     
     
+      <div class="md-header__source">
+        <a href="https://github.com/USTC-Compiler-2024/HomePage" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    USTC-Compiler-2024/HomePage
+  </div>
+</a>
+      </div>
+    
   </nav>
   
 </header>
@@ -233,6 +249,59 @@
 
       </a>
     </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../exp_platform_intro/" class="md-tabs__link">
+        
+  
+    
+  
+  课程平台介绍
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../common/cminusf/" class="md-tabs__link">
+          
+  
+  公共文档
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../lab0/" class="md-tabs__link">
+          
+  
+  Lab0
+
+        </a>
+      </li>
+    
   
 
       
@@ -296,17 +365,16 @@
     
   
   
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
     
-    
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
-          
   
   Lab4
 
-        </a>
-      </li>
-    
+      </a>
+    </li>
   
 
       
@@ -314,17 +382,16 @@
   
   
   
-    
-    
-      <li class="md-tabs__item">
-        <a href="../lab5/" class="md-tabs__link">
-          
+    <li class="md-tabs__item">
+      <a href="../innovative-lab/" class="md-tabs__link">
+        
   
-  Lab5
-
-        </a>
-      </li>
     
+  
+  建木杯–编译原理创新实验
+
+      </a>
+    </li>
   
 
       
@@ -332,53 +399,16 @@
   
   
   
-    
-    
-      <li class="md-tabs__item">
-        <a href="../lab6/" class="md-tabs__link">
-          
-  
-  Lab6
-
-        </a>
-      </li>
-    
-  
-
-      
+    <li class="md-tabs__item">
+      <a href="../faq/" class="md-tabs__link">
         
   
-  
-  
     
-    
-      <li class="md-tabs__item">
-        <a href="../lab7/" class="md-tabs__link">
-          
   
-  Lab7
+  FAQ
 
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../other/note/" class="md-tabs__link">
-          
-  
-  其他内容
-
-        </a>
-      </li>
-    
+      </a>
+    </li>
   
 
       
@@ -404,14 +434,26 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="COD Lab 2024" class="md-nav__button md-logo" aria-label="COD Lab 2024" data-md-component="logo">
+    <a href=".." title="USTC 编译原理和技术 2023" class="md-nav__button md-logo" aria-label="USTC 编译原理和技术 2023" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M384 96v224H64V96h320zM64 32C28.7 32 0 60.7 0 96v224c0 35.3 28.7 64 64 64h117.3l-10.7 32H96c-17.7 0-32 14.3-32 32s14.3 32 32 32h256c17.7 0 32-14.3 32-32s-14.3-32-32-32h-74.7l-10.7-32H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm464 0c-26.5 0-48 21.5-48 48v352c0 26.5 21.5 48 48 48h64c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48h-64zm16 64h32c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16s7.2-16 16-16zm-16 80c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16zm32 160a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
 
     </a>
-    COD Lab 2024
+    USTC 编译原理和技术 2023
   </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/USTC-Compiler-2024/HomePage" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    USTC-Compiler-2024/HomePage
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -441,313 +483,16 @@
   
   
   
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Lab1
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
-            Lab1
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
     <li class="md-nav__item">
-      <a href="../lab1/" class="md-nav__link">
+      <a href="../exp_platform_intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    实验介绍
+    课程平台介绍
   </span>
   
 
       </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    实验教程
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2">
-            <span class="md-nav__icon md-icon"></span>
-            实验教程
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    RV32I 指令集
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2_1">
-            <span class="md-nav__icon md-icon"></span>
-            RV32I 指令集
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lab1/rars/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    RARS
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lab1/src/RISCV_ref.pdf" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    RV32I 指令集手册
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    LA32R 指令集
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2_2">
-            <span class="md-nav__icon md-icon"></span>
-            LA32R 指令集
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lab1/asm/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    LA32R 简介
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lab1/lars/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    LARS
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lab1/src/LA32R_ref.pdf" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    LA32R 指令集手册
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -778,7 +523,7 @@
             
   
   <span class="md-ellipsis">
-    Lab2
+    公共文档
   </span>
   
 
@@ -788,7 +533,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Lab2
+            公共文档
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -799,72 +544,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../lab2/" class="md-nav__link">
+      <a href="../common/cminusf/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    实验介绍
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    实验教程
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2">
-            <span class="md-nav__icon md-icon"></span>
-            实验教程
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lab2/RF/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    寄存器堆
+    Cminusf 语法语义介绍
   </span>
   
 
@@ -881,11 +565,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../lab2/ALU/" class="md-nav__link">
+      <a href="../common/LightIR/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    ALU
+    Light IR 简介
   </span>
   
 
@@ -902,11 +586,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../lab2/IP/" class="md-nav__link">
+      <a href="../common/simple_cpp/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    IP 核
+    C++ 介绍
   </span>
   
 
@@ -916,9 +600,43 @@
 
               
             
-          </ul>
-        </nav>
-      
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../common/logging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Logging 工具使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../common/asm_intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    龙芯汇编介绍
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -957,7 +675,7 @@
             
   
   <span class="md-ellipsis">
-    Lab3
+    Lab0
   </span>
   
 
@@ -967,7 +685,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Lab3
+            Lab0
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -978,11 +696,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../lab3/" class="md-nav__link">
+      <a href="../lab0/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    实验介绍
+    Lab0 简介
   </span>
   
 
@@ -994,6 +712,76 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab0/linux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux 环境配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab0/software/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LLVM 等软件环境配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab0/git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git 的使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
   
   
   
@@ -1011,315 +799,24 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   <span class="md-ellipsis">
-    实验教程
+    Lab1
   </span>
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_2">
-            <span class="md-nav__icon md-icon"></span>
-            实验教程
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lab3/CPU/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    简单单周期 CPU
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lab3/proj/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    项目框架介绍
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lab3/SIM_intro/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    LA32R 仿真框架使用手册
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lab3/PDU_intro/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    PDU 使用手册
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lab3/problem/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    问题汇总
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-    
-  
-  
-  
-    
-    
-    
-      
-        
-        
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
-            
-  
-  <span class="md-ellipsis">
-    Lab4
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            Lab4
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    实验介绍
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  <span class="md-ellipsis">
-    实验介绍
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      实验目的
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      实验内容
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      实验检查与提交
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    实验教程
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_2">
-            <span class="md-nav__icon md-icon"></span>
-            实验教程
+            Lab1
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1330,11 +827,11 @@
   
   
     <li class="md-nav__item">
-      <a href="CPU/" class="md-nav__link">
+      <a href="../lab1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    完整单周期 CPU
+    Lab1 简介
   </span>
   
 
@@ -1344,9 +841,85 @@
 
               
             
-          </ul>
-        </nav>
-      
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab1/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    正则表达式
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab1/Flex/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flex
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab1/Bison/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bison
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab1/%E5%AE%9E%E9%AA%8C%E7%BB%86%E8%8A%82%E4%B8%8E%E8%A6%81%E6%B1%82/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    实验细节与要求
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1385,7 +958,7 @@
             
   
   <span class="md-ellipsis">
-    Lab5
+    Lab2
   </span>
   
 
@@ -1395,7 +968,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            Lab5
+            Lab2
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1406,72 +979,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../lab5/" class="md-nav__link">
+      <a href="../lab2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    实验介绍
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    实验教程
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_2">
-            <span class="md-nav__icon md-icon"></span>
-            实验教程
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lab5/flow/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    流水化处理
+    Lab2 简介
   </span>
   
 
@@ -1488,11 +1000,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../lab5/CPU/" class="md-nav__link">
+      <a href="../lab2/warmup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    流水线CPU
+    Light IR 预热
   </span>
   
 
@@ -1502,9 +1014,43 @@
 
               
             
-          </ul>
-        </nav>
-      
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab2/visitor_pattern/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    访问者模式
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab2/autogen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IR 自动化生成
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1543,7 +1089,7 @@
             
   
   <span class="md-ellipsis">
-    Lab6
+    Lab3
   </span>
   
 
@@ -1553,7 +1099,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            Lab6
+            Lab3
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1564,72 +1110,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../lab6/" class="md-nav__link">
+      <a href="../lab3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    实验介绍
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    实验教程
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7_2">
-            <span class="md-nav__icon md-icon"></span>
-            实验教程
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lab6/hazard/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    冒险处理
+    Lab3 简介
   </span>
   
 
@@ -1646,148 +1131,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../lab6/CPU/" class="md-nav__link">
+      <a href="../lab3/guidance/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    完整流水线CPU
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
-        
-          
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Lab7
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8">
-            <span class="md-nav__icon md-icon"></span>
-            Lab7
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lab7/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    实验介绍
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_8_2" id="__nav_8_2_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    实验教程
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8_2">
-            <span class="md-nav__icon md-icon"></span>
-            实验教程
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lab7/temple_code/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    实验代码解析
+    Lab3 实验指导
   </span>
   
 
@@ -1804,11 +1152,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../lab7/cache/" class="md-nav__link">
+      <a href="../lab3/environment/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Cache介绍
+    后端环境配置
   </span>
   
 
@@ -1818,9 +1166,64 @@
 
               
             
-          </ul>
-        </nav>
-      
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../common/asm_intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    龙芯汇编介绍
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab3/stack_allocation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    栈式分配介绍
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab3/framework/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    后端框架介绍
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1837,129 +1240,191 @@
       
   
   
+    
   
   
-    
-    
-    
+  
+    <li class="md-nav__item md-nav__item--active">
       
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
-        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
-        
-          
-          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
-            
   
   <span class="md-ellipsis">
-    其他内容
+    Lab4
   </span>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9">
-            <span class="md-nav__icon md-icon"></span>
-            其他内容
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../other/note/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    课程日历
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../other/ask/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    提问的智慧
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../other/markdown/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Markdown 教程
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../other/logisim/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Logisim 教程
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Lab4
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      同步实验仓库
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      实验内容
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="实验内容">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      阅读与学习
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      代码撰写
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      本地测试
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="本地测试">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      测试脚本
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ir-cfg" class="md-nav__link">
+    <span class="md-ellipsis">
+      IR CFG
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      编译与运行
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      提交方式
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../innovative-lab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    建木杯–编译原理创新实验
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1993,7 +1458,7 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      实验目的
+      同步实验仓库
     </span>
   </a>
   
@@ -2006,12 +1471,78 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="实验内容">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      阅读与学习
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      代码撰写
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
-      实验检查与提交
+      本地测试
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="本地测试">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      测试脚本
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ir-cfg" class="md-nav__link">
+    <span class="md-ellipsis">
+      IR CFG
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      编译与运行
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      提交方式
     </span>
   </a>
   
@@ -2031,242 +1562,184 @@
                 
                   
 
+  
+  
 
-<h1 id="4-cpu"><strong>实验 4：完整单周期 CPU</strong></h1>
-<h2 id="_1"><strong>实验目的</strong></h2>
-<p>在本次实验中，我们将进一步完善上一次实验设计的 CPU，为其增加分支指令和访存指令的相关功能。</p>
-<h2 id="_2"><strong>实验内容</strong></h2>
-<details class="note">
-<summary>Lab4 额外需要实现的指令</summary>
-<p>本次实验需要在 Lab3 支持的指令的基础上，额外支持下面的指令（SLU 指经过 SL_UNIT 处理之后的结果）：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">LA32R 中指令</th>
-<th style="text-align: center;">RV32I 中指令</th>
-<th style="text-align: center;">指令功能</th>
-<th style="text-align: center;">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">ld.w rd, rj, imm</td>
-<td style="text-align: center;">lw rd, offset(rs1)</td>
-<td style="text-align: center;">GR[rd] = Mem[GR[rj] + imm] </br> x[rd] = sext(M[x[rs1] + sext(offset)])</td>
-<td style="text-align: center;">加载字</td>
-</tr>
-<tr>
-<td style="text-align: center;">ld.h rd, rj, imm</td>
-<td style="text-align: center;">lh rd, offset(rs1)</td>
-<td style="text-align: center;">GR[rd] = SLU(Mem[GR[rj] + imm]) </br> x[rd] = SLU((M[x[rs1] + sext(offset)]))</td>
-<td style="text-align: center;">加载半字</td>
-</tr>
-<tr>
-<td style="text-align: center;">ld.b rd, rj, imm</td>
-<td style="text-align: center;">lb rd, offset(rs1)</td>
-<td style="text-align: center;">GR[rd] = SLU(Mem[GR[rj] + imm]) </br> x[rd] = SLU((M[x[rs1] + sext(offset)]))</td>
-<td style="text-align: center;">加载字节</td>
-</tr>
-<tr>
-<td style="text-align: center;">ld.hu rd, rj, imm</td>
-<td style="text-align: center;">lhu rd, offset(rs1)</td>
-<td style="text-align: center;">GR[rd] = SLU(Mem[GR[rj] + imm]) </br> x[rd] = SLU((M[x[rs1] + sext(offset)]))</td>
-<td style="text-align: center;">无符号加载半字</td>
-</tr>
-<tr>
-<td style="text-align: center;">ld.bu rd, rj, imm</td>
-<td style="text-align: center;">lbu rd, offset(rs1)</td>
-<td style="text-align: center;">GR[rd] = SLU(Mem[GR[rj] + imm]) </br> x[rd] = SLU((M[x[rs1] + sext(offset)]))</td>
-<td style="text-align: center;">无符号加载字节</td>
-</tr>
-<tr>
-<td style="text-align: center;">st.w rd, rj, imm</td>
-<td style="text-align: center;">sw rs2, offset(rs1)</td>
-<td style="text-align: center;">Mem[GR[rj] + imm] = GR[rd] </br> M[x[rs1] + sext(offset)] = x[rs2]</td>
-<td style="text-align: center;">存储字</td>
-</tr>
-<tr>
-<td style="text-align: center;">st.h rd, rj, imm</td>
-<td style="text-align: center;">sh rs2, offset(rs1)</td>
-<td style="text-align: center;">Mem[GR[rj] + imm] = SLU(GR[rd]) </br> M[x[rs1] + sext(offset)] = SLU(x[rs2])</td>
-<td style="text-align: center;">存储半字</td>
-</tr>
-<tr>
-<td style="text-align: center;">st.b rd, rj, imm</td>
-<td style="text-align: center;">sb rs2, offset(rs1)</td>
-<td style="text-align: center;">Mem[GR[rj] + imm] = SLU(GR[rd]) </br> M[x[rs1] + sext(offset)] = SLU(x[rs2])</td>
-<td style="text-align: center;">存储字节</td>
-</tr>
-<tr>
-<td style="text-align: center;">jirl rd, rj, <em>label</em></td>
-<td style="text-align: center;">jalr rd, offset(rs1)</td>
-<td style="text-align: center;">GR[rd] = pc + 4; pc = <em>label</em>  </br> x[rd] = pc+4; pc=(x[rs1]+sext(offset))&amp;~1;</td>
-<td style="text-align: center;">间接相对跳转并链接</td>
-</tr>
-<tr>
-<td style="text-align: center;">b <em>label</em></td>
-<td style="text-align: center;">j offset(jal x0, offset)（伪指令）</td>
-<td style="text-align: center;">pc = <em>label</em>  </br> pc += sext(offset)</td>
-<td style="text-align: center;">无条件跳转</td>
-</tr>
-<tr>
-<td style="text-align: center;">bl <em>label</em></td>
-<td style="text-align: center;">jal rd, offset</td>
-<td style="text-align: center;">GR[1] = pc + 4; pc = <em>label</em>  </br> x[rd] = pc+4; pc += sext(offset)</td>
-<td style="text-align: center;">函数（子程序）调用并链接</td>
-</tr>
-<tr>
-<td style="text-align: center;">beq rj, rd, <em>label</em></td>
-<td style="text-align: center;">beq rs1, rs2, offset</td>
-<td style="text-align: center;">if (GR[rj] GR[rd]) pc = <em>label</em> </br> if (rs1 == rs2) pc += sext(offset)</td>
-<td style="text-align: center;">相等跳转</td>
-</tr>
-<tr>
-<td style="text-align: center;">bne rj, rd, <em>label</em></td>
-<td style="text-align: center;">bne rs1, rs2, offset</td>
-<td style="text-align: center;">if (GR[rj] GR[rd]) pc = <em>label</em> </br> if (rs1 != rs2) pc += sext(offset)</td>
-<td style="text-align: center;">不等跳转</td>
-</tr>
-<tr>
-<td style="text-align: center;">blt rj, rd, <em>label</em></td>
-<td style="text-align: center;">blt rs1, rs2, offset</td>
-<td style="text-align: center;">if (GR[rj] &lt; GR[rd]) pc = <em>label</em> </br> if (rs1 &lt; rs2) pc += sext(offset)</td>
-<td style="text-align: center;">有符号小于跳转</td>
-</tr>
-<tr>
-<td style="text-align: center;">bge rj, rd, <em>label</em></td>
-<td style="text-align: center;">bge rs1, rs2, offset</td>
-<td style="text-align: center;">if (GR[rj] &gt;= GR[rd]) pc = <em>label</em> </br> if (rs1 &gt;= rs2) pc += sext(offset)</td>
-<td style="text-align: center;">有符号大于等于跳转</td>
-</tr>
-<tr>
-<td style="text-align: center;">bltu rj, rd, <em>label</em></td>
-<td style="text-align: center;">bltu rs1, rs2, offset</td>
-<td style="text-align: center;">if (GR[rj] &lt;u GR[rd]) pc = <em>label</em>  </br> if (rs1 &lt;u rs2) pc += sext(offset)</td>
-<td style="text-align: center;">无符号小于跳转</td>
-</tr>
-<tr>
-<td style="text-align: center;">bgeu rj, rd, <em>label</em></td>
-<td style="text-align: center;">bgeu rs1, rs2, offset</td>
-<td style="text-align: center;">if (GR[rj] &gt;=u GR[rd]) pc = <em>label</em> </br> if (rs1 &gt;=u rs2) pc += sext(offset)</td>
-<td style="text-align: center;">无符号大于等于跳转</td>
-</tr>
-</tbody>
-</table>
-</details>
-<div class="admonition question">
-<p class="admonition-title">任务 1：访存控制单元设计（3 分）</p>
-<p>请根据自己选择的指令集，设计访存控制单元 SL_UNIT，以正确处理访存指令。你可以结合仿真证明自己的设计。</p>
-</div>
-<div class="admonition question">
-<p class="admonition-title">任务 2：搭建 CPU（4 分）</p>
-<p>请正确实现 CPU 的各个功能模块，并根据数据通路将其正确连接。<strong>理论上，你只需要完成 CPU 模块及其子模块的设计，而无需修改其他模块的内容。</strong>最终，你需要在 FPGAOL 上上板运行，并通过我们给出的测试程序。</p>
+
+<h1 id="lab4-mem2reg">Lab4 Mem2Reg</h1>
+<p>经过前序实验，同学们已经基本完成了一个贯穿从前端到后端的简单编译器，祝贺大家！然而，该编译器生成的代码只能保证语义正确、能在目标机器上运行。接下来，我们将让大家体验如何通过增加优化 pass 让生成的代码快起来。正如课上所讲，优化的方法有很多，由于时间关系，我们不能一一尝试。因此，我们为大家准备了 Mem2Reg 优化实验，在该实验中，同学们将实现这一优化 pass。完成代码后，同学们可以在测试样例中，看到优化前后的性能差距。</p>
 <div class="admonition warning">
-<p class="admonition-title">提醒</p>
-<p>本次实验需要用到数据存储器，因此需要修改 CPU 模块中 <code>commit_dmem</code> 系列的三个端口。</p>
-<div class="highlight"><pre><span></span><code><span class="n">commit_dmem_we_reg</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">dmem_we</span><span class="p">;</span><span class="w">                         </span>
-<span class="n">commit_dmem_wa_reg</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">dmem_wa</span><span class="p">;</span><span class="w">                         </span>
-<span class="n">commit_dmem_wd_reg</span><span class="w">  </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">dmem_wd</span><span class="p">;</span><span class="w">                           </span>
+<p class="admonition-title">Deadline</p>
+<p><strong>2023 年 12 月 18 日 23:59</strong></p>
+</div>
+<h2 id="_1">同步实验仓库</h2>
+<p>在进行实验之前，首先拉取<a href="https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2023ustc-jianmu-compiler">实验仓库</a>的最新代码，具体步骤可以参考 <a href="../lab2/#实验要求">Lab2 中的指导</a>。</p>
+<p>本次实验仓库更新的内容如下，每个阶段的文件将在对应文档详细说明：</p>
+<div class="highlight"><pre><span></span><code>.
+├── ...
+├── include
+│   ├── ...
+│   └── passes
+|       ├── PassManager.hpp     # PassManager：管理 pass 的运行
+│       ├── FuncInfo.hpp        # pass 1：纯函数分析
+│       ├── DeadCode.hpp        # pass 2：死代码删除
+│       ├── Dominators.hpp      # pass 3：支配树分析（需要阅读，根据需要修改）
+│       └── Mem2Reg.hpp         # pass 4：Mem2Reg 分析（需要阅读，根据需要修改）
+├── src
+│   ├── ...
+│   └── passes
+│       ├── ...
+│       ├── Dominators.cpp  &lt;-- 支配树分析实现，需要补全
+│       └── Mem2Reg.cpp     &lt;-- Mem2Reg 实现，需要补全
+└── tests
+    ├── ...
+    └── 4-mem2reg               # Lab4 的本地测试
 </code></pre></div>
-</div>
-<details class="note">
-<summary>LA32R 的测试汇编程序</summary>
-<p>请确保下面的程序运行完成后，寄存器堆中的结果与 LARS 运行的结果一致。</p>
+<h2 id="_2">实验内容</h2>
+<h3 id="_3">阅读与学习</h3>
 <ul>
-<li>仿真框架用的测试文件<a href="src/la32r_sim.asm">在这里</a>。</li>
-<li>Vivado 仿真以及上板用的测试文件<a href="src/la32r_online.asm">在这里</a>。</li>
+<li>回顾课上关于支配树的介绍，并阅读 <a href="Mem2Reg%E4%BB%8B%E7%BB%8D.pdf">Mem2Reg 介绍</a>，了解 Mem2Reg 的基本原理</li>
 </ul>
-</details>
-<details class="note">
-<summary>RV32I 的测试汇编程序</summary>
-<p>下面两个测试都需要通过。</p>
+<blockquote>
+<p>支配树的相关算法伪代码可以参考如下文章：<a href="Dom.pdf">Dom.pdf</a>。注意助教在其中的的标柱。</p>
+</blockquote>
 <ul>
-<li>测试程序 1（普通测试）<a href="src/rv32i_test1.asm">在这里</a></li>
-<li>测试程序 2（分支与访存测试）<a href="src/rv32i_test2.asm">在这里</a></li>
+<li>阅读 PassManager、FuncInfo 和 DeadCode 的实现，了解如何编写 pass</li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">RV32I 仿真</p>
-<p>从本个任务开始，使用 RV32I 指令集的同学们的仿真需要在 CPU_tb 模块中例化 CPU、指令储存器 IP 核与数据储存器 IP 核。指令储存器 IP 核与数据储存器 IP 核的地址端口均为 CPU 输出端口右移两位（因为单个 IP 核的位宽是 32 位，对应四个地址），而其他使能信号、数据信号请大家根据 CPU 中的信号含义自行连接。</p>
-</div>
-</details>
-</div>
-<div class="admonition question">
-<p class="admonition-title">任务 3：斐波那契数列（1 分）</p>
-<p>请将 Lab1 中编写的斐波那契数列程序（普通版本、大整数版本均可）导出为 COE 文件，在自己设计的 CPU 上运行。相关数据的输入、输出方式不限。</p>
-</div>
-<div class="admonition question">
-<p class="admonition-title">任务 4：思考与总结（2 分）</p>
-<p>请在实验报告中回答下面的问题：</p>
+<h3 id="_4">代码撰写</h3>
 <ol>
-<li>
-<p>假设我们的存储器支持掩码访问，其对应接口如下：
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">module</span><span class="w"> </span><span class="n">MEM</span><span class="w"> </span><span class="p">(</span>
-<span class="w">    </span><span class="k">input</span><span class="w">       </span><span class="p">[</span><span class="w"> </span><span class="mh">0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mh">0</span><span class="p">]</span><span class="w">                </span><span class="n">clk</span><span class="p">,</span>
-<span class="w">    </span><span class="k">input</span><span class="w">       </span><span class="p">[</span><span class="w"> </span><span class="mh">9</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mh">0</span><span class="p">]</span><span class="w">                </span><span class="n">a</span><span class="p">,</span>
-<span class="w">    </span><span class="k">output</span><span class="w">      </span><span class="p">[</span><span class="mh">31</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mh">0</span><span class="p">]</span><span class="w">                </span><span class="n">spo</span><span class="p">,</span>
-<span class="w">    </span><span class="k">input</span><span class="w">       </span><span class="p">[</span><span class="w"> </span><span class="mh">0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mh">0</span><span class="p">]</span><span class="w">                </span><span class="n">we</span><span class="p">,</span>
-<span class="w">    </span><span class="k">input</span><span class="w">       </span><span class="p">[</span><span class="mh">31</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mh">0</span><span class="p">]</span><span class="w">                </span><span class="n">d</span><span class="p">,</span>
-<span class="w">    </span><span class="k">input</span><span class="w">       </span><span class="p">[</span><span class="w"> </span><span class="mh">3</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mh">0</span><span class="p">]</span><span class="w">                </span><span class="n">mask</span>
-<span class="p">);</span>
-</code></pre></div></td></tr></table></div>
-其中，<code>mask</code> 为高电平有效的控制信号，<code>mask[0]</code> 控制当前正在访问的字的最低字节是否有效；<code>mask[3]</code> 控制当前正在访问的字的最高字节是否有效。例如，如果 <code>a = 0x4</code>，<code>we = 1</code>，<code>d = 0x12345678</code>，<code>mask=4'B0110</code>，则数据存储器对应的操作为
-<div class="highlight"><pre><span></span><code>M[0x4] &lt;- M[0x4]
-M[0x5] &lt;- 0x56
-M[0x6] &lt;- 0x34
-M[0x7] &lt;- M[0x7]
-</code></pre></div>
-读操作则会将 <code>mask</code> 为 0 的字节置为 0。例如，如果 <code>a = 0x4</code>，<code>we = 0</code>，<code>mask=4'B0110</code>，则读出的结果为
-<div class="highlight"><pre><span></span><code>{8&#39;B0, M[0x6], M[0x5], 8&#39;B0}
-</code></pre></div>
-请重新设计 SL_UNIT 单元。你可以自行添加相关模块所需要的端口。注意：本题的前提是我们假设存在这样的存储器 IP 核，你并不需要实现这个 IP 核，也不需要仿真或上板，仅阐述 SL_UNIT 单元的设计方案即可。</p>
-</li>
-<li>
-<p>请指出本次实验的 CPU 中可能的关键路径。</p>
-</li>
+<li>补全 <code>src/passes/Dominators.cpp</code> 文件，使编译器能够进行正确的支配树分析</li>
+<li>补全 <code>src/passes/Mem2Reg.cpp</code> 文件，使编译器能够正确执行 Mem2Reg</li>
+<li>将 phi 指令转化为 copy statement，令后端可以正确处理 phi 指令</li>
 </ol>
+<div class="admonition info">
+<p class="admonition-title">关于 copy statement</p>
+<p><strong>什么是 copy statement？</strong></p>
+<p>在进行后端翻译时，我们根据 phi 节点的语义，将其转化为前驱块的拷贝操作，如下图所示。</p>
+<p><a class="glightbox" href="figs/copy-stmt.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="figs/copy-stmt.png" /></a></p>
+<p><strong>这样做正确吗？</strong></p>
+<p>这种 naive 的方案并不完全正确，在个别极端情况下，它会带来 Lost Of Copy 等问题，但是在本次实验中不会出现，所以你可以放心采用这个方案。</p>
 </div>
-<h2 id="_3"><strong>实验检查与提交</strong></h2>
-<p>本次实验布置时间为 2024-04-08，持续一周。相应的 DDL 节点如下：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">组别</th>
-<th style="text-align: center;">检查 DDL</th>
-<th style="text-align: center;">报告提交 DDL</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">周一组</td>
-<td style="text-align: center;">2024-04-15</td>
-<td style="text-align: center;">2024-04-22</td>
-</tr>
-<tr>
-<td style="text-align: center;">周三组</td>
-<td style="text-align: center;">2024-04-17</td>
-<td style="text-align: center;">2024-04-24</td>
-</tr>
-</tbody>
-</table>
-<p>检查与报告延迟一周以内（含）的，至多只能得到 80% 分数；延迟一周以上、两周以内（含）的，至多只能得到 60% 分数；延迟超过两周的不得分。</p>
-<div class="admonition warning">
-<p class="admonition-title">提醒</p>
-<p>实验的 DDL 为当天晚上 21:30。助教有权利在 21:30 准时停止检查，请大家合理安排好自己的时间。能否线上检查、能否在其他时间检查请咨询本组的助教。</p>
-</div>
-<div class="admonition success">
-<p class="admonition-title">关于实验报告</p>
-<p>实验报告需要大家提交 PDF 格式。我们推荐大家使用 Markdown 或者 Latex 撰写实验报告，这样可以直接导出为 PDF。大家也可以使用 Word、WPS 等进行报告撰写，最后转换为 PDF 格式。我们不推荐也不拒绝大家手写实验报告，但请将其拍照扫描成 PDF 文件后再上传。我们不接受任何因为文件格式错误而导致成绩异常的申诉请求！</p>
-<p>在实验报告中，你需要给出每一项任务的答案，并附上必要的说明过程（或截图）。</p>
-<p><strong>特别地：实验报告的字数和排版与最终得分无关。影响得分的仅有内容正确性与完整性。</strong></p>
-</div>
-<p>实验报告提交的地址在<a href="https://soc.ustc.edu.cn/">这里</a>。</p>
+<h2 id="_5">本地测试</h2>
+<h3 id="_6">测试脚本</h3>
+<p><code>tests/4-mem2reg</code> 目录的结构如下：</p>
+<div class="highlight"><pre><span></span><code>.
+├── functional-cases    # 功能测试样例
+├── performance-cases   # 性能测试样例
+├── cleanup.sh
+├── eval_lab4.sh        # lab4 评测脚本
+└── test_perf.sh        # 性能比较脚本
+</code></pre></div>
+<p>其中本地测评脚本 <code>eval_lab4.sh</code> 与 Lab3 一致，使用方法可以回顾 <a href="../lab3/guidance/#测试">Lab3 测试</a>，要求通过的测例目录：</p>
+<ul>
+<li><code>tests/testcases_general</code></li>
+<li><code>tests/4-mem2reg/functional-cases</code></li>
+</ul>
+<p>此外，为了让你能够体会 Mem2Reg 的效果，我们还提供了 3 个性能测试样例，在 <code>performance-cases</code> 中。你可以使用脚本 <code>test_perf.sh</code> 来进行性能比较，使用示例如下所示。</p>
+<details class="info">
+<summary><code>test_perf.sh</code> 使用示例</summary>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./test_perf.sh
+<span class="o">[</span>info<span class="o">]</span><span class="w"> </span>Start<span class="w"> </span>testing,<span class="w"> </span>using<span class="w"> </span>testcase<span class="w"> </span>dir:<span class="w"> </span>./performance-cases
+<span class="o">==========</span>./performance-cases/const-prop.cminus<span class="o">==========</span>
+<span class="o">==========</span>mem2reg<span class="w"> </span>off
+
+real<span class="w">    </span>0m13.052s
+user<span class="w">    </span>0m13.014s
+sys<span class="w"> </span>0m0.009s
+<span class="o">==========</span>mem2reg<span class="w"> </span>on
+
+real<span class="w">    </span>0m11.929s
+user<span class="w">    </span>0m11.905s
+sys<span class="w"> </span>0m0.007s
+<span class="o">==========</span>./performance-cases/loop.cminus<span class="o">==========</span>
+<span class="o">==========</span>mem2reg<span class="w"> </span>off
+
+real<span class="w">    </span>0m7.129s
+user<span class="w">    </span>0m7.117s
+sys<span class="w"> </span>0m0.007s
+<span class="o">==========</span>mem2reg<span class="w"> </span>on
+
+real<span class="w">    </span>0m5.112s
+user<span class="w">    </span>0m5.110s
+sys<span class="w"> </span>0m0.000s
+<span class="o">==========</span>./performance-cases/transpose.cminus<span class="o">==========</span>
+<span class="o">==========</span>mem2reg<span class="w"> </span>off
+
+real<span class="w">    </span>0m15.186s
+user<span class="w">    </span>0m15.171s
+sys<span class="w"> </span>0m0.003s
+<span class="o">==========</span>mem2reg<span class="w"> </span>on
+
+real<span class="w">    </span>0m10.473s
+user<span class="w">    </span>0m10.440s
+sys<span class="w"> </span>0m0.007s
+</code></pre></div>
+</details>
+<h3 id="ir-cfg">IR CFG</h3>
+<p>在实现支配树时，为了方便同学们测试支配树的正确性，本节将向你介绍两个工具：<a href="https://llvm.org/docs/CommandGuide/opt.html">opt</a> 和 <a href="https://manpages.ubuntu.com/manpages/trusty/man1/dot.1.html">dot</a>。opt 和 dot 配合使用可以将 IR 文件转换为 CFG 图片，将基本块之间的关系可视化，利用可视化的 CFG，可以判断生成的支配树是否正确。</p>
+<p>在你的机器上，opt 已经随 llvm 一起安装，使用以下命令安装 dot：</p>
+<div class="highlight"><pre><span></span><code>$ sudo apt install graphviz
+</code></pre></div>
+<p>以如下 <code>test.ll</code> 文件为例：</p>
+<details class="info">
+<summary>test.ll</summary>
+<div class="highlight"><pre><span></span><code><span class="n">define</span><span class="w"> </span><span class="n">i32</span><span class="w"> </span><span class="err">@</span><span class="n">cmp</span><span class="p">(</span><span class="n">i32</span><span class="w"> </span><span class="o">%</span><span class="n">arg0</span><span class="p">,</span><span class="w"> </span><span class="n">i32</span><span class="w"> </span><span class="o">%</span><span class="n">arg1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="nl">label_entry</span><span class="p">:</span>
+<span class="w">  </span><span class="o">%</span><span class="n">op2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">icmp</span><span class="w"> </span><span class="n">slt</span><span class="w"> </span><span class="n">i32</span><span class="w"> </span><span class="o">%</span><span class="n">arg0</span><span class="p">,</span><span class="w"> </span><span class="o">%</span><span class="n">arg1</span>
+<span class="w">  </span><span class="o">%</span><span class="n">op3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zext</span><span class="w"> </span><span class="n">i1</span><span class="w"> </span><span class="o">%</span><span class="n">op2</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">i32</span>
+<span class="w">  </span><span class="o">%</span><span class="n">op4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">icmp</span><span class="w"> </span><span class="n">ne</span><span class="w"> </span><span class="n">i32</span><span class="w"> </span><span class="o">%</span><span class="n">op3</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">  </span><span class="n">br</span><span class="w"> </span><span class="n">i1</span><span class="w"> </span><span class="o">%</span><span class="n">op4</span><span class="p">,</span><span class="w"> </span><span class="n">label</span><span class="w"> </span><span class="o">%</span><span class="n">label5</span><span class="p">,</span><span class="w"> </span><span class="n">label</span><span class="w"> </span><span class="o">%</span><span class="n">label7</span>
+<span class="nl">label5</span><span class="p">:</span><span class="w">                                                </span><span class="p">;</span><span class="w"> </span><span class="n">preds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">%</span><span class="n">label_entry</span>
+<span class="w">  </span><span class="n">ret</span><span class="w"> </span><span class="n">i32</span><span class="w"> </span><span class="mi">1</span>
+<span class="nl">label6</span><span class="p">:</span>
+<span class="w">  </span><span class="n">ret</span><span class="w"> </span><span class="n">i32</span><span class="w"> </span><span class="mi">0</span>
+<span class="nl">label7</span><span class="p">:</span><span class="w">                                                </span><span class="p">;</span><span class="w"> </span><span class="n">preds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">%</span><span class="n">label_entry</span>
+<span class="w">  </span><span class="n">ret</span><span class="w"> </span><span class="n">i32</span><span class="w"> </span><span class="mi">0</span>
+<span class="p">}</span>
+
+<span class="n">define</span><span class="w"> </span><span class="n">i32</span><span class="w"> </span><span class="err">@</span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="nl">label_entry</span><span class="p">:</span>
+<span class="w">  </span><span class="o">%</span><span class="n">op0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">call</span><span class="w"> </span><span class="n">i32</span><span class="w"> </span><span class="err">@</span><span class="n">cmp</span><span class="p">(</span><span class="n">i32</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">i32</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="w">  </span><span class="n">ret</span><span class="w"> </span><span class="n">i32</span><span class="w"> </span><span class="o">%</span><span class="n">op0</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+<p>在 <code>test.ll</code> 的同级目录下：</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>opt<span class="w"> </span>-passes<span class="o">=</span>dot-cfg<span class="w"> </span>test.ll<span class="w"> </span>&gt;/dev/null
+Writing<span class="w"> </span><span class="s1">&#39;.cmp.dot&#39;</span>...
+Writing<span class="w"> </span><span class="s1">&#39;.main.dot&#39;</span>...
+</code></pre></div>
+<p>可以看到 opt 输出了两个 dot 文件，分别与 ll 中的两个函数对应。然后我们使用 dot 工具将其转化为图片：</p>
+<div class="highlight"><pre><span></span><code>$ dot .main.dot -Tpng &gt; main.png
+$ dot .cmp.dot -Tpng &gt; cmp.png
+</code></pre></div>
+<p>比如得到的 <code>cmp.png</code> 如下：</p>
+<p><a class="glightbox" href="figs/cmp.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="figs/cmp.png" /></a></p>
+<h2 id="_7">编译与运行</h2>
+<p>按照如下示例进行项目编译：</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>2023ustc-jianmu-compiler
+$<span class="w"> </span>mkdir<span class="w"> </span>build
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
+<span class="c1"># 使用 cmake 生成 makefile 等文件</span>
+$<span class="w"> </span>cmake<span class="w"> </span>..
+<span class="c1"># 使用 make 进行编译，指定 install 以正确测试</span>
+$<span class="w"> </span>sudo<span class="w"> </span>make<span class="w"> </span>install
+</code></pre></div>
+<p>现在你可以 <code>-mem2reg</code> 使用来指定开启 Mem2Reg 优化：</p>
+<ul>
+<li>将 <code>test.cminus</code> 编译到 IR：<code>cminusfc -emit-llvm -mem2reg test.cminus</code></li>
+<li>将 <code>test.cminus</code> 编译到汇编：<code>cminusfc -S -mem2reg test.cminus</code></li>
+</ul>
+<h2 id="_8">提交方式</h2>
+<ul>
+<li>在希冀平台提交实验仓库的 URL</li>
+</ul>
+<blockquote>
+<p>在提交之前，请确保你 fork 得到的远程仓库与本地同步：<code>git push origin master</code></p>
+</blockquote>
+<ul>
+<li>在希冀平台提交实验报告（实现方法、正确性验证、性能验证等）</li>
+</ul>
 
 
 
@@ -2287,7 +1760,7 @@ M[0x7] &lt;- M[0x7]
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 26, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 27, 2024</span>
   </span>
 
     
@@ -2298,11 +1771,12 @@ M[0x7] &lt;- M[0x7]
   <span class="md-source-file__fact">
     <span class="md-icon" title="贡献者">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.536 5.536 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13v-1.75M0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20H0m24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9V20Z"/></svg>
       
     </span>
     <nav>
       
+        <a href="mailto:95729892+jyjsxx@users.noreply.github.com">JYJSXX</a>, 
         <a href="mailto:liuruibo21@mail.ustc.edu.cn">JYJSXX</a>
     </nav>
   </span>
@@ -2314,56 +1788,6 @@ M[0x7] &lt;- M[0x7]
 
 
 
-
-  <h2 id="__comments">评论</h2>
-  <!-- Insert generated snippet here -->
-    <script src="https://giscus.app/client.js"
-        data-repo="wintermelon008/USTC-CODLab-Discussion"
-        data-repo-id="R_kgDOLYIFuA"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOLYIFuM4Cdhlu"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="0"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="preferred_color_scheme"
-        data-lang="zh-CN"
-        data-loading="lazy"
-        crossorigin="anonymous"
-    async>
-    </script>
-
-
-  <!-- Synchronize Giscus theme with palette -->
-  <script>
-    var giscus = document.querySelector("script[src*=giscus]")
-
-    /* Set palette on initial load */
-    var palette = __md_get("__palette")
-    if (palette && typeof palette.color === "object") {
-      var theme = palette.color.scheme === "slate" ? "dark" : "light"
-      giscus.setAttribute("data-theme", theme) 
-    }
-
-    /* Register event handlers after documented loaded */
-    document.addEventListener("DOMContentLoaded", function() {
-      var ref = document.querySelector("[data-md-component=palette]")
-      ref.addEventListener("change", function() {
-        var palette = __md_get("__palette")
-        if (palette && typeof palette.color === "object") {
-          var theme = palette.color.scheme === "slate" ? "dark" : "light"
-
-          /* Instruct Giscus to change theme */
-          var frame = document.querySelector(".giscus-frame")
-          frame.contentWindow.postMessage(
-            { giscus: { setConfig: { theme } } },
-            "https://giscus.app"
-          )
-        }
-      })
-    })
-  </script>
 
                 
               </article>
@@ -2382,7 +1806,7 @@ M[0x7] &lt;- M[0x7]
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../lab3/problem/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 问题汇总">
+          <a href="../lab3/framework/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 后端框架介绍">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -2392,20 +1816,20 @@ M[0x7] &lt;- M[0x7]
                 上一页
               </span>
               <div class="md-ellipsis">
-                问题汇总
+                后端框架介绍
               </div>
             </div>
           </a>
         
         
           
-          <a href="CPU/" class="md-footer__link md-footer__link--next" aria-label="下一页: 完整单周期 CPU">
+          <a href="../innovative-lab/" class="md-footer__link md-footer__link--next" aria-label="下一页: 建木杯–编译原理创新实验">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                完整单周期 CPU
+                建木杯–编译原理创新实验
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2421,40 +1845,10 @@ M[0x7] &lt;- M[0x7]
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
   
-    <div class="md-copyright__highlight">
-      Copyright © USTC-COD Lab 2023 - 2024
-    </div>
-  
   
     Made with
     <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
       Material for MkDocs
-    </a>
-  
-</div>
-      
-        <div class="md-social">
-  
-    
-    
-    
-    
-      
-      
-    
-    <a href="https://soc.ustc.edu.cn" target="_blank" rel="noopener" title="soc.ustc.edu.cn" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.87 11.525c.071.013.13.084.13.157v3.033a.166.166 0 0 1-.13.157l-2.875.535a.243.243 0 0 0-.17.151l-.898 2.242a.252.252 0 0 0 .017.229l1.633 2.379a.167.167 0 0 1-.02.204l-2.144 2.144a.167.167 0 0 1-.203.019l-2.338-1.604a.23.23 0 0 0-.224-.008l-1.03.55a.121.121 0 0 1-.17-.062l-2.125-5.135a.161.161 0 0 1 .062-.192l.258-.158c.048-.03.113-.08.163-.125a3.354 3.354 0 1 0-3.612 0c.05.046.115.096.163.125l.258.158a.16.16 0 0 1 .062.192L8.552 21.65a.121.121 0 0 1-.17.063l-1.03-.55a.23.23 0 0 0-.224.007L4.79 22.775a.168.168 0 0 1-.204-.019l-2.145-2.144a.167.167 0 0 1-.019-.204l1.633-2.38a.251.251 0 0 0 .017-.228l-.897-2.242a.244.244 0 0 0-.17-.15L.13 14.871a.166.166 0 0 1-.13-.157v-3.032c0-.073.059-.144.13-.157l2.947-.548a.253.253 0 0 0 .175-.15l.903-2.108a.246.246 0 0 0-.014-.227L2.424 5.989a.167.167 0 0 1 .019-.203L4.587 3.64a.166.166 0 0 1 .204-.019L7.337 5.37c.06.041.163.048.229.016l2.043-.836c.07-.023.137-.1.15-.173l.567-3.047a.167.167 0 0 1 .157-.131h3.034c.073 0 .143.059.157.13l.567 3.048a.25.25 0 0 0 .15.173l2.043.836a.252.252 0 0 0 .23-.016l2.546-1.748a.166.166 0 0 1 .203.02l2.144 2.144c.052.051.06.143.02.203l-1.718 2.503a.245.245 0 0 0-.014.227l.903 2.108a.256.256 0 0 0 .175.15l2.946.548"/></svg>
-    </a>
-  
-    
-    
-    
-    
-      
-      
-    
-    <a href="https://vlab.ustc.edu.cn" target="_blank" rel="noopener" title="vlab.ustc.edu.cn" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 1h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1m0 8h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1m0 8h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1M9 5h1V3H9v2m0 8h1v-2H9v2m0 8h1v-2H9v2M5 3v2h2V3H5m0 8v2h2v-2H5m0 8v2h2v-2H5Z"/></svg>
     </a>
   
 </div>
@@ -2482,8 +1876,12 @@ M[0x7] &lt;- M[0x7]
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
+        <script src="../javascripts/katex.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+      
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>
