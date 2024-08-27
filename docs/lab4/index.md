@@ -1,145 +1,207 @@
----
-comments: true 
----
+# Lab4 Mem2Reg
 
-# <strong>实验 4：完整单周期 CPU</strong>
+经过前序实验，同学们已经基本完成了一个贯穿从前端到后端的简单编译器，祝贺大家！然而，该编译器生成的代码只能保证语义正确、能在目标机器上运行。接下来，我们将让大家体验如何通过增加优化 pass 让生成的代码快起来。正如课上所讲，优化的方法有很多，由于时间关系，我们不能一一尝试。因此，我们为大家准备了 Mem2Reg 优化实验，在该实验中，同学们将实现这一优化 pass。完成代码后，同学们可以在测试样例中，看到优化前后的性能差距。
 
+!!! warning "Deadline"
 
-## <strong>实验目的</strong>
+    **2023 年 12 月 18 日 23:59**
 
-在本次实验中，我们将进一步完善上一次实验设计的 CPU，为其增加分支指令和访存指令的相关功能。
+## 同步实验仓库
 
+在进行实验之前，首先拉取[实验仓库](https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2023ustc-jianmu-compiler)的最新代码，具体步骤可以参考 [Lab2 中的指导](../lab2/index.md#实验要求)。
 
-## <strong>实验内容</strong>
+本次实验仓库更新的内容如下，每个阶段的文件将在对应文档详细说明：
 
+```
+.
+├── ...
+├── include
+│   ├── ...
+│   └── passes
+|       ├── PassManager.hpp		# PassManager：管理 pass 的运行
+│       ├── FuncInfo.hpp		# pass 1：纯函数分析
+│       ├── DeadCode.hpp		# pass 2：死代码删除
+│       ├── Dominators.hpp		# pass 3：支配树分析（需要阅读，根据需要修改）
+│       └── Mem2Reg.hpp			# pass 4：Mem2Reg 分析（需要阅读，根据需要修改）
+├── src
+│   ├── ...
+│   └── passes
+│       ├── ...
+│       ├── Dominators.cpp	<-- 支配树分析实现，需要补全
+│       └── Mem2Reg.cpp		<-- Mem2Reg 实现，需要补全
+└── tests
+    ├── ...
+    └── 4-mem2reg				# Lab4 的本地测试
+```
 
-??? Note "Lab4 额外需要实现的指令"
+## 实验内容
 
-    本次实验需要在 Lab3 支持的指令的基础上，额外支持下面的指令（SLU 指经过 SL_UNIT 处理之后的结果）：
+### 阅读与学习
 
-    |       LA32R 中指令    |     RV32I 中指令         |            指令功能                                  |           说明           |
-    | :------------------: | :----------------------: | :----------------------------:                      | :----------------------: | 
-    |   ld.w rd, rj, imm   |     lw rd, offset(rs1)      |  GR[rd] = Mem[GR[rj] + imm] </br> x[rd] = sext(M[x[rs1] + sext(offset)])      |          加载字          | 
-    |   ld.h rd, rj, imm   |     lh rd, offset(rs1)      |  GR[rd] = SLU(Mem[GR[rj] + imm]) </br> x[rd] = SLU((M[x[rs1] + sext(offset)]))      |          加载半字          |
-    |   ld.b rd, rj, imm   |     lb rd, offset(rs1)      |  GR[rd] = SLU(Mem[GR[rj] + imm]) </br> x[rd] = SLU((M[x[rs1] + sext(offset)]))      |          加载字节          |
-    |   ld.hu rd, rj, imm   |     lhu rd, offset(rs1)      |  GR[rd] = SLU(Mem[GR[rj] + imm]) </br> x[rd] = SLU((M[x[rs1] + sext(offset)]))      |          无符号加载半字          |
-    |   ld.bu rd, rj, imm   |     lbu rd, offset(rs1)      |  GR[rd] = SLU(Mem[GR[rj] + imm]) </br> x[rd] = SLU((M[x[rs1] + sext(offset)]))      |          无符号加载字节          |
-    |   st.w rd, rj, imm   |     sw rs2, offset(rs1)    | Mem[GR[rj] + imm] = GR[rd] </br> M[x[rs1] + sext(offset)] = x[rs2]      |          存储字          | 
-    |   st.h rd, rj, imm   |     sh rs2, offset(rs1)    | Mem[GR[rj] + imm] = SLU(GR[rd]) </br> M[x[rs1] + sext(offset)] = SLU(x[rs2])      |          存储半字          |
-    |   st.b rd, rj, imm   |     sb rs2, offset(rs1)    | Mem[GR[rj] + imm] = SLU(GR[rd]) </br> M[x[rs1] + sext(offset)] = SLU(x[rs2])      |          存储字节          |
-    | jirl rd, rj, *label* |   jalr rd, offset(rs1)   |   GR[rd] = pc + 4; pc = *label*  </br> x[rd] = pc+4; pc=(x[rs1]+sext(offset))&~1; |    间接相对跳转并链接    | 
-    |      b *label*       | j offset(jal x0, offset)（伪指令） | pc = *label*  </br> pc += sext(offset)       |        无条件跳转        | 
-    |      bl *label*      |      jal rd, offset      |   GR[1] = pc + 4; pc = *label*  </br> x[rd] = pc+4; pc += sext(offset) | 函数（子程序）调用并链接 | 
-    | beq rj, rd, *label*  |    beq rs1, rs2, offset     |   if (GR[rj] GR[rd]) pc = *label* </br> if (rs1 == rs2) pc += sext(offset)  |         相等跳转         | 
-    | bne rj, rd, *label*  |    bne rs1, rs2, offset     |   if (GR[rj] GR[rd]) pc = *label* </br> if (rs1 != rs2) pc += sext(offset) |         不等跳转         | 
-    | blt rj, rd, *label*  |    blt rs1, rs2, offset     | if (GR[rj] < GR[rd]) pc = *label* </br> if (rs1 < rs2) pc += sext(offset) |      有符号小于跳转      | 
-    | bge rj, rd, *label*  |    bge rs1, rs2, offset     | if (GR[rj] >= GR[rd]) pc = *label* </br> if (rs1 >= rs2) pc += sext(offset)|    有符号大于等于跳转    | 
-    | bltu rj, rd, *label* |    bltu rs1, rs2, offset    |   if (GR[rj] <u GR[rd]) pc = *label*  </br> if (rs1 <u rs2) pc += sext(offset)  |      无符号小于跳转      | 
-    | bgeu rj, rd, *label* |    bgeu rs1, rs2, offset    |   if (GR[rj] >=u GR[rd]) pc = *label* </br> if (rs1 >=u rs2) pc += sext(offset)  |    无符号大于等于跳转    | 
+- 回顾课上关于支配树的介绍，并阅读 [Mem2Reg 介绍](./Mem2Reg介绍.pdf)，了解 Mem2Reg 的基本原理
 
+  > 支配树的相关算法伪代码可以参考如下文章：[Dom.pdf](Dom.pdf)。注意助教在其中的的标柱。
 
-!!! Question "任务 1：访存控制单元设计（3 分）"
+- 阅读 PassManager、FuncInfo 和 DeadCode 的实现，了解如何编写 pass
 
-    请根据自己选择的指令集，设计访存控制单元 SL_UNIT，以正确处理访存指令。你可以结合仿真证明自己的设计。
+### 代码撰写
 
+1. 补全 `src/passes/Dominators.cpp` 文件，使编译器能够进行正确的支配树分析
+2. 补全 `src/passes/Mem2Reg.cpp` 文件，使编译器能够正确执行 Mem2Reg
+3. 将 phi 指令转化为 copy statement，令后端可以正确处理 phi 指令
 
-!!! Question "任务 2：搭建 CPU（4 分）"
+!!! info "关于 copy statement"
 
-    请正确实现 CPU 的各个功能模块，并根据数据通路将其正确连接。<strong>理论上，你只需要完成 CPU 模块及其子模块的设计，而无需修改其他模块的内容。</strong>最终，你需要在 FPGAOL 上上板运行，并通过我们给出的测试程序。
+    **什么是 copy statement？**
 
-    !!! Warning "提醒"
+    在进行后端翻译时，我们根据 phi 节点的语义，将其转化为前驱块的拷贝操作，如下图所示。
 
-        本次实验需要用到数据存储器，因此需要修改 CPU 模块中 `commit_dmem` 系列的三个端口。
+    ![](figs/copy-stmt.png)
 
-        ```verilog
-        commit_dmem_we_reg  <= dmem_we;                         
-        commit_dmem_wa_reg  <= dmem_wa;                         
-        commit_dmem_wd_reg  <= dmem_wd;                           
-        ```
+    **这样做正确吗？**
 
+    这种 naive 的方案并不完全正确，在个别极端情况下，它会带来 Lost Of Copy 等问题，但是在本次实验中不会出现，所以你可以放心采用这个方案。
 
-    ??? Note "LA32R 的测试汇编程序"
+## 本地测试
 
-        请确保下面的程序运行完成后，寄存器堆中的结果与 LARS 运行的结果一致。
+### 测试脚本
 
-        - 仿真框架用的测试文件[在这里](./src/la32r_sim.asm)。
-        - Vivado 仿真以及上板用的测试文件[在这里](./src/la32r_online.asm)。
-  
+`tests/4-mem2reg` 目录的结构如下：
 
-    ??? Note "RV32I 的测试汇编程序"
+```
+.
+├── functional-cases	# 功能测试样例
+├── performance-cases	# 性能测试样例
+├── cleanup.sh
+├── eval_lab4.sh		# lab4 评测脚本
+└── test_perf.sh		# 性能比较脚本
+```
 
-        下面两个测试都需要通过。
+其中本地测评脚本 `eval_lab4.sh` 与 Lab3 一致，使用方法可以回顾 [Lab3 测试](../lab3/guidance.md#测试)，要求通过的测例目录：
 
-        - 测试程序 1（普通测试）[在这里](./src/rv32i_test1.asm)
-        - 测试程序 2（分支与访存测试）[在这里](./src/rv32i_test2.asm)
+- `tests/testcases_general`
+- `tests/4-mem2reg/functional-cases`
 
-        
-        !!! Warning "RV32I 仿真"
-            从本个任务开始，使用 RV32I 指令集的同学们的仿真需要在 CPU_tb 模块中例化 CPU、指令储存器 IP 核与数据储存器 IP 核。指令储存器 IP 核与数据储存器 IP 核的地址端口均为 CPU 输出端口右移两位（因为单个 IP 核的位宽是 32 位，对应四个地址），而其他使能信号、数据信号请大家根据 CPU 中的信号含义自行连接。
+此外，为了让你能够体会 Mem2Reg 的效果，我们还提供了 3 个性能测试样例，在 `performance-cases` 中。你可以使用脚本 `test_perf.sh` 来进行性能比较，使用示例如下所示。
 
+??? info "`test_perf.sh` 使用示例"
 
-!!! Question "任务 3：斐波那契数列（1 分）"
+    ```shell
+    $ ./test_perf.sh
+    [info] Start testing, using testcase dir: ./performance-cases
+    ==========./performance-cases/const-prop.cminus==========
+    ==========mem2reg off
 
-    请将 Lab1 中编写的斐波那契数列程序（普通版本、大整数版本均可）导出为 COE 文件，在自己设计的 CPU 上运行。相关数据的输入、输出方式不限。
+    real	0m13.052s
+    user	0m13.014s
+    sys	0m0.009s
+    ==========mem2reg on
 
+    real	0m11.929s
+    user	0m11.905s
+    sys	0m0.007s
+    ==========./performance-cases/loop.cminus==========
+    ==========mem2reg off
 
-!!! Question "任务 4：思考与总结（2 分）"
+    real	0m7.129s
+    user	0m7.117s
+    sys	0m0.007s
+    ==========mem2reg on
 
-    请在实验报告中回答下面的问题：
+    real	0m5.112s
+    user	0m5.110s
+    sys	0m0.000s
+    ==========./performance-cases/transpose.cminus==========
+    ==========mem2reg off
 
-    1. 假设我们的存储器支持掩码访问，其对应接口如下：
-    ```verilog linenums="1"
-    module MEM (
-        input       [ 0 : 0]                clk,
-        input       [ 9 : 0]                a,
-        output      [31 : 0]                spo,
-        input       [ 0 : 0]                we,
-        input       [31 : 0]                d,
-        input       [ 3 : 0]                mask
-    );
+    real	0m15.186s
+    user	0m15.171s
+    sys	0m0.003s
+    ==========mem2reg on
+
+    real	0m10.473s
+    user	0m10.440s
+    sys	0m0.007s
     ```
-    其中，`mask` 为高电平有效的控制信号，`mask[0]` 控制当前正在访问的字的最低字节是否有效；`mask[3]` 控制当前正在访问的字的最高字节是否有效。例如，如果 `a = 0x4`，`we = 1`，`d = 0x12345678`，`mask=4'B0110`，则数据存储器对应的操作为
+
+### IR CFG
+
+在实现支配树时，为了方便同学们测试支配树的正确性，本节将向你介绍两个工具：[opt](https://llvm.org/docs/CommandGuide/opt.html) 和 [dot](https://manpages.ubuntu.com/manpages/trusty/man1/dot.1.html)。opt 和 dot 配合使用可以将 IR 文件转换为 CFG 图片，将基本块之间的关系可视化，利用可视化的 CFG，可以判断生成的支配树是否正确。
+
+在你的机器上，opt 已经随 llvm 一起安装，使用以下命令安装 dot：
+
+```
+$ sudo apt install graphviz
+```
+
+以如下 `test.ll` 文件为例：
+
+??? info "test.ll"
+
+    ```c
+    define i32 @cmp(i32 %arg0, i32 %arg1) {
+    label_entry:
+      %op2 = icmp slt i32 %arg0, %arg1
+      %op3 = zext i1 %op2 to i32
+      %op4 = icmp ne i32 %op3, 0
+      br i1 %op4, label %label5, label %label7
+    label5:                                                ; preds = %label_entry
+      ret i32 1
+    label6:
+      ret i32 0
+    label7:                                                ; preds = %label_entry
+      ret i32 0
+    }
+
+    define i32 @main() {
+    label_entry:
+      %op0 = call i32 @cmp(i32 1, i32 2)
+      ret i32 %op0
+    }
     ```
-    M[0x4] <- M[0x4]
-    M[0x5] <- 0x56
-    M[0x6] <- 0x34
-    M[0x7] <- M[0x7]
-    ```
-    读操作则会将 `mask` 为 0 的字节置为 0。例如，如果 `a = 0x4`，`we = 0`，`mask=4'B0110`，则读出的结果为
-    ```
-    {8'B0, M[0x6], M[0x5], 8'B0}
-    ```
-    请重新设计 SL_UNIT 单元。你可以自行添加相关模块所需要的端口。注意：本题的前提是我们假设存在这样的存储器 IP 核，你并不需要实现这个 IP 核，也不需要仿真或上板，仅阐述 SL_UNIT 单元的设计方案即可。
 
-    2. 请指出本次实验的 CPU 中可能的关键路径。
-   
+在 `test.ll` 的同级目录下：
 
+```shell
+$ opt -passes=dot-cfg test.ll >/dev/null
+Writing '.cmp.dot'...
+Writing '.main.dot'...
+```
 
+可以看到 opt 输出了两个 dot 文件，分别与 ll 中的两个函数对应。然后我们使用 dot 工具将其转化为图片：
 
-## <strong>实验检查与提交</strong>
+```shel
+$ dot .main.dot -Tpng > main.png
+$ dot .cmp.dot -Tpng > cmp.png
+```
 
-本次实验布置时间为 2024-04-08，持续一周。相应的 DDL 节点如下：
+比如得到的 `cmp.png` 如下：
 
+![](figs/cmp.png)
 
-|       组别    |     检查 DDL        |     报告提交 DDL      |
-| :----------: | :-----------------: | :-------------------: |
-|    周一组    |      2024-04-15      |     2024-04-22       |
-|    周三组    |      2024-04-17      |     2024-04-24       |
+## 编译与运行
 
-检查与报告延迟一周以内（含）的，至多只能得到 80% 分数；延迟一周以上、两周以内（含）的，至多只能得到 60% 分数；延迟超过两周的不得分。
+按照如下示例进行项目编译：
 
-!!! Warning "提醒"
+```shell
+$ cd 2023ustc-jianmu-compiler
+$ mkdir build
+$ cd build
+# 使用 cmake 生成 makefile 等文件
+$ cmake ..
+# 使用 make 进行编译，指定 install 以正确测试
+$ sudo make install
+```
 
-    实验的 DDL 为当天晚上 21:30。助教有权利在 21:30 准时停止检查，请大家合理安排好自己的时间。能否线上检查、能否在其他时间检查请咨询本组的助教。
+现在你可以 `-mem2reg` 使用来指定开启 Mem2Reg 优化：
 
+- 将 `test.cminus` 编译到 IR：`cminusfc -emit-llvm -mem2reg test.cminus`
+- 将 `test.cminus` 编译到汇编：`cminusfc -S -mem2reg test.cminus`
 
-!!! Success "关于实验报告"
+## 提交方式
 
-    实验报告需要大家提交 PDF 格式。我们推荐大家使用 Markdown 或者 Latex 撰写实验报告，这样可以直接导出为 PDF。大家也可以使用 Word、WPS 等进行报告撰写，最后转换为 PDF 格式。我们不推荐也不拒绝大家手写实验报告，但请将其拍照扫描成 PDF 文件后再上传。我们不接受任何因为文件格式错误而导致成绩异常的申诉请求！
+- 在希冀平台提交实验仓库的 URL
 
-    在实验报告中，你需要给出每一项任务的答案，并附上必要的说明过程（或截图）。
+  > 在提交之前，请确保你 fork 得到的远程仓库与本地同步：`git push origin master`
 
-    <strong>特别地：实验报告的字数和排版与最终得分无关。影响得分的仅有内容正确性与完整性。</strong>
-
-
-实验报告提交的地址在[这里](https://soc.ustc.edu.cn/)。
+- 在希冀平台提交实验报告（实现方法、正确性验证、性能验证等）
