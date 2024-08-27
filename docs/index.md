@@ -45,10 +45,10 @@ comments: true
 - 实验框架已公开，见参考资料[<sup>2</sup>](#textbook2)
 
 
-## 公告
+## <strong>公告</strong>
 
 - 2023-09-03：[课程平台介绍](exp_platform_intro/README.md) 已发布
-- 2023-09-08：[Lab0](lab0/index.md) 已发布，Deadline：**2023 年 9 月 15 日**
+<!-- - 2023-09-08：[Lab0](lab0/index.md) 已发布，Deadline：**2023 年 9 月 15 日**
 - 2023-09-13：第一次作业：2.1a、2.2、2.3a、2.4h、2.7c、2.15（教材[<sup>1</sup>](#textbook)），Deadline：**2023 年 9 月 20 日**
 - 2023-09-15：[Lab1](lab1/index.md) 已发布，Deadline：**2023 年 9 月 28 日**
 - 2023-09-25：第二次作业：3.1a、3.2a、3.10、3.11、3.17、3.19a（教材[<sup>1</sup>](#textbook)），Deadline：**2023 年 10 月 7 日 14:00**
@@ -60,13 +60,13 @@ comments: true
 - 2023-11-27：[Lab4](lab4/index.md) 已发布，Deadline：**2023 年 12 月 18 日**
 - 2023-12-08：第六次作业：7.2c、7.5、7.12、8.1e、8.2e、8.6（教材[<sup>1</sup>](#textbook)），Deadline：**2023 年 12 月 20 日 24:00**
 - 2023-12-08：第七次作业：9.1、9.2、9.3、9.15af（教材[<sup>1</sup>](#textbook)），Deadline：**2024 年 1 月 3 日 24:00**
-- 2024-01-14：[建木杯–编译原理创新实验](innovative-lab/index.md) 已发布
+- 2024-01-14：[建木杯–编译原理创新实验](innovative-lab/index.md) 已发布 -->
 
-## 教学课件
+## <strong>教学课件</strong>
 
 |    日期    |                                   标题                                    |                                                                                                                 课件                                                                                                                  |
 | :--------: | :-----------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| 2023-09-04 |                            编译原理和技术导论                             |                                                                              [part1](https://rec.ustc.edu.cn/share/be63e5f0-4bbf-11ee-ab8f-8556ef2e1b82)                                                                              |
+<!-- | 2023-09-04 |                            编译原理和技术导论                             |                                                                              [part1](https://rec.ustc.edu.cn/share/be63e5f0-4bbf-11ee-ab8f-8556ef2e1b82)                                                                              |
 | 2023-09-06 |                                 词法分析                                  | [part1](https://rec.ustc.edu.cn/share/7c8cb640-4bfa-11ee-801b-996bfe70e4c4), [part2](https://rec.ustc.edu.cn/share/971f5a80-4bfa-11ee-9c40-3f9629e3618a), [part3](https://rec.ustc.edu.cn/share/daf23f60-4bfa-11ee-ba03-e1b373b96f27) |
 | 2023-09-11 |                         语法分析 - 上下文无关文法                         |                                                                              [part1](https://rec.ustc.edu.cn/share/1adc23a0-5043-11ee-ae58-c51868b36892)                                                                              |
 | 2023-09-13 |                      语法分析 - 自顶向下 - 递归下降                       |                                                                              [part2](https://rec.ustc.edu.cn/share/11c40120-5208-11ee-8fb3-0b34e4219c8a)                                                                              |
@@ -90,17 +90,17 @@ comments: true
 | 2023-11-29 |                          面向目标机器的代码优化                           |                                                                              [part1](https://rec.ustc.edu.cn/share/d6169380-9045-11ee-8a37-87201671ab8d)                                                                              |
 | 2023-12-04 |                               guest lecture                               |                                                                                                               无 slides                                                                                                               |
 | 2023-12-06 |                               guest lecture                               |                                                                                                               无 slides                                                                                                               |
-| 2023-12-13 |                                  复习课                                   |                                                                             [slides](https://rec.ustc.edu.cn/share/3a4ffcf0-995a-11ee-9fdc-a7ee4ffd604e)                                                                              |
+| 2023-12-13 |                                  复习课                                   |                                                                             [slides](https://rec.ustc.edu.cn/share/3a4ffcf0-995a-11ee-9fdc-a7ee4ffd604e)                                                                              | -->
 
-## 参考资料
+## <strong>参考资料</strong>
 
-### 教材和参考书
+### <strong>教材和参考书</strong>
 
 - <div id='textbook'></div>[1] 陈意云、张昱，编译原理（第 3 版），高等教育出版社，2014
 - <div id='textbook2'></div>[2] 李诚、徐伟，现代编译器设计与实现（实验讲义版本，高等教育出版社待出版，2023）。[教材资源及实验框架](https://ustc-compiler-principles.github.io/textbook/)
 - A. V. Aho, M. S. Lam, R. Sethi, and J. D. Ullman 著，赵建华等译，编译原理，机械工业出版社，2017
 
-### 其他资料
+### <strong>其他资料</strong>
 
 - Stanford 课程主页：<http://web.stanford.edu/class/cs143/>
 - MIT 课程主页：<http://6.035.scripts.mit.edu/fa18/>
@@ -157,6 +157,6 @@ comments: true
 
     评论系统实际上是抓取了[这个仓库](https://github.com/USTC-Compiler-2024/Compiler-Comments)下讨论区的内容，所有的评论也会发布在这里。大家可以访问上面的仓库进行阅读。
 
-    如果你没有或者无法登录 GitHub 账号也没关系。除了文档下方的评论系统，在实验 QQ 群、各小组 QQ 群中大家也可以提出自己的问题，我们将统一进行解答。
+    如果你没有或者无法登录 GitHub 账号也没关系。除了文档下方的评论系统，在课程群中大家也可以提出自己的问题，我们将统一进行解答。
 
     欢迎大家在评论系统里畅所欲言！
