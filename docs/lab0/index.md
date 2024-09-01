@@ -31,7 +31,7 @@
 
 ### 实验三：C++
 
-阅读文档 [C++ 语法](cpp.md)，完成实验任务。
+阅读文档 [C++ 语法](cpp.md) & [如何Debug](debug.md)，完成实验任务1、2、3。
 
 ## 实验要求
 
@@ -60,7 +60,7 @@ Lab0 完成后，除了 answer.pdf 文件，你还在 GitLab 上拥有一个名�
 
 ![Alt text](photos/image-2.png)
 
-#### 答疑
+<!-- #### 答疑
 
 同学们如果对实验有什么疑问，请先登录希冀平台后在[在线答疑模块](https://cscourse.ustc.edu.cn/forum/forum.jsp?forum=121)发帖询问，助教看到帖子会及时回复。
-![Alt text](photos/image_3.png)
+![Alt text](photos/image_3.png) -->
