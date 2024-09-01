@@ -924,50 +924,52 @@ git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"
 <p>我们将使用 GitLab 进行远程代码管理。虽然你没有权限在 GitLab 上创建仓库，但你可以通过 fork 的方式拥有一个属于自己的仓库。</p>
 <ol>
 <li>进入以下公开仓库链接： <strong><a href="https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024_warm_up.git">https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024_warm_up.git</a></strong></li>
-<li>点击右上角的 "Fork" 按钮。这个操作会创建一个与原仓库一模一样的新仓库，唯一的区别是，这个新仓库是你自己的。你可以在新仓库上执行任何你需要的操作。</li>
-</ol>
+<li>
+<p>点击右上角的 "Fork" 按钮。这个操作会创建一个与原仓库一模一样的新仓库，唯一的区别是，这个新仓库是你自己的。你可以在新仓库上执行任何你需要的操作。</p>
 <p><a class="glightbox" href="../photos/git1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Untitled" src="../photos/git1.png" /></a></p>
-<ol>
-<li>点击 "Fork" 后，页面将自动跳转到新的仓库页面，你将成为这个仓库的拥有者，这也会显示在仓库名称旁边。</li>
+</li>
+<li>
+<p>点击 "Fork" 后，页面将自动跳转到新的仓库页面，你将成为这个仓库的拥有者，这也会显示在仓库名称旁边。</p>
+</li>
 </ol>
 <p><a class="glightbox" href="../photos/git2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Untitled" src="../photos/git2.png" /></a></p>
 <p>现在，你已经成功拥有了自己的第一个仓库。接下来，我们可以开始对这个仓库进行修改。</p>
 <h2 id="_2">进行一次提交</h2>
 <p>由于仓库目前在服务器上，我们首先得到仓库的 URL，并通过 git clone 将其下载到本地。</p>
 <ol>
-<li>得到仓库的 URL</li>
-</ol>
+<li>
+<p>得到仓库的 URL</p>
 <p><a class="glightbox" href="../photos/git3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Untitled" src="../photos/git3.png" /></a></p>
-<ol>
-<li>在 Ubuntu 环境中，利用得到的 URL，克隆仓库到本地</li>
-</ol>
+</li>
+<li>
+<p>在 Ubuntu 环境中，利用得到的 URL，克隆仓库到本地</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># 使用 URL 进行 git clone XXX 为你的用户名</span>
 git<span class="w"> </span>clone<span class="w"> </span>https://cscourse.ustc.edu.cn/vdir/Gitlab/XXX/2024_warm_up.git
 </code></pre></div>
-<ol>
-<li>输入 GitLab 用户名和密码进行身份验证，验证完毕后就将服务器上的仓库克隆到了本地</li>
-<li><div class="highlight"><pre><span></span><code><span class="c1"># 检查是否成功 clone</span>
+</li>
+<li>
+<p>输入 GitLab 用户名和密码进行身份验证，验证完毕后就将服务器上的仓库克隆到了本地</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 检查是否成功 clone</span>
 $<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>2024_warm_up
 $<span class="w"> </span>ls
 warm_up.txt
-</code></pre></div></li>
-</ol>
+</code></pre></div>
 <p>此时，我们可以创建并提交第一个文件</p>
-<ol>
-<li>创建一个 readme.md 文件</li>
-</ol>
+</li>
+<li>
+<p>创建一个 readme.md 文件</p>
 <div class="highlight"><pre><span></span><code>touch<span class="w"> </span>README.md
 </code></pre></div>
-<ol>
-<li>在 README.md 中添加 hello world 信息</li>
-</ol>
+</li>
+<li>
+<p>在 README.md 中添加 hello world 信息</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;# Hello World&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>README.md
 $<span class="w"> </span>cat<span class="w"> </span>README.md
 <span class="c1"># Hello World</span>
 </code></pre></div>
-<ol>
-<li>将 README.md 添加到 git 的暂存区</li>
-</ol>
+</li>
+<li>
+<p>将 README.md 添加到 git 的暂存区</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># git add 指令可以将文件添加到 git 的暂存区</span>
 <span class="c1"># git 的暂存区是用于存放本次的所有修改</span>
 <span class="c1"># 这里只add了一个文件 但是你可以add某一个文件夹，例如 git add .</span>
@@ -979,18 +981,18 @@ On<span class="w"> </span>branch<span class="w"> </span>master
 Your<span class="w"> </span>branch<span class="w"> </span>is<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span>date<span class="w"> </span>with<span class="w"> </span><span class="s1">&#39;origin/master&#39;</span>.
 
 Changes<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>committed:
-<span class="w">  </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git restore --staged &lt;file&gt;...&quot;</span><span class="w"> </span>to<span class="w"> </span>unstage<span class="o">)</span>
+<span class="w"> </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git restore --staged &lt;file&gt;...&quot;</span><span class="w"> </span>to<span class="w"> </span>unstage<span class="o">)</span>
 <span class="w">        </span>new<span class="w"> </span>file:<span class="w">   </span>readme.md
 </code></pre></div>
-<ol>
-<li>提交本次修改并添加提交信息</li>
-</ol>
+</li>
+<li>
+<p>提交本次修改并添加提交信息</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># 使用 git commit 提交本次修改到 Git 本地仓库</span>
 <span class="c1"># -m 后面的内容用于帮助记录本次提交的相关信息，要求每次提交最好都记录信息</span>
 $<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;add readme&#39;</span>
 <span class="o">[</span>master<span class="w"> </span>bc20c0b<span class="o">]</span><span class="w"> </span>add<span class="w"> </span>readme
-<span class="w"> </span><span class="m">1</span><span class="w"> </span>file<span class="w"> </span>changed,<span class="w"> </span><span class="m">1</span><span class="w"> </span>insertion<span class="o">(</span>+<span class="o">)</span>
-<span class="w"> </span>create<span class="w"> </span>mode<span class="w"> </span><span class="m">100644</span><span class="w"> </span>readme.md
+<span class="m">1</span><span class="w"> </span>file<span class="w"> </span>changed,<span class="w"> </span><span class="m">1</span><span class="w"> </span>insertion<span class="o">(</span>+<span class="o">)</span>
+create<span class="w"> </span>mode<span class="w"> </span><span class="m">100644</span><span class="w"> </span>readme.md
 
 <span class="c1"># 我们可以通过 git log 查看历史提交记录</span>
 $<span class="w"> </span>git<span class="w"> </span>log
@@ -1012,6 +1014,8 @@ Date:<span class="w">   </span>Tue<span class="w"> </span>Sep<span class="w"> </
 
 <span class="w">    </span>欢迎加入编译原理
 </code></pre></div>
+</li>
+</ol>
 <p>通过以上操作，我们完成了一次本地修改和提交。然而，请注意这些更改仅存储在本地，需要使用 "git push" 命令将它们上传到服务器，以实现本地和服务器的同步。</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>master<span class="w">  </span><span class="c1"># 推送本地仓库的内容到 Git 远程仓库</span>
 Enumerating<span class="w"> </span>objects:<span class="w"> </span><span class="m">4</span>,<span class="w"> </span><span class="k">done</span>.
@@ -1021,7 +1025,7 @@ Compressing<span class="w"> </span>objects:<span class="w"> </span><span class="
 Writing<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">3</span>/3<span class="o">)</span>,<span class="w"> </span><span class="m">290</span><span class="w"> </span>bytes<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">290</span>.00<span class="w"> </span>KiB/s,<span class="w"> </span><span class="k">done</span>.
 Total<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>,<span class="w"> </span>reused<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>,<span class="w"> </span>pack-reused<span class="w"> </span><span class="m">0</span>
 To<span class="w"> </span>https://cscourse.ustc.edu.cn/vdir/Gitlab/ustc_gongping/2024_warm_up.git
-<span class="w">   </span>6d08e6d..bc20c0b<span class="w">  </span>master<span class="w"> </span>-&gt;<span class="w"> </span>master
+<span class="w">    </span>6d08e6d..bc20c0b<span class="w">  </span>master<span class="w"> </span>-&gt;<span class="w"> </span>master
 </code></pre></div>
 <p>现在，刷新 GitLab 页面，刚刚提交的内容已经显示在网页上。</p>
 <p><a class="glightbox" href="../photos/git4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Untitled" src="../photos/git4.png" /></a></p>
@@ -1043,8 +1047,8 @@ remote:<span class="w"> </span>Counting<span class="w"> </span>objects:<span cla
 remote:<span class="w"> </span>Total<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>,<span class="w"> </span>reused<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>,<span class="w"> </span>pack-reused<span class="w"> </span><span class="m">0</span>
 Unpacking<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">3</span>/3<span class="o">)</span>,<span class="w"> </span><span class="m">258</span><span class="w"> </span>bytes<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">51</span>.00<span class="w"> </span>KiB/s,<span class="w"> </span><span class="k">done</span>.
 From<span class="w"> </span>https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024_warm_up_upstream
-<span class="w"> </span>*<span class="w"> </span>branch<span class="w">            </span>master<span class="w">     </span>-&gt;<span class="w"> </span>FETCH_HEAD
-<span class="w"> </span>*<span class="w"> </span><span class="o">[</span>new<span class="w"> </span>branch<span class="o">]</span><span class="w">      </span>master<span class="w">     </span>-&gt;<span class="w"> </span>upstream/master
+<span class="w">  </span>*<span class="w"> </span>branch<span class="w">            </span>master<span class="w">     </span>-&gt;<span class="w"> </span>FETCH_HEAD
+<span class="w">  </span>*<span class="w"> </span><span class="o">[</span>new<span class="w"> </span>branch<span class="o">]</span><span class="w">      </span>master<span class="w">     </span>-&gt;<span class="w"> </span>upstream/master
 hint:<span class="w"> </span>You<span class="w"> </span>have<span class="w"> </span>divergent<span class="w"> </span>branches<span class="w"> </span>and<span class="w"> </span>need<span class="w"> </span>to<span class="w"> </span>specify<span class="w"> </span>how<span class="w"> </span>to<span class="w"> </span>reconcile<span class="w"> </span>them.
 hint:<span class="w"> </span>You<span class="w"> </span>can<span class="w"> </span><span class="k">do</span><span class="w"> </span>so<span class="w"> </span>by<span class="w"> </span>running<span class="w"> </span>one<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>following<span class="w"> </span>commands<span class="w"> </span>sometime<span class="w"> </span>before
 hint:<span class="w"> </span>your<span class="w"> </span>next<span class="w"> </span>pull:
@@ -1119,11 +1123,13 @@ To<span class="w"> </span>https://cscourse.ustc.edu.cn/vdir/Gitlab/ustc_gongping
 <h2 id="_5">实验任务</h2>
 <ol>
 <li>根据上述操作，完成 readme.md 添加、上游仓库添加和冲突处理等操作。</li>
-<li>阅读扩展材料，回答以下问题，将答案添加到 <code>answer.pdf</code>。</li>
+<li>阅读扩展材料，回答以下问题，将答案添加到 <code>answer.pdf</code>。<ol>
 <li>如何创建一个新的 git 分支？如何进行分支切换？如何删除一个分支？什么时候可以安全的删除一个分支？</li>
 <li>如何撤销保存在暂存区的修改？如何撤销最近一次已经提交的所有修改？如何仅撤销最近一次提交的某一个文件(test.txt)？</li>
 <li>解释 git init 的作用？</li>
 <li>解释 git fetch 和 git pull 的区别。</li>
+</ol>
+</li>
 <li>将 <a href="../software/">LLVM 等软件环境配置与测试</a> 中生成的 Test.ll 文件添加到仓库中，并上传到远程仓库中去。</li>
 </ol>
 
@@ -1163,7 +1169,6 @@ To<span class="w"> </span>https://cscourse.ustc.edu.cn/vdir/Gitlab/ustc_gongping
     <nav>
       
         <a href="mailto:95729892+jyjsxx@users.noreply.github.com">JYJSXX</a>, 
-        <a href="mailto:liuruibo21@mail.ustc.edu.cn">JYJSXX</a>, 
         <a href="mailto:not.committed.yet">Not Committed Yet</a>
     </nav>
   </span>
