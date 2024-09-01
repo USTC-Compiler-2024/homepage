@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../visitor_pattern/">
+        <link rel="prev" href="../cpp/">
       
       
-        <link rel="next" href="../../lab3/">
+        <link rel="next" href="../../lab1/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>IR 自动化生成 - USTC 编译原理和技术 2024</title>
+        <title>如何Debug - USTC 编译原理和技术 2024</title>
       
     
     
@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ir" class="md-skip">
+        <a href="#cmakedebug" class="md-skip">
           跳转至
         </a>
       
@@ -133,7 +133,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              IR 自动化生成
+              如何Debug
             
           </span>
         </div>
@@ -284,11 +284,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../lab0/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   Lab0
@@ -320,13 +322,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../lab2/" class="md-tabs__link">
           
   
   Lab2
@@ -602,25 +602,28 @@
       
   
   
+    
   
   
+  
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -631,7 +634,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Lab0
@@ -645,7 +648,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lab0/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -666,7 +669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lab0/linux/" class="md-nav__link">
+      <a href="../linux/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -687,7 +690,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lab0/software/" class="md-nav__link">
+      <a href="../software/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -708,7 +711,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lab0/git/" class="md-nav__link">
+      <a href="../git/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -729,7 +732,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lab0/cpp/" class="md-nav__link">
+      <a href="../cpp/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -747,10 +750,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../lab0/debug/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -759,6 +771,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -927,28 +940,25 @@
       
   
   
-    
   
   
-  
     
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -959,7 +969,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Lab2
@@ -973,7 +983,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../lab2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -994,7 +1004,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../warmup/" class="md-nav__link">
+      <a href="../../lab2/warmup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1015,7 +1025,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../visitor_pattern/" class="md-nav__link">
+      <a href="../../lab2/visitor_pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1033,30 +1043,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    IR 自动化生成
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../lab2/autogen/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1065,134 +1055,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      实验框架介绍
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="实验框架介绍">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      抽象语法树
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scope" class="md-nav__link">
-    <span class="md-ellipsis">
-      符号表 Scope
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cminusfbuilder" class="md-nav__link">
-    <span class="md-ellipsis">
-      CminusfBuilder 类
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      实验内容
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      实验要求
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="实验要求">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      仓库目录结构
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      编译、运行和评测
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="编译、运行和评测">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ir_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      情况一：生成 IR 文件
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      情况二：生成可执行文件
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1398,122 +1260,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      实验框架介绍
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="实验框架介绍">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      抽象语法树
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scope" class="md-nav__link">
-    <span class="md-ellipsis">
-      符号表 Scope
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cminusfbuilder" class="md-nav__link">
-    <span class="md-ellipsis">
-      CminusfBuilder 类
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      实验内容
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      实验要求
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="实验要求">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      仓库目录结构
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      编译、运行和评测
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="编译、运行和评测">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ir_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      情况一：生成 IR 文件
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      情况二：生成可执行文件
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1530,121 +1276,12 @@
   
 
 
-<h1 id="ir">IR 自动化生成</h1>
-<p>学生将在本阶段提供的实验框架下，利用访问者模式遍历抽象语法树，调用 Light IR C++ 库，实现 IR 自动化生成。</p>
-<h2 id="_1">实验框架介绍</h2>
-<h3 id="_2">抽象语法树</h3>
-<div class="admonition notes">
-<p class="admonition-title">分析树（Parse Tree）与抽象语法树（Abstract Syntax Tree）</p>
-<p>分析树在语法分析的过程中被构造；抽象语法树则是分析树的浓缩表示，使用运算符作为根节点和内部节点，并使用操作数作为子节点。进一步了解可以阅读 <a href="https://stackoverflow.com/questions/5026517/whats-the-difference-between-parse-trees-and-abstract-syntax-trees-asts">分析树和抽象语法树的比较</a>。</p>
-</div>
-<p>实验框架实现了 Lab1 生成的分析树到 C++ 上的抽象语法树的转换。可以使用<a href="../visitor_pattern/">访问者模式</a>来实现对抽象语法树的遍历，<a href="https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2023ustc-jianmu-compiler/-/blob/master/include/common/ast.hpp">ast.hpp</a> 文件中包含抽象语法树节点定义。</p>
-<h3 id="scope">符号表 Scope</h3>
-<p>在 <code>include/cminusf_builder.hpp</code> 中，我们定义了一个用于存储作用域的类 <code>Scope</code>。它的作用是辅助我们在遍历语法树时，管理不同作用域中的变量。它提供了以下接口：</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// 进入一个新的作用域</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">enter</span><span class="p">();</span>
-<span class="c1">// 退出一个作用域</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">exit</span><span class="p">();</span>
-<span class="c1">// 往当前作用域插入新的名字-&gt;值映射</span>
-<span class="kt">bool</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">Value</span><span class="w"> </span><span class="o">*</span><span class="n">val</span><span class="p">);</span>
-<span class="c1">// 根据名字，寻找到值</span>
-<span class="n">Value</span><span class="o">*</span><span class="w"> </span><span class="nf">find</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
-<span class="c1">// 判断当前作用域是否是全局作用域</span>
-<span class="kt">bool</span><span class="w"> </span><span class="nf">in_global</span><span class="p">();</span>
-</code></pre></div>
-<p>你需要根据语义合理调用 <code>enter</code> 与 <code>exit</code>，并且在变量声明和使用时正确调用 <code>push</code> 与 <code>find</code>。</p>
-<h3 id="cminusfbuilder"><code>CminusfBuilder</code> 类</h3>
-<p><code>CminusfBuilder</code> 类定义在 <a href="https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2023ustc-jianmu-compiler/-/blob/master/include/cminusfc/cminusf_builder.hpp">cminusf_builder.hpp</a>文件中，<code>CminusfBuilder</code> 类中定义了对抽象语法树不同语法节点的 <code>visit</code> 函数，实验已给出了一些语法树节点的访问规则，其余的需要学生补充。</p>
-<p>在 <code>CminusfBuilder</code> 构造函数函数中，下列代码片段是对 <a href="../../common/cminusf/#cminusf-的语义">Cminusf 语义</a>中的 4 个预定义函数进行声明并加入全局符号表中，在生成 IR 时可从符号表中查找。我们的测试样例会使用这些函数，从而实现 IO。</p>
-<div class="highlight"><pre><span></span><code><span class="n">scope</span><span class="p">.</span><span class="n">enter</span><span class="p">();</span>
-<span class="n">scope</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="s">&quot;input&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">input_fun</span><span class="p">);</span>
-<span class="n">scope</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="s">&quot;output&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">output_fun</span><span class="p">);</span>
-<span class="n">scope</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="s">&quot;outputFloat&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">output_float_fun</span><span class="p">);</span>
-<span class="n">scope</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="s">&quot;neg_idx_except&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">neg_idx_except_fun</span><span class="p">);</span>
-</code></pre></div>
-<p><code>CminusfBuilder</code> 类使用成员 <code>context</code> 存储翻译时状态，下列代码片段是 <code>context</code> 的定义，学生需要为该结构体添加更多域来存储翻译时的状态。</p>
-<div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// function that is being built</span>
-<span class="w">    </span><span class="n">Function</span><span class="w"> </span><span class="o">*</span><span class="n">func</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">context</span><span class="p">;</span>
-</code></pre></div>
-<h2 id="_3">实验内容</h2>
-<p>阅读 <a href="../../common/cminusf/#cminusf-的语义">Cminusf 语义</a>，并根据语义补全 <code>include/cminusfc/cminusf_builder.hpp</code> 与 <code>src/cminusfc/cminusf_builder.cpp</code> 文件，实现 IR 自动产生的算法，使得它能正确编译任何合法的 Cminusf 程序，生成符合 <a href="../../common/cminusf/#cminusf-的语义">Cminusf 语义</a>的 IR。</p>
-<p><strong>友情提示</strong>：</p>
-<ol>
-<li>请比较通过 cminusfc 产生的 IR 和通过 clang 产生的 IR 来找出可能的问题或发现新的思路。</li>
-<li>使用 GDB 进行调试来检查错误的原因。</li>
-<li>我们为 <code>Function</code>、<code>Type</code> 等类都实现了 <code>print</code> 接口，可以使用我们提供的 <a href="../../common/logging/">logging 工具</a> 进行打印调试。</li>
-<li>对于 C++ 不熟悉的学生可以参考 <a href="../../common/simple_cpp/">C++ 简介</a>。</li>
-</ol>
-<h2 id="_4">实验要求</h2>
-<h3 id="_5">仓库目录结构</h3>
-<p>与该阶段有关的文件如下。</p>
-<div class="highlight"><pre><span></span><code>.
-├── CMakeLists.txt
-├── include                             &lt;- 实验所需的头文件
-│   ├── ...
-|   ├── cminusfc
-|   |    └── cminusf_builder.hpp        &lt;- 该阶段需要修改的文件
-│   ├── lightir/*
-│   └── common
-│        ├── ast.hpp
-│        ├── logging.hpp
-│        └── syntax_tree.h
-├── src
-│   ├── ...
-│   └── cminusfc
-│       ├── cminusfc.cpp                &lt;- cminusfc 的主程序文件
-│       └── cminusf_builder.cpp         &lt;- 该阶段需要修改的文件
-└── tests
-    ├── ...
-    └── 2-ir-gen
-        └── autogen
-            ├── testcases                &lt;- 助教提供的测试样例
-            ├── answers                  &lt;- 助教提供的测试样例
-            └── eval_lab2.py             &lt;- 助教提供的测试脚本
-</code></pre></div>
-<h3 id="_6">编译、运行和评测</h3>
-<p><strong>编译</strong></p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>2023ustc-jianmu-compiler
-$<span class="w"> </span>mkdir<span class="w"> </span>build
-$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
-<span class="c1"># 使用 cmake 生成 makefile 等文件</span>
-$<span class="w"> </span>cmake<span class="w"> </span>..
-<span class="c1"># 使用 make 进行编译</span>
-$<span class="w"> </span>make
-<span class="c1"># 安装以链接 libcminus_io.a</span>
-$<span class="w"> </span>sudo<span class="w"> </span>make<span class="w"> </span>install
-</code></pre></div>
-<p>如果构建成功，你会在 <code>build</code> 文件夹下找到 cminusfc 可执行文件，它能将 cminus 文件输出为 IR 文件，编译成二进制可执行文件。</p>
-<p><strong>运行</strong></p>
-<p>我们在 <code>tests/testcases_general</code> 文件夹中准备了一些通用案例。当需要对 <code>.cminus</code> 单个文件测试时，可以这样使用：</p>
-<h4 id="ir_1">情况一：生成 IR 文件</h4>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>为了让 cminusfc 在 <code>$PATH</code> 中，一定要 <code>sudo make install</code>。</p>
-</div>
-<div class="highlight"><pre><span></span><code><span class="c1"># 假设 cminusfc 的路径在你的 $PATH 中，并且你现在在 test.cminus 文件所在目录中</span>
-$<span class="w"> </span>cminusfc<span class="w"> </span>test.cminus<span class="w"> </span>-emit-llvm
-</code></pre></div>
-<p>此时会在同目录下生成同名的 .ll 文件，在这里即为 <code>test.ll</code>。</p>
-<h4 id="_7">情况二：生成可执行文件</h4>
-<p>上面生成的 .ll 文件用于阅读，如果需要运行，需要调用 clang 编译链接生成二进制文件 <code>test</code></p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>clang<span class="w"> </span>-O0<span class="w"> </span>-w<span class="w"> </span>-no-pie<span class="w"> </span>test.ll<span class="w"> </span>-o<span class="w"> </span><span class="nb">test</span><span class="w"> </span>-lcminus_io
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>上面的命令编译了 <code>test.ll</code>，并链接了 <code>cminus_io</code> 库。</p>
-</div>
-<p><strong>测试</strong></p>
-<!-- TODO: 把 general 加上去 -->
-
-<p>自动测试脚本和所有测试样例都是公开的，它在 <code>tests/2-ir-gen/autogen</code> 目录下，使用方法如下：</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># 在 tests/2-ir-gen/autogen 目录下运行：</span>
-$<span class="w"> </span>python3<span class="w"> </span>./eval_lab2.py
-$<span class="w"> </span>cat<span class="w"> </span>eval_result
-</code></pre></div>
-<p>测试结果会输出到 <code>tests/2-ir-gen/autogen/eval_result</code>。</p>
+<h1 id="cmakedebug">在CMake构建的大型项目中如何Debug</h1>
+<details class="info">
+<summary>CMake</summary>
+<p>CMake 是一个开源的跨平台构建系统工具，用于管理项目的构建过程。它使用简单的文本文件（CMakeLists.txt）来定义项目的构建配置，并生成标准的构建文件（如 Makefile 或 Visual Studio 工程文件）</p>
+</details>
+<p>对于一个大型工程而言，Debug是相对困难的，我们为大家提供了两种可行的Debug方法</p>
 
 
 
@@ -1665,7 +1302,7 @@ $<span class="w"> </span>cat<span class="w"> </span>eval_result
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 27, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 1, 2024</span>
   </span>
 
     
@@ -1681,7 +1318,7 @@ $<span class="w"> </span>cat<span class="w"> </span>eval_result
     </span>
     <nav>
       
-        <a href="mailto:95729892+jyjsxx@users.noreply.github.com">JYJSXX</a>
+        <a href="mailto:liuruibo21@mail.ustc.edu.cn">JYJSXX</a>
     </nav>
   </span>
 
@@ -1710,7 +1347,7 @@ $<span class="w"> </span>cat<span class="w"> </span>eval_result
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../visitor_pattern/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 访问者模式">
+          <a href="../cpp/" class="md-footer__link md-footer__link--prev" aria-label="上一页: C++ 语法">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -1720,20 +1357,20 @@ $<span class="w"> </span>cat<span class="w"> </span>eval_result
                 上一页
               </span>
               <div class="md-ellipsis">
-                访问者模式
+                C++ 语法
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../lab3/" class="md-footer__link md-footer__link--next" aria-label="下一页: Lab3 简介">
+          <a href="../../lab1/" class="md-footer__link md-footer__link--next" aria-label="下一页: Lab1 简介">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                Lab3 简介
+                Lab1 简介
               </div>
             </div>
             <div class="md-footer__button md-icon">
