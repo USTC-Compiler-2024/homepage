@@ -9,6 +9,8 @@
       
       
       
+        <link rel="prev" href="../cpp/">
+      
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -16,7 +18,7 @@
     
     
       
-        <title>在CMake构建的大型项目中如何Debug - USTC 编译原理和技术 2024</title>
+        <title>如何Debug - USTC 编译原理和技术 2024</title>
       
     
     
@@ -129,7 +131,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              在CMake构建的大型项目中如何Debug
+              如何Debug
             
           </span>
         </div>
@@ -270,6 +272,26 @@
           
   
   公共文档
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  Lab0
 
         </a>
       </li>
@@ -520,6 +542,279 @@
   
 
     
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Lab0
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Lab0
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab0 简介
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux 环境配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LLVM 等软件环境配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git 的使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 语法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    如何Debug
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    如何Debug
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      logging 工具使用
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="logging 工具使用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      介绍
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lldb" class="md-nav__link">
+    <span class="md-ellipsis">
+      图形化的LLDB调试工具
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="图形化的LLDB调试工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      克隆需要的测试工程并构建项目
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -539,6 +834,71 @@
   
     
   
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      logging 工具使用
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="logging 工具使用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      介绍
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lldb" class="md-nav__link">
+    <span class="md-ellipsis">
+      图形化的LLDB调试工具
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="图形化的LLDB调试工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      克隆需要的测试工程并构建项目
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -562,6 +922,70 @@
 <p>CMake 是一个开源的跨平台构建系统工具，用于管理项目的构建过程。它使用简单的文本文件（CMakeLists.txt）来定义项目的构建配置，并生成标准的构建文件（如 Makefile 或 Visual Studio 工程文件）</p>
 </details>
 <p>对于一个大型工程而言，Debug是相对困难的，我们为大家提供了两种可行的Debug方法</p>
+<h2 id="logging">logging 工具使用</h2>
+<h3 id="_1">介绍</h3>
+<p>为了方便同学们在之后的实验中 debug，为大家设计了一个 C++ 简单实用的分级日志工具。该工具将日志输出信息从低到高分成四种等级：<code>DEBUG</code>，<code>INFO</code>，<code>WARNING</code>，<code>ERROR</code>。通过设定环境变量 <code>LOGV</code> 的值，来选择输出哪些等级的日志。<code>LOGV</code> 的取值是 <strong>0 到 3</strong>，分别对应到上述的 4 种级别 (<code>0:DEBUG</code>,<code>1:INFO</code>,<code>2:WARNING</code>,<code>3:ERROR</code>)。此外输出中还会包含打印该日志的代码所在位置。</p>
+<h3 id="_2">使用</h3>
+<p>项目编译好之后，可以在 <code>build</code> 目录下运行 test_logging 可执行文件，该文件的源代码在 <code>tests/test_logging.cpp</code>，用法如下：</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;logging.hpp&quot;</span>
+<span class="c1">// 引入头文件</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+<span class="w">    </span><span class="n">LOG</span><span class="p">(</span><span class="n">DEBUG</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;This is DEBUG log item.&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// 使用关键字 LOG，括号中填入要输出的日志等级</span>
+<span class="w">    </span><span class="c1">// 紧接着就是&lt;&lt;以及日志的具体信息，就跟使用 std::cout 一样</span>
+<span class="w">    </span><span class="n">LOG</span><span class="p">(</span><span class="n">INFO</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;This is INFO log item&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">LOG</span><span class="p">(</span><span class="n">WARNING</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;This is WARNING log item&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">LOG</span><span class="p">(</span><span class="n">ERROR</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;This is ERROR log item&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>接着在运行该程序的时候，设定环境变量 <code>LOGV=0</code>，那么程序就会输出级别 <strong>大于等于 0</strong> 日志信息：</p>
+<div class="highlight"><pre><span></span><code>user@user:<span class="si">${</span><span class="nv">ProjectDir</span><span class="si">}</span>/build$<span class="w"> </span><span class="nv">LOGV</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>./test_logging
+<span class="o">[</span>DEBUG<span class="o">]</span><span class="w"> </span><span class="o">(</span>test_logging.cpp:5L<span class="w">  </span>main<span class="o">)</span>This<span class="w"> </span>is<span class="w"> </span>DEBUG<span class="w"> </span>log<span class="w"> </span>item.
+<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">(</span>test_logging.cpp:6L<span class="w">  </span>main<span class="o">)</span>This<span class="w"> </span>is<span class="w"> </span>INFO<span class="w"> </span>log<span class="w"> </span>item
+<span class="o">[</span>WARNING<span class="o">]</span><span class="w"> </span><span class="o">(</span>test_logging.cpp:7L<span class="w">  </span>main<span class="o">)</span>This<span class="w"> </span>is<span class="w"> </span>WARNING<span class="w"> </span>log<span class="w"> </span>item
+<span class="o">[</span>ERROR<span class="o">]</span><span class="w"> </span><span class="o">(</span>test_logging.cpp:8L<span class="w">  </span>main<span class="o">)</span>This<span class="w"> </span>is<span class="w"> </span>ERROR<span class="w"> </span>log<span class="w"> </span>item
+</code></pre></div>
+<p>输出中除了包含日志级别和用户想打印的信息，在圆括号中还包含了打印该信息代码的具体位置（包括文件名称、所在行、所在函数名称），可以很方便地定位到出问题的地方。</p>
+<p>假如我们觉得程序已经没有问题了，不想看那么多的 DEBUG 信息，那么我们就可以设定环境变量 <code>LOGV=1</code>，选择只看 <strong>级别大于等于 1</strong> 的日志信息：</p>
+<div class="highlight"><pre><span></span><code>user@user:<span class="si">${</span><span class="nv">ProjectDir</span><span class="si">}</span>/build$<span class="w"> </span><span class="nv">LOGV</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>./test_logging
+<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">(</span>test_logging.cpp:6L<span class="w">  </span>main<span class="o">)</span>This<span class="w"> </span>is<span class="w"> </span>INFO<span class="w"> </span>log<span class="w"> </span>item
+<span class="o">[</span>WARNING<span class="o">]</span><span class="w"> </span><span class="o">(</span>test_logging.cpp:7L<span class="w">  </span>main<span class="o">)</span>This<span class="w"> </span>is<span class="w"> </span>WARNING<span class="w"> </span>log<span class="w"> </span>item
+<span class="o">[</span>ERROR<span class="o">]</span><span class="w"> </span><span class="o">(</span>test_logging.cpp:8L<span class="w">  </span>main<span class="o">)</span>This<span class="w"> </span>is<span class="w"> </span>ERROR<span class="w"> </span>log<span class="w"> </span>item
+</code></pre></div>
+<p>当然 <code>LOGV</code> 值越大，日志的信息将更加简略。如果没有设定 <code>LOGV</code> 的环境变量，将默认不输出任何信息。</p>
+<p>这里再附带一个小技巧，如果日志内容多，在终端观看体验较差，可以输入以下命令将日志输出到文件中：</p>
+<div class="highlight"><pre><span></span><code>user@user:${ProjectDir}/build$ LOGV=0 ./test_logging &gt; log
+</code></pre></div>
+<p>然后就可以输出到文件名为 log 的文件中啦～</p>
+<h2 id="lldb">图形化的LLDB调试工具</h2>
+<details class="info" open="open">
+<summary>依赖</summary>
+<p>这种调试方法实际上是使用了lldb调试工具以及VSCode <code>CodeLLDB</code>扩展</p>
+<p>使用以下命令安装lldb:
+(apt)</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>lldb
+</code></pre></div>
+<p>(brew)</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>brew<span class="w"> </span>install<span class="w"> </span>lldb
+</code></pre></div>
+<p>在VSCode安装扩展
+- CodeLLDB
+    <a class="glightbox" href="../photos/codelldb.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="CodeLLDB" src="../photos/codelldb.png" /></a>
+- CMake &amp; CMake Tools
+    <a class="glightbox" href="CMake.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="CMakeExt" src="CMake.png" /></a></p>
+</details>
+<p>LLDB是LLVM项目开发的调试器，通过设置VSCode扩展可以方便地调试大型项目。下面将以一个小型工程为例：</p>
+<h3 id="_3">克隆需要的测试工程并构建项目</h3>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>git<span class="w"> </span>clone<span class="w"> </span>https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024ustc-jianmu-compiler.git
+<span class="w">    </span><span class="nb">cd</span><span class="w"> </span>stl_debug
+<span class="w">    </span>mkdir<span class="w"> </span>build
+<span class="w">    </span><span class="nb">cd</span><span class="w"> </span>build
+<span class="w">    </span>cmake<span class="w"> </span>..
+<span class="w">    </span>make
+</code></pre></div>
+<p>经过这一步后，在<code>${workspaceFolder}/build/src/</code>下可以找到生成的可执行文件<code>lab0_debug</code></p>
+<p>运行lab0_debug</p>
 
 
 
@@ -593,12 +1017,13 @@
   <span class="md-source-file__fact">
     <span class="md-icon" title="贡献者">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.536 5.536 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13v-1.75M0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20H0m24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9V20Z"/></svg>
       
     </span>
     <nav>
       
-        <a href="mailto:liuruibo21@mail.ustc.edu.cn">JYJSXX</a>
+        <a href="mailto:liuruibo21@mail.ustc.edu.cn">JYJSXX</a>, 
+        <a href="mailto:not.committed.yet">Not Committed Yet</a>
     </nav>
   </span>
 
@@ -622,6 +1047,28 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../cpp/" class="md-footer__link md-footer__link--prev" aria-label="上一页: C++ 语法">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                C++ 语法
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">

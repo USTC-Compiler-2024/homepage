@@ -9,6 +9,10 @@
       
       
       
+        <link rel="prev" href="../git/">
+      
+      
+        <link rel="next" href="../debug/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -16,7 +20,7 @@
     
     
       
-        <title>C++ 常见语法 - USTC 编译原理和技术 2024</title>
+        <title>C++ 语法 - USTC 编译原理和技术 2024</title>
       
     
     
@@ -129,7 +133,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              C++ 常见语法
+              C++ 语法
             
           </span>
         </div>
@@ -270,6 +274,26 @@
           
   
   公共文档
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  Lab0
 
         </a>
       </li>
@@ -520,18 +544,171 @@
   
 
     
-  </ul>
-</nav>
-                  </div>
-                </div>
-              </div>
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
+  
+  <span class="md-ellipsis">
+    Lab0
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Lab0
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab0 简介
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux 环境配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LLVM 等软件环境配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git 的使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    C++ 语法
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    C++ 语法
+  </span>
+  
+
+      </a>
+      
+        
 
 <nav class="md-nav md-nav--secondary" aria-label="目录">
   
@@ -545,6 +722,24 @@
       目录
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#string" class="md-nav__link">
+    <span class="md-ellipsis">
+      string
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto" class="md-nav__link">
+    <span class="md-ellipsis">
+      auto
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#class" class="md-nav__link">
@@ -621,6 +816,15 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stl" class="md-nav__link">
+    <span class="md-ellipsis">
+      STL
+    </span>
+  </a>
   
 </li>
       
@@ -783,6 +987,369 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      函数重载
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      内存管理
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../debug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    如何Debug
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#string" class="md-nav__link">
+    <span class="md-ellipsis">
+      string
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto" class="md-nav__link">
+    <span class="md-ellipsis">
+      auto
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class" class="md-nav__link">
+    <span class="md-ellipsis">
+      类(class)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="类(class)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      类的定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      访问控制
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      构造函数和析构函数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      成员函数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      继承
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      多态
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stl" class="md-nav__link">
+    <span class="md-ellipsis">
+      STL
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#container" class="md-nav__link">
+    <span class="md-ellipsis">
+      容器(Container)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="容器(Container)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      特点
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      常用方法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      注意事项
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#for-in-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      for in C++
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="for in C++">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本语法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      解析
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      特点
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="示例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      只读遍历
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      引用遍历（修改元素）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      注意
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#static_cast" class="md-nav__link">
+    <span class="md-ellipsis">
+      static_cast&lt;&gt;()
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="static_cast<>()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      特点
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      用法示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      函数重载
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      内存管理
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -807,6 +1374,21 @@
 <summary>关于基本语法</summary>
 <p>我们默认大家已经有了基本的C/C++编程能力，至少在计算机程序设计(CS1001A)要求范围内的语法这里就不再赘述。</p>
 </details>
+<h2 id="string">string</h2>
+<p>C++ 提供了更易用的 <code>std::string</code> 以处理字符串，可以支持通过 <code>+</code> 拼接，还提供了许多方法：</p>
+<ul>
+<li><code>length</code>: 返回字符串长度。</li>
+<li><code>push_back(c)</code>: 在字符串末尾添加一个字符 <code>c</code>。</li>
+<li><code>append(str)</code>: 在字符串末尾添加字符串 <code>str</code>。</li>
+<li><code>substr</code>: 取子串。</li>
+</ul>
+<p>更多方法请查阅：<a href="https://en.cppreference.com/w/cpp/string">https://en.cppreference.com/w/cpp/string</a></p>
+<h2 id="auto">auto</h2>
+<p><code>auto</code> 关键字可以用于当类型已知时自动推断类型，例如：</p>
+<div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
+<span class="n">v</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="s">&quot;compile&quot;</span><span class="p">);</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">front</span><span class="p">();</span><span class="w"> </span><span class="c1">// 这里 s 就是 std::string 类型</span>
+</code></pre></div>
 <h2 id="class">类(class)</h2>
 <p>C++ 类是面向对象编程的核心概念之一，可以看作是对 C 语言结构体的扩展。类不仅可以包含数据成员（类似于结构体中的字段），还可以包含函数成员（方法），用于操作这些数据。</p>
 <h3 id="_1">类的定义</h3>
@@ -913,16 +1495,65 @@
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="_5">继承</h3>
-<p>C++ 支持继承，一个类可以从另一个类继承。继承类可以重用基类的代码：</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">show</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Base class</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<p>类的继承是一种面向对象语言常用的代码复用方法，也是一种非常直观的抽象方式。我们可以定义 <code>struct Cat : Animal</code> 来声明 <code>Cat</code> 类是 <code>Animal</code> 类的子类，也就是 <code>Cat</code> 继承了 <code>Animal</code> 类。此时，新的 <code>Cat</code> 类从 <code>Animal</code> 类中继承了 <code>void eat();</code> 成员函数，并且可以在此之上定义额外的成员函数 <code>void nyan()</code>。同理，我们也可以定义 <code>struct Dog : Animal</code> 来定义 <code>Dog</code> 类。</p>
+<div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Cat</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Animal</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 从 Animal 中继承了 void eat();</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">nyan</span><span class="p">();</span>
 <span class="p">};</span>
 
-<span class="k">class</span><span class="w"> </span><span class="nc">Derived</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// 继承了 Base 的成员函数和数据</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Dog</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Animal</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 从 Animal 中继承了 void eat();</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">wang</span><span class="p">()</span>
 <span class="p">};</span>
 </code></pre></div>
+<p>我们可以通过合理的继承结构来将函数定义在合适的位置，使得大部分通用函数可以共享。</p>
+<p>同学们可能会想到同是 <code>Animal</code>，<code>Cat</code> 和 <code>Dog</code> 可能会有相同名称与参数的函数，但是却有着不同的实现，这时我们就要用到虚函数了。子类中可以定义虚函数的实现，从而使得不同子类对于同一个名字的成员函数有不同实现。</p>
+<p>我们可以用子类的指针给基类指针赋值，在基类指针上调用虚函数时，会通过虚函数表查找到对应的函数实现，而不是和普通类一样查找对应类型的函数实现。</p>
+<div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Animal</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// = 0 表示该虚函数在 Animal 类中没有实现</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">say</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">Cat</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Animal</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// override 表示覆盖父函数中的实现，下同</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">say</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;I&#39;m a cat&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">Dog</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Animal</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">say</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;I&#39;m a dog&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// 试一试</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Cat</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="w">  </span><span class="n">Dog</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
+<span class="w">  </span><span class="n">Animal</span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="w">  </span><span class="n">c</span><span class="p">.</span><span class="n">say</span><span class="p">();</span>
+<span class="w">  </span><span class="n">d</span><span class="p">.</span><span class="n">say</span><span class="p">();</span>
+<span class="w">  </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">c</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// 这里基类指针指向 Cat 类实例，调用 say 时实际会调用 Cat 类的实现，下同</span>
+<span class="w">  </span><span class="n">a</span><span class="o">-&gt;</span><span class="n">say</span><span class="p">();</span>
+<span class="w">  </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">d</span><span class="p">;</span>
+<span class="w">  </span><span class="n">a</span><span class="o">-&gt;</span><span class="n">say</span><span class="p">();</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>同时，既然子类的指针可以赋值给基类，例如上面我们让 <code>Animal *a = &amp;c</code>，这时 <code>a</code> 指向的是 <code>Cat</code> 类的实例，为了得到 <code>Cat</code> 类的对应指针，需要进行类型转换，可以使用 <code>dynamic_cast</code>：</p>
+<div class="highlight"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">cc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">Cat</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+</code></pre></div>
+<p>这样我们就可以把基类指针又转回对应的子类指针。当然，如果指针不是 <code>Cat *</code> 类型的，<code>dynamic_cast</code> 将会返回 <code>nullptr</code>。（与 C 中统一使用 <code>NULL</code> 不同，在 C++ 中，我们用 <code>nullptr</code> 表示空指针）</p>
+<p>在确信类型转换一定成功时，也可以使用 <code>static_cast</code> 来完成转换，可以省去运行时的类型检查。此外，<code>static_cast</code> 还用于基本类型的转换，例如：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>你应该避免使用 C 风格的强制类型转换，例如 <code>int n = (int)f</code>，因为 C++ 风格的类型转换会被编译器检查，而 C 风格的不会。</p>
+</div>
 <h3 id="_6">多态</h3>
 <p>通过将基类的成员函数声明为 <code>virtual</code>，可以实现多态，即在运行时决定调用哪个继承类的函数：</p>
 <details class="info">
@@ -975,6 +1606,18 @@
 <span class="w">    </span><span class="n">basePtr</span><span class="o">-&gt;</span><span class="n">show</span><span class="p">();</span><span class="w"> </span><span class="c1">// 输出 &quot;Derived class&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
+<h2 id="stl">STL</h2>
+<p>STL (Standard Template Library)，意为标准模板库，包含了许多常用的数据结构，在我们的实验中你可能会用到：</p>
+<ul>
+<li><code>std::vector</code>: 可变长数组</li>
+<li><code>std::map</code>: 由红黑树实现的有序关联容器</li>
+<li><code>std::set</code>: 由红黑树实现的有序集合</li>
+<li><code>std::unordered_map</code>: 由哈希表实现的无序关联容器</li>
+<li><code>std::list</code>: 链表</li>
+</ul>
+<p>这里的 <code>std</code> 是 C++ 中的命名空间，可以防止标识符的重复，详见 <a href="https://en.wikipedia.org/wiki/Namespace">维基百科</a></p>
+<p>同时，这些容器都是模板 <a href="https://en.wikipedia.org/wiki/Template_(C%2B%2B)">Template</a>，需要实例化，例如一个可变长的整形数组应该实例化为 <code>std::vector&lt;int&gt;</code>。</p>
+<p>更多信息可以参考：<a href="https://en.cppreference.com/w/cpp/standard_library">https://en.cppreference.com/w/cpp/standard_library</a></p>
 <h2 id="container">容器(Container)</h2>
 <div class="admonition warning">
 <p class="admonition-title">关于容器</p>
@@ -1128,6 +1771,36 @@
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
+<h2 id="_20">函数重载</h2>
+<p>C++ 中的函数可以重载，即可以有同名函数，但是要求它们的形参必须不同。如果想进一步了解，可以阅读<a href="https://en.cppreference.com/w/cpp/language/overload_resolution">详细规则</a>。下面是函数重载的示例：</p>
+<div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">Line</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Point</span><span class="w"> </span><span class="n">first</span><span class="p">;</span>
+<span class="w">  </span><span class="n">Point</span><span class="w"> </span><span class="n">second</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="n">Point</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;(%d, %d)&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="n">Line</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">first</span><span class="p">);</span><span class="w"> </span><span class="c1">// s.first == Point { ... }</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;-&gt;&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">print</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">second</span><span class="p">);</span><span class="w"> </span><span class="c1">// s.second == Point { ... }</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>我们可以看到上面的示例定义了两个 <code>print</code> 函数，并且它们的参数列表的类型不同。它们实际上是两个不同的函数（并且拥有不同的内部名字），但是 C++ 能够正确的识别函数调用时使用了哪一个定义（前提是你正确使用了这一特性），并且在编译时就会链接上正确的实现。我们可以看到，这种特性非常符合人的直觉，并且没有带来额外开销。</p>
+<h2 id="_21">内存管理</h2>
+<p>C++11 引入了许多智能指针类型来帮助自动内存管理，本实验中用到的有两种，分别是：</p>
+<ol>
+<li><code>std::shared_ptr</code>: 引用计数智能指针，使用一个共享变量来记录指针管理的对象被引用了几次。当对象引用计数为 0 时，说明当前该对象不再有引用，并且进程也无法再通过其它方式来引用它，也就意味着可以回收内存，这相当于低级的垃圾回收策略。可以用 <code>std::make_shared</code> 来创建。</li>
+<li><code>std::unique_ptr</code>: 表示所有权的智能指针，该指针要求它所管理的对象只能有一次引用，主要用于语义上不允许共享的对象（比如 <code>llvm::Module</code>）。当引用计数为 0 时，它也会回收内存。可以用 <code>std::make_unique</code> 来创建。</li>
+</ol>
+<p>在涉及到内存管理时，应该尽量使用智能指针。</p>
 
 
 
@@ -1148,7 +1821,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 31, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 1, 2024</span>
   </span>
 
     
@@ -1159,12 +1832,13 @@
   <span class="md-source-file__fact">
     <span class="md-icon" title="贡献者">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.536 5.536 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13v-1.75M0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20H0m24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9V20Z"/></svg>
       
     </span>
     <nav>
       
-        <a href="mailto:liuruibo21@mail.ustc.edu.cn">JYJSXX</a>
+        <a href="mailto:liuruibo21@mail.ustc.edu.cn">JYJSXX</a>, 
+        <a href="mailto:95729892+jyjsxx@users.noreply.github.com">JYJSXX</a>
     </nav>
   </span>
 
@@ -1188,6 +1862,44 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../git/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Git 的使用">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                Git 的使用
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../debug/" class="md-footer__link md-footer__link--next" aria-label="下一页: 如何Debug">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                如何Debug
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
