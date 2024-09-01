@@ -24,7 +24,7 @@
 
 <strong>教师</strong>
 
-- 主讲教师：李诚（[主页](http://staff.ustc.edu.cn/~chengli7/)）
+- 主讲教师：李诚 （<chengli7@ustc.edu.cn>）
 
 <strong>助教</strong>
 
@@ -38,14 +38,14 @@
 <strong>其它</strong>
 
 - QQ 群：726310461
-- 录课视频（需校内统一身份认证）：<https://v.ustc.edu.cn/1/2024-1/capture-course/011163.02/detail>
-- 希冀实验平台（作业及实验提交）：<http://cscourse.ustc.edu.cn/>
+<!-- - 录课视频（需校内统一身份认证）：<https://v.ustc.edu.cn/1/2024-1/capture-course/011163.02/detail> -->
+<!-- - 希冀实验平台（作业及实验提交）：<http://cscourse.ustc.edu.cn/> -->
 <!-- - 实验框架已公开，见参考资料[<sup>2</sup>](#textbook2) -->
 
 
 ## <strong>公告</strong>
 
-- 2023-09-03：[课程平台介绍](exp_platform_intro/README.md) 已发布
+- 2024-09-02：[课程平台介绍](exp_platform_intro/README.md) 已发布
 <!-- - 2023-09-08：[Lab0](lab0/index.md) 已发布，Deadline：**2023 年 9 月 15 日**
 - 2023-09-13：第一次作业：2.1a、2.2、2.3a、2.4h、2.7c、2.15（教材[<sup>1</sup>](#textbook)），Deadline：**2023 年 9 月 20 日**
 - 2023-09-15：[Lab1](lab1/index.md) 已发布，Deadline：**2023 年 9 月 28 日**
