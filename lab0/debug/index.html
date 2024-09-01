@@ -264,24 +264,6 @@
         
   
   
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../common/cminusf/" class="md-tabs__link">
-          
-  
-  公共文档
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
     
   
   
@@ -394,158 +376,6 @@
       
   
   
-  
-  
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    公共文档
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            公共文档
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../common/cminusf/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Cminusf 语法语义介绍
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../common/LightIR/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Light IR 简介
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../common/simple_cpp/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    C++ 介绍
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../common/logging/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Logging 工具使用
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../common/asm_intro/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    龙芯汇编介绍
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
     
   
   
@@ -564,10 +394,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -578,8 +408,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Lab0
           </label>
@@ -794,8 +624,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#json-debug" class="md-nav__link">
+    <span class="md-ellipsis">
+      json 文件设置及 debug 示例
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      实验任务
+    </span>
+  </a>
   
 </li>
       
@@ -893,8 +741,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#json-debug" class="md-nav__link">
+    <span class="md-ellipsis">
+      json 文件设置及 debug 示例
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      实验任务
+    </span>
+  </a>
   
 </li>
       
@@ -962,8 +828,8 @@
 <details class="info" open="open">
 <summary>依赖</summary>
 <p>这种调试方法实际上是使用了lldb调试工具以及VSCode <code>CodeLLDB</code>扩展</p>
-<p>使用以下命令安装lldb:
-(apt)</p>
+<p>使用以下命令安装lldb:</p>
+<p>(apt)</p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>lldb
 </code></pre></div>
 <p>(brew)</p>
@@ -973,26 +839,142 @@
 - CodeLLDB
     <a class="glightbox" href="../photos/codelldb.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="CodeLLDB" src="../photos/codelldb.png" /></a>
 - CMake &amp; CMake Tools
-    <a class="glightbox" href="CMake.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="CMakeExt" src="CMake.png" /></a></p>
+    <a class="glightbox" href="../photos/CMake.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="CMakeExt" src="../photos/CMake.png" /></a></p>
 </details>
 <p>LLDB是LLVM项目开发的调试器，通过设置VSCode扩展可以方便地调试大型项目。下面将以一个小型工程为例：</p>
 <h3 id="_3">克隆需要的测试工程并构建项目</h3>
-<div class="highlight"><pre><span></span><code><span class="w">    </span>git<span class="w"> </span>clone<span class="w"> </span>https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024ustc-jianmu-compiler.git
-<span class="w">    </span><span class="nb">cd</span><span class="w"> </span>stl_debug
-<span class="w">    </span>mkdir<span class="w"> </span>build
-<span class="w">    </span><span class="nb">cd</span><span class="w"> </span>build
-<span class="w">    </span>cmake<span class="w"> </span>..
-<span class="w">    </span>make
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024ustc-jianmu-compiler.git
+<span class="nb">cd</span><span class="w"> </span>stl_debug
+mkdir<span class="w"> </span>build
+<span class="nb">cd</span><span class="w"> </span>build
+cmake<span class="w"> </span>..
+make
 </code></pre></div>
 <p>经过这一步后，在<code>${workspaceFolder}/build/src/</code>下可以找到生成的可执行文件<code>lab0_debug</code></p>
 <p>运行lab0_debug，你会得到类似下面的输出</p>
-<div class="highlight"><pre><span></span><code>jyjs@JHost<span class="w"> </span>stl_debug<span class="w"> </span>%<span class="w"> </span>./build/src/lab0_debug<span class="w"> </span>
+<div class="highlight"><pre><span></span><code>jyjs@JHost<span class="w"> </span>stl_debug<span class="w"> </span>%<span class="w"> </span>./build/src/lab0_debug<span class="w"> </span>-t
 Hello,<span class="w"> </span>from<span class="w"> </span>stl_debug!
 MyMyI<span class="err">&#39;</span>mStudent<span class="w"> </span>object<span class="w"> </span>created
 Student<span class="w"> </span>destructor<span class="w"> </span>called
 Human<span class="w"> </span>destructor<span class="w"> </span>called
 Human<span class="w"> </span>destructor<span class="w"> </span>called
 </code></pre></div>
+<p>而阅读这个项目的源码我们可以得知，期望的输出是：</p>
+<div class="highlight"><pre><span></span><code>jyjs@JHost<span class="w"> </span>stl_debug<span class="w"> </span>%<span class="w"> </span>./build/src/lab0_debug<span class="w"> </span>-t
+Hello,<span class="w"> </span>from<span class="w"> </span>stl_debug!
+My<span class="w"> </span>name<span class="w"> </span>is<span class="w"> </span>John<span class="w"> </span>Doe<span class="w"> </span>and<span class="w"> </span>I<span class="w"> </span>am<span class="w"> </span><span class="m">25</span><span class="w"> </span>years<span class="w"> </span>old
+My<span class="w"> </span>name<span class="w"> </span>is<span class="w"> </span>Jane<span class="w"> </span>Doe<span class="w"> </span>and<span class="w"> </span>I<span class="w"> </span>am<span class="w"> </span><span class="m">20</span><span class="w"> </span>years<span class="w"> </span>old
+I<span class="err">&#39;</span>m<span class="w"> </span>from<span class="w"> </span>MIT
+Student<span class="w"> </span>object<span class="w"> </span>created
+Student<span class="w"> </span>destructor<span class="w"> </span>called
+Human<span class="w"> </span>destructor<span class="w"> </span>called
+Human<span class="w"> </span>destructor<span class="w"> </span>called
+</code></pre></div>
+<p>我们将在下面一小节来带大家de出这个bug！</p>
+<h3 id="json-debug">json 文件设置及 debug 示例</h3>
+<p><code>.vscode/launch.json</code>文件记录了调试器需要的基本信息，它是由vscode自动生成的</p>
+<div class="admonition info">
+<p class="admonition-title">如何自动生成一个.json文件</p>
+<p>点击<code>运行/启动调试(F5)</code></p>
+<p><a class="glightbox" href="../photos/F5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="F5" src="../photos/F5.png" /></a></p>
+<p>上方提示栏弹出，选择LLDB</p>
+<p><a class="glightbox" href="../photos/LLDB.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="LLDB" src="../photos/LLDB.png" /></a></p>
+<p>这时由于vscode的CODELLDB扩展不知道如何调试，会报错并为我们创建<code>.vscode/launch.json</code>文件</p>
+<p><a class="glightbox" href="../photos/error.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="json" src="../photos/error.png" /></a></p>
+<p><div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 使用 IntelliSense 了解相关属性。 </span>
+<span class="w">    </span><span class="c1">// 悬停以查看现有属性的描述。</span>
+<span class="w">    </span><span class="c1">// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span>
+<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.2.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;configurations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lldb&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Debug&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}/&lt;executable file&gt;&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+下文的json文件就是这么得到的，只不过助教做了一些注释</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 使用 IntelliSense 了解相关属性。 </span>
+<span class="w">    </span><span class="c1">// 悬停以查看现有属性的描述。</span>
+<span class="w">    </span><span class="c1">// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span>
+<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.2.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;configurations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lldb&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Debug&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}/&lt;executable file&gt;&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">//TODO: Add executable file here</span>
+<span class="w">            </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;&lt;arguments&gt;&quot;</span><span class="w"> </span><span class="c1">// TODO: Add arguments here</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>version 域指定了调试器的版本信息</li>
+<li>configurations 域指定了配置信息，其中包括：<ul>
+<li>type：任务类型 这是一个lldb任务</li>
+<li>request：需要执行的任务 launch即只有它本身</li>
+<li>name：将这个任务命名为Debug</li>
+<li>progran：被调试的程序 <em><font color=grey>${workspaceFolder} 是一个环境变量，即工程文件所在文件夹</font></em></li>
+<li>args：设置需要的参数</li>
+<li>cwd：指令执行的目录</li>
+</ul>
+</li>
+</ul>
+<p>主要修改 program &amp; args 域即可</p>
+<hr />
+<p>读工程中的CMakeLists.txt文件即可得知，生成的可执行文件目录为<code>${workspaceFolder}/build/src/</code>，可执行文件名为<code>lab0_debug</code></p>
+<p>而main.cpp:17-20L 要求输入-t参数，因此可以做如下修改：</p>
+<div class="highlight"><pre><span></span><code><span class="err">...</span>
+<span class="w">    </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}/build/src/lab0_debug&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;-t&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="err">...</span>
+</code></pre></div>
+<p>之后在main入口处打断点再执行即可开始调试了</p>
+<p><a class="glightbox" href="../photos/debug.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="debug" src="../photos/debug.png" /></a></p>
+<p>在<code>h-&gt;print()</code>处 step in 之后，不难发现是print方法的返回值逻辑处理有误</p>
+<p><a class="glightbox" href="../photos/bug.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="bug" src="../photos/bug.png" /></a></p>
+<p>将Student.cpp:16L &amp; Human.cpp:13L 用<code>res = ss.str();</code>代替后，重新make(构建)项目并运行</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>build<span class="p">;</span><span class="w"> </span>make<span class="p">;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>..
+./build/src/lab0_debug<span class="w"> </span>-t
+</code></pre></div>
+<p>输出如下：</p>
+<div class="highlight"><pre><span></span><code>jyjs@JHost<span class="w"> </span>stl_debug<span class="w"> </span>%<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build<span class="p">;</span><span class="w"> </span>make<span class="p">;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>..
+<span class="o">[</span><span class="w"> </span><span class="m">20</span>%<span class="o">]</span><span class="w"> </span>Building<span class="w"> </span>CXX<span class="w"> </span>object<span class="w"> </span>src/CMakeFiles/lab0_debug.dir/main.cpp.o
+<span class="o">[</span><span class="w"> </span><span class="m">40</span>%<span class="o">]</span><span class="w"> </span>Building<span class="w"> </span>CXX<span class="w"> </span>object<span class="w"> </span>src/CMakeFiles/lab0_debug.dir/Human.cpp.o
+<span class="o">[</span><span class="w"> </span><span class="m">60</span>%<span class="o">]</span><span class="w"> </span>Building<span class="w"> </span>CXX<span class="w"> </span>object<span class="w"> </span>src/CMakeFiles/lab0_debug.dir/Student.cpp.o
+<span class="o">[</span><span class="w"> </span><span class="m">80</span>%<span class="o">]</span><span class="w"> </span>Building<span class="w"> </span>CXX<span class="w"> </span>object<span class="w"> </span>src/CMakeFiles/lab0_debug.dir/logging.cpp.o
+<span class="o">[</span><span class="m">100</span>%<span class="o">]</span><span class="w"> </span>Linking<span class="w"> </span>CXX<span class="w"> </span>executable<span class="w"> </span>lab0_debug
+<span class="o">[</span><span class="m">100</span>%<span class="o">]</span><span class="w"> </span>Built<span class="w"> </span>target<span class="w"> </span>lab0_debug
+jyjs@JHost<span class="w"> </span>stl_debug<span class="w"> </span>%<span class="w"> </span>./build/src/lab0_debug<span class="w"> </span>-t
+Hello,<span class="w"> </span>from<span class="w"> </span>stl_debug!
+My<span class="w"> </span>name<span class="w"> </span>is<span class="w"> </span>John<span class="w"> </span>Doe<span class="w"> </span>and<span class="w"> </span>I<span class="w"> </span>am<span class="w"> </span><span class="m">25</span><span class="w"> </span>years<span class="w"> </span>old
+My<span class="w"> </span>name<span class="w"> </span>is<span class="w"> </span>Jane<span class="w"> </span>Doe<span class="w"> </span>and<span class="w"> </span>I<span class="w"> </span>am<span class="w"> </span><span class="m">20</span><span class="w"> </span>years<span class="w"> </span>old
+I<span class="err">&#39;</span>m<span class="w"> </span>from<span class="w"> </span>MIT
+Student<span class="w"> </span>object<span class="w"> </span>created
+Student<span class="w"> </span>destructor<span class="w"> </span>called
+Human<span class="w"> </span>destructor<span class="w"> </span>called
+Human<span class="w"> </span>destructor<span class="w"> </span>called
+</code></pre></div>
+<h2 id="_4">实验任务</h2>
+<p>通过调试这个工程文件，回答下面三个问题：</p>
+<ol>
+<li>为什么用 main.cpp:31L 替换 main.cpp:32L 会出现报错</li>
+<li>为什么用 main.cpp:33L 替换 main.cpp:34L 会出现报错</li>
+<li>为什么取消注释 main.cpp:38-42L 不会报错，但运行会出现段错误</li>
+</ol>
 
 
 
