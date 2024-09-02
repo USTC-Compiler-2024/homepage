@@ -101,11 +101,16 @@ LLDB是LLVM项目开发的调试器，通过设置VSCode扩展可以方便地调
 ```shell
 git clone https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024ustc-jianmu-compiler.git
 cd 2024ustc-jianmu-compiler
+git chechout lab0
 mkdir build
 cd build
 cmake ..
 make
 ```
+
+或者你可以直接点击下边栏的生成
+
+![make](./photos/make.png)
 
 经过这一步后，在`${workspaceFolder}/build/src/`下可以找到生成的可执行文件`lab0_debug`
 
@@ -142,7 +147,7 @@ Human destructor called
 
 `.vscode/launch.json`文件记录了调试器需要的基本信息，它是由vscode自动生成的
 
-!!! Info "如何自动生成一个.json文件"
+??? Info "如何自动生成一个.json文件"
 
     点击`运行/启动调试(F5)`
 
@@ -202,7 +207,7 @@ Human destructor called
     -  type：任务类型 这是一个lldb任务
     -  request：需要执行的任务 launch即只有它本身
     -  name：将这个任务命名为Debug
-    -  progran：被调试的程序 *<font color=grey>${workspaceFolder} 是一个环境变量，即工程文件所在文件夹</font>*
+    -  program：被调试的程序 注： *<font color=grey>${workspaceFolder} 是一个环境变量，即工程文件所在文件夹</font>*
     -  args：设置需要的参数
     -  cwd：指令执行的目录
 
