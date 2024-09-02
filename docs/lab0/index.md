@@ -4,7 +4,7 @@
 
 !!! warning "Deadline"
 
-    **2023 年 9 月 15 日 23:59**
+    **2024 年 ? 月 ?? 日 23:59**
 
 本次实验用于指导同学们进行环境的搭建以及带领同学们熟悉实验中常用的 C++ 特性以及 git 的操作，主要有以下内容：
 
@@ -28,6 +28,10 @@
 ### 实验二：Git
 
 阅读文档 [Git 的使用](git.md)，完成实验任务 1、2、3。
+
+### 实验三：C++
+
+阅读文档 [C++ 语法](cpp.md) & [如何Debug](debug.md)，完成实验任务1、2、3。
 
 ## 实验要求
 
@@ -56,7 +60,7 @@ Lab0 完成后，除了 answer.pdf 文件，你还在 GitLab 上拥有一个名�
 
 ![Alt text](photos/image-2.png)
 
-#### 答疑
+<!-- #### 答疑
 
 同学们如果对实验有什么疑问，请先登录希冀平台后在[在线答疑模块](https://cscourse.ustc.edu.cn/forum/forum.jsp?forum=121)发帖询问，助教看到帖子会及时回复。
-![Alt text](photos/image_3.png)
+![Alt text](photos/image_3.png) -->

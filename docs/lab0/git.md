@@ -17,10 +17,10 @@ git config --global user.email "Your Email"
 
 我们将使用 GitLab 进行远程代码管理。虽然你没有权限在 GitLab 上创建仓库，但你可以通过 fork 的方式拥有一个属于自己的仓库。
 
-1. 进入以下公开仓库链接：**[https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2023_warm_up_b](https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2023_warm_up_b)**
+1. 进入以下公开仓库链接： **[https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024_warm_up.git](https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024_warm_up.git)**
 2. 点击右上角的 "Fork" 按钮。这个操作会创建一个与原仓库一模一样的新仓库，唯一的区别是，这个新仓库是你自己的。你可以在新仓库上执行任何你需要的操作。
 
-   ![Untitled](photos/git1.png)
+    ![Untitled](photos/git1.png)
 
 3. 点击 "Fork" 后，页面将自动跳转到新的仓库页面，你将成为这个仓库的拥有者，这也会显示在仓库名称旁边。
 
@@ -34,87 +34,88 @@ git config --global user.email "Your Email"
 
 1. 得到仓库的 URL
 
-   ![Untitled](photos/git3.png)
+    ![Untitled](photos/git3.png)
 
 2. 在 Ubuntu 环境中，利用得到的 URL，克隆仓库到本地
 
-   ```bash
-   # 使用 URL 进行 git clone XXX 为你的用户名
-   git clone https://cscourse.ustc.edu.cn/vdir/Gitlab/XXX/2023_warm_up_b.git
-   ```
+    ```bash
+    # 使用 URL 进行 git clone XXX 为你的用户名
+    git clone https://cscourse.ustc.edu.cn/vdir/Gitlab/XXX/2024_warm_up.git
+    ```
 
 3. 输入 GitLab 用户名和密码进行身份验证，验证完毕后就将服务器上的仓库克隆到了本地
+   
+    ```bash
+    # 检查是否成功 clone
+    $ cd 2024_warm_up
+    $ ls
+    warm_up.txt
+    ```
 
-   ```bash
-   # 检查是否成功 clone
-   $ cd 2023_warm_up_b
-   $ ls
-   warm_up.txt
-   ```
+    此时，我们可以创建并提交第一个文件
 
-此时，我们可以创建并提交第一个文件
+4. 创建一个 readme.md 文件
 
-3. 创建一个 readme.md 文件
+    ```bash
+    touch README.md
+    ```
 
-   ```bash
-   touch readme.md
-   ```
+5. 在 README.md 中添加 hello world 信息
 
-4. 在 readme.md 中添加 hello world 信息
+    ```bash
+    $ echo "# Hello World" >> README.md
+    $ cat README.md
+    # Hello World
+    ```
 
-   ```bash
-   $ echo "# Hello World" >> readme.md
-   $ cat readme.md
-   # Hello World
-   ```
+6. 将 README.md 添加到 git 的暂存区
 
-5. 将 readme.md 添加到 git 的暂存区
+    ```bash
+    # git add 指令可以将文件添加到 git 的暂存区
+    # git 的暂存区是用于存放本次的所有修改
+    # 这里只add了一个文件 但是你可以add某一个文件夹，例如 git add .
+    $ git add README.md
 
-   ```bash
-   # git add 指令可以将文件添加到 git 的暂存区
-   # git 的暂存区是用于存放本次的所有修改
-   $ git add readme.md
+    # 我们可以通过 git status 查看 git 的暂存区
+    $ git status
+    On branch master
+    Your branch is up to date with 'origin/master'.
 
-   # 我们可以通过 git status 查看 git 的暂存区
-   $ git status
-   On branch master
-   Your branch is up to date with 'origin/master'.
-
-   Changes to be committed:
+    Changes to be committed:
      (use "git restore --staged <file>..." to unstage)
-           new file:   readme.md
-   ```
+            new file:   readme.md
+    ```
 
-6. 提交本次修改并添加提交信息
+7. 提交本次修改并添加提交信息
 
-   ```bash
-   # 使用 git commit 提交本次修改到 Git 本地仓库
-   # -m 后面的内容用于帮助记录本次提交的相关信息，要求每次提交最好都记录信息
-   $ git commit -m 'add readme'
-   [master bc20c0b] add readme
+    ```bash
+    # 使用 git commit 提交本次修改到 Git 本地仓库
+    # -m 后面的内容用于帮助记录本次提交的相关信息，要求每次提交最好都记录信息
+    $ git commit -m 'add readme'
+    [master bc20c0b] add readme
     1 file changed, 1 insertion(+)
     create mode 100644 readme.md
 
-   # 我们可以通过 git log 查看历史提交记录
-   $ git log
-   commit bc20c0b170a829948439961745cf1a2dc7817e86 (HEAD -> master)
-   Author: gpzlx1 <gpzlx1@mail.ustc.edu.cn>
-   Date:   Wed Sep 6 19:01:15 2023 +0800
+    # 我们可以通过 git log 查看历史提交记录
+    $ git log
+    commit bc20c0b170a829948439961745cf1a2dc7817e86 (HEAD -> master)
+    Author: gpzlx1 <gpzlx1@mail.ustc.edu.cn>
+    Date:   Wed Sep 6 19:01:15 2024 +0800
 
-       add readme
+        add readme
 
-   commit 6d08e6d4a1be64dea41798086b54cb0acc4377e2 (origin/master, origin/HEAD)
-   Author: 123 <hej148@nenu.edu.cn>
-   Date:   Tue Sep 5 22:39:37 2023 +0800
+    commit 6d08e6d4a1be64dea41798086b54cb0acc4377e2 (origin/master, origin/HEAD)
+    Author: 123 <hej148@nenu.edu.cn>
+    Date:   Tue Sep 5 22:39:37 2024 +0800
 
-       copy b
+        copy b
 
-   commit 1abfe16c1d28becaea62aa0971b1e7afd1f4672e
-   Author: 123 <hej148@nenu.edu.cn>
-   Date:   Tue Sep 5 22:02:53 2023 +0800
+    commit 1abfe16c1d28becaea62aa0971b1e7afd1f4672e
+    Author: 123 <hej148@nenu.edu.cn>
+    Date:   Tue Sep 5 22:02:53 2024 +0800
 
-       欢迎加入编译原理
-   ```
+        欢迎加入编译原理
+    ```
 
 通过以上操作，我们完成了一次本地修改和提交。然而，请注意这些更改仅存储在本地，需要使用 "git push" 命令将它们上传到服务器，以实现本地和服务器的同步。
 
@@ -126,8 +127,8 @@ Delta compression using up to 8 threads
 Compressing objects: 100% (2/2), done.
 Writing objects: 100% (3/3), 290 bytes | 290.00 KiB/s, done.
 Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
-To https://cscourse.ustc.edu.cn/vdir/Gitlab/ustc_gongping/2023_warm_up_b.git
-   6d08e6d..bc20c0b  master -> master
+To https://cscourse.ustc.edu.cn/vdir/Gitlab/ustc_gongping/2024_warm_up.git
+    6d08e6d..bc20c0b  master -> master
 ```
 
 现在，刷新 GitLab 页面，刚刚提交的内容已经显示在网页上。
@@ -138,13 +139,13 @@ To https://cscourse.ustc.edu.cn/vdir/Gitlab/ustc_gongping/2023_warm_up_b.git
 
 通过 fork 操作，你已经拥有了一个自己的仓库，在此我们可以引入上下游的概念。假设通过 fork 仓库 A 得到仓库 B，那么 A 就是 B 的上游。尽管 A 和 B 可能有大部分相同的内容，但对 A 和 B 的修改是彼此独立的。在这个课程实验中，我们将以类似的方式发布实验代码，助教维护上游仓库 A，而学生修改下游仓库 B。由于 A 和 B 的修改是相互独立的，接下来我们将介绍如何使 B 同步 A 的相关修改。
 
-接下来，以**[https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2023_warm_up](https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2023_warm_up)** 作为上游仓库为例：
+接下来，以 **[https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024_warm_up_upstream](https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024_warm_up_upstream)** 作为上游仓库为例：
 
 - 添加上游仓库
   ```bash
   # 可以通过 git remote add 添加上游仓库
   # 用 upstream 标识该上游仓库
-  $ git remote add upstream https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2023_warm_up.git
+  $ git remote add upstream https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024_warm_up_upstream.git
   ```
 - 抓取上游仓库
 
@@ -155,9 +156,9 @@ To https://cscourse.ustc.edu.cn/vdir/Gitlab/ustc_gongping/2023_warm_up_b.git
   remote: Counting objects: 100% (5/5), done.
   remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
   Unpacking objects: 100% (3/3), 258 bytes | 51.00 KiB/s, done.
-  From https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2023_warm_up
-   * branch            master     -> FETCH_HEAD
-   * [new branch]      master     -> upstream/master
+  From https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024_warm_up_upstream
+    * branch            master     -> FETCH_HEAD
+    * [new branch]      master     -> upstream/master
   hint: You have divergent branches and need to specify how to reconcile them.
   hint: You can do so by running one of the following commands sometime before
   hint: your next pull:
@@ -223,7 +224,7 @@ To https://cscourse.ustc.edu.cn/vdir/Gitlab/ustc_gongping/2023_warm_up_b.git
   Compressing objects: 100% (3/3), done.
   Writing objects: 100% (6/6), 626 bytes | 626.00 KiB/s, done.
   Total 6 (delta 0), reused 0 (delta 0), pack-reused 0
-  To https://cscourse.ustc.edu.cn/vdir/Gitlab/ustc_gongping/2023_warm_up_b.git
+  To https://cscourse.ustc.edu.cn/vdir/Gitlab/ustc_gongping/2024_warm_up.git
      bc20c0b..126d5c9  master -> master
   ```
 
@@ -239,8 +240,8 @@ To https://cscourse.ustc.edu.cn/vdir/Gitlab/ustc_gongping/2023_warm_up_b.git
 
 1. 根据上述操作，完成 readme.md 添加、上游仓库添加和冲突处理等操作。
 2. 阅读扩展材料，回答以下问题，将答案添加到 `answer.pdf`。
-   1. 如何创建一个新的 git 分支？如何进行分支切换？如何删除一个分支？什么时候可以安全的删除一个分支？
-   2. 如何撤销保存在暂存区的修改？如何撤销最近一次已经提交的所有修改？如何仅撤销最近一次提交的某一个文件(test.txt)？
-   3. 解释 git init 的作用？
-   4. 解释 git fetch 和 git pull 的区别。
+    1. 如何创建一个新的 git 分支？如何进行分支切换？如何删除一个分支？什么时候可以安全的删除一个分支？
+    2. 如何撤销保存在暂存区的修改？如何撤销最近一次已经提交的所有修改？如何仅撤销最近一次提交的某一个文件(test.txt)？
+    3. 解释 git init 的作用？
+    4. 解释 git fetch 和 git pull 的区别。
 3. 将 [LLVM 等软件环境配置与测试](software.md) 中生成的 Test.ll 文件添加到仓库中，并上传到远程仓库中去。
