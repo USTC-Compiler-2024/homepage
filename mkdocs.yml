@@ -1,6 +1,6 @@
 site_name: USTC 编译原理和技术 2024
-repo_name: USTC-Compiler-2024/HomePage
-repo_url: https://github.com/USTC-Compiler-2024/HomePage
+# repo_name: USTC-Compiler-2024/HomePage
+# repo_url: https://github.com/USTC-Compiler-2024/HomePage
 
 theme:
   custom_dir: overrides
@@ -108,19 +108,19 @@ extra_javascript:
 nav:
   - 首页: index.md
   - 课程平台介绍: exp_platform_intro/README.md
-  - 公共文档:
-    - Cminusf 语法语义介绍: common/cminusf.md
-    - Light IR 简介: common/LightIR.md
-    - C++ 介绍: common/simple_cpp.md
-    - Logging 工具使用: common/logging.md
-    - 龙芯汇编介绍: common/asm_intro.md
-  - Lab0:
-    - Lab0 简介: lab0/index.md
-    - Linux 环境配置: lab0/linux.md
-    - LLVM 等软件环境配置: lab0/software.md
-    - Git 的使用: lab0/git.md
-    - C++ 语法: lab0/cpp.md
-    - 如何Debug: lab0/debug.md
+  # - 公共文档:
+    # - Cminusf 语法语义介绍: common/cminusf.md
+    # - Light IR 简介: common/LightIR.md
+    # - C++ 介绍: common/simple_cpp.md
+    # - Logging 工具使用: common/logging.md
+    # - 龙芯汇编介绍: common/asm_intro.md
+  # - Lab0:
+  #   - Lab0 简介: lab0/index.md
+  #   - Linux 环境配置: lab0/linux.md
+  #   - LLVM 等软件环境配置: lab0/software.md
+  #   - Git 的使用: lab0/git.md
+  #   - C++ 语法: lab0/cpp.md
+  #   - 如何Debug: lab0/debug.md
   # - Lab1:
   #   - Lab1 简介: lab1/index.md
   #   - 正则表达式: lab1/正则表达式.md

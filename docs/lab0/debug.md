@@ -4,7 +4,13 @@
 
     CMake 是一个开源的跨平台构建系统工具，用于管理项目的构建过程。它使用简单的文本文件（CMakeLists.txt）来定义项目的构建配置，并生成标准的构建文件（如 Makefile 或 Visual Studio 工程文件）
 
-对于一个大型工程而言，Debug是相对困难的，我们为大家提供了两种可行的Debug方法
+对于一个大型工程而言，Debug是相对困难的，我们为大家提供了两种可行的Debug方法，**<font color = red>这两种调试方法并不是互斥的，我们强烈建议组合使用</font>**
+
+!!! Warning C/C++语言扩展
+
+    大家在以往写C/C++工程时，肯定都使用过 Microsoft C/C++ 扩展，但该扩展在大型cmake构造的项目表现并不优秀。请禁用该扩展并安装Clangd替代。
+
+    ![Clangd](photos/Clangd.png)
 
 ## logging 工具使用
 
@@ -130,6 +136,8 @@ Human destructor called
 Human destructor called
 ```
 
+我们将在下面一小节来带大家de出这个bug！
+
 ### json 文件设置及 debug 示例
 
 `.vscode/launch.json`文件记录了调试器需要的基本信息，它是由vscode自动生成的
@@ -203,7 +211,8 @@ Human destructor called
 ---
 
 读工程中的CMakeLists.txt文件即可得知，生成的可执行文件目录为`${workspaceFolder}/build/src/`，可执行文件名为`lab0_debug`
-main.cpp:17-20L 要求输入-t参数，因此可以做如下修改：
+
+而main.cpp:17-20L 要求输入-t参数，因此可以做如下修改：
 
 ```json
 
@@ -254,6 +263,7 @@ Human destructor called
 
 ## 实验任务
 通过调试这个工程文件，回答下面三个问题：
+
 1. 为什么用 main.cpp:31L 替换 main.cpp:32L 会出现报错
 2. 为什么用 main.cpp:33L 替换 main.cpp:34L 会出现报错
 3. 为什么取消注释 main.cpp:38-42L 不会报错，但运行会出现段错误
