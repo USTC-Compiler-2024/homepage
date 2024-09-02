@@ -20,7 +20,7 @@
 
 在课程平台左上角选择当前作业，在线提交如下：
 
-![Untitled](Untitled1.png)
+![Untitled](image.png)
 
 1. 请提交作业和实验报告的 PDF 文件，确保照片部分清晰可读。如果因图片清晰度问题而导致扣分，则不接受相关的申诉。
 2. 提交作业不接受迟交或补交。
@@ -40,7 +40,7 @@ Markdown 相关阅读材料：[https://markdown.com.cn/basic-syntax/](https://ma
 >
 > Git is [easy to learn](https://git-scm.com/doc) and has a [tiny footprint with lightning fast performance](https://git-scm.com/about/small-and-fast). It outclasses SCM tools like Subversion, CVS, Perforce, and ClearCase with features like [cheap local branching](https://git-scm.com/about/branching-and-merging), convenient [staging areas](https://git-scm.com/about/staging-area), and [multiple workflows](https://git-scm.com/about/distributed).
 
-> **GitLab 是一个用于[仓库管理系统](https://www.zhihu.com/search?q=%E4%BB%93%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A884336808%7D)的[开源项目](https://www.zhihu.com/search?q=%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A884336808%7D)**，使用 Git 作为代码[管理工具](https://www.zhihu.com/search?q=%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A884336808%7D)，并在此基础上搭建起来的 Web 服务，可通过 Web 界面进行访问公开的或者私人项目。它拥有与**GitHub**类似的功能，能够浏览[源代码](https://www.zhihu.com/search?q=%E6%BA%90%E4%BB%A3%E7%A0%81&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A884336808%7D)，管理缺陷和注释。
+> **GitLab** 是一个用于仓库管理系统的开源项目，使用 Git 作为代码管理工具，并在此基础上搭建起来的 Web 服务，可通过 Web 界面进行访问公开的或者私人项目。它拥有与**GitHub**类似的功能，能够浏览源代码，管理缺陷和注释。
 
 在本课程实验中，你将使用 git 进行版本管理，需要至少掌握以下指令：
 
