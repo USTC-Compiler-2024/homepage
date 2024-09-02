@@ -100,7 +100,7 @@ LLDB是LLVM项目开发的调试器，通过设置VSCode扩展可以方便地调
 
 ```shell
 git clone https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024ustc-jianmu-compiler.git
-cd stl_debug
+cd 2024ustc-jianmu-compiler
 mkdir build
 cd build
 cmake ..

@@ -158,6 +158,13 @@ void MyClass::display() const {
 类的继承是一种面向对象语言常用的代码复用方法，也是一种非常直观的抽象方式。我们可以定义 `struct Cat : Animal` 来声明 `Cat` 类是 `Animal` 类的子类，也就是 `Cat` 继承了 `Animal` 类。此时，新的 `Cat` 类从 `Animal` 类中继承了 `void eat();` 成员函数，并且可以在此之上定义额外的成员函数 `void nyan()`。同理，我们也可以定义 `struct Dog : Animal` 来定义 `Dog` 类。
 
 ```cpp
+// 注：C++ 中 struct 可以看作默认所有成员都是 public 的 class
+struct Animal {
+  void eat();
+};
+```
+
+```cpp
 struct Cat : Animal {
   // 从 Animal 中继承了 void eat();
   void nyan();
@@ -168,7 +175,6 @@ struct Dog : Animal {
   void wang()
 };
 ```
-<!-- TODO: 这里animal的定义呢 -->
 
 我们可以通过合理的继承结构来将函数定义在合适的位置，使得大部分通用函数可以共享。
 
@@ -219,6 +225,8 @@ auto cc = dynamic_cast<Cat *>(a);
 
 这样我们就可以把基类指针又转回对应的子类指针。当然，如果指针不是 `Cat *` 类型的，`dynamic_cast` 将会返回 `nullptr`。（与 C 中统一使用 `NULL` 不同，在 C++ 中，我们用 `nullptr` 表示空指针）
 
+> 需要注意的是，在转换完成后，一定要判断是否是nullptr，否则在引用时会抛出异常
+
 <!--TODO:补充一下，只有在为指针的时候转换为nullptr，为引用的时候会抛出异常-->
 
 在确信类型转换一定成功时，也可以使用 `static_cast` 来完成转换，可以省去运行时的类型检查。此外，`static_cast` 还用于基本类型的转换，例如：
@@ -232,69 +240,6 @@ int n = static_cast<int>(f);
 
     你应该避免使用 C 风格的强制类型转换，例如 `int n = (int)f`，因为 C++ 风格的类型转换会被编译器检查，而 C 风格的不会。
 
-### 多态
-<!-- TODO: 上面说了一遍virtual这里又说了一遍virtual?-->
-通过将基类的成员函数声明为 `virtual`，可以实现多态，即在运行时决定调用哪个继承类的函数：
-
-??? Info "`override`关键字"
-
-    `override` 关键字在 C++ 中用于明确指定派生类的成员函数是覆盖基类的虚函数。它提高了代码的安全性和可读性。
-
-    **使用方法**
-
-    - 在派生类中定义函数时，在函数签名的末尾加上 `override` 关键字。
-    - 确保函数签名与基类中的虚函数完全匹配。
-
-    **示例**
-
-    ```cpp
-    class Base {
-    public:
-        virtual void show() {
-            printf("Base class\n");
-        }
-    };
-
-    class Derived : public Base {
-    public:
-        void show() override { // 确认覆盖基类的虚函数
-            printf("Derived class\n");
-        }
-    };
-    ```
-
-    **作用**
-
-    - **编译时检查**：如果没有正确覆盖基类函数，编译器会报错。
-    - **增加可读性**：明确标识函数是重写的。
-
-    使用 `override` 可以有效防止拼写错误或参数不匹配导致的意外行为。
-
-```cpp
-class Base {
-public:
-    virtual void show() { printf("Base class\n"); }
-};
-
-class Derived : public Base {
-public:
-    void show() override { printf("Derived class\n"); }
-};
-```
-
-### 使用示例
-
-```cpp
-int main() {
-    MyClass obj(10);
-    obj.display();
-
-    Derived derivedObj;
-    Base* basePtr = &derivedObj;
-    basePtr->show(); // 输出 "Derived class"
-}
-```
-<!-- TODO:这个部分内容好像有点和继承那一节重复了？-->
 
 ## STL
 
@@ -305,7 +250,10 @@ STL (Standard Template Library)，意为标准模板库，包含了许多常用�
 - `std::set`: 由红黑树实现的有序集合
 - `std::unordered_map`: 由哈希表实现的无序关联容器
 - `std::list`: 链表
-<!-- TODO:什么叫关联容器?-->
+
+??? Info "关联容器"
+
+    关联容器是指通过键值对来存储数据的一类容器
 
 这里的 `std` 是 C++ 中的命名空间，可以防止标识符的重复，详见 [维基百科](https://en.wikipedia.org/wiki/Namespace)
 
@@ -442,50 +390,11 @@ for (auto &number : numbers) {
 
 - 使用引用 `&` 可以直接修改容器中的元素。
 - 如果不需要修改，直接使用 `auto` 即可。
+- 两种遍历都声明并拷贝了新变量，只读遍历是容器中元素，而引用遍历是指向容器中元素的指针
 
 这种语法使代码更清晰，减少了手动管理迭代器的复杂性。
 <!--TODO:只读和引用是不是不太准确。如果这里auto是不是隐含了一个拷贝的操作？会不会需要需不需要讲清楚？-->
 
-## static_cast<>()
-
-`static_cast` 是 C++ 中的一种类型转换运算符，用于在不同类型之间进行安全的转换。它在编译时进行类型检查，确保转换的有效性。
-
-### 特点
-
-1. **类型安全**：
-   - `static_cast` 在编译时检查类型兼容性，避免运行时错误。
-
-2. **基本类型转换**：
-   - 可以用于基本数据类型之间的转换，比如从 `int` 转换为 `float`。
-
-3. **指针和引用转换**：
-   - 可以用于类层次结构中的指针或引用转换，如从基类指针转换为派生类指针，前提是类型之间有继承关系。
-
-### 用法示例
-
-```cpp
-class Base {
-public:
-    virtual ~Base() {} // 虚析构函数
-};
-
-class Derived : public Base {
-public:
-    void show() { std::cout << "Derived class" << std::endl; }
-};
-
-int main() {
-    Base* b = new Derived(); // 基类指针指向派生类对象
-
-    // 使用 static_cast 进行安全转换
-    Derived* d = static_cast<Derived*>(b);
-    d->show(); // 输出 "Derived class"
-
-    delete b; // 释放内存
-    return 0;
-}
-```
-<!-- TODO:上面已经讲过static_cast了，这里是不是有点重复了？-->
 ## 函数重载
 
 C++ 中的函数可以重载，即可以有同名函数，但是要求它们的形参必须不同。如果想进一步了解，可以阅读[详细规则](https://en.cppreference.com/w/cpp/language/overload_resolution)。下面是函数重载的示例：
