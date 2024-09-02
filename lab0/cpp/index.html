@@ -16,7 +16,7 @@
     
     
       
-        <title>C++ 常见语法 - USTC 编译原理和技术 2024</title>
+        <title>Cpp - USTC 编译原理和技术 2024</title>
       
     
     
@@ -129,7 +129,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              C++ 常见语法
+              Cpp
             
           </span>
         </div>
@@ -425,24 +425,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      多态
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      使用示例
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -468,7 +450,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       特点
     </span>
@@ -477,7 +459,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       常用方法
     </span>
@@ -486,7 +468,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       注意事项
     </span>
@@ -510,7 +492,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       基本语法
     </span>
@@ -519,7 +501,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       解析
     </span>
@@ -528,7 +510,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       特点
     </span>
@@ -537,7 +519,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
       示例
     </span>
@@ -547,7 +529,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     <span class="md-ellipsis">
       只读遍历
     </span>
@@ -556,7 +538,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     <span class="md-ellipsis">
       引用遍历（修改元素）
     </span>
@@ -570,7 +552,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     <span class="md-ellipsis">
       注意
     </span>
@@ -584,40 +566,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#static_cast" class="md-nav__link">
-    <span class="md-ellipsis">
-      static_cast&lt;&gt;()
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="static_cast<>()">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
-    <span class="md-ellipsis">
-      特点
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
-    <span class="md-ellipsis">
-      用法示例
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     <span class="md-ellipsis">
       函数重载
     </span>
@@ -626,7 +575,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_21" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     <span class="md-ellipsis">
       内存管理
     </span>
@@ -649,6 +598,7 @@
                   
 
 
+<!--TODO 感觉整个结构怪怪的？好像编排得不是很有逻辑-->
 <h1 id="c">C++ 常见语法</h1>
 <p>本课程实验框架使用C/C++语言，需要了解基本语法特性。</p>
 <details class="tips">
@@ -777,6 +727,11 @@
 </code></pre></div>
 <h3 id="_5">继承</h3>
 <p>类的继承是一种面向对象语言常用的代码复用方法，也是一种非常直观的抽象方式。我们可以定义 <code>struct Cat : Animal</code> 来声明 <code>Cat</code> 类是 <code>Animal</code> 类的子类，也就是 <code>Cat</code> 继承了 <code>Animal</code> 类。此时，新的 <code>Cat</code> 类从 <code>Animal</code> 类中继承了 <code>void eat();</code> 成员函数，并且可以在此之上定义额外的成员函数 <code>void nyan()</code>。同理，我们也可以定义 <code>struct Dog : Animal</code> 来定义 <code>Dog</code> 类。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 注：C++ 中 struct 可以看作默认所有成员都是 public 的 class</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Animal</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">eat</span><span class="p">();</span>
+<span class="p">};</span>
+</code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Cat</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Animal</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="c1">// 从 Animal 中继承了 void eat();</span>
 <span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">nyan</span><span class="p">();</span>
@@ -789,6 +744,7 @@
 </code></pre></div>
 <p>我们可以通过合理的继承结构来将函数定义在合适的位置，使得大部分通用函数可以共享。</p>
 <p>同学们可能会想到同是 <code>Animal</code>，<code>Cat</code> 和 <code>Dog</code> 可能会有相同名称与参数的函数，但是却有着不同的实现，这时我们就要用到虚函数了。子类中可以定义虚函数的实现，从而使得不同子类对于同一个名字的成员函数有不同实现。</p>
+<!-- TODO: 这里的说法是不是有待商榷？不一定非得要虚函数，简单的函数重写就可以完成了 -->
 <p>我们可以用子类的指针给基类指针赋值，在基类指针上调用虚函数时，会通过虚函数表查找到对应的函数实现，而不是和普通类一样查找对应类型的函数实现。</p>
 <div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Animal</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="c1">// = 0 表示该虚函数在 Animal 类中没有实现</span>
@@ -827,6 +783,11 @@
 <div class="highlight"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">cc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">Cat</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
 </code></pre></div>
 <p>这样我们就可以把基类指针又转回对应的子类指针。当然，如果指针不是 <code>Cat *</code> 类型的，<code>dynamic_cast</code> 将会返回 <code>nullptr</code>。（与 C 中统一使用 <code>NULL</code> 不同，在 C++ 中，我们用 <code>nullptr</code> 表示空指针）</p>
+<blockquote>
+<p>需要注意的是，指针无法转换会返回<code>nullptr</code>，而引用无法转换会直接抛出异常</p>
+</blockquote>
+<!--TODO:补充一下，只有在为指针的时候转换为nullptr，为引用的时候会抛出异常-->
+
 <p>在确信类型转换一定成功时，也可以使用 <code>static_cast</code> 来完成转换，可以省去运行时的类型检查。此外，<code>static_cast</code> 还用于基本类型的转换，例如：</p>
 <div class="highlight"><pre><span></span><code><span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14</span><span class="p">;</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
@@ -835,58 +796,6 @@
 <p class="admonition-title">Warning</p>
 <p>你应该避免使用 C 风格的强制类型转换，例如 <code>int n = (int)f</code>，因为 C++ 风格的类型转换会被编译器检查，而 C 风格的不会。</p>
 </div>
-<h3 id="_6">多态</h3>
-<p>通过将基类的成员函数声明为 <code>virtual</code>，可以实现多态，即在运行时决定调用哪个继承类的函数：</p>
-<details class="info">
-<summary><code>override</code>关键字</summary>
-<p><code>override</code> 关键字在 C++ 中用于明确指定派生类的成员函数是覆盖基类的虚函数。它提高了代码的安全性和可读性。</p>
-<p><strong>使用方法</strong></p>
-<ul>
-<li>在派生类中定义函数时，在函数签名的末尾加上 <code>override</code> 关键字。</li>
-<li>确保函数签名与基类中的虚函数完全匹配。</li>
-</ul>
-<p><strong>示例</strong></p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">show</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Base class</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">};</span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">Derived</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">show</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// 确认覆盖基类的虚函数</span>
-<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Derived class</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">};</span>
-</code></pre></div>
-<p><strong>作用</strong></p>
-<ul>
-<li><strong>编译时检查</strong>：如果没有正确覆盖基类函数，编译器会报错。</li>
-<li><strong>增加可读性</strong>：明确标识函数是重写的。</li>
-</ul>
-<p>使用 <code>override</code> 可以有效防止拼写错误或参数不匹配导致的意外行为。</p>
-</details>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">show</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Base class</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
-<span class="p">};</span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">Derived</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">show</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Derived class</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
-<span class="p">};</span>
-</code></pre></div>
-<h3 id="_7">使用示例</h3>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">MyClass</span><span class="w"> </span><span class="n">obj</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
-<span class="w">    </span><span class="n">obj</span><span class="p">.</span><span class="n">display</span><span class="p">();</span>
-
-<span class="w">    </span><span class="n">Derived</span><span class="w"> </span><span class="n">derivedObj</span><span class="p">;</span>
-<span class="w">    </span><span class="n">Base</span><span class="o">*</span><span class="w"> </span><span class="n">basePtr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">derivedObj</span><span class="p">;</span>
-<span class="w">    </span><span class="n">basePtr</span><span class="o">-&gt;</span><span class="n">show</span><span class="p">();</span><span class="w"> </span><span class="c1">// 输出 &quot;Derived class&quot;</span>
-<span class="p">}</span>
-</code></pre></div>
 <h2 id="stl">STL</h2>
 <p>STL (Standard Template Library)，意为标准模板库，包含了许多常用的数据结构，在我们的实验中你可能会用到：</p>
 <ul>
@@ -896,6 +805,10 @@
 <li><code>std::unordered_map</code>: 由哈希表实现的无序关联容器</li>
 <li><code>std::list</code>: 链表</li>
 </ul>
+<details class="info">
+<summary>关联容器</summary>
+<p>关联容器是指通过键值对来存储数据的一类容器</p>
+</details>
 <p>这里的 <code>std</code> 是 C++ 中的命名空间，可以防止标识符的重复，详见 <a href="https://en.wikipedia.org/wiki/Namespace">维基百科</a></p>
 <p>同时，这些容器都是模板 <a href="https://en.wikipedia.org/wiki/Template_(C%2B%2B)">Template</a>，需要实例化，例如一个可变长的整形数组应该实例化为 <code>std::vector&lt;int&gt;</code>。</p>
 <p>更多信息可以参考：<a href="https://en.cppreference.com/w/cpp/standard_library">https://en.cppreference.com/w/cpp/standard_library</a></p>
@@ -905,13 +818,13 @@
 <p>C++ 中的容器是标准模板库（STL）的一部分，用于存储和管理数据集合。下面以<code>std::vector</code>为例。</p>
 </div>
 <p><code>std::vector</code> 是 C++ 中的动态数组容器，提供灵活的存储和访问功能。</p>
-<h3 id="_8">特点</h3>
+<h3 id="_6">特点</h3>
 <ul>
 <li><strong>动态大小</strong>：自动调整大小以适应插入和删除操作。</li>
 <li><strong>快速随机访问</strong>：支持常数时间复杂度的随机访问。</li>
 <li><strong>自动内存管理</strong>：自动处理内存分配和释放。</li>
 </ul>
-<h3 id="_9">常用方法</h3>
+<h3 id="_7">常用方法</h3>
 <details class="info">
 <summary>&lt;int&gt;是什么</summary>
 <p>标准模板库中提供了许多常用数据结构。设想这样一种实际情况，开发者完成了一个高效的stack库(栈)的开发，这个栈中的元素是int类型的，但是还需一个float类型的栈。
@@ -968,91 +881,55 @@
 </code></pre></div></p>
 </li>
 </ul>
-<h3 id="_10">注意事项</h3>
+<h3 id="_8">注意事项</h3>
 <ul>
 <li><strong>迭代器失效</strong>：插入或删除操作可能导致迭代器失效。</li>
 <li><strong>效率</strong>：在末尾操作效率高，但中间插入或删除效率较低。</li>
 </ul>
 <p><code>std::vector</code> 是处理动态数组的常用选择，适合需要快速访问和自动内存管理的场景。</p>
+<!--TODO:为什么就介绍了vector 好怪-->
+
 <h2 id="for-in-c">for in C++</h2>
 <p><code>for(auto ...)</code> 语法是 C++11 引入的范围基于 <code>for</code> 循环，用于简化遍历容器的代码。</p>
-<h3 id="_11">基本语法</h3>
+<h3 id="_9">基本语法</h3>
 <div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">element</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">container</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// 使用 element</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="_12">解析</h3>
+<h3 id="_10">解析</h3>
 <ul>
 <li><strong><code>auto</code></strong>：自动推断循环变量的类型。</li>
 <li><strong><code>element</code></strong>：循环变量，用于访问容器中的每个元素。</li>
 <li><strong><code>container</code></strong>：要遍历的容器，如数组、<code>std::vector</code>、<code>std::list</code> 等。</li>
 </ul>
-<h3 id="_13">特点</h3>
+<h3 id="_11">特点</h3>
 <ul>
 <li><strong>简洁性</strong>：无需显式指定迭代器或索引。</li>
 <li><strong>自动类型推断</strong>：<code>auto</code> 自动确定元素类型。</li>
 <li><strong>适用于所有范围</strong>：任何支持 <code>begin()</code> 和 <code>end()</code> 的对象。</li>
 </ul>
-<h3 id="_14">示例</h3>
-<h4 id="_15">只读遍历</h4>
+<h3 id="_12">示例</h3>
+<h4 id="_13">只读遍历</h4>
 <div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
 <span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">numbers</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<h4 id="_16">引用遍历（修改元素）</h4>
+<h4 id="_14">引用遍历（修改元素）</h4>
 <div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;</span><span class="n">number</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">numbers</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">number</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// 修改容器中的元素</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="_17">注意</h3>
+<h3 id="_15">注意</h3>
 <ul>
 <li>使用引用 <code>&amp;</code> 可以直接修改容器中的元素。</li>
 <li>如果不需要修改，直接使用 <code>auto</code> 即可。</li>
+<li>只读遍历创建了容器中元素的一个拷贝，而引用遍历并没有拷贝，而是创建了对原始元素的引用。</li>
 </ul>
 <p>这种语法使代码更清晰，减少了手动管理迭代器的复杂性。</p>
-<h2 id="static_cast">static_cast&lt;&gt;()</h2>
-<p><code>static_cast</code> 是 C++ 中的一种类型转换运算符，用于在不同类型之间进行安全的转换。它在编译时进行类型检查，确保转换的有效性。</p>
-<h3 id="_18">特点</h3>
-<ol>
-<li><strong>类型安全</strong>：</li>
-<li>
-<p><code>static_cast</code> 在编译时检查类型兼容性，避免运行时错误。</p>
-</li>
-<li>
-<p><strong>基本类型转换</strong>：</p>
-</li>
-<li>
-<p>可以用于基本数据类型之间的转换，比如从 <code>int</code> 转换为 <code>float</code>。</p>
-</li>
-<li>
-<p><strong>指针和引用转换</strong>：</p>
-</li>
-<li>可以用于类层次结构中的指针或引用转换，如从基类指针转换为派生类指针，前提是类型之间有继承关系。</li>
-</ol>
-<h3 id="_19">用法示例</h3>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="o">~</span><span class="n">Base</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">// 虚析构函数</span>
-<span class="p">};</span>
+<!--TODO:只读和引用是不是不太准确。如果这里auto是不是隐含了一个拷贝的操作？会不会需要需不需要讲清楚？-->
 
-<span class="k">class</span><span class="w"> </span><span class="nc">Derived</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">show</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Derived class&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<span class="p">};</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">Base</span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Derived</span><span class="p">();</span><span class="w"> </span><span class="c1">// 基类指针指向派生类对象</span>
-
-<span class="w">    </span><span class="c1">// 使用 static_cast 进行安全转换</span>
-<span class="w">    </span><span class="n">Derived</span><span class="o">*</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">Derived</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
-<span class="w">    </span><span class="n">d</span><span class="o">-&gt;</span><span class="n">show</span><span class="p">();</span><span class="w"> </span><span class="c1">// 输出 &quot;Derived class&quot;</span>
-
-<span class="w">    </span><span class="k">delete</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="c1">// 释放内存</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-<h2 id="_20">函数重载</h2>
+<h2 id="_16">函数重载</h2>
 <p>C++ 中的函数可以重载，即可以有同名函数，但是要求它们的形参必须不同。如果想进一步了解，可以阅读<a href="https://en.cppreference.com/w/cpp/language/overload_resolution">详细规则</a>。下面是函数重载的示例：</p>
 <div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
@@ -1075,7 +952,7 @@
 <span class="p">}</span>
 </code></pre></div>
 <p>我们可以看到上面的示例定义了两个 <code>print</code> 函数，并且它们的参数列表的类型不同。它们实际上是两个不同的函数（并且拥有不同的内部名字），但是 C++ 能够正确的识别函数调用时使用了哪一个定义（前提是你正确使用了这一特性），并且在编译时就会链接上正确的实现。我们可以看到，这种特性非常符合人的直觉，并且没有带来额外开销。</p>
-<h2 id="_21">内存管理</h2>
+<h2 id="_17">内存管理</h2>
 <p>C++11 引入了许多智能指针类型来帮助自动内存管理，本实验中用到的有两种，分别是：</p>
 <ol>
 <li><code>std::shared_ptr</code>: 引用计数智能指针，使用一个共享变量来记录指针管理的对象被引用了几次。当对象引用计数为 0 时，说明当前该对象不再有引用，并且进程也无法再通过其它方式来引用它，也就意味着可以回收内存，这相当于低级的垃圾回收策略。可以用 <code>std::make_shared</code> 来创建。</li>
@@ -1102,7 +979,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 1, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 2, 2024</span>
   </span>
 
     
@@ -1119,7 +996,8 @@
     <nav>
       
         <a href="mailto:liuruibo21@mail.ustc.edu.cn">JYJSXX</a>, 
-        <a href="mailto:95729892+jyjsxx@users.noreply.github.com">JYJSXX</a>
+        <a href="mailto:95729892+jyjsxx@users.noreply.github.com">JYJSXX</a>, 
+        <a href="mailto:zox@mail.ustc.edu.cn">zox</a>
     </nav>
   </span>
 

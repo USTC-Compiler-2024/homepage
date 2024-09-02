@@ -448,11 +448,11 @@
 <p>CMake 是一个开源的跨平台构建系统工具，用于管理项目的构建过程。它使用简单的文本文件（CMakeLists.txt）来定义项目的构建配置，并生成标准的构建文件（如 Makefile 或 Visual Studio 工程文件）</p>
 </details>
 <p>对于一个大型工程而言，Debug是相对困难的，我们为大家提供了两种可行的Debug方法，<strong><font color = red>这两种调试方法并不是互斥的，我们强烈建议组合使用</font></strong></p>
-<p>!!! Warning C/C++语言扩展</p>
-<pre><code>大家在以往写C/C++工程时，肯定都使用过 Microsoft C/C++ 扩展，但该扩展在大型cmake构造的项目表现并不优秀。请禁用该扩展并安装Clangd替代。
-
-![Clangd](photos/Clangd.png)
-</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">C/C++语言扩展</p>
+<p>大家在以往写C/C++工程时，肯定都使用过 Microsoft C/C++ 扩展，但该扩展在大型cmake构造的项目表现并不优秀。请禁用该扩展并安装Clangd替代。</p>
+<p><a class="glightbox" href="../photos/Clangd.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Clangd" src="../photos/Clangd.png" /></a></p>
+</div>
 <h2 id="logging">logging 工具使用</h2>
 <h3 id="_1">介绍</h3>
 <p>为了方便同学们在之后的实验中 debug，为大家设计了一个 C++ 简单实用的分级日志工具。该工具将日志输出信息从低到高分成四种等级：<code>DEBUG</code>，<code>INFO</code>，<code>WARNING</code>，<code>ERROR</code>。通过设定环境变量 <code>LOGV</code> 的值，来选择输出哪些等级的日志。<code>LOGV</code> 的取值是 <strong>0 到 3</strong>，分别对应到上述的 4 种级别 (<code>0:DEBUG</code>,<code>1:INFO</code>,<code>2:WARNING</code>,<code>3:ERROR</code>)。此外输出中还会包含打印该日志的代码所在位置。</p>
@@ -509,12 +509,15 @@
 <p>LLDB是LLVM项目开发的调试器，通过设置VSCode扩展可以方便地调试大型项目。下面将以一个小型工程为例：</p>
 <h3 id="_3">克隆需要的测试工程并构建项目</h3>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024ustc-jianmu-compiler.git
-<span class="nb">cd</span><span class="w"> </span>stl_debug
+<span class="nb">cd</span><span class="w"> </span>2024ustc-jianmu-compiler
+git<span class="w"> </span>chechout<span class="w"> </span>lab0
 mkdir<span class="w"> </span>build
 <span class="nb">cd</span><span class="w"> </span>build
 cmake<span class="w"> </span>..
 make
 </code></pre></div>
+<p>或者你可以直接点击下边栏的生成</p>
+<p><a class="glightbox" href="../photos/make.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="make" src="../photos/make.png" /></a></p>
 <p>经过这一步后，在<code>${workspaceFolder}/build/src/</code>下可以找到生成的可执行文件<code>lab0_debug</code></p>
 <p>运行lab0_debug，你会得到类似下面的输出</p>
 <div class="highlight"><pre><span></span><code>jyjs@JHost<span class="w"> </span>stl_debug<span class="w"> </span>%<span class="w"> </span>./build/src/lab0_debug<span class="w"> </span>-t
@@ -538,8 +541,8 @@ Human<span class="w"> </span>destructor<span class="w"> </span>called
 <p>我们将在下面一小节来带大家de出这个bug！</p>
 <h3 id="json-debug">json 文件设置及 debug 示例</h3>
 <p><code>.vscode/launch.json</code>文件记录了调试器需要的基本信息，它是由vscode自动生成的</p>
-<div class="admonition info">
-<p class="admonition-title">如何自动生成一个.json文件</p>
+<details class="info">
+<summary>如何自动生成一个.json文件</summary>
 <p>点击<code>运行/启动调试(F5)</code></p>
 <p><a class="glightbox" href="../photos/F5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="F5" src="../photos/F5.png" /></a></p>
 <p>上方提示栏弹出，选择LLDB</p>
@@ -564,7 +567,7 @@ Human<span class="w"> </span>destructor<span class="w"> </span>called
 <span class="p">}</span>
 </code></pre></div>
 下文的json文件就是这么得到的，只不过助教做了一些注释</p>
-</div>
+</details>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">    </span><span class="c1">// 使用 IntelliSense 了解相关属性。 </span>
 <span class="w">    </span><span class="c1">// 悬停以查看现有属性的描述。</span>
@@ -590,7 +593,7 @@ Human<span class="w"> </span>destructor<span class="w"> </span>called
 <li>type：任务类型 这是一个lldb任务</li>
 <li>request：需要执行的任务 launch即只有它本身</li>
 <li>name：将这个任务命名为Debug</li>
-<li>progran：被调试的程序 <em><font color=grey>${workspaceFolder} 是一个环境变量，即工程文件所在文件夹</font></em></li>
+<li>program：被调试的程序 注： <em><font color=grey>${workspaceFolder} 是一个环境变量，即工程文件所在文件夹</font></em></li>
 <li>args：设置需要的参数</li>
 <li>cwd：指令执行的目录</li>
 </ul>
