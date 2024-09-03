@@ -18,7 +18,7 @@ sudo apt update
 # 更新软件（可选）
 sudo apt upgrade
 # 安装 LLVM & Clang & 调试工具
-sudo apt install clang llvm clangd lldb
+sudo apt install clang llvm
 ```
 
 ## Git 安装

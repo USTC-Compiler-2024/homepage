@@ -8,7 +8,11 @@
 
 !!! Warning "C/C++语言扩展"
 
-    大家在以往写C/C++工程时，肯定都使用过 Microsoft C/C++ 扩展，但该扩展在大型cmake构造的项目表现并不优秀。请安装Clangd扩展。
+    大家在以往写C/C++工程时，肯定都使用过 Microsoft C/C++ 扩展，但该扩展在大型cmake构造的项目表现并不优秀。请下载Clangd并在VSCode中安装Clangd扩展。
+
+    ```shell
+    sudo apt install clangd
+    ```
 
     ![Clangd](photos/Clangd.png)
 
