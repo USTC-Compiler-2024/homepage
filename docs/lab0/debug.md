@@ -6,15 +6,26 @@
 
 对于一个大型工程而言，Debug是相对困难的，我们为大家提供了两种可行的Debug方法，**<font color = red>这两种调试方法并不是互斥的，我们强烈建议组合使用</font>**
 
-!!! Warning "C/C++语言扩展"
+## Clangd语言服务器
 
-    大家在以往写C/C++工程时，肯定都使用过 Microsoft C/C++ 扩展，但该扩展在大型cmake构造的项目表现并不优秀。请下载Clangd并在VSCode中安装Clangd扩展。
+大家在以往写 C/C++ 工程时，肯定都使用过 Microsoft C/C++ ，但该扩展在较大的的项目中表现并不优秀。我们强烈建议大家使用 Clangd 并在 VSCode 中安装 Clangd 扩展。
 
-    ```shell
-    sudo apt install clangd
-    ```
+在终端输入以下命令安装Clangd：
+```shell
+sudo apt install clangd
+```
+安装完成后在VSCode中搜索Clangd并安装
+![Clangd](photos/Clangd.png)
+    
+由于 Clangd 和 Microsoft C/C++ 扩展冲突，我们建议大家在使用 Clangd 时禁用 Microsoft C/C++ 扩展。
 
-    ![Clangd](photos/Clangd.png)
+如果正确安装了 Clangd，那么可以通过以下方式进行跳转：
+
+- **跳转到定义**：在光标停留在某个函数或变量上时，按下`F12`键即可跳转到定义。
+- **跳转到实现**：在光标停留在某个函数或变量上时，按下`Ctrl`+`F12`即可转到实现。
+- **跳转到引用**：在光标停留在某个函数或变量上时，按下`Shift`+`F12`键即可转到引用。
+
+同时，Clangd还提供了强大的代码补全功能和错误提示功能，可以帮助同学们更好地编写代码。大家可以在之后的实验中一一体验。
 
 ## logging 工具使用
 
