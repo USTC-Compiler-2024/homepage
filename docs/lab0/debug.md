@@ -8,7 +8,7 @@
 
 !!! Warning "C/C++语言扩展"
 
-    大家在以往写C/C++工程时，肯定都使用过 Microsoft C/C++ 扩展，但该扩展在大型cmake构造的项目表现并不优秀。请禁用该扩展并安装Clangd替代。
+    大家在以往写C/C++工程时，肯定都使用过 Microsoft C/C++ 扩展，但该扩展在大型cmake构造的项目表现并不优秀。请安装Clangd扩展。
 
     ![Clangd](photos/Clangd.png)
 
@@ -93,6 +93,8 @@ user@user:${ProjectDir}/build$ LOGV=0 ./test_logging > log
         ![CodeLLDB](photos/codelldb.png)
     - CMake & CMake Tools
         ![CMakeExt](photos/CMake.png)
+
+    **安装CMake扩展后会弹出窗口提示选择工具包(ToolKit)，请选择最高版本的clang**
 
 LLDB是LLVM项目开发的调试器，通过设置VSCode扩展可以方便地调试大型项目。下面将以一个小型工程为例：
 

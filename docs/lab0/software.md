@@ -17,8 +17,8 @@ LLVM 和 Clang 都可通过 Ubuntu 自带的软件包管理器下载，因此我
 sudo apt update
 # 更新软件（可选）
 sudo apt upgrade
-# 安装 LLVM 和 Clang
-sudo apt install clang llvm
+# 安装 LLVM & Clang & 调试工具
+sudo apt install clang llvm clangd lldb
 ```
 
 ## Git 安装
