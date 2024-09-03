@@ -236,6 +236,9 @@ To https://cscourse.ustc.edu.cn/vdir/Gitlab/ustc_gongping/2024_warm_up.git
 
 **Git 文档** [https://git-scm.com/book/zh/v2](https://git-scm.com/book/zh/v2)
 
+**一个学习Git的小游戏** 
+[https://learngitbranching.js.org/?locale=zh_CN](https://learngitbranching.js.org/?locale=zh_CN)
+
 ## 实验任务
 
 1. 根据上述操作，完成 readme.md 添加、上游仓库添加和冲突处理等操作。
