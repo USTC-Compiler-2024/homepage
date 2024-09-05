@@ -4,7 +4,7 @@
 
 !!! warning "Deadline"
 
-    **2024 年 ? 月 ?? 日 23:59**
+    **2024 年 9 月 16 日 23:59**
 
 本次实验用于指导同学们进行环境的搭建以及带领同学们熟悉实验中常用的 C++ 特性以及 git 的操作，主要有以下内容：
 
@@ -37,10 +37,10 @@
 
 ### 提交内容
 
-Lab0 完成后，除了 answer.pdf 文件（需要回答[Git的使用](git.md)和[如何Debug](debug.md)中任务一节的问题），你还在 GitLab 上拥有一个名为 2024_warm_up 的远程仓库，该仓库有以下结构：
+Lab0 完成后，除了 answer.pdf 文件（需要回答[Git的使用](git.md#实验任务)和[如何Debug](debug.md#实验任务)中任务一节的问题），你还在 GitLab 上拥有一个名为 2024_warm_up 的远程仓库，该仓库有以下结构：
 
 ```shell
-2023_warm_up_b:
+2024_warm_up_b:
 - warm_up.txt
 - readme.md
 - Test.ll

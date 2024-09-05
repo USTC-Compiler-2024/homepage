@@ -46,8 +46,8 @@
 ## <strong>公告</strong>
 
 - 2024-09-02：[课程平台介绍](exp_platform_intro/README.md) 已发布
-<!-- - 2023-09-08：[Lab0](lab0/index.md) 已发布，Deadline：**2023 年 9 月 15 日**
-- 2023-09-13：第一次作业：2.1a、2.2、2.3a、2.4h、2.7c、2.15（教材[<sup>1</sup>](#textbook)），Deadline：**2023 年 9 月 20 日**
+- 2023-09-08：[Lab0](lab0/index.md) 已发布，Deadline：**2023 年 9 月 16 日**
+<!-- - 2023-09-13：第一次作业：2.1a、2.2、2.3a、2.4h、2.7c、2.15（教材[<sup>1</sup>](#textbook)），Deadline：**2023 年 9 月 20 日**
 - 2023-09-15：[Lab1](lab1/index.md) 已发布，Deadline：**2023 年 9 月 28 日**
 - 2023-09-25：第二次作业：3.1a、3.2a、3.10、3.11、3.17、3.19a（教材[<sup>1</sup>](#textbook)），Deadline：**2023 年 10 月 7 日 14:00**
 - 2023-10-05：[Lab2](lab2/index.md) 已发布，注意分阶段 Deadline
