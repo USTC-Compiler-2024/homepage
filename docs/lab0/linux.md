@@ -32,8 +32,8 @@
 下载 Ubuntu：
 
 - 官网链接：[Ubuntu Releases](https://releases.ubuntu.com/)
-- 科大镜像：[Index of /ubuntu-releases/ (ustc.edu.cn)](https://mirrors.ustc.edu.cn/ubuntu-releases/)
-- 清华镜像：[Index of /ubuntu-releases/ | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror](https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/)
+- 科大镜像：[USTC Open Source Mirror](https://mirrors.ustc.edu.cn/ubuntu-releases/)
+- 清华镜像：[Tsinghua Open Source Mirror](https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/)
 
 !!! warning "重要"
 
@@ -285,7 +285,7 @@ Hello VirtualBox!
 
 下载虚拟机软件：
 
-- VirtualBox：[Downloads – VMWare](https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion)
+- VMWare：[Downloads – VMWare](https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion)
 
 虚拟机软件的版本没有规定的要求，但必须满足基本需求。
 
