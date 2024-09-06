@@ -501,7 +501,7 @@
 <h2 id="lldb">图形化的LLDB调试工具</h2>
 <details class="info" open="open">
 <summary>依赖</summary>
-<p>这种调试方法实际上是使用了lldb调试工具以及VSCode <code>CodeLLDB</code>扩展</p>
+<p>这种调试方法实际上是使用了lldb调试工具以及VSCode <code>CodeLLDB</code>扩展。</p>
 <p>使用以下命令安装lldb:</p>
 <p>(apt)</p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>lldb
@@ -509,12 +509,12 @@
 <p>(brew)</p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span>brew<span class="w"> </span>install<span class="w"> </span>lldb
 </code></pre></div>
-<p>在VSCode安装扩展
+<p>在VSCode安装扩展：
 - CodeLLDB
     <a class="glightbox" href="../photos/codelldb.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="CodeLLDB" src="../photos/codelldb.png" /></a>
 - CMake &amp; CMake Tools
     <a class="glightbox" href="../photos/CMake.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="CMakeExt" src="../photos/CMake.png" /></a></p>
-<p><strong>安装CMake扩展后会弹出窗口提示选择工具包(ToolKit)，请选择最高版本的clang</strong></p>
+<p><strong>安装CMake扩展后会弹出窗口提示选择工具包(ToolKit)，请选择最高版本的clang</strong>。</p>
 </details>
 <p>LLDB是LLVM项目开发的调试器，通过设置VSCode扩展可以方便地调试大型项目。下面将以一个小型工程为例：</p>
 <h3 id="_3">克隆需要的测试工程并构建项目</h3>
@@ -526,10 +526,10 @@ mkdir<span class="w"> </span>build
 cmake<span class="w"> </span>..
 make
 </code></pre></div>
-<p>或者你可以直接点击下边栏的生成</p>
+<p>或者你可以直接点击下边栏的生成：</p>
 <p><a class="glightbox" href="../photos/make.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="make" src="../photos/make.png" /></a></p>
 <p>经过这一步后，在<code>${workspaceFolder}/build/src/</code>下可以找到生成的可执行文件<code>lab0_debug</code></p>
-<p>运行lab0_debug，你会得到类似下面的输出</p>
+<p>运行lab0_debug，你会得到类似下面的输出：</p>
 <div class="highlight"><pre><span></span><code>jyjs@JHost<span class="w"> </span>stl_debug<span class="w"> </span>%<span class="w"> </span>./build/src/lab0_debug<span class="w"> </span>-t
 Hello,<span class="w"> </span>from<span class="w"> </span>stl_debug!
 MyMyI<span class="err">&#39;</span>mStudent<span class="w"> </span>object<span class="w"> </span>created
@@ -550,14 +550,14 @@ Human<span class="w"> </span>destructor<span class="w"> </span>called
 </code></pre></div>
 <p>我们将在下面一小节来带大家de出这个bug！</p>
 <h3 id="json-debug">json 文件设置及 debug 示例</h3>
-<p><code>.vscode/launch.json</code>文件记录了调试器需要的基本信息，它是由vscode自动生成的</p>
+<p><code>.vscode/launch.json</code>文件记录了调试器需要的基本信息，它是由vscode自动生成的。</p>
 <details class="info">
 <summary>如何自动生成一个.json文件</summary>
-<p>点击<code>运行/启动调试(F5)</code></p>
+<p>点击<code>运行/启动调试(F5)</code>：</p>
 <p><a class="glightbox" href="../photos/F5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="F5" src="../photos/F5.png" /></a></p>
-<p>上方提示栏弹出，选择LLDB</p>
+<p>上方提示栏弹出，选择LLDB：</p>
 <p><a class="glightbox" href="../photos/LLDB.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="LLDB" src="../photos/LLDB.png" /></a></p>
-<p>这时由于vscode的CODELLDB扩展不知道如何调试，会报错并为我们创建<code>.vscode/launch.json</code>文件</p>
+<p>这时由于vscode的CODELLDB扩展不知道如何调试，会报错并为我们创建<code>.vscode/launch.json</code>文件。</p>
 <p><a class="glightbox" href="../photos/error.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="json" src="../photos/error.png" /></a></p>
 <p><div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">    </span><span class="c1">// 使用 IntelliSense 了解相关属性。 </span>
@@ -576,7 +576,7 @@ Human<span class="w"> </span>destructor<span class="w"> </span>called
 <span class="w">    </span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
-下文的json文件就是这么得到的，只不过助教做了一些注释</p>
+下文的json文件就是这么得到的，只不过助教做了一些注释。</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">    </span><span class="c1">// 使用 IntelliSense 了解相关属性。 </span>
@@ -609,7 +609,7 @@ Human<span class="w"> </span>destructor<span class="w"> </span>called
 </ul>
 </li>
 </ul>
-<p>主要修改 program &amp; args 域即可</p>
+<p>主要修改 program &amp; args 域即可。</p>
 <hr />
 <p>读工程中的CMakeLists.txt文件即可得知，生成的可执行文件目录为<code>${workspaceFolder}/build/src/</code>，可执行文件名为<code>lab0_debug</code></p>
 <p>而main.cpp:17-20L 要求输入-t参数，因此可以做如下修改：</p>
@@ -620,11 +620,11 @@ Human<span class="w"> </span>destructor<span class="w"> </span>called
 <span class="w">    </span><span class="p">],</span>
 <span class="err">...</span>
 </code></pre></div>
-<p>之后在main入口处打断点再执行即可开始调试了</p>
+<p>之后在main入口处打断点再执行即可开始调试了。</p>
 <p><a class="glightbox" href="../photos/debug.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="debug" src="../photos/debug.png" /></a></p>
-<p>在<code>h-&gt;print()</code>处 step in 之后，不难发现是print方法的返回值逻辑处理有误</p>
+<p>在<code>h-&gt;print()</code>处 step in 之后，不难发现是print方法的返回值逻辑处理有误。</p>
 <p><a class="glightbox" href="../photos/bug.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="bug" src="../photos/bug.png" /></a></p>
-<p>将Student.cpp:16L &amp; Human.cpp:13L 用<code>res = ss.str();</code>代替后，重新make(构建)项目并运行</p>
+<p>将Student.cpp:16L &amp; Human.cpp:13L 用<code>res = ss.str();</code>代替后，重新make(构建)项目并运行。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>build<span class="p">;</span><span class="w"> </span>make<span class="p">;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>..
 ./build/src/lab0_debug<span class="w"> </span>-t
 </code></pre></div>
@@ -649,9 +649,9 @@ Human<span class="w"> </span>destructor<span class="w"> </span>called
 <h2 id="_4">实验任务</h2>
 <p>通过调试这个工程文件，回答下面三个问题：</p>
 <ol>
-<li>为什么用 main.cpp:31L 替换 main.cpp:32L 会出现报错</li>
-<li>为什么用 main.cpp:33L 替换 main.cpp:34L 会出现报错</li>
-<li>为什么取消注释 main.cpp:38-42L 不会报错，但运行会出现段错误</li>
+<li>为什么用 main.cpp:31L 替换 main.cpp:32L 会出现报错？</li>
+<li>为什么用 main.cpp:33L 替换 main.cpp:34L 会出现报错？</li>
+<li>为什么取消注释 main.cpp:38-42L 不会报错，但运行会出现段错误？</li>
 </ol>
 
 
@@ -673,7 +673,7 @@ Human<span class="w"> </span>destructor<span class="w"> </span>called
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 3, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 6, 2024</span>
   </span>
 
     
