@@ -40,7 +40,7 @@
 
 ### 提交内容
 
-Lab0 完成后，除了 answer.pdf 文件（需要回答[Git的使用](git.md#实验任务)和[在CMake构建的大型项目中如何Debug](debug.md#实验任务)中任务一节的问题），你还在 GitLab 上拥有一个名为 2024_warm_up 的远程仓库，该仓库有以下结构：
+Lab0 完成后，除了 answer.pdf 文件（需要回答[Git的使用](git.md#实验任务)和[在CMake构建的大型项目中如何Debug](debug.md#实验任务)中**实验任务**一节的问题），你还在 GitLab 上拥有一个名为 2024_warm_up 的远程仓库，该仓库有以下结构：
 
 ```shell
 2024_warm_up_b:
@@ -53,7 +53,9 @@ Lab0 完成后，除了 answer.pdf 文件（需要回答[Git的使用](git.md#�
 
 #### 文件上传提交方式
 
-对于上传的文件，助教会进行文本相似性检测，请同学们认真学习并完成要求。
+目前还没有开放提交
+
+<!-- 对于上传的文件，助教会进行文本相似性检测，请同学们认真学习并完成要求。
 
 ![Alt text](photos/image.png)
 
@@ -61,7 +63,7 @@ Lab0 完成后，除了 answer.pdf 文件（需要回答[Git的使用](git.md#�
 
 ![Alt text](photos/image-1.png)
 
-![Alt text](photos/image-2.png)
+![Alt text](photos/image-2.png) -->
 
 <!-- #### 答疑
 

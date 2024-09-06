@@ -87,7 +87,7 @@ user@user:${ProjectDir}/build$ LOGV=0 ./test_logging > log
 
 ???+ Info "依赖"
 
-    这种调试方法实际上是使用了lldb调试工具以及VSCode `CodeLLDB`扩展
+    这种调试方法实际上是使用了lldb调试工具以及VSCode `CodeLLDB`扩展。
 
     使用以下命令安装lldb:
 
@@ -103,13 +103,13 @@ user@user:${ProjectDir}/build$ LOGV=0 ./test_logging > log
         brew install lldb
     ```
 
-    在VSCode安装扩展
+    在VSCode安装扩展：
     - CodeLLDB
         ![CodeLLDB](photos/codelldb.png)
     - CMake & CMake Tools
         ![CMakeExt](photos/CMake.png)
 
-    **安装CMake扩展后会弹出窗口提示选择工具包(ToolKit)，请选择最高版本的clang**
+    **安装CMake扩展后会弹出窗口提示选择工具包(ToolKit)，请选择最高版本的clang**。
 
 LLDB是LLVM项目开发的调试器，通过设置VSCode扩展可以方便地调试大型项目。下面将以一个小型工程为例：
 
@@ -125,13 +125,13 @@ cmake ..
 make
 ```
 
-或者你可以直接点击下边栏的生成
+或者你可以直接点击下边栏的生成：
 
 ![make](./photos/make.png)
 
 经过这一步后，在`${workspaceFolder}/build/src/`下可以找到生成的可执行文件`lab0_debug`
 
-运行lab0_debug，你会得到类似下面的输出
+运行lab0_debug，你会得到类似下面的输出：
 
 ```shell
 
@@ -162,19 +162,19 @@ Human destructor called
 
 ### json 文件设置及 debug 示例
 
-`.vscode/launch.json`文件记录了调试器需要的基本信息，它是由vscode自动生成的
+`.vscode/launch.json`文件记录了调试器需要的基本信息，它是由vscode自动生成的。
 
 ??? Info "如何自动生成一个.json文件"
 
-    点击`运行/启动调试(F5)`
+    点击`运行/启动调试(F5)`：
 
     ![F5](photos/F5.png)
     
-    上方提示栏弹出，选择LLDB
+    上方提示栏弹出，选择LLDB：
 
     ![LLDB](photos/LLDB.png)
 
-    这时由于vscode的CODELLDB扩展不知道如何调试，会报错并为我们创建`.vscode/launch.json`文件
+    这时由于vscode的CODELLDB扩展不知道如何调试，会报错并为我们创建`.vscode/launch.json`文件。
 
     ![json](photos/error.png)
 
@@ -196,7 +196,7 @@ Human destructor called
         ]
     }
     ```
-    下文的json文件就是这么得到的，只不过助教做了一些注释
+    下文的json文件就是这么得到的，只不过助教做了一些注释。
 
 ```json
 {
@@ -228,7 +228,7 @@ Human destructor called
     -  args：设置需要的参数
     -  cwd：指令执行的目录
 
-主要修改 program & args 域即可
+主要修改 program & args 域即可。
 
 ---
 
@@ -247,15 +247,15 @@ Human destructor called
 
 ```
 
-之后在main入口处打断点再执行即可开始调试了
+之后在main入口处打断点再执行即可开始调试了。
 
 ![debug](photos/debug.png)
 
-在`h->print()`处 step in 之后，不难发现是print方法的返回值逻辑处理有误
+在`h->print()`处 step in 之后，不难发现是print方法的返回值逻辑处理有误。
 
 ![bug](photos/bug.png)
 
-将Student.cpp:16L & Human.cpp:13L 用`res = ss.str();`代替后，重新make(构建)项目并运行
+将Student.cpp:16L & Human.cpp:13L 用`res = ss.str();`代替后，重新make(构建)项目并运行。
 
 ```shell
 cd build; make; cd ..
@@ -286,9 +286,9 @@ Human destructor called
 ## 实验任务
 通过调试这个工程文件，回答下面三个问题：
 
-1. 为什么用 main.cpp:31L 替换 main.cpp:32L 会出现报错
-2. 为什么用 main.cpp:33L 替换 main.cpp:34L 会出现报错
-3. 为什么取消注释 main.cpp:38-42L 不会报错，但运行会出现段错误
+1. 为什么用 main.cpp:31L 替换 main.cpp:32L 会出现报错？
+2. 为什么用 main.cpp:33L 替换 main.cpp:34L 会出现报错？
+3. 为什么取消注释 main.cpp:38-42L 不会报错，但运行会出现段错误？
 
 
 
