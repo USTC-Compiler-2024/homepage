@@ -60,15 +60,17 @@
     
     
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-    html.glightbox-open { overflow: initial; height: 100%; }
-    .gslide-title { margin-top: 0px; user-select: text; }
-    .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }
-    .gscrollbar-fixer { padding-right: 15px; }
-    .gdesc-inner { font-size: 0.75rem; }
-    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -814,7 +816,7 @@
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>clangd
 </code></pre></div>
 安装完成后在VSCode中搜索Clangd并安装
-<a class="glightbox" href="../photos/Clangd.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Clangd" src="../photos/Clangd.png" /></a></p>
+<a class="glightbox" href="../photos/Clangd.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Clangd" src="../photos/Clangd.png" /></a></p>
 <p>由于 Clangd 和 Microsoft C/C++ 扩展冲突，我们建议大家在使用 Clangd 时禁用 Microsoft C/C++ 扩展。</p>
 <p>如果正确安装了 Clangd，那么可以通过以下方式进行跳转：</p>
 <ul>
@@ -872,9 +874,9 @@
 </code></pre></div>
 <p>在VSCode安装扩展：
 - CodeLLDB
-    <a class="glightbox" href="../photos/codelldb.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="CodeLLDB" src="../photos/codelldb.png" /></a>
+    <a class="glightbox" href="../photos/codelldb.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="CodeLLDB" src="../photos/codelldb.png" /></a>
 - CMake &amp; CMake Tools
-    <a class="glightbox" href="../photos/CMake.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="CMakeExt" src="../photos/CMake.png" /></a></p>
+    <a class="glightbox" href="../photos/CMake.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="CMakeExt" src="../photos/CMake.png" /></a></p>
 <p><strong>安装CMake扩展后会弹出窗口提示选择工具包(ToolKit)，请选择最高版本的clang</strong>。</p>
 </details>
 <p>LLDB是LLVM项目开发的调试器，通过设置VSCode扩展可以方便地调试大型项目。下面将以一个小型工程为例：</p>
@@ -888,7 +890,7 @@ cmake<span class="w"> </span>..
 make
 </code></pre></div>
 <p>或者你可以直接点击下边栏的生成：</p>
-<p><a class="glightbox" href="../photos/make.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="make" src="../photos/make.png" /></a></p>
+<p><a class="glightbox" href="../photos/make.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="make" src="../photos/make.png" /></a></p>
 <p>经过这一步后，在<code>${workspaceFolder}/build/src/</code>下可以找到生成的可执行文件<code>lab0_debug</code></p>
 <p>运行lab0_debug，你会得到类似下面的输出：</p>
 <div class="highlight"><pre><span></span><code>jyjs@JHost<span class="w"> </span>stl_debug<span class="w"> </span>%<span class="w"> </span>./build/src/lab0_debug<span class="w"> </span>-t
@@ -915,11 +917,11 @@ Human<span class="w"> </span>destructor<span class="w"> </span>called
 <details class="info">
 <summary>如何自动生成一个.json文件</summary>
 <p>点击<code>运行/启动调试(F5)</code>：</p>
-<p><a class="glightbox" href="../photos/F5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="F5" src="../photos/F5.png" /></a></p>
+<p><a class="glightbox" href="../photos/F5.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="F5" src="../photos/F5.png" /></a></p>
 <p>上方提示栏弹出，选择LLDB：</p>
-<p><a class="glightbox" href="../photos/LLDB.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="LLDB" src="../photos/LLDB.png" /></a></p>
+<p><a class="glightbox" href="../photos/LLDB.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="LLDB" src="../photos/LLDB.png" /></a></p>
 <p>这时由于vscode的CODELLDB扩展不知道如何调试，会报错并为我们创建<code>.vscode/launch.json</code>文件。</p>
-<p><a class="glightbox" href="../photos/error.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="json" src="../photos/error.png" /></a></p>
+<p><a class="glightbox" href="../photos/error.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="json" src="../photos/error.png" /></a></p>
 <p><div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">    </span><span class="c1">// 使用 IntelliSense 了解相关属性。 </span>
 <span class="w">    </span><span class="c1">// 悬停以查看现有属性的描述。</span>
@@ -982,9 +984,9 @@ Human<span class="w"> </span>destructor<span class="w"> </span>called
 <span class="err">...</span>
 </code></pre></div>
 <p>之后在main入口处打断点再执行即可开始调试了。</p>
-<p><a class="glightbox" href="../photos/debug.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="debug" src="../photos/debug.png" /></a></p>
+<p><a class="glightbox" href="../photos/debug.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="debug" src="../photos/debug.png" /></a></p>
 <p>在<code>h-&gt;print()</code>处 step in 之后，不难发现是print方法的返回值逻辑处理有误。</p>
-<p><a class="glightbox" href="../photos/bug.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="bug" src="../photos/bug.png" /></a></p>
+<p><a class="glightbox" href="../photos/bug.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="bug" src="../photos/bug.png" /></a></p>
 <p>将Student.cpp:16L &amp; Human.cpp:13L 用<code>res = ss.str();</code>代替后，重新make(构建)项目并运行。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>build<span class="p">;</span><span class="w"> </span>make<span class="p">;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>..
 ./build/src/lab0_debug<span class="w"> </span>-t
@@ -1157,7 +1159,5 @@ Human<span class="w"> </span>destructor<span class="w"> </span>called
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>
