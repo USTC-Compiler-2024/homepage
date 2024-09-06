@@ -53,17 +53,17 @@ Lab0 完成后，除了 answer.pdf 文件（需要回答[Git的使用](git.md#�
 
 #### 文件上传提交方式
 
-目前还没有开放提交
+<!-- 目前还没有开放提交 -->
 
-<!-- 对于上传的文件，助教会进行文本相似性检测，请同学们认真学习并完成要求。
+对于上传的文件，助教会进行文本相似性检测，请同学们认真学习并完成要求。
 
-![Alt text](photos/image.png)
+![alt text](photos/image.png)
 
 #### GitLab 仓库链接提交方式
 
-![Alt text](photos/image-1.png)
+![alt text](photos/image-1.png)
 
-![Alt text](photos/image-2.png) -->
+![Alt text](photos/image-2.png)
 
 <!-- #### 答疑
 
