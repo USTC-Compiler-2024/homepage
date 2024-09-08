@@ -40,7 +40,10 @@ sudo apt install clangd
     
     ```bash
 
-    git pull
+    $ git pull
+    $ cd build
+    $ cmake .. -DCMAKE_BUILD_TYPE=ASAN
+    $ make
 
     ```
 
@@ -135,7 +138,9 @@ sudo apt install clangd
 
 即使用`cmake .. -DCMAKE_BUILD_TYPE=ASAN`替换`cmake ..`
 
-需要注意的是，当你想关闭这个功能时需要清空 build 文件夹重新构建项目。
+然后再次运行你的错误代码，Asan 会提供更详细的报错信息。
+
+需要注意的是，要更换到别的 build type（如 Debug 或 Release）时需要显式指定，否则 cmake 会使用 cached 的版本。
 
 ## 图形化的LLDB调试工具
 
