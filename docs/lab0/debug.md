@@ -28,7 +28,7 @@ sudo apt install clangd
 同时，Clangd还提供了强大的代码补全功能和错误提示功能，可以帮助同学们更好地编写代码。大家可以在之后的实验中一一体验。
 
 
-## 如何在CMake构建的大型项目中定位 Segmentation Fault 原因
+## 如何在CMake构建的大型项目中定位 Segmentation Fault
 
 ??? Info "什么是 **ASAN** "
 
