@@ -851,7 +851,10 @@
 </details>
 <details class="warning">
 <summary>请先拉取最新仓库</summary>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>pull
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>pull
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
+$<span class="w"> </span>cmake<span class="w"> </span>..<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>ASAN
+$<span class="w"> </span>make
 </code></pre></div>
 </details>
 <details class="info">
@@ -936,7 +939,8 @@ Shadow<span class="w"> </span>gap:<span class="w">              </span><span cla
 </details>
 <p>构建 CMake 项目时，可以手动添加 ASAN 功能来定位 Segmentation Fault 问题，</p>
 <p>即使用<code>cmake .. -DCMAKE_BUILD_TYPE=ASAN</code>替换<code>cmake ..</code></p>
-<p>需要注意的是，当你想关闭这个功能时需要清空 build 文件夹重新构建项目。</p>
+<p>然后再次运行你的错误代码，Asan 会提供更详细的报错信息。</p>
+<p>需要注意的是，要更换到别的 build type（如 Debug 或 Release）时需要显式指定，否则 cmake 会使用 cached 的版本。</p>
 <h2 id="lldb">图形化的LLDB调试工具</h2>
 <details class="info" open="open">
 <summary>依赖</summary>
