@@ -827,13 +827,13 @@
 <summary>CMake</summary>
 <p>CMake 是一个开源的跨平台构建系统工具，用于管理项目的构建过程。它使用简单的文本文件（CMakeLists.txt）来定义项目的构建配置，并生成标准的构建文件（如 Makefile 或 Visual Studio 工程文件）</p>
 </details>
-<p>对于一个大型工程而言，Debug是相对困难的，我们为大家提供了两种可行的Debug方法，<strong><font color = red>这两种调试方法并不是互斥的，我们强烈建议组合使用</font></strong></p>
+<p>对于一个大型工程而言，Debug 是相对困难的，我们为大家提供了两种可行的 Debug 方法，<strong><font color = red>这两种调试方法并不是互斥的，我们强烈建议组合使用</font></strong></p>
 <h2 id="clangd">Clangd语言服务器</h2>
 <p>大家在以往写 C/C++ 工程时，肯定都使用过 Microsoft C/C++ ，但该扩展在较大的的项目中表现并不优秀。我们强烈建议大家使用 Clangd 并在 VSCode 中安装 Clangd 扩展。</p>
-<p>在终端输入以下命令安装Clangd：
+<p>在终端输入以下命令安装 Clangd ：
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>clangd
 </code></pre></div>
-安装完成后在VSCode中搜索Clangd并安装
+安装完成后在VSCode中搜索 Clangd 并安装
 <a class="glightbox" href="../photos/Clangd.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Clangd" src="../photos/Clangd.png" /></a></p>
 <p>由于 Clangd 和 Microsoft C/C++ 扩展冲突，我们建议大家在使用 Clangd 时禁用 Microsoft C/C++ 扩展。</p>
 <p>如果正确安装了 Clangd，那么可以通过以下方式进行跳转：</p>
@@ -842,14 +842,20 @@
 <li><strong>跳转到实现</strong>：在光标停留在某个函数或变量上时，按下<code>Ctrl</code>+<code>F12</code>即可转到实现。</li>
 <li><strong>跳转到引用</strong>：在光标停留在某个函数或变量上时，按下<code>Shift</code>+<code>F12</code>键即可转到引用。</li>
 </ul>
-<p>同时，Clangd还提供了强大的代码补全功能和错误提示功能，可以帮助同学们更好地编写代码。大家可以在之后的实验中一一体验。</p>
+<p>同时，Clangd 还提供了强大的代码补全功能和错误提示功能，可以帮助同学们更好地编写代码。大家可以在之后的实验中一一体验。</p>
 <h2 id="cmake-segmentation-fault">如何在CMake构建的大型项目中定位 Segmentation Fault</h2>
 <details class="info">
 <summary>什么是 <strong>ASAN</strong> </summary>
 <p>ASAN（Address Sanitizer）是针对 C/C++ 的快速内存错误检测工具，在运行时检测 C/C++ 代码中的多种内存错误。</p>
 <p>ASAN 早先是 LLVM 中的特性，后被集成到 GCC 4.8 中，在 4.9 版本中加入了对 ARM 平台的支持。</p>
 </details>
-<p>构建 CMake 项目时，添加 ASAN 功能，即使用<code>cmake .. -DCMAKE_BUILD_TYPE=ASAN</code>替换<code>cmake ..</code></p>
+<div class="admonition info">
+<p class="admonition-title">请拉取最新仓库</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>pull
+</code></pre></div>
+</div>
+<p>构建 CMake 项目时，可以手动添加 ASAN 功能来定位 Segmentation Fault 问题，</p>
+<p>即使用<code>cmake .. -DCMAKE_BUILD_TYPE=ASAN</code>替换<code>cmake ..</code></p>
 <p>需要注意的是，当你想关闭这个功能时需要清空 build 文件夹重新构建项目。</p>
 <h2 id="lldb">图形化的LLDB调试工具</h2>
 <details class="info" open="open">
@@ -1080,6 +1086,7 @@ Human<span class="w"> </span>destructor<span class="w"> </span>called
       
         <a href="mailto:liuruibo21@mail.ustc.edu.cn">JYJSXX</a>, 
         <a href="mailto:95729892+jyjsxx@users.noreply.github.com">JYJSXX</a>, 
+        <a href="mailto:not.committed.yet">Not Committed Yet</a>, 
         <a href="mailto:zox@mail.ustc.edu.cn">zox</a>
     </nav>
   </span>
