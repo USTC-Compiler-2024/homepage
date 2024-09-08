@@ -4,17 +4,17 @@
 
     CMake 是一个开源的跨平台构建系统工具，用于管理项目的构建过程。它使用简单的文本文件（CMakeLists.txt）来定义项目的构建配置，并生成标准的构建文件（如 Makefile 或 Visual Studio 工程文件）
 
-对于一个大型工程而言，Debug是相对困难的，我们为大家提供了两种可行的Debug方法，**<font color = red>这两种调试方法并不是互斥的，我们强烈建议组合使用</font>**
+对于一个大型工程而言，Debug 是相对困难的，我们为大家提供了两种可行的 Debug 方法，**<font color = red>这两种调试方法并不是互斥的，我们强烈建议组合使用</font>**
 
 ## Clangd语言服务器
 
 大家在以往写 C/C++ 工程时，肯定都使用过 Microsoft C/C++ ，但该扩展在较大的的项目中表现并不优秀。我们强烈建议大家使用 Clangd 并在 VSCode 中安装 Clangd 扩展。
 
-在终端输入以下命令安装Clangd：
+在终端输入以下命令安装 Clangd ：
 ```shell
 sudo apt install clangd
 ```
-安装完成后在VSCode中搜索Clangd并安装
+安装完成后在VSCode中搜索 Clangd 并安装
 ![Clangd](photos/Clangd.png)
     
 由于 Clangd 和 Microsoft C/C++ 扩展冲突，我们建议大家在使用 Clangd 时禁用 Microsoft C/C++ 扩展。
@@ -25,7 +25,7 @@ sudo apt install clangd
 - **跳转到实现**：在光标停留在某个函数或变量上时，按下`Ctrl`+`F12`即可转到实现。
 - **跳转到引用**：在光标停留在某个函数或变量上时，按下`Shift`+`F12`键即可转到引用。
 
-同时，Clangd还提供了强大的代码补全功能和错误提示功能，可以帮助同学们更好地编写代码。大家可以在之后的实验中一一体验。
+同时，Clangd 还提供了强大的代码补全功能和错误提示功能，可以帮助同学们更好地编写代码。大家可以在之后的实验中一一体验。
 
 
 ## 如何在CMake构建的大型项目中定位 Segmentation Fault
@@ -36,7 +36,17 @@ sudo apt install clangd
 
     ASAN 早先是 LLVM 中的特性，后被集成到 GCC 4.8 中，在 4.9 版本中加入了对 ARM 平台的支持。
 
-构建 CMake 项目时，添加 ASAN 功能，即使用`cmake .. -DCMAKE_BUILD_TYPE=ASAN`替换`cmake ..`
+!!! Info "请拉取最新仓库"
+    
+    ```bash
+
+    git pull
+
+    ```
+
+构建 CMake 项目时，可以手动添加 ASAN 功能来定位 Segmentation Fault 问题，
+
+即使用`cmake .. -DCMAKE_BUILD_TYPE=ASAN`替换`cmake ..`
 
 需要注意的是，当你想关闭这个功能时需要清空 build 文件夹重新构建项目。
 
