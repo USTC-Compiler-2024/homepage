@@ -569,35 +569,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#logging" class="md-nav__link">
+  <a href="#cmake-segmentation-fault" class="md-nav__link">
     <span class="md-ellipsis">
-      logging 工具使用
+      如何在CMake构建的大型项目中定位 Segmentation Fault 原因
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="logging 工具使用">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      介绍
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      使用
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -612,7 +588,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       克隆需要的测试工程并构建项目
     </span>
@@ -624,6 +600,39 @@
   <a href="#json-debug" class="md-nav__link">
     <span class="md-ellipsis">
       json 文件设置及 debug 示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      logging 工具使用
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="logging 工具使用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      介绍
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用
     </span>
   </a>
   
@@ -715,35 +724,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#logging" class="md-nav__link">
+  <a href="#cmake-segmentation-fault" class="md-nav__link">
     <span class="md-ellipsis">
-      logging 工具使用
+      如何在CMake构建的大型项目中定位 Segmentation Fault 原因
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="logging 工具使用">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      介绍
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      使用
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -758,7 +743,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       克隆需要的测试工程并构建项目
     </span>
@@ -770,6 +755,39 @@
   <a href="#json-debug" class="md-nav__link">
     <span class="md-ellipsis">
       json 文件设置及 debug 示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      logging 工具使用
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="logging 工具使用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      介绍
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用
     </span>
   </a>
   
@@ -825,42 +843,14 @@
 <li><strong>跳转到引用</strong>：在光标停留在某个函数或变量上时，按下<code>Shift</code>+<code>F12</code>键即可转到引用。</li>
 </ul>
 <p>同时，Clangd还提供了强大的代码补全功能和错误提示功能，可以帮助同学们更好地编写代码。大家可以在之后的实验中一一体验。</p>
-<h2 id="logging">logging 工具使用</h2>
-<h3 id="_1">介绍</h3>
-<p>为了方便同学们在之后的实验中 debug，为大家设计了一个 C++ 简单实用的分级日志工具。该工具将日志输出信息从低到高分成四种等级：<code>DEBUG</code>，<code>INFO</code>，<code>WARNING</code>，<code>ERROR</code>。通过设定环境变量 <code>LOGV</code> 的值，来选择输出哪些等级的日志。<code>LOGV</code> 的取值是 <strong>0 到 3</strong>，分别对应到上述的 4 种级别 (<code>0:DEBUG</code>,<code>1:INFO</code>,<code>2:WARNING</code>,<code>3:ERROR</code>)。此外输出中还会包含打印该日志的代码所在位置。</p>
-<h3 id="_2">使用</h3>
-<p>项目编译好之后，可以在 <code>build</code> 目录下运行 test_logging 可执行文件，该文件的源代码在 <code>tests/test_logging.cpp</code>，用法如下：</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;logging.hpp&quot;</span>
-<span class="c1">// 引入头文件</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
-<span class="w">    </span><span class="n">LOG</span><span class="p">(</span><span class="n">DEBUG</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;This is DEBUG log item.&quot;</span><span class="p">;</span>
-<span class="w">    </span><span class="c1">// 使用关键字 LOG，括号中填入要输出的日志等级</span>
-<span class="w">    </span><span class="c1">// 紧接着就是&lt;&lt;以及日志的具体信息，就跟使用 std::cout 一样</span>
-<span class="w">    </span><span class="n">LOG</span><span class="p">(</span><span class="n">INFO</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;This is INFO log item&quot;</span><span class="p">;</span>
-<span class="w">    </span><span class="n">LOG</span><span class="p">(</span><span class="n">WARNING</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;This is WARNING log item&quot;</span><span class="p">;</span>
-<span class="w">    </span><span class="n">LOG</span><span class="p">(</span><span class="n">ERROR</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;This is ERROR log item&quot;</span><span class="p">;</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>接着在运行该程序的时候，设定环境变量 <code>LOGV=0</code>，那么程序就会输出级别 <strong>大于等于 0</strong> 日志信息：</p>
-<div class="highlight"><pre><span></span><code>user@user:<span class="si">${</span><span class="nv">ProjectDir</span><span class="si">}</span>/build$<span class="w"> </span><span class="nv">LOGV</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>./test_logging
-<span class="o">[</span>DEBUG<span class="o">]</span><span class="w"> </span><span class="o">(</span>test_logging.cpp:5L<span class="w">  </span>main<span class="o">)</span>This<span class="w"> </span>is<span class="w"> </span>DEBUG<span class="w"> </span>log<span class="w"> </span>item.
-<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">(</span>test_logging.cpp:6L<span class="w">  </span>main<span class="o">)</span>This<span class="w"> </span>is<span class="w"> </span>INFO<span class="w"> </span>log<span class="w"> </span>item
-<span class="o">[</span>WARNING<span class="o">]</span><span class="w"> </span><span class="o">(</span>test_logging.cpp:7L<span class="w">  </span>main<span class="o">)</span>This<span class="w"> </span>is<span class="w"> </span>WARNING<span class="w"> </span>log<span class="w"> </span>item
-<span class="o">[</span>ERROR<span class="o">]</span><span class="w"> </span><span class="o">(</span>test_logging.cpp:8L<span class="w">  </span>main<span class="o">)</span>This<span class="w"> </span>is<span class="w"> </span>ERROR<span class="w"> </span>log<span class="w"> </span>item
-</code></pre></div>
-<p>输出中除了包含日志级别和用户想打印的信息，在圆括号中还包含了打印该信息代码的具体位置（包括文件名称、所在行、所在函数名称），可以很方便地定位到出问题的地方。</p>
-<p>假如我们觉得程序已经没有问题了，不想看那么多的 DEBUG 信息，那么我们就可以设定环境变量 <code>LOGV=1</code>，选择只看 <strong>级别大于等于 1</strong> 的日志信息：</p>
-<div class="highlight"><pre><span></span><code>user@user:<span class="si">${</span><span class="nv">ProjectDir</span><span class="si">}</span>/build$<span class="w"> </span><span class="nv">LOGV</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>./test_logging
-<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">(</span>test_logging.cpp:6L<span class="w">  </span>main<span class="o">)</span>This<span class="w"> </span>is<span class="w"> </span>INFO<span class="w"> </span>log<span class="w"> </span>item
-<span class="o">[</span>WARNING<span class="o">]</span><span class="w"> </span><span class="o">(</span>test_logging.cpp:7L<span class="w">  </span>main<span class="o">)</span>This<span class="w"> </span>is<span class="w"> </span>WARNING<span class="w"> </span>log<span class="w"> </span>item
-<span class="o">[</span>ERROR<span class="o">]</span><span class="w"> </span><span class="o">(</span>test_logging.cpp:8L<span class="w">  </span>main<span class="o">)</span>This<span class="w"> </span>is<span class="w"> </span>ERROR<span class="w"> </span>log<span class="w"> </span>item
-</code></pre></div>
-<p>当然 <code>LOGV</code> 值越大，日志的信息将更加简略。如果没有设定 <code>LOGV</code> 的环境变量，将默认不输出任何信息。</p>
-<p>这里再附带一个小技巧，如果日志内容多，在终端观看体验较差，可以输入以下命令将日志输出到文件中：</p>
-<div class="highlight"><pre><span></span><code>user@user:${ProjectDir}/build$ LOGV=0 ./test_logging &gt; log
-</code></pre></div>
-<p>然后就可以输出到文件名为 log 的文件中啦～</p>
+<h2 id="cmake-segmentation-fault">如何在CMake构建的大型项目中定位 Segmentation Fault 原因</h2>
+<details class="info">
+<summary>什么是 <strong>ASAN</strong> </summary>
+<p>ASAN（Address Sanitizer）是针对 C/C++ 的快速内存错误检测工具，在运行时检测 C/C++ 代码中的多种内存错误。</p>
+<p>ASAN 早先是 LLVM 中的特性，后被集成到 GCC 4.8 中，在 4.9 版本中加入了对 ARM 平台的支持。</p>
+</details>
+<p>构建 CMake 项目时，添加 ASAN 功能，即使用<code>cmake .. -DCMAKE_BUILD_TYPE=Asan</code>替换<code>cmake ..</code></p>
+<p>需要注意的是，当你想关闭这个功能时需要清空 build 文件夹重新构建项目。</p>
 <h2 id="lldb">图形化的LLDB调试工具</h2>
 <details class="info" open="open">
 <summary>依赖</summary>
@@ -880,7 +870,7 @@
 <p><strong>安装CMake扩展后会弹出窗口提示选择工具包(ToolKit)，请选择最高版本的clang</strong>。</p>
 </details>
 <p>LLDB是LLVM项目开发的调试器，通过设置VSCode扩展可以方便地调试大型项目。下面将以一个小型工程为例：</p>
-<h3 id="_3">克隆需要的测试工程并构建项目</h3>
+<h3 id="_1">克隆需要的测试工程并构建项目</h3>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024ustc-jianmu-compiler.git
 <span class="nb">cd</span><span class="w"> </span>2024ustc-jianmu-compiler
 git<span class="w"> </span>checkout<span class="w"> </span>lab0
@@ -1009,6 +999,42 @@ Student<span class="w"> </span>destructor<span class="w"> </span>called
 Human<span class="w"> </span>destructor<span class="w"> </span>called
 Human<span class="w"> </span>destructor<span class="w"> </span>called
 </code></pre></div>
+<h2 id="logging">logging 工具使用</h2>
+<h3 id="_2">介绍</h3>
+<p>为了方便同学们在之后的实验中 debug，为大家设计了一个 C++ 简单实用的分级日志工具。该工具将日志输出信息从低到高分成四种等级：<code>DEBUG</code>，<code>INFO</code>，<code>WARNING</code>，<code>ERROR</code>。通过设定环境变量 <code>LOGV</code> 的值，来选择输出哪些等级的日志。<code>LOGV</code> 的取值是 <strong>0 到 3</strong>，分别对应到上述的 4 种级别 (<code>0:DEBUG</code>,<code>1:INFO</code>,<code>2:WARNING</code>,<code>3:ERROR</code>)。此外输出中还会包含打印该日志的代码所在位置。</p>
+<h3 id="_3">使用</h3>
+<p>项目编译好之后，可以在 <code>build/src</code> 目录下运行 test_logging 可执行文件，该文件的源代码在 <code>src/test_logging.cpp</code>，用法如下：</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;logging.hpp&quot;</span>
+<span class="c1">// 引入头文件</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+<span class="w">    </span><span class="n">LOG</span><span class="p">(</span><span class="n">DEBUG</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;This is DEBUG log item.&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// 使用关键字 LOG，括号中填入要输出的日志等级</span>
+<span class="w">    </span><span class="c1">// 紧接着就是&lt;&lt;以及日志的具体信息，就跟使用 std::cout 一样</span>
+<span class="w">    </span><span class="n">LOG</span><span class="p">(</span><span class="n">INFO</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;This is INFO log item&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">LOG</span><span class="p">(</span><span class="n">WARNING</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;This is WARNING log item&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">LOG</span><span class="p">(</span><span class="n">ERROR</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;This is ERROR log item&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>接着在运行该程序的时候，设定环境变量 <code>LOGV=0</code>，那么程序就会输出级别 <strong>大于等于 0</strong> 日志信息：</p>
+<div class="highlight"><pre><span></span><code>user@user:<span class="si">${</span><span class="nv">ProjectDir</span><span class="si">}</span>/build/src$<span class="w"> </span><span class="nv">LOGV</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>./test_logging
+<span class="o">[</span>DEBUG<span class="o">]</span><span class="w"> </span><span class="o">(</span>test_logging.cpp:5L<span class="w">  </span>main<span class="o">)</span>This<span class="w"> </span>is<span class="w"> </span>DEBUG<span class="w"> </span>log<span class="w"> </span>item.
+<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">(</span>test_logging.cpp:6L<span class="w">  </span>main<span class="o">)</span>This<span class="w"> </span>is<span class="w"> </span>INFO<span class="w"> </span>log<span class="w"> </span>item
+<span class="o">[</span>WARNING<span class="o">]</span><span class="w"> </span><span class="o">(</span>test_logging.cpp:7L<span class="w">  </span>main<span class="o">)</span>This<span class="w"> </span>is<span class="w"> </span>WARNING<span class="w"> </span>log<span class="w"> </span>item
+<span class="o">[</span>ERROR<span class="o">]</span><span class="w"> </span><span class="o">(</span>test_logging.cpp:8L<span class="w">  </span>main<span class="o">)</span>This<span class="w"> </span>is<span class="w"> </span>ERROR<span class="w"> </span>log<span class="w"> </span>item
+</code></pre></div>
+<p>输出中除了包含日志级别和用户想打印的信息，在圆括号中还包含了打印该信息代码的具体位置（包括文件名称、所在行、所在函数名称），可以很方便地定位到出问题的地方。</p>
+<p>假如我们觉得程序已经没有问题了，不想看那么多的 DEBUG 信息，那么我们就可以设定环境变量 <code>LOGV=1</code>，选择只看 <strong>级别大于等于 1</strong> 的日志信息：</p>
+<div class="highlight"><pre><span></span><code>user@user:<span class="si">${</span><span class="nv">ProjectDir</span><span class="si">}</span>/build/src$<span class="w"> </span><span class="nv">LOGV</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>./test_logging
+<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">(</span>test_logging.cpp:6L<span class="w">  </span>main<span class="o">)</span>This<span class="w"> </span>is<span class="w"> </span>INFO<span class="w"> </span>log<span class="w"> </span>item
+<span class="o">[</span>WARNING<span class="o">]</span><span class="w"> </span><span class="o">(</span>test_logging.cpp:7L<span class="w">  </span>main<span class="o">)</span>This<span class="w"> </span>is<span class="w"> </span>WARNING<span class="w"> </span>log<span class="w"> </span>item
+<span class="o">[</span>ERROR<span class="o">]</span><span class="w"> </span><span class="o">(</span>test_logging.cpp:8L<span class="w">  </span>main<span class="o">)</span>This<span class="w"> </span>is<span class="w"> </span>ERROR<span class="w"> </span>log<span class="w"> </span>item
+</code></pre></div>
+<p>当然 <code>LOGV</code> 值越大，日志的信息将更加简略。如果没有设定 <code>LOGV</code> 的环境变量，将默认不输出任何信息。</p>
+<p>这里再附带一个小技巧，如果日志内容多，在终端观看体验较差，可以输入以下命令将日志输出到文件中：</p>
+<div class="highlight"><pre><span></span><code>user@user:${ProjectDir}/build/src$ LOGV=0 ./test_logging &gt; log
+</code></pre></div>
+<p>然后就可以输出到文件名为 log 的文件中啦～</p>
 <h2 id="_4">实验任务</h2>
 <p>通过调试这个工程文件，回答下面三个问题：</p>
 <ol>
@@ -1036,7 +1062,7 @@ Human<span class="w"> </span>destructor<span class="w"> </span>called
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 6, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 8, 2024</span>
   </span>
 
     
@@ -1053,6 +1079,7 @@ Human<span class="w"> </span>destructor<span class="w"> </span>called
     <nav>
       
         <a href="mailto:liuruibo21@mail.ustc.edu.cn">JYJSXX</a>, 
+        <a href="mailto:95729892+jyjsxx@users.noreply.github.com">JYJSXX</a>, 
         <a href="mailto:not.committed.yet">Not Committed Yet</a>, 
         <a href="mailto:zox@mail.ustc.edu.cn">zox</a>
     </nav>
