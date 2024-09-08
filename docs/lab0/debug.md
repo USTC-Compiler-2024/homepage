@@ -36,7 +36,7 @@ sudo apt install clangd
 
     ASAN 早先是 LLVM 中的特性，后被集成到 GCC 4.8 中，在 4.9 版本中加入了对 ARM 平台的支持。
 
-!!! Info "请拉取最新仓库"
+??? Warning "请先拉取最新仓库"
     
     ```bash
 
