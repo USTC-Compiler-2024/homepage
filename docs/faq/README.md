@@ -11,3 +11,7 @@
 ![alt text](clone_waiting.png)
 
 **A** : 是因为VSCode一直在等你输入用户名和密码(希冀平台Gitlab)。
+
+### Q: `Segmentation Fault` 好难debug！
+
+**A** : 请参考[如何在CMake构建的大型项目中定位 Segmentation Fault](../lab0/debug.md#如何在cmake构建的大型项目中定位-segmentation-fault)一节。
