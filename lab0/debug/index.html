@@ -849,11 +849,11 @@
 <p>ASAN（Address Sanitizer）是针对 C/C++ 的快速内存错误检测工具，在运行时检测 C/C++ 代码中的多种内存错误。</p>
 <p>ASAN 早先是 LLVM 中的特性，后被集成到 GCC 4.8 中，在 4.9 版本中加入了对 ARM 平台的支持。</p>
 </details>
-<div class="admonition info">
-<p class="admonition-title">请拉取最新仓库</p>
+<details class="warning">
+<summary>请先拉取最新仓库</summary>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>pull
 </code></pre></div>
-</div>
+</details>
 <p>构建 CMake 项目时，可以手动添加 ASAN 功能来定位 Segmentation Fault 问题，</p>
 <p>即使用<code>cmake .. -DCMAKE_BUILD_TYPE=ASAN</code>替换<code>cmake ..</code></p>
 <p>需要注意的是，当你想关闭这个功能时需要清空 build 文件夹重新构建项目。</p>
@@ -1086,7 +1086,6 @@ Human<span class="w"> </span>destructor<span class="w"> </span>called
       
         <a href="mailto:liuruibo21@mail.ustc.edu.cn">JYJSXX</a>, 
         <a href="mailto:95729892+jyjsxx@users.noreply.github.com">JYJSXX</a>, 
-        <a href="mailto:not.committed.yet">Not Committed Yet</a>, 
         <a href="mailto:zox@mail.ustc.edu.cn">zox</a>
     </nav>
   </span>
