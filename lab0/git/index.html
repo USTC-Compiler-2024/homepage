@@ -60,17 +60,15 @@
     
     
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -758,20 +756,20 @@ git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"
 <li>进入以下公开仓库链接： <strong><a href="https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024_warm_up.git">https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024_warm_up.git</a></strong></li>
 <li>
 <p>点击右上角的 "Fork" 按钮。这个操作会创建一个与原仓库一模一样的新仓库，唯一的区别是，这个新仓库是你自己的。你可以在新仓库上执行任何你需要的操作。</p>
-<p><a class="glightbox" href="../photos/git1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Untitled" src="../photos/git1.png" /></a></p>
+<p><a class="glightbox" href="../photos/git1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Untitled" src="../photos/git1.png" /></a></p>
 </li>
 <li>
 <p>点击 "Fork" 后，页面将自动跳转到新的仓库页面，你将成为这个仓库的拥有者，这也会显示在仓库名称旁边。</p>
 </li>
 </ol>
-<p><a class="glightbox" href="../photos/git2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Untitled" src="../photos/git2.png" /></a></p>
+<p><a class="glightbox" href="../photos/git2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Untitled" src="../photos/git2.png" /></a></p>
 <p>现在，你已经成功拥有了自己的第一个仓库。接下来，我们可以开始对这个仓库进行修改。</p>
 <h2 id="_2">进行一次提交</h2>
 <p>由于仓库目前在服务器上，我们首先得到仓库的 URL，并通过 git clone 将其下载到本地。</p>
 <ol>
 <li>
 <p>得到仓库的 URL</p>
-<p><a class="glightbox" href="../photos/git3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Untitled" src="../photos/git3.png" /></a></p>
+<p><a class="glightbox" href="../photos/git3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Untitled" src="../photos/git3.png" /></a></p>
 </li>
 <li>
 <p>在 Ubuntu 环境中，利用得到的 URL，克隆仓库到本地</p>
@@ -860,7 +858,7 @@ To<span class="w"> </span>https://cscourse.ustc.edu.cn/vdir/Gitlab/ustc_gongping
 <span class="w">    </span>6d08e6d..bc20c0b<span class="w">  </span>master<span class="w"> </span>-&gt;<span class="w"> </span>master
 </code></pre></div>
 <p>现在，刷新 GitLab 页面，刚刚提交的内容已经显示在网页上。</p>
-<p><a class="glightbox" href="../photos/git4.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Untitled" src="../photos/git4.png" /></a></p>
+<p><a class="glightbox" href="../photos/git4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Untitled" src="../photos/git4.png" /></a></p>
 <h2 id="_3">上下游同步和冲突处理</h2>
 <p>通过 fork 操作，你已经拥有了一个自己的仓库，在此我们可以引入上下游的概念。假设通过 fork 仓库 A 得到仓库 B，那么 A 就是 B 的上游。尽管 A 和 B 可能有大部分相同的内容，但对 A 和 B 的修改是彼此独立的。在这个课程实验中，我们将以类似的方式发布实验代码，助教维护上游仓库 A，而学生修改下游仓库 B。由于 A 和 B 的修改是相互独立的，接下来我们将介绍如何使 B 同步 A 的相关修改。</p>
 <p>接下来，以 <strong><a href="https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024_warm_up_upstream">https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024_warm_up_upstream</a></strong> 作为上游仓库为例：</p>
@@ -1109,5 +1107,7 @@ To<span class="w"> </span>https://cscourse.ustc.edu.cn/vdir/Gitlab/ustc_gongping
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

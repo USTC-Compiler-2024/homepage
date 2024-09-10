@@ -56,17 +56,15 @@
     
     
    <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -730,7 +728,7 @@
 <p class="admonition-title">关于 copy statement</p>
 <p><strong>什么是 copy statement？</strong></p>
 <p>在进行后端翻译时，我们根据 phi 节点的语义，将其转化为前驱块的拷贝操作，如下图所示。</p>
-<p><a class="glightbox" href="figs/copy-stmt.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="figs/copy-stmt.png" /></a></p>
+<p><a class="glightbox" href="figs/copy-stmt.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="figs/copy-stmt.png" /></a></p>
 <p><strong>这样做正确吗？</strong></p>
 <p>这种 naive 的方案并不完全正确，在个别极端情况下，它会带来 Lost Of Copy 等问题，但是在本次实验中不会出现，所以你可以放心采用这个方案。</p>
 </div>
@@ -828,7 +826,7 @@ Writing<span class="w"> </span><span class="s1">&#39;.main.dot&#39;</span>...
 $ dot .cmp.dot -Tpng &gt; cmp.png
 </code></pre></div>
 <p>比如得到的 <code>cmp.png</code> 如下：</p>
-<p><a class="glightbox" href="figs/cmp.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="figs/cmp.png" /></a></p>
+<p><a class="glightbox" href="figs/cmp.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="figs/cmp.png" /></a></p>
 <h2 id="_7">编译与运行</h2>
 <p>按照如下示例进行项目编译：</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>2023ustc-jianmu-compiler
@@ -959,5 +957,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>make<span class="w"> </span
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>
