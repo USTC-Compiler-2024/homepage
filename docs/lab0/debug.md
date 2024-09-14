@@ -403,9 +403,9 @@ user@user:${ProjectDir}/build/src$ LOGV=0 ./test_logging > log
 ## 实验任务
 通过调试这个工程文件，回答下面三个问题：
 
-1. 为什么用 main.cpp:31L 替换 main.cpp:32L 会出现报错？
-2. 为什么用 main.cpp:33L 替换 main.cpp:34L 会出现报错？
-3. 为什么取消注释 main.cpp:38-42L 不会报错，但运行会出现段错误？
+1. 为什么用 main.cpp:30L 替换 main.cpp:31L 会出现报错？
+2. 为什么用 main.cpp:32L 替换 main.cpp:33L 会出现报错？
+3. 为什么取消注释 main.cpp:35-39L 不会报错，但运行会出现段错误？
 
 
 
