@@ -48,5 +48,5 @@
 ## 提交内容
 
 - 在希冀平台提交你实验仓库的 url（如 `https://cscourse.ustc.edu.cn/vdir/Gitlab/xxx/2024ustc-jianmu-compiler.git`）。
-- 在希冀平台分别提交你的 `answer.pdf` 文件和 `answer_ast.pdf`文件。
+- 在希冀平台提交你的 `answer.pdf` 文件。
 
