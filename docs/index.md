@@ -46,8 +46,8 @@
 ## <strong>公告</strong>
 
 - 2024-09-02：[课程平台介绍](exp_platform_intro/README.md) 已发布
-<!-- - 2023-09-08：[Lab0](lab0/index.md) 已发布，Deadline：**2023 年 9 月 15 日**
-- 2023-09-13：第一次作业：2.1a、2.2、2.3a、2.4h、2.7c、2.15（教材[<sup>1</sup>](#textbook)），Deadline：**2023 年 9 月 20 日**
+- 2023-09-06：[Lab0](lab0/index.md) 已发布，Deadline：**2023 年 9 月 18 日**
+<!-- - 2023-09-13：第一次作业：2.1a、2.2、2.3a、2.4h、2.7c、2.15（教材[<sup>1</sup>](#textbook)），Deadline：**2023 年 9 月 20 日**
 - 2023-09-15：[Lab1](lab1/index.md) 已发布，Deadline：**2023 年 9 月 28 日**
 - 2023-09-25：第二次作业：3.1a、3.2a、3.10、3.11、3.17、3.19a（教材[<sup>1</sup>](#textbook)），Deadline：**2023 年 10 月 7 日 14:00**
 - 2023-10-05：[Lab2](lab2/index.md) 已发布，注意分阶段 Deadline
@@ -64,11 +64,11 @@
 
 |    日期    |                                   标题                                    |                                                                                                                 课件                                                                                                                  |
 | :--------: | :-----------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-<!-- | 2023-09-04 |                            编译原理和技术导论                             |                                                                              [part1](https://rec.ustc.edu.cn/share/be63e5f0-4bbf-11ee-ab8f-8556ef2e1b82)                                                                              |
-| 2023-09-06 |                                 词法分析                                  | [part1](https://rec.ustc.edu.cn/share/7c8cb640-4bfa-11ee-801b-996bfe70e4c4), [part2](https://rec.ustc.edu.cn/share/971f5a80-4bfa-11ee-9c40-3f9629e3618a), [part3](https://rec.ustc.edu.cn/share/daf23f60-4bfa-11ee-ba03-e1b373b96f27) |
-| 2023-09-11 |                         语法分析 - 上下文无关文法                         |                                                                              [part1](https://rec.ustc.edu.cn/share/1adc23a0-5043-11ee-ae58-c51868b36892)                                                                              |
-| 2023-09-13 |                      语法分析 - 自顶向下 - 递归下降                       |                                                                              [part2](https://rec.ustc.edu.cn/share/11c40120-5208-11ee-8fb3-0b34e4219c8a)                                                                              |
-| 2023-09-18 |                     语法分析 - 自顶向下 - LL(1) 文法                      |                                                                              [part3](https://rec.ustc.edu.cn/share/08643ef0-5564-11ee-88f3-1509f631aa4a)                                                                              |
+| 2024-09-02 |                            编译原理和技术导论                             |                                                                              [Lecture1_Intro](ppt/Lecture1-Intro.pdf)                                                                              |
+| 2024-09-04 |                                 词法分析                                  | [Lexical-analysis](ppt/Lecture2-Lexical-analysis.pdf)|
+| 2024-09-11 |                         语法分析 - 上下文无关文法                         |                                                                              [Parser-part1](ppt/Lecture3-Parser-part1.pdf)                                                                              |
+| 2024-09-14 |                      语法分析 - 自顶向下 - 递归下降                       |                                                                              [Parser-part2](ppt/Lecture4-Parser-part2.pdf)                                                                              |
+<!-- | 2023-09-18 |                     语法分析 - 自顶向下 - LL(1) 文法                      |                                                                              [part3](https://rec.ustc.edu.cn/share/08643ef0-5564-11ee-88f3-1509f631aa4a)                                                                              |
 | 2023-09-20 |           语法分析 - 自底向上 - 移进规约 & LR 分析器的简单模型            |                                       [part4](https://rec.ustc.edu.cn/share/fcba4990-5772-11ee-a14c-a36e421ab311), [part5](https://rec.ustc.edu.cn/share/08206b90-5773-11ee-a7a9-2766281e042e)                                        |
 | 2023-09-25 |                语法分析 - 简单的 LR 方法 & 规范的 LR 方法                 |                                       [part6](https://rec.ustc.edu.cn/share/1a7a4df0-5b4c-11ee-8033-1da927361dcb), [part7](https://rec.ustc.edu.cn/share/322166f0-5b4c-11ee-b6aa-cb031e864251)                                        |
 | 2023-09-27 |                               中间代码表示                                |                                                                              [part1](https://rec.ustc.edu.cn/share/3fba3780-64dc-11ee-b89d-3bff5ec34c27)                                                                              |
