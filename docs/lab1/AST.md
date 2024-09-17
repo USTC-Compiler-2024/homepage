@@ -6,13 +6,13 @@
 
 AST是编译器用来理解和处理源代码的关键步骤。编译器首先将源代码解析成 AST，然后再进行优化，生成中间代码。
 
-对于 phase1 中 `Bison` 生成的 `syntax_tree` 本身就是 AST，但为了适配 lab2 中通过访问者模式进行中间代码生成的需求，我们在这里需要将其简化，将每个语法树节点类型抽象为一个类，在每个类中填充一些属性，并按类进行中间代码生成。
+对于 phase1 中 `Bison` 生成的 `syntax_tree` 本身就是 AST，但为了适配 lab2 中通过访问者模式进行中间代码生成的需求，我们在这里需要将其简化，将每个语法树结点类型抽象为一个类，在每个类中填充一些属性，并按类进行中间代码生成。
 
 而我们目前得到的 `syntax_tree` 的所有结点都只是由一个 `name` 表示，因此需要将 Bison 自动生成分析树转化成更简单的 AST。
 
 !!! notes "分析树（Parse Tree）与抽象语法树（Abstract Syntax Tree）"
 
-    分析树在语法分析的过程中被构造；抽象语法树则是分析树的浓缩表示，使用运算符作为根节点和内部节点，并使用操作数作为子节点。进一步了解可以阅读 [分析树和抽象语法树的比较](https://stackoverflow.com/questions/5026517/whats-the-difference-between-parse-trees-and-abstract-syntax-trees-asts)。
+    分析树在语法分析的过程中被构造；抽象语法树则是分析树的浓缩表示，使用运算符作为根结点和内部结点，并使用操作数作为子结点。进一步了解可以阅读 [分析树和抽象语法树的比较](https://stackoverflow.com/questions/5026517/whats-the-difference-between-parse-trees-and-abstract-syntax-trees-asts)。
 
 
 
@@ -97,10 +97,10 @@ typedef struct _syntax_tree syntax_tree;
 
 - `syntax_tree` 结构体唯一属性是 `root`，指向根结点的指针
 - 每个 `syntax_tree_node` 有以下属性：
-  - `parent`：父结点
-  - `children`：子结点数组，这里子结点数目是由产生式决定的，不会超过10
-  - `children_num`：子结点的数目
-  - `name`：`syntax_tree`结点的名字，也是区分不同结点的标识
+    - `parent`：父结点
+    - `children`：子结点数组，这里子结点数目是由产生式决定的，不会超过10
+    - `children_num`：子结点的数目
+    - `name`：`syntax_tree`结点的名字，也是区分不同结点的标识
 
 比如对于 `declaration-list` 这个结点，其对应的文法产生式为：
 
@@ -111,7 +111,7 @@ $declaration-list \rightarrow declaration-list ~declaration |declaration$
 当采用前一个产生式时，我们可以得到以下属性：
 
 - `parent`：`program` 结点的指针
-- `children[10]`：children[0] 为指向 `declaration-list` 结点的指针，children[1] 为指向 `declaration` 节点的指针
+- `children[10]`：children[0] 为指向 `declaration-list` 结点的指针，children[1] 为指向 `declaration` 结点的指针
 - `children_num = 2`
 - `name = "declaration-list"`
 
@@ -167,7 +167,7 @@ AST::AST(syntax_tree *s) {
 其中，
 
 - 我们将一个 `syntax_tree` 实例传给构造函数作为参数。
-- 我们从 `syntax_tree` 的根节点开始进行 DFS，并将这个新的 `AST` 的根赋给 `AST` 实例的 `root`。
+- 我们从 `syntax_tree` 的根结点开始进行 DFS，并将这个新的 `AST` 的根赋给 `AST` 实例的 `root`。
 - 转换结束会删除原先的 `syntax_tree`，并释放内存空间。
 
 ### `transform_node_iter`函数
@@ -202,7 +202,7 @@ ASTNode *AST::transform_node_iter(syntax_tree_node *n) {
   }
 ```
 
-对于 `syntax_tree` 的结点 program（也即其根节点），对应的文法产生式为：
+对于 `syntax_tree` 的结点 program（也即其根结点），对应的文法产生式为：
 
 ```
 program -> declaration-list

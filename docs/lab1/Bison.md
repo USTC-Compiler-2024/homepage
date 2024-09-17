@@ -12,8 +12,7 @@ Flex 和 Bison 是 Linux 下生成词法分析器和语法分析器的工具，�
 
 以计算器程序（该程序即为下文的[一个复杂的 Bison 程序](#一个复杂的-bison-程序)）为例，用户在界面输入 `2 + 2 * 2`，Flex 将输入识别为 token 流，其中 2 被识别为 `number`，`+` 被识别为 `ADD`，`*` 被识别为 `MUL`。接下来，Bison 负责根据语法规则将这些 token 组织成 AST 树，流程如下图所示：
 
-<img src="assets/image-20230913142328935.png" alt="image-20230913142328935" style="zoom:25%;" />
-
+![image-20230913142328935](assets/image-20230913142328935.png){ width=40% }
 ## Bison 程序结构
 
 Bison 源程序的一般结构如下所示。Bison 源程序后缀一般为 `.y`。
@@ -53,7 +52,7 @@ C 代码部分
       char op;
       double num;
      }
-  
+    
      # 注意：一旦 %union 被定义，需要指定 Bison 每种符号使用的值类型，值类型通过放在尖括号中的 union 类型对应的成员名称确定，如 %token <num>。
      ```
 
