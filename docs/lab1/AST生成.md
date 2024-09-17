@@ -4,21 +4,21 @@
 
 现在我们开始实现 由 `syntax_tree` 向 `AST` 的转换。
 
-`AST`中所有结点类都在 `include/common/ast.hpp`中有所定义，并在 `src/common/ast.cpp`补充了相关实现。
+`AST`中所有结点类都在 `include/common/ast.hpp` 中有所定义，并在 `src/common/ast.cpp` 补充了相关实现。
 
-关于 `AST`的具体知识请参考 [AST](./AST.md)
+关于 `AST` 的具体知识请参考 [AST](./AST.md)
 
 ### 实验内容
 
-本部分需要各位同学在 `src/common/ast.cpp`中，根据 Cminusf 的文法规则 和 AST结点类型完成 由 `syntax_tree` 向 `AST` 的转化。 
+本部分需要各位同学在 `src/common/ast.cpp` 中，根据 Cminusf 的文法规则和 AST 结点类型完成由 `syntax_tree` 向 `AST` 的转化。 
 
-在 `src/common/ast.cpp`中，你需要 补充部分 `TODO`部分的代码逻辑，能够通过测试脚本 生成恰当的 `AST`。例如输入
+在 `src/common/ast.cpp` 中，你需要补充部分 `TODO` 部分的代码逻辑，能够通过测试脚本生成恰当的 `AST`。例如输入
 
 ```c++
 int main(void) { return 0; }
 ```
 
-可以得到如下 `AST`
+可以得到如下 `AST`：
 
 ```
 program
@@ -33,7 +33,7 @@ program
 
 **这一部分必须严格遵守我们给出的语法，输出必须与标准程序输出完全一致。**
 
-这部分一共有5个 `TODO` 待实现，请按照 `TODO`的顺序实现，并仿照其他结点的实现逻辑，填充代码
+这部分一共有5个 `TODO` 待实现，请按照 `TODO` 的顺序实现，并仿照其他结点的实现逻辑，填充代码。
 
 - TODO1：ASTFunDeclaration
 - TODO2：ASTCompoundStmt
@@ -63,7 +63,7 @@ program
 │   │   ├── CMakeLists.txt
 │   │   └── main.cpp # 主函数入口
 │   ├── common
-│   │   ├── ast.cpp # 你需要膝盖本文件
+│   │   ├── ast.cpp # 你需要修改本文件
 │   │   ├── CMakeLists.txt
 │   │   ├── logging.cpp
 │   │   └── syntax_tree.c # syntax_tree所在头文件
@@ -92,11 +92,11 @@ $ mkdir build
 $ cd build
 # 使用 cmake 生成 makefile 等文件
 $ cmake ..
-# 使用 make 进行编译, 这里也可以使用sudo make install 将其加到环境变量中
+# 使用 make 进行编译, 这里也可以使用 sudo make install 将其加到环境变量中
 $ make
 ```
 
-如果构建成功，你会在 `build` 文件夹下找到 `cminusfc`可执行文件，用于生成 `AST`
+如果构建成功，你会在 `build` 文件夹下找到 `cminusfc` 可执行文件，用于生成 `AST`。
 
 ```
 $ ls cminusfc
@@ -106,11 +106,11 @@ $ ./cminusfc
 ./cminusfc: no input file
 ```
 
->这里需要给 `cminusfc` 可执行文件 提供测试样例，也即 cminus文件
+>这里需要给 `cminusfc` 可执行文件 提供测试样例，也即 cminus文件。
 
 #### 运行
 
-我们在 `tests/testcases_general`文件夹中准备了一些通用案例。
+我们在 `tests/testcases_general` 文件夹中准备了一些通用案例。
 
 ```c++
 # 返回 2024ustc-jianmu-compiler 的根目录
@@ -160,14 +160,14 @@ $ diff output_student_ast/normal/local-decl.ast output_standard_ast/normal/local
 [输出为空，代表没有区别，该测试通过]
 ```
 
-我们提供了 `eval_phase1.sh` 脚本进行快速批量测试。
+我们提供了 `eval_phase2.sh` 脚本进行快速批量测试。
 
 该脚本有两种使用方式
 
-- 使用 `-all`参数一键测试 4个测试集的所有样例。并会在最后给出 正确的样例个数，如下。
+- 使用 `-all` 参数一键测试 4个测试集的所有样例。并会在最后给出正确的样例个数，如下。
 
   ```
-  innerpeace@innerpeace:~/stl_debug/tests/1-parser$ ./eval_phase2.sh  -all
+  innerpeace@innerpeace:~/stl_debug/tests/1-parser$ ./eval_phase2.sh -all
   [info] Found 2 valid files in /home/innerpeace/stl_debug/tests/1-parser/input/easy
   [info] Skipping FAIL_comment2.cminus (starts with FAIL)
   [info] Skipping FAIL_comment.cminus (starts with FAIL)
@@ -199,15 +199,15 @@ $ diff output_student_ast/normal/local-decl.ast output_standard_ast/normal/local
   [info] Total score for all testcases: 34/34
   ```
 
-  一共有34个测试样例（除去phase1中的6个无法生成 `syntax_tree`的样例）
+  一共有34个测试样例（除去phase1中的6个无法生成 `syntax_tree` 的样例）
 
   >请按TODO的顺序完成，如果严格按照顺序实现，参考得分如下。当然，你也可以一次性全部做完再做测试
   >
-  >- TODO1： Total score for all testcases: 1/34
-  >- TODO2：Total score for all testcases:  8/34
-  >- TODO3：Total score for all testcases:  15/34
-  >- TODO4：Total score for all testcases:  23/34
-  >- TODO5：Total score for all testcases:  34/34
+  >- TODO1：Total score for all testcases: 1/34
+  >- TODO2：Total score for all testcases: 8/34
+  >- TODO3：Total score for all testcases: 15/34
+  >- TODO4：Total score for all testcases: 23/34
+  >- TODO5：Total score for all testcases: 34/34
 
 - 第二种使用方法：
 
