@@ -111,7 +111,7 @@ $declaration-list \rightarrow declaration-list ~declaration |declaration$
 当采用前一个产生式时，我们可以得到以下属性：
 
 - `parent`：`program` 结点的指针
-- `children[10]`：children[0] 为指向 `declaration-list` 结点的指针，children[1] 为指向 `declaration` 结点的指针
+- `children[10]`：`children[0]` 为指向 `declaration-list` 结点的指针，`children[1]` 为指向 `declaration` 结点的指针
 - `children_num = 2`
 - `name = "declaration-list"`
 
@@ -278,7 +278,7 @@ struct ASTNode {
 };
 ```
 
-是所有AST结点类的基类，使用默认的析构函数。
+`ASTNode`是所有AST结点类的基类，使用默认的析构函数。
 
 其中，`accept` 函数是一个通过访问者模式访问 `AST` 每个结点输出相关信息的接口。
 

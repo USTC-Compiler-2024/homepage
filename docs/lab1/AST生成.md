@@ -35,11 +35,11 @@ program
 
 这部分一共有5个 `TODO` 待实现，请按照 `TODO` 的顺序实现，并仿照其他结点的实现逻辑，填充代码。
 
-- TODO1：ASTFunDeclaration
-- TODO2：ASTCompoundStmt
-- TODO3：ASTNum
-- TODO4：ASTAdditiveExpression
-- TODO5：ASTSelectionStmt
+- `TODO1`：`ASTFunDeclaration`
+- `TODO2`：`ASTCompoundStmt`
+- `TODO3`：`ASTNum`
+- `TODO4`：`ASTAdditiveExpression`
+- `TODO5`：`ASTSelectionStmt`
 
 ## 实验要求
 
@@ -203,11 +203,11 @@ $ diff output_student_ast/normal/local-decl.ast output_standard_ast/normal/local
 
   >请按TODO的顺序完成，如果严格按照顺序实现，参考得分如下。当然，你也可以一次性全部做完再做测试
   >
-  >- TODO1：Total score for all testcases: 1/34
-  >- TODO2：Total score for all testcases: 8/34
-  >- TODO3：Total score for all testcases: 15/34
-  >- TODO4：Total score for all testcases: 23/34
-  >- TODO5：Total score for all testcases: 34/34
+  >- `TODO1`：`Total score for all testcases: 1/34`
+  >- `TODO2`：`Total score for all testcases: 8/34`
+  >- `TODO3`：`Total score for all testcases: 15/34`
+  >- `TODO4`：`Total score for all testcases: 23/34`
+  >- `TODO5`：`Total score for all testcases: 34/34`
 
 - 第二种使用方法：
 
@@ -215,8 +215,8 @@ $ diff output_student_ast/normal/local-decl.ast output_standard_ast/normal/local
 
   第二个参数为 `no/yes/verbose`
 
-  - no：不进行diff
-  - yes：进行diff
-  - verbose：进行diff，并得到更详细的输出
+  - `no`：不进行`diff`
+  - `yes`：进行`diff`
+  - `verbose`：进行`diff`，并得到更详细的输出
 
 脚本运行后会将生成结果放在 `tests/1-parser/output_student_ast` 文件夹里，而助教的参考输出则在 `tests/1-parser/output_standard_ast` 中。
