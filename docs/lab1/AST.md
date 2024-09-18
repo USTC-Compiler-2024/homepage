@@ -12,7 +12,7 @@ AST是编译器用来理解和处理源代码的关键步骤。编译器首先�
 
 !!! notes "分析树（Parse Tree）与抽象语法树（Abstract Syntax Tree）"
 
-    分析树在语法分析的过程中被构造；抽象语法树则是分析树的浓缩表示，使用运算符作为根结点和内部结点，并使用操作数作为子结点。进一步了解可以阅读 [分析树和抽象语法树的比较](https://stackoverflow.com/questions/5026517/whats-the-difference-between-parse-trees-and-abstract-syntax-trees-asts)。
+	分析树在语法分析的过程中被构造；抽象语法树则是分析树的浓缩表示，使用运算符作为根结点和内部结点，并使用操作数作为子结点。进一步了解可以阅读 [分析树和抽象语法树的比较](https://stackoverflow.com/questions/5026517/whats-the-difference-between-parse-trees-and-abstract-syntax-trees-asts)。
 
 
 
@@ -97,10 +97,10 @@ typedef struct _syntax_tree syntax_tree;
 
 - `syntax_tree` 结构体唯一属性是 `root`，指向根结点的指针
 - 每个 `syntax_tree_node` 有以下属性：
-    - `parent`：父结点
-    - `children`：子结点数组，这里子结点数目是由产生式决定的，不会超过10
-    - `children_num`：子结点的数目
-    - `name`：`syntax_tree`结点的名字，也是区分不同结点的标识
+	- `parent`：父结点
+	- `children`：子结点数组，这里子结点数目是由产生式决定的，不会超过10
+	- `children_num`：子结点的数目
+	- `name`：`syntax_tree`结点的名字，也是区分不同结点的标识
 
 比如对于 `declaration-list` 这个结点，其对应的文法产生式为：
 
@@ -123,19 +123,19 @@ $declaration-list \rightarrow declaration-list ~declaration |declaration$
 
 ```c++
 class AST {
-  public:
-    AST() = delete;
-    AST(syntax_tree *);
-    AST(AST &&tree) {
-        root = tree.root;
-        tree.root = nullptr;
-    };
-    ASTProgram *get_root() { return root.get(); }
-    void run_visitor(ASTVisitor &visitor);
+	public:
+		AST() = delete;
+		AST(syntax_tree *);
+		AST(AST &&tree) {
+				root = tree.root;
+				tree.root = nullptr;
+		};
+		ASTProgram *get_root() { return root.get(); }
+		void run_visitor(ASTVisitor &visitor);
 
-  private:
-    ASTNode *transform_node_iter(syntax_tree_node *);
-    std::shared_ptr<ASTProgram> root = nullptr;
+	private:
+		ASTNode *transform_node_iter(syntax_tree_node *);
+		std::shared_ptr<ASTProgram> root = nullptr;
 };
 ```
 
@@ -147,20 +147,20 @@ class AST {
 
 - 这里的 `run_visitor` 是访问者模式遍历 `AST` 并输出的接口，本次实验测试会用到，但是实现时不会用到，感兴趣的同学可以研究一下。
 
-  >我们会在下一个 lab 中详细介绍访问者模式，本次实验不会涉及。
+	>我们会在下一个 lab 中详细介绍访问者模式，本次实验不会涉及。
 
 
 `Class AST` 的构造对象实现在 `src/common/ast.cpp` 中：
 
 ```c++
 AST::AST(syntax_tree *s) {
-  if (s == nullptr) {
-    std::cerr << "empty input tree!" << std::endl;
-    std::abort();
-  }
-  auto node = transform_node_iter(s->root);
-  del_syntax_tree(s);
-  root = std::shared_ptr<ASTProgram>(static_cast<ASTProgram *>(node));
+	if (s == nullptr) {
+		std::cerr << "empty input tree!" << std::endl;
+		std::abort();
+	}
+	auto node = transform_node_iter(s->root);
+	del_syntax_tree(s);
+	root = std::shared_ptr<ASTProgram>(static_cast<ASTProgram *>(node));
 }
 ```
 
@@ -176,30 +176,30 @@ AST::AST(syntax_tree *s) {
 
 ```c++
 ASTNode *AST::transform_node_iter(syntax_tree_node *n) {
-  if (_STR_EQ(n->name, "program")) {
-    auto node = new ASTProgram();
-    // flatten declaration list
-    std::stack<syntax_tree_node *>
-        s;
-    auto list_ptr = n->children[0];
-    while (list_ptr->children_num == 2) {
-      s.push(list_ptr->children[1]);
-      list_ptr = list_ptr->children[0];
-    }
-    s.push(list_ptr->children[0]);
+	if (_STR_EQ(n->name, "program")) {
+		auto node = new ASTProgram();
+		// flatten declaration list
+		std::stack<syntax_tree_node *>
+				s;
+		auto list_ptr = n->children[0];
+		while (list_ptr->children_num == 2) {
+			s.push(list_ptr->children[1]);
+			list_ptr = list_ptr->children[0];
+		}
+		s.push(list_ptr->children[0]);
 
-    while (!s.empty()) {
-      auto child_node =
-          static_cast<ASTDeclaration *>(transform_node_iter(s.top()));
+		while (!s.empty()) {
+			auto child_node =
+					static_cast<ASTDeclaration *>(transform_node_iter(s.top()));
 
-      auto child_node_shared = std::shared_ptr<ASTDeclaration>(child_node);
-      node->declarations.push_back(child_node_shared);
-      s.pop();
-    }
-    return node;
-  } else if (_STR_EQ(n->name, "declaration")) {
-    return transform_node_iter(n->children[0]);
-  }
+			auto child_node_shared = std::shared_ptr<ASTDeclaration>(child_node);
+			node->declarations.push_back(child_node_shared);
+			s.pop();
+		}
+		return node;
+	} else if (_STR_EQ(n->name, "declaration")) {
+		return transform_node_iter(n->children[0]);
+	}
 ```
 
 对于 `syntax_tree` 的结点 program（也即其根结点），对应的文法产生式为：
@@ -213,9 +213,9 @@ declaration-list -> declaration-list declaration | declaration
 
 ```c++
 struct ASTProgram : ASTNode {
-    virtual void accept(ASTVisitor &) override final;
-    virtual ~ASTProgram() = default;
-    std::vector<std::shared_ptr<ASTDeclaration>> declarations;
+	virtual void accept(ASTVisitor &) override final;
+	virtual ~ASTProgram() = default;
+	std::vector<std::shared_ptr<ASTDeclaration>> declarations;
 };
 ```
 
@@ -273,8 +273,8 @@ struct ASTCall;
 
 ```c++
 struct ASTNode {
-    virtual void accept(ASTVisitor &) = 0;
-    virtual ~ASTNode() = default;
+	virtual void accept(ASTVisitor &) = 0;
+	virtual ~ASTNode() = default;
 };
 ```
 
@@ -292,8 +292,8 @@ struct ASTNode {
 
 ```c++
 struct ASTVarDeclaration : ASTDeclaration {
-    virtual void accept(ASTVisitor &) override final;
-    std::shared_ptr<ASTNum> num;
+	virtual void accept(ASTVisitor &) override final;
+	std::shared_ptr<ASTNum> num;
 };
 ```
 
