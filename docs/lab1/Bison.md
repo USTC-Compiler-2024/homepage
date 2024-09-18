@@ -6,10 +6,13 @@ Bison 是一款 LALR 文法解析器生成器，可转换为可编译的 C 代�
 
 Flex 和 Bison 是 Linux 下生成词法分析器和语法分析器的工具，用于处理结构化输入，协同工作解析复杂文件。Flex 将文本文件拆分为有意义的词法记号（token），而 Bison 根据语法规则生成抽象语法树（AST），Bison 在协同工作中担任主导角色，而 Flex 辅助生成 yylex 函数。
 
+>注意：
+>
+>Bison根据语法规则生成的抽象语法树（AST）在我们这次实验中为 `syntax_tree`，是一个较为复杂的结构，因此在lab1中我们还会将其简化，即我们得到的AST是Bison输出简化的结果。
+
 以计算器程序（该程序即为下文的[一个复杂的 Bison 程序](#一个复杂的-bison-程序)）为例，用户在界面输入 `2 + 2 * 2`，Flex 将输入识别为 token 流，其中 2 被识别为 `number`，`+` 被识别为 `ADD`，`*` 被识别为 `MUL`。接下来，Bison 负责根据语法规则将这些 token 组织成 AST 树，流程如下图所示：
 
-<img src="../assets/image-20230913142328935.png" alt="image-20230913142328935" style="zoom:25%;" />
-
+![image-20230913142328935](assets/image-20230913142328935.png){ width=40% }
 ## Bison 程序结构
 
 Bison 源程序的一般结构如下所示。Bison 源程序后缀一般为 `.y`。
@@ -49,7 +52,7 @@ C 代码部分
       char op;
       double num;
      }
-
+    
      # 注意：一旦 %union 被定义，需要指定 Bison 每种符号使用的值类型，值类型通过放在尖括号中的 union 类型对应的成员名称确定，如 %token <num>。
      ```
 
