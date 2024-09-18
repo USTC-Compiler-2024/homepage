@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../AST/">
       
       
-        <link rel="next" href="../Flex/">
+        <link rel="next" href="../../faq/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>正则表达式 - USTC 编译原理和技术 2024</title>
+        <title>AST生成 - USTC 编译原理和技术 2024</title>
       
     
     
@@ -89,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#ast" class="md-skip">
           跳转至
         </a>
       
@@ -125,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              正则表达式
+              AST生成
             
           </span>
         </div>
@@ -618,30 +618,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    正则表达式
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -650,35 +630,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      思考题
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -772,10 +723,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../AST%E7%94%9F%E6%88%90/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    AST生成
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -784,6 +755,116 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#syntax_tree-ast" class="md-nav__link">
+    <span class="md-ellipsis">
+      syntax_tree 向 AST 的转换
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="syntax_tree 向 AST 的转换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      实验内容
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      实验要求
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="实验要求">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      仓库目录结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      编译、运行和评测
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="编译、运行和评测">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      编译
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      运行
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      测试
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -843,11 +924,92 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#syntax_tree-ast" class="md-nav__link">
     <span class="md-ellipsis">
-      思考题
+      syntax_tree 向 AST 的转换
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="syntax_tree 向 AST 的转换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      实验内容
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      实验要求
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="实验要求">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      仓库目录结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      编译、运行和评测
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="编译、运行和评测">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      编译
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      运行
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      测试
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -866,109 +1028,188 @@
                   
 
 
-<h1 id="_1">正则表达式</h1>
-<p>正则表达式（Regex）是描述文本模式的工具，用于字符串匹配、搜索和替换。它由字符和特殊符号组成，形成匹配文本的模式。正则表达式在编程和文本处理中非常强大。</p>
-<p>下面是计算机程序中一些常见的正则表达式符号及其含义：</p>
-<!-- prettier-ignore-start -->
-
-<table>
-<thead>
-<tr>
-<th>符号</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>.</code></td>
-<td>匹配除换行符以外的任何字符</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>匹配前一个字符的零次或多次出现</td>
-</tr>
-<tr>
-<td><code>+</code></td>
-<td>匹配前一个字符的一次或多次出现</td>
-</tr>
-<tr>
-<td><code>?</code></td>
-<td>匹配前一个字符的零次或一次出现</td>
-</tr>
-<tr>
-<td><code>[]</code></td>
-<td>定义一个字符类，匹配括号内的任何一个字符</td>
-</tr>
-<tr>
-<td><code>[^]</code></td>
-<td>否定字符类，匹配不在括号内的任何一个字符</td>
-</tr>
-<tr>
-<td><code>()</code></td>
-<td>创建一个子表达式，并捕获匹配的部分</td>
-</tr>
-<tr>
-<td><code>|</code></td>
-<td>或操作，匹配两边任一表达式</td>
-</tr>
-<tr>
-<td><code>{n}</code></td>
-<td>匹配前一个字符恰好 n 次</td>
-</tr>
-<tr>
-<td><code>{n,}</code></td>
-<td>匹配前一个字符至少 n 次</td>
-</tr>
-<tr>
-<td><code>{n,m}</code></td>
-<td>匹配前一个字符至少 n 次，但不超过 m 次</td>
-</tr>
-<tr>
-<td><code>\</code></td>
-<td>转义字符，用于匹配特殊字符</td>
-</tr>
-<tr>
-<td><code>^</code></td>
-<td>锚点，匹配字符串的开头</td>
-</tr>
-<tr>
-<td><code>$</code></td>
-<td>锚点，匹配字符串的结尾</td>
-</tr>
-<tr>
-<td><code>\d</code></td>
-<td>匹配任何数字字符</td>
-</tr>
-<tr>
-<td><code>\D</code></td>
-<td>匹配任何非数字字符</td>
-</tr>
-<tr>
-<td><code>\w</code></td>
-<td>匹配任何字母、数字或下划线字符</td>
-</tr>
-<tr>
-<td><code>\W</code></td>
-<td>匹配任何非字母、非数字、非下划线字符</td>
-</tr>
-<tr>
-<td><code>\s</code></td>
-<td>匹配任何空白字符（空格、制表符、换行等）</td>
-</tr>
-<tr>
-<td><code>\S</code></td>
-<td>匹配任何非空白字符</td>
-</tr>
-</tbody>
-</table>
-<!-- prettier-ignore-end -->
-
-<p>这些符号允许你创建复杂的 pattern，用于匹配和操作文本中的字符串。不同的编程语言和工具可能会略有不同，但基本的正则表达式符号通常是通用的。</p>
-<p>这是一个正则表达式在线匹配网站（<a href="https://c.runoob.com/front-end/854/">https://c.runoob.com/front-end/854/</a>），你可以在该网站创建相关正则 pattern 进行匹配，以熟悉计算机程序中的正则表达式符号。</p>
-<h2 id="_2">思考题</h2>
+<h1 id="ast">AST生成</h1>
+<h2 id="syntax_tree-ast"><code>syntax_tree</code> 向 AST 的转换</h2>
+<p>现在我们开始实现 由 <code>syntax_tree</code> 向 <code>AST</code> 的转换。</p>
+<p><code>AST</code>中所有结点类都在 <code>include/common/ast.hpp</code> 中有所定义，并在 <code>src/common/ast.cpp</code> 补充了相关实现。</p>
+<p>关于 <code>AST</code> 的具体知识请参考 <a href="../AST/">AST</a></p>
+<h3 id="_1">实验内容</h3>
+<p>本部分需要各位同学在 <code>src/common/ast.cpp</code> 中，根据 Cminusf 的文法规则和 AST 结点类型完成由 <code>syntax_tree</code> 向 <code>AST</code> 的转化。 </p>
+<p>在 <code>src/common/ast.cpp</code> 中，你需要补充部分 <code>TODO</code> 部分的代码逻辑，能够通过测试脚本生成恰当的 <code>AST</code>。例如输入</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<p>可以得到如下 <code>AST</code>：</p>
+<div class="highlight"><pre><span></span><code>program
+--fun-declaration: main
+----compound-stmt
+------return-stmt
+--------simple-expression
+----------additive-expression
+------------term
+--------------num (int): 0
+</code></pre></div>
+<p><strong>这一部分必须严格遵守我们给出的语法，输出必须与标准程序输出完全一致。</strong></p>
+<p>这部分一共有5个 <code>TODO</code> 待实现，请按照 <code>TODO</code> 的顺序实现，并仿照其他结点的实现逻辑，填充代码。</p>
 <ul>
-<li><code>\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*</code> 正则表达式匹配的字符串的含义是什么？</li>
+<li><code>TODO1</code>：<code>ASTFunDeclaration</code></li>
+<li><code>TODO2</code>：<code>ASTCompoundStmt</code></li>
+<li><code>TODO3</code>：<code>ASTNum</code></li>
+<li><code>TODO4</code>：<code>ASTAdditiveExpression</code></li>
+<li><code>TODO5</code>：<code>ASTSelectionStmt</code></li>
 </ul>
+<h2 id="_2">实验要求</h2>
+<h3 id="_3">仓库目录结构</h3>
+<p>与本次实验有关的文件如下。</p>
+<div class="highlight"><pre><span></span><code>.
+├── build
+├── CMakeLists.txt
+├── include
+│   └── common
+│       ├── ast.hpp # ast所在头文件
+│       ├── logging.hpp
+│       └── syntax_tree.h # syntax_tree所在头文件
+├── README.md
+├── src
+│   ├── CMakeLists.txt
+│   ├── cminusfc
+│   │   ├── CMakeLists.txt
+│   │   └── main.cpp # 主函数入口
+│   ├── common
+│   │   ├── ast.cpp # 你需要修改本文件
+│   │   ├── CMakeLists.txt
+│   │   ├── logging.cpp
+│   │   └── syntax_tree.c # syntax_tree所在头文件
+│   ├── logging
+│   └── parser
+└── tests
+    ├── 1-parser
+    │   ├── cleanup.sh # 清空生成结果的脚本
+    │   ├── eval_phase1.sh
+    │   ├── eval_phase2.sh  # 测试本阶段所用的脚本
+    │   ├── input # 针对 lab1 的测试样例
+    │   ├── output_standard
+    │   ├── output_standard_ast # 标准的ast输出
+    └── testcases_general # 整个课程所用到的测试样例
+</code></pre></div>
+<h3 id="_4">编译、运行和评测</h3>
+<p>首先将你的实验仓库克隆的本地虚拟机中。要编译和测试 <code>AST</code>，请按照以下步骤在本地虚拟机中进行操作：</p>
+<h4 id="_5">编译</h4>
+<div class="highlight"><pre><span></span><code><span class="n">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="mi">2024u</span><span class="n">stc</span><span class="o">-</span><span class="n">jianmu</span><span class="o">-</span><span class="n">compiler</span>
+<span class="n">$</span><span class="w"> </span><span class="n">mkdir</span><span class="w"> </span><span class="n">build</span>
+<span class="n">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">build</span>
+<span class="cp"># 使用 cmake 生成 makefile 等文件</span>
+<span class="n">$</span><span class="w"> </span><span class="n">cmake</span><span class="w"> </span><span class="p">..</span>
+<span class="cp"># 使用 make 进行编译, 这里也可以使用 sudo make install 将其加到环境变量中</span>
+<span class="n">$</span><span class="w"> </span><span class="n">make</span>
+</code></pre></div>
+<p>如果构建成功，你会在 <code>build</code> 文件夹下找到 <code>cminusfc</code> 可执行文件，用于生成 <code>AST</code>。</p>
+<div class="highlight"><pre><span></span><code>$ ls cminusfc
+cminusfc
+
+$ ./cminusfc
+./cminusfc: no input file
+</code></pre></div>
+<blockquote>
+<p>这里需要给 <code>cminusfc</code> 可执行文件 提供测试样例，也即 cminus文件。</p>
+</blockquote>
+<h4 id="_6">运行</h4>
+<p>我们在 <code>tests/testcases_general</code> 文件夹中准备了一些通用案例。</p>
+<div class="highlight"><pre><span></span><code><span class="cp"># 返回 2024ustc-jianmu-compiler 的根目录</span>
+
+<span class="cp"># 运行 cminusfc，进行AST生成</span>
+<span class="n">$</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">build</span><span class="o">/</span><span class="n">cminusfc</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">testcases_general</span><span class="o">/</span><span class="mi">1</span><span class="o">-</span><span class="k">return</span><span class="p">.</span><span class="n">cminus</span><span class="w"> </span>
+<span class="n">program</span>
+<span class="o">--</span><span class="n">fun</span><span class="o">-</span><span class="n">declaration</span><span class="o">:</span><span class="w"> </span><span class="n">main</span>
+<span class="o">----</span><span class="n">compound</span><span class="o">-</span><span class="n">stmt</span>
+<span class="o">------</span><span class="k">return</span><span class="o">-</span><span class="n">stmt</span><span class="o">:</span><span class="w"> </span><span class="kt">void</span>
+</code></pre></div>
+<h4 id="_7">测试</h4>
+<p>测试样例分为两个部分，分别是 <code>tests/testcases_general</code> 和 lab1 限定的 <code>tests/1-parser</code>。</p>
+<p>我们重点使用 <code>tests/1-parser</code> 考察AST的正确性。其结构如下：</p>
+<div class="highlight"><pre><span></span><code>.
+|-- input # 输入目录，包含 xxx.cminus 文件
+|   |-- easy
+|   |-- hard
+|   `-- normal
+|-- output_standard_ast # 助教标准输出目录，包含 xxx.ast 文件
+|   |-- easy
+|   |-- normal
+|   |-- hard
+|   `-- testcases_general
+|-- output_student_ast # 学生输出目录，测试过程中产生 xxx.ast 文件
+|   |-- easy
+|   |-- hard
+|   |-- normal
+|   `-- testcases_general
+|-- eval_phase2.sh # 测试脚本
+`-- cleanup.sh
+</code></pre></div>
+<p>我们使用 <code>diff</code> 命令进行结果比较</p>
+<div class="highlight"><pre><span></span><code><span class="n">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="mi">2024u</span><span class="n">stc</span><span class="o">-</span><span class="n">jianmu</span><span class="o">-</span><span class="n">compiler</span>
+<span class="n">$</span><span class="w"> </span><span class="k">export</span><span class="w"> </span><span class="n">PATH</span><span class="o">=</span><span class="s">&quot;$(realpath ./build):$PATH&quot;</span>
+<span class="n">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">tests</span><span class="o">/</span><span class="mi">1</span><span class="o">-</span><span class="n">parser</span>
+<span class="n">$</span><span class="w"> </span><span class="n">cminusfc</span><span class="w"> </span><span class="n">input</span><span class="o">/</span><span class="n">normal</span><span class="o">/</span><span class="n">local</span><span class="o">-</span><span class="n">decl</span><span class="p">.</span><span class="n">cminus</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">output_student</span><span class="o">/</span><span class="n">normal</span><span class="o">/</span><span class="n">local</span><span class="o">-</span><span class="n">decl</span><span class="p">.</span><span class="n">ast</span>
+<span class="n">$</span><span class="w"> </span><span class="n">diff</span><span class="w"> </span><span class="n">output_student_ast</span><span class="o">/</span><span class="n">normal</span><span class="o">/</span><span class="n">local</span><span class="o">-</span><span class="n">decl</span><span class="p">.</span><span class="n">ast</span><span class="w"> </span><span class="n">output_standard_ast</span><span class="o">/</span><span class="n">normal</span><span class="o">/</span><span class="n">local</span><span class="o">-</span><span class="n">decl</span><span class="p">.</span><span class="n">ast</span>
+<span class="p">[</span><span class="n">输出为空</span><span class="err">，</span><span class="n">代表没有区别</span><span class="err">，</span><span class="n">该测试通过</span><span class="p">]</span>
+</code></pre></div>
+<p>我们提供了 <code>eval_phase2.sh</code> 脚本进行快速批量测试。</p>
+<p>该脚本有两种使用方式</p>
+<ul>
+<li>使用 <code>-all</code> 参数一键测试 4个测试集的所有样例。并会在最后给出正确的样例个数，如下。</li>
+</ul>
+<div class="highlight"><pre><span></span><code>innerpeace@innerpeace:~/stl_debug/tests/1-parser$ ./eval_phase2.sh -all
+[info] Found 2 valid files in /home/innerpeace/stl_debug/tests/1-parser/input/easy
+[info] Skipping FAIL_comment2.cminus (starts with FAIL)
+[info] Skipping FAIL_comment.cminus (starts with FAIL)
+[info] Skipping FAIL_function.cminus (starts with FAIL)
+[info] Skipping FAIL_id.cminus (starts with FAIL)
+[info] Analyzing id.cminus
+[info] Comparing id.cminus...
+[info] id.cminus is correct!
+[info] Score for /home/innerpeace/stl_debug/tests/1-parser/input/easy: 2/2
+[info] Found 5 valid files in /home/innerpeace/stl_debug/tests/1-parser/input/normal
+...
+[info] local-decl.cminus is correct!
+[info] Analyzing skip_spaces.cminus
+[info] Comparing skip_spaces.cminus...
+[info] skip_spaces.cminus is correct!
+[info] Score for /home/innerpeace/stl_debug/tests/1-parser/input/normal: 5/5
+[info] Found 6 valid files in /home/innerpeace/stl_debug/tests/1-parser/input/hard
+...
+[info] Analyzing You_Should_Pass.cminus
+[info] Comparing You_Should_Pass.cminus...
+[info] You_Should_Pass.cminus is correct!
+[info] Score for /home/innerpeace/stl_debug/tests/1-parser/input/hard: 6/6
+[info] Found 21 valid files in /home/innerpeace/stl_debug/tests/1-parser/../testcases_general
+...
+[info] Analyzing 9-assign_cast.cminus
+[info] Comparing 9-assign_cast.cminus...
+[info] 9-assign_cast.cminus is correct!
+[info] Score for /home/innerpeace/stl_debug/tests/1-parser/../testcases_general: 21/21
+[info] Total score for all testcases: 34/34
+</code></pre></div>
+<p>一共有34个测试样例（除去phase1中的6个无法生成 <code>syntax_tree</code> 的样例）</p>
+<blockquote>
+<p>请按TODO的顺序完成，如果严格按照顺序实现，参考得分如下。当然，你也可以一次性全部做完再做测试</p>
+<ul>
+<li><code>TODO1</code>：<code>Total score for all testcases: 1/34</code></li>
+<li><code>TODO2</code>：<code>Total score for all testcases: 8/34</code></li>
+<li><code>TODO3</code>：<code>Total score for all testcases: 15/34</code></li>
+<li><code>TODO4</code>：<code>Total score for all testcases: 23/34</code></li>
+<li><code>TODO5</code>：<code>Total score for all testcases: 34/34</code></li>
+</ul>
+</blockquote>
+<ul>
+<li>第二种使用方法：</li>
+</ul>
+<p>第一个参数可以是 <code>easy</code>、 <code>normal</code>、 <code>hard</code> 以及 <code>testcases_general</code>，并且有第二个可选参数，用于批量 <code>diff</code> 和助教提供的标准参考结果进行比较。</p>
+<p>第二个参数为 <code>no/yes/verbose</code></p>
+<ul>
+<li><code>no</code>：不进行<code>diff</code></li>
+<li><code>yes</code>：进行<code>diff</code></li>
+<li><code>verbose</code>：进行<code>diff</code>，并得到更详细的输出</li>
+</ul>
+<p>脚本运行后会将生成结果放在 <code>tests/1-parser/output_student_ast</code> 文件夹里，而助教的参考输出则在 <code>tests/1-parser/output_standard_ast</code> 中。</p>
 
 
 
@@ -989,7 +1230,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 17, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 18, 2024</span>
   </span>
 
     
@@ -1000,12 +1241,14 @@
   <span class="md-source-file__fact">
     <span class="md-icon" title="贡献者">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.536 5.536 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13v-1.75M0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20H0m24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9V20Z"/></svg>
       
     </span>
     <nav>
       
-        <a href="mailto:95729892+jyjsxx@users.noreply.github.com">JYJSXX</a>
+        <a href="mailto:2313392804@qq.com">XZQshiyu</a>, 
+        <a href="mailto:king.zevin@qq.com">king.zevin</a>, 
+        <a href="mailto:zox@mail.ustc.edu.cn">zox</a>
     </nav>
   </span>
 
@@ -1034,7 +1277,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="上一页: Lab1 简介">
+          <a href="../AST/" class="md-footer__link md-footer__link--prev" aria-label="上一页: AST">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -1044,20 +1287,20 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                Lab1 简介
+                AST
               </div>
             </div>
           </a>
         
         
           
-          <a href="../Flex/" class="md-footer__link md-footer__link--next" aria-label="下一页: Flex">
+          <a href="../../faq/" class="md-footer__link md-footer__link--next" aria-label="下一页: FAQ">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                Flex
+                FAQ
               </div>
             </div>
             <div class="md-footer__button md-icon">
