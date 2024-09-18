@@ -41,11 +41,11 @@
 
 ## 实验要求
 
-!!! ERROR "请务必先fork后拉取最新的实验仓库"
+!!! Warning "请务必先fork后拉取最新的实验仓库"
 
     请使用自己fork后的仓库完成今后的实验！
 
-请根据 Lab0 的内容，将[实验仓库](https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024ustc-jianmu-compiler) fork 并 clone 到本地虚拟机中，并将实验仓库设置为上游仓库。
+请根据 Lab0 的内容，将[实验仓库](https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024ustc-jianmu-compiler) <font color="red">**fork**</font> 并 clone 到本地虚拟机中，并将实验仓库设置为上游仓库。
 
 ```bash
 
