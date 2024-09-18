@@ -1155,8 +1155,8 @@ $ ./cminusfc
 <p>我们提供了 <code>eval_phase2.sh</code> 脚本进行快速批量测试。</p>
 <p>该脚本有两种使用方式</p>
 <ul>
-<li>使用 <code>-all</code> 参数一键测试 4个测试集的所有样例。并会在最后给出正确的样例个数，如下。</li>
-</ul>
+<li>
+<p>使用 <code>-all</code> 参数一键测试 4个测试集的所有样例。并会在最后给出正确的样例个数，如下。</p>
 <div class="highlight"><pre><span></span><code>innerpeace@innerpeace:~/stl_debug/tests/1-parser$ ./eval_phase2.sh -all
 [info] Found 2 valid files in /home/innerpeace/stl_debug/tests/1-parser/input/easy
 [info] Skipping FAIL_comment2.cminus (starts with FAIL)
@@ -1199,15 +1199,17 @@ $ ./cminusfc
 <li><code>TODO5</code>：<code>Total score for all testcases: 34/34</code></li>
 </ul>
 </blockquote>
-<ul>
-<li>第二种使用方法：</li>
-</ul>
+</li>
+<li>
+<p>第二种使用方法：</p>
 <p>第一个参数可以是 <code>easy</code>、 <code>normal</code>、 <code>hard</code> 以及 <code>testcases_general</code>，并且有第二个可选参数，用于批量 <code>diff</code> 和助教提供的标准参考结果进行比较。</p>
 <p>第二个参数为 <code>no/yes/verbose</code></p>
 <ul>
 <li><code>no</code>：不进行<code>diff</code></li>
 <li><code>yes</code>：进行<code>diff</code></li>
 <li><code>verbose</code>：进行<code>diff</code>，并得到更详细的输出</li>
+</ul>
+</li>
 </ul>
 <p>脚本运行后会将生成结果放在 <code>tests/1-parser/output_student_ast</code> 文件夹里，而助教的参考输出则在 <code>tests/1-parser/output_standard_ast</code> 中。</p>
 
@@ -1246,6 +1248,7 @@ $ ./cminusfc
     </span>
     <nav>
       
+        <a href="mailto:liuruibo21@mail.ustc.edu.cn">JYJSXX</a>, 
         <a href="mailto:2313392804@qq.com">XZQshiyu</a>, 
         <a href="mailto:king.zevin@qq.com">king.zevin</a>, 
         <a href="mailto:zox@mail.ustc.edu.cn">zox</a>

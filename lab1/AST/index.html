@@ -1133,19 +1133,19 @@
 <h3 id="ast_1">AST 类定义</h3>
 <p><code>Class AST</code> 定义如下：</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">AST</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">public</span><span class="o">:</span>
-<span class="w">    </span><span class="n">AST</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
-<span class="w">    </span><span class="n">AST</span><span class="p">(</span><span class="n">syntax_tree</span><span class="w"> </span><span class="o">*</span><span class="p">);</span>
-<span class="w">    </span><span class="n">AST</span><span class="p">(</span><span class="n">AST</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="n">tree</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tree</span><span class="p">.</span><span class="n">root</span><span class="p">;</span>
-<span class="w">        </span><span class="n">tree</span><span class="p">.</span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
-<span class="w">    </span><span class="p">};</span>
-<span class="w">    </span><span class="n">ASTProgram</span><span class="w"> </span><span class="o">*</span><span class="nf">get_root</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">root</span><span class="p">.</span><span class="n">get</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
-<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">run_visitor</span><span class="p">(</span><span class="n">ASTVisitor</span><span class="w"> </span><span class="o">&amp;</span><span class="n">visitor</span><span class="p">);</span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span>
+<span class="w">        </span><span class="n">AST</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+<span class="w">        </span><span class="n">AST</span><span class="p">(</span><span class="n">syntax_tree</span><span class="w"> </span><span class="o">*</span><span class="p">);</span>
+<span class="w">        </span><span class="n">AST</span><span class="p">(</span><span class="n">AST</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="n">tree</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tree</span><span class="p">.</span><span class="n">root</span><span class="p">;</span>
+<span class="w">                </span><span class="n">tree</span><span class="p">.</span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">        </span><span class="n">ASTProgram</span><span class="w"> </span><span class="o">*</span><span class="nf">get_root</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">root</span><span class="p">.</span><span class="n">get</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="nf">run_visitor</span><span class="p">(</span><span class="n">ASTVisitor</span><span class="w"> </span><span class="o">&amp;</span><span class="n">visitor</span><span class="p">);</span>
 
-<span class="w">  </span><span class="k">private</span><span class="o">:</span>
-<span class="w">    </span><span class="n">ASTNode</span><span class="w"> </span><span class="o">*</span><span class="n">transform_node_iter</span><span class="p">(</span><span class="n">syntax_tree_node</span><span class="w"> </span><span class="o">*</span><span class="p">);</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">ASTProgram</span><span class="o">&gt;</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="w">    </span><span class="k">private</span><span class="o">:</span>
+<span class="w">        </span><span class="n">ASTNode</span><span class="w"> </span><span class="o">*</span><span class="n">transform_node_iter</span><span class="p">(</span><span class="n">syntax_tree_node</span><span class="w"> </span><span class="o">*</span><span class="p">);</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">ASTProgram</span><span class="o">&gt;</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
 <span class="p">};</span>
 </code></pre></div>
 <p>其中，</p>
@@ -1158,20 +1158,20 @@
 </li>
 <li>
 <p>这里的 <code>run_visitor</code> 是访问者模式遍历 <code>AST</code> 并输出的接口，本次实验测试会用到，但是实现时不会用到，感兴趣的同学可以研究一下。</p>
-</li>
-</ul>
 <blockquote>
 <p>我们会在下一个 lab 中详细介绍访问者模式，本次实验不会涉及。</p>
 </blockquote>
+</li>
+</ul>
 <p><code>Class AST</code> 的构造对象实现在 <code>src/common/ast.cpp</code> 中：</p>
 <div class="highlight"><pre><span></span><code><span class="n">AST</span><span class="o">::</span><span class="n">AST</span><span class="p">(</span><span class="n">syntax_tree</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;empty input tree!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">abort</span><span class="p">();</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">transform_node_iter</span><span class="p">(</span><span class="n">s</span><span class="o">-&gt;</span><span class="n">root</span><span class="p">);</span>
-<span class="w">  </span><span class="n">del_syntax_tree</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
-<span class="w">  </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">ASTProgram</span><span class="o">&gt;</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">ASTProgram</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="n">node</span><span class="p">));</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;empty input tree!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">abort</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">transform_node_iter</span><span class="p">(</span><span class="n">s</span><span class="o">-&gt;</span><span class="n">root</span><span class="p">);</span>
+<span class="w">    </span><span class="n">del_syntax_tree</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+<span class="w">    </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">ASTProgram</span><span class="o">&gt;</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">ASTProgram</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="n">node</span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>其中，</p>
@@ -1183,30 +1183,30 @@
 <h3 id="transform_node_iter"><code>transform_node_iter</code>函数</h3>
 <p>本次实验最主要的就是补全 <code>transform_node_iter</code> 这个函数的内容。我们将以一个具体的结点例子介绍 <code>transform_node_iter</code> 函数的逻辑。</p>
 <div class="highlight"><pre><span></span><code><span class="n">ASTNode</span><span class="w"> </span><span class="o">*</span><span class="nf">AST::transform_node_iter</span><span class="p">(</span><span class="n">syntax_tree_node</span><span class="w"> </span><span class="o">*</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_STR_EQ</span><span class="p">(</span><span class="n">n</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;program&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ASTProgram</span><span class="p">();</span>
-<span class="w">    </span><span class="c1">// flatten declaration list</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">stack</span><span class="o">&lt;</span><span class="n">syntax_tree_node</span><span class="w"> </span><span class="o">*&gt;</span>
-<span class="w">        </span><span class="n">s</span><span class="p">;</span>
-<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">list_ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="o">-&gt;</span><span class="n">children</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">list_ptr</span><span class="o">-&gt;</span><span class="n">children_num</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">list_ptr</span><span class="o">-&gt;</span><span class="n">children</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
-<span class="w">      </span><span class="n">list_ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list_ptr</span><span class="o">-&gt;</span><span class="n">children</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">list_ptr</span><span class="o">-&gt;</span><span class="n">children</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_STR_EQ</span><span class="p">(</span><span class="n">n</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;program&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ASTProgram</span><span class="p">();</span>
+<span class="w">        </span><span class="c1">// flatten declaration list</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">stack</span><span class="o">&lt;</span><span class="n">syntax_tree_node</span><span class="w"> </span><span class="o">*&gt;</span>
+<span class="w">                </span><span class="n">s</span><span class="p">;</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">list_ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="o">-&gt;</span><span class="n">children</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">list_ptr</span><span class="o">-&gt;</span><span class="n">children_num</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">list_ptr</span><span class="o">-&gt;</span><span class="n">children</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<span class="w">            </span><span class="n">list_ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list_ptr</span><span class="o">-&gt;</span><span class="n">children</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">list_ptr</span><span class="o">-&gt;</span><span class="n">children</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
 
-<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="k">auto</span><span class="w"> </span><span class="n">child_node</span><span class="w"> </span><span class="o">=</span>
-<span class="w">          </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">ASTDeclaration</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="n">transform_node_iter</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">()));</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">auto</span><span class="w"> </span><span class="n">child_node</span><span class="w"> </span><span class="o">=</span>
+<span class="w">                    </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">ASTDeclaration</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="n">transform_node_iter</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">()));</span>
 
-<span class="w">      </span><span class="k">auto</span><span class="w"> </span><span class="n">child_node_shared</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">ASTDeclaration</span><span class="o">&gt;</span><span class="p">(</span><span class="n">child_node</span><span class="p">);</span>
-<span class="w">      </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">declarations</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">child_node_shared</span><span class="p">);</span>
-<span class="w">      </span><span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+<span class="w">            </span><span class="k">auto</span><span class="w"> </span><span class="n">child_node_shared</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">ASTDeclaration</span><span class="o">&gt;</span><span class="p">(</span><span class="n">child_node</span><span class="p">);</span>
+<span class="w">            </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">declarations</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">child_node_shared</span><span class="p">);</span>
+<span class="w">            </span><span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_STR_EQ</span><span class="p">(</span><span class="n">n</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;declaration&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">transform_node_iter</span><span class="p">(</span><span class="n">n</span><span class="o">-&gt;</span><span class="n">children</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
 <span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
-<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_STR_EQ</span><span class="p">(</span><span class="n">n</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;declaration&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">transform_node_iter</span><span class="p">(</span><span class="n">n</span><span class="o">-&gt;</span><span class="n">children</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-<span class="w">  </span><span class="p">}</span>
 </code></pre></div>
 <p>对于 <code>syntax_tree</code> 的结点 program（也即其根结点），对应的文法产生式为：</p>
 <div class="highlight"><pre><span></span><code>program -&gt; declaration-list
@@ -1321,6 +1321,7 @@ declaration-list -&gt; declaration-list declaration | declaration
     </span>
     <nav>
       
+        <a href="mailto:liuruibo21@mail.ustc.edu.cn">JYJSXX</a>, 
         <a href="mailto:2313392804@qq.com">XZQshiyu</a>, 
         <a href="mailto:king.zevin@qq.com">king.zevin</a>, 
         <a href="mailto:zox@mail.ustc.edu.cn">zox</a>
