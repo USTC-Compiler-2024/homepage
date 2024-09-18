@@ -41,7 +41,20 @@
 
 ## 实验要求
 
-请根据 Lab0 的内容，将[实验仓库](https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2023ustc-jianmu-compiler) fork 并 clone 到本地虚拟机中。
+请根据 Lab0 的内容，将[实验仓库](https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024ustc-jianmu-compiler) fork 并 clone 到本地虚拟机中，并将实验仓库设置为上游仓库。
+
+```bash
+
+git clone ${Your_Repo}
+git remote add upstream https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024ustc-jianmu-compiler
+git pull upstream master
+git checkout lab1
+
+#在你完成TODO后
+
+git push origin master
+
+```
 
 ## 提交内容
 
