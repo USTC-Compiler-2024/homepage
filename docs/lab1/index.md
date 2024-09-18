@@ -57,7 +57,7 @@ git pull upstream lab1
 
 #在你完成TODO后
 
-git push origin master
+git push origin lab1
 
 ```
 
