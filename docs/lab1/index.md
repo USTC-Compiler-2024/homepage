@@ -50,8 +50,9 @@
 ```bash
 
 git clone ${Your_Repo}
+cd 2024ustc-jianmu-compiler
 git remote add upstream https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024ustc-jianmu-compiler
-git pull upstream master
+git pull upstream lab1
 git checkout lab1
 
 #在你完成TODO后
