@@ -155,7 +155,7 @@ program
 $ cd 2024ustc-jianmu-compiler
 $ export PATH="$(realpath ./build):$PATH"
 $ cd tests/1-parser
-$ cminusfc input/normal/local-decl.cminus > output_student/normal/local-decl.ast
+$ cminusfc input/normal/local-decl.cminus > output_student_ast/normal/local-decl.ast
 $ diff output_student_ast/normal/local-decl.ast output_standard_ast/normal/local-decl.ast
 [输出为空，代表没有区别，该测试通过]
 ```
