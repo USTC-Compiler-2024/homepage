@@ -49,8 +49,8 @@
 - 2024-09-06：[Lab0](lab0/index.md) 已发布，Deadline：**2023 年 9 月 18 日**
 - 2024-09-18：第一次作业已发布，Deadline：**2023 年 9 月 20 日**
 - 2024-09-18：[Lab1](lab1/index.md) 已发布，Deadline：**Phase1 : 2023 年 9 月 28 日 / Phase2 : 2023 年 10 月 7 日**
-<!-- - 2023-09-25：第二次作业：3.1a、3.2a、3.10、3.11、3.17、3.19a（教材[<sup>1</sup>](#textbook)），Deadline：**2023 年 10 月 7 日 14:00**
-- 2023-10-05：[Lab2](lab2/index.md) 已发布，注意分阶段 Deadline
+- 2023-09-25：第二次作业已发布，Deadline：**2023 年 9 月 30 日**
+<!-- - 2023-10-05：[Lab2](lab2/index.md) 已发布，注意分阶段 Deadline
 - 2023-10-11：第三次作业：3.27、3.37、4.3、4.5、4.9（教材[<sup>1</sup>](#textbook)），Deadline：**2023 年 10 月 18 日 16:00**
 - 2023-11-01：[Lab3](lab3/index.md) 已发布，注意分阶段 Deadline
 - 2023-11-01：第四次作业已发布，Deadline：**2023 年 11 月 8 日 17:25**
@@ -68,9 +68,9 @@
 | 2024-09-04 |                                 词法分析                                  | [Lexical-analysis](ppt/Lecture2-Lexical-analysis.pdf)|
 | 2024-09-11 |                         语法分析 - 上下文无关文法                         |                                                                              [Parser-part1](ppt/Lecture3-Parser-part1.pdf)                                                                              |
 | 2024-09-14 |                      语法分析 - 自顶向下 - 递归下降                       |                                                                              [Parser-part2](ppt/Lecture4-Parser-part2.pdf)                                                                              |
-| 2023-09-16 |                     语法分析 - 自顶向下 - LL(1) 文法                      |                                                                              [part3](ppt/Lecture5-Parser-part3.pdf)                                                                              |
-| 2023-09-18 |           语法分析 - 自底向上 - 移进规约 & LR 分析器的简单模型            |                                       [part4](ppt/Lecture6-Parser-part4.pdf), [part5](ppt/Lecture7-Parser-part5.pdf)                                        |
-| 2023-09-23 |                语法分析 - 简单的 LR 方法 & 规范的 LR 方法                 |                                       [part6](ppt/Lecture8-Parser-part6.pdf), [part7](ppt/Lecture9-Parser-part7.pdf)                                        |
+| 2023-09-16 |                     语法分析 - 自顶向下 - LL(1) 文法                      |                                                                              [Parser-part3](ppt/Lecture5-Parser-part3.pdf)                                                                              |
+| 2023-09-18 |           语法分析 - 自底向上 - 移进规约 & LR 分析器的简单模型            |                                       [Parser-part4](ppt/Lecture6-Parser-part4.pdf), [Parser-part5](ppt/Lecture7-Parser-part5.pdf)                                        |
+| 2023-09-23 |                语法分析 - 简单的 LR 方法 & 规范的 LR 方法                 |                                       [Parser-part6](ppt/Lecture8-Parser-part6.pdf), [Parser-part7](ppt/Lecture9-Parser-part7.pdf)                                        |
 <!-- | 2023-09-27 |                               中间代码表示                                |                                                                              [part1](https://rec.ustc.edu.cn/share/3fba3780-64dc-11ee-b89d-3bff5ec34c27)                                                                              |
 | 2023-10-07 |               语法制导翻译 - 语法制导定义 & S/L 属性的定义                |                                       [part1](https://rec.ustc.edu.cn/share/e0e4d8e0-5cdf-11ee-a097-75437996f503), [part2](https://rec.ustc.edu.cn/share/10e6d050-68c7-11ee-a697-13d9155d40a5)                                        |
 | 2023-10-11 |          语法制导翻译 - 语法制导翻译方案 & L 属性定义的翻译方案           |                                       [part3](https://rec.ustc.edu.cn/share/60f07260-68c7-11ee-ac16-c97fd4666cee), [part4](https://rec.ustc.edu.cn/share/71c78a80-68c7-11ee-b670-b5952f4e628a)                                        |
