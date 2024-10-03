@@ -2,9 +2,7 @@
 
 ## Light IR 简介
 
-本课程以 Cminusf 语言为源语言，从 LLVM IR 中裁剪出了适用于教学的精简的 IR 子集，并将其命名为 Light IR。同时依据 LLVM 的设计，为 Light IR 提供了配套简化的 [C++ 库](./LightIR.md#c-apis)，用于生成 IR。
-
-<!-- TODO: 换简单例子 -->
+本课程以 Cminusf 语言为源语言，从 LLVM IR 中裁剪出了适用于教学的精简的 IR 子集，并将其命名为 Light IR。同时依据 LLVM 的设计，为 Light IR 提供了配套简化的 [C++ 库](./LightIR.md#light-ir-c-库)，用于生成 IR。
 
 如下是一段 C 语言代码 `easy.c` 与 其对应的 IR 文件 `easy.ll` 示例。
 
@@ -213,8 +211,6 @@ Light IR C++ 库依据 LLVM 设计，用于生成 IR。在介绍其核心类之�
 
 ### Light IR 结构
 
-<!-- TODO: 重绘图片 -->
-
 ![image-lightir](figs/lightir.png)
 实验中需要生成的 IR 代码有着相对固定的结构模式：
 
@@ -242,16 +238,12 @@ Light IR C++ 库依据 LLVM 设计，用于生成 IR。在介绍其核心类之�
 
     例如，如果存在指令 `%op2 = add i32 %op0, %op1`，那么 `%op0`、`%op1` 就被 `%op2` 所使用，`%op0` 基类 `Value` 的 `use_list_` 里就会有 `Use(%op2, 0)`（这里的 0 代表 `%op0` 是被使用时的第一个参数）。同理，`%op1` 的 `use_list_` 里有 `Use(%op2, 1)`。
 
-<!-- TODO: 介绍 use-list -->
-
 ![value_inherit](figs/value_inherit.png)
 !!! note
 
     `Instruction` 类是 `Value` 的子类，这表示，指令在使用操作数创建后的返回值也可以作为另一条指令创建的操作数。
 
 #### User
-
-<!-- TODO: 修改表述 -->
 
 `User` 作为 `Value` 的子类，含义是使用者，`Instruction` 也是其子类之一，`User` 类成员 `operands_` 是`Value` 类的列表，表示该使用者使用的操作数列表。如图是 `User` 类的子类继承关系。
 ![user_inherit](figs/user_inherit.jpg)
@@ -262,7 +254,7 @@ Light IR C++ 库依据 LLVM 设计，用于生成 IR。在介绍其核心类之�
 
 ### Light IR C++ 类型基类：Type
 
-在 [Light IR 指令假设](./LightIR.md#lightir-指令假设)中提到，Light IR 保留了 LLVM IR 的强类型系统，包含基本类型与组合类型，`Type` 类是所有类型基类，其子类继承关系如图所示，其中 `IntegerType`, `FloatType` 对应表示 Light IR 中的 `i1`，`i32`，`float` 基本类型。`ArrayType`，`PointerType`，`FunctionType` 对应表示组合类型：数组类型，指针类型，函数类型。
+在 [Light IR 指令假设](./LightIR.md#light-ir-指令假设)中提到，Light IR 保留了 LLVM IR 的强类型系统，包含基本类型与组合类型，`Type` 类是所有类型基类，其子类继承关系如图所示，其中 `IntegerType`, `FloatType` 对应表示 Light IR 中的 `i1`，`i32`，`float` 基本类型。`ArrayType`，`PointerType`，`FunctionType` 对应表示组合类型：数组类型，指针类型，函数类型。
 ![type_inherit](figs/type_inherit.png)
 
 获取基本类型的接口在 `Module` 类中，获取组合类型的接口则在组合类型对应的类中：
@@ -363,8 +355,6 @@ builder->create_ret(xLoad);
 ### Light IR C++ 库核心类定义
 
 本节梳理了在生成 IR 过程中可能会用到的接口，学生可按需进行查阅
-
-<!-- TODO：检查接口是否被框架整理所影响 -->
 
 #### Module
 
