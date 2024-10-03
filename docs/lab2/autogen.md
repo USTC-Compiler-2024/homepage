@@ -2,6 +2,34 @@
 
 学生将在本阶段提供的实验框架下，利用访问者模式遍历抽象语法树，调用 Light IR C++ 库，实现 IR 自动化生成。
 
+与该阶段有关的文件如下：
+
+```
+.
+├── CMakeLists.txt
+├── include                             <- 实验所需的头文件
+│   ├── ...
+|   ├── cminusfc
+|   |    └── cminusf_builder.hpp        <- 该阶段需要修改的文件
+│   ├── lightir/*
+│   └── common
+│        ├── ast.hpp
+│        ├── logging.hpp
+│        └── syntax_tree.h
+├── src
+│   ├── ...
+│   └── cminusfc
+│       ├── cminusfc.cpp                <- cminusfc 的主程序文件
+│       └── cminusf_builder.cpp         <- 该阶段需要修改的文件
+└── tests
+    ├── ...
+    └── 2-ir-gen
+        └── autogen
+            ├── testcases                <- 助教提供的测试样例
+            ├── answers                  <- 助教提供的测试样例
+            └── eval_lab2.sh             <- 助教提供的测试脚本
+```
+
 ## 实验框架介绍
 
 ### 抽象语法树
@@ -35,7 +63,7 @@ bool in_global();
 
 `CminusfBuilder` 类定义在 [cminusf_builder.hpp](https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2023ustc-jianmu-compiler/-/blob/master/include/cminusfc/cminusf_builder.hpp)文件中，`CminusfBuilder` 类中定义了对抽象语法树不同语法节点的 `visit` 函数，实验已给出了一些语法树节点的访问规则，其余的需要学生补充。
 
-在 `CminusfBuilder` 构造函数函数中，下列代码片段是对 [Cminusf 语义](../common/cminusf.md#cminusf-的语义)中的 4 个预定义函数进行声明并加入全局符号表中，在生成 IR 时可从符号表中查找。我们的测试样例会使用这些函数，从而实现 IO。
+在 `CminusfBuilder` 构造函数函数中，下列代码片段是对 [Cminusf 语义](./cminusf语义.md)中的 4 个预定义函数进行声明并加入全局符号表中，在生成 IR 时可从符号表中查找。我们的测试样例会使用这些函数，从而实现 IO。
 
 ```cpp
 scope.enter();
@@ -56,53 +84,21 @@ struct {
 
 ## 实验内容
 
-阅读 [Cminusf 语义](../common/cminusf.md#cminusf-的语义)，并根据语义补全 `include/cminusfc/cminusf_builder.hpp` 与 `src/cminusfc/cminusf_builder.cpp` 文件，实现 IR 自动产生的算法，使得它能正确编译任何合法的 Cminusf 程序，生成符合 [Cminusf 语义](../common/cminusf.md#cminusf-的语义)的 IR。
+阅读 [Cminusf 语义](./cminusf语义.md)，并根据语义补全 `include/cminusfc/cminusf_builder.hpp` 与 `src/cminusfc/cminusf_builder.cpp` 文件，实现 IR 自动产生的算法，使得它能正确编译任何合法的 Cminusf 程序，生成符合 [Cminusf 语义](./cminusf语义.md)的 IR。
 
 **友情提示**：
 
 1. 请比较通过 cminusfc 产生的 IR 和通过 clang 产生的 IR 来找出可能的问题或发现新的思路。
 2. 使用 GDB 进行调试来检查错误的原因。
-3. 我们为 `Function`、`Type` 等类都实现了 `print` 接口，可以使用我们提供的 [logging 工具](../common/logging.md) 进行打印调试。
-4. 对于 C++ 不熟悉的学生可以参考 [C++ 简介](../common/simple_cpp.md)。
+3. 我们为 `Function`、`Type` 等类都实现了 `print` 接口，可以使用我们提供的 [logging 工具](./logging.md) 进行打印调试。
+4. 对于 C++ 不熟悉的学生可以复习 [Lab0 的 C++ 简介](../lab0/cpp.md)。
 
-## 实验要求
+## 编译、运行和评测
 
-### 仓库目录结构
-
-与该阶段有关的文件如下。
-
-```
-.
-├── CMakeLists.txt
-├── include                             <- 实验所需的头文件
-│   ├── ...
-|   ├── cminusfc
-|   |    └── cminusf_builder.hpp        <- 该阶段需要修改的文件
-│   ├── lightir/*
-│   └── common
-│        ├── ast.hpp
-│        ├── logging.hpp
-│        └── syntax_tree.h
-├── src
-│   ├── ...
-│   └── cminusfc
-│       ├── cminusfc.cpp                <- cminusfc 的主程序文件
-│       └── cminusf_builder.cpp         <- 该阶段需要修改的文件
-└── tests
-    ├── ...
-    └── 2-ir-gen
-        └── autogen
-            ├── testcases                <- 助教提供的测试样例
-            ├── answers                  <- 助教提供的测试样例
-            └── eval_lab2.py             <- 助教提供的测试脚本
-```
-
-### 编译、运行和评测
-
-**编译**
+### 编译
 
 ```shell
-$ cd 2023ustc-jianmu-compiler
+$ cd 2024ustc-jianmu-compiler
 $ mkdir build
 $ cd build
 # 使用 cmake 生成 makefile 等文件
@@ -115,7 +111,7 @@ $ sudo make install
 
 如果构建成功，你会在 `build` 文件夹下找到 cminusfc 可执行文件，它能将 cminus 文件输出为 IR 文件，编译成二进制可执行文件。
 
-**运行**
+### 运行
 
 我们在 `tests/testcases_general` 文件夹中准备了一些通用案例。当需要对 `.cminus` 单个文件测试时，可以这样使用：
 
@@ -130,7 +126,7 @@ $ sudo make install
 $ cminusfc test.cminus -emit-llvm
 ```
 
-此时会在同目录下生成同名的 .ll 文件，在这里即为 `test.ll`。
+此时会在同目录下生成同名的 .ll 文件，在这里即为 `test.ll`。也可以使用 `-o` 指定输出文件名，比如 `cminusfc test.cminus -emit-llvm -o anyname.ll`，这里 `-o anyname.ll` 与 `-emit-llvm` 的顺序可以是任意的。
 
 #### 情况二：生成可执行文件
 
@@ -144,16 +140,17 @@ $ clang -O0 -w -no-pie test.ll -o test -lcminus_io
 
     上面的命令编译了 `test.ll`，并链接了 `cminus_io` 库。
 
-**测试**
-
-<!-- TODO: 把 general 加上去 -->
+### 评测
 
 自动测试脚本和所有测试样例都是公开的，它在 `tests/2-ir-gen/autogen` 目录下，使用方法如下：
 
 ```sh
 # 在 tests/2-ir-gen/autogen 目录下运行：
-$ python3 ./eval_lab2.py
+$ ./eval_lab2.sh
 $ cat eval_result
 ```
+
+!!! info
+    确保你的 Linux 中安装了 python3： `sudo apt install python3`。
 
 测试结果会输出到 `tests/2-ir-gen/autogen/eval_result`。
