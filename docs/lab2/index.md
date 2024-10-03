@@ -1,4 +1,9 @@
-
+<!-- TODO: 
+1）确定deadline
+2）增加文档api介绍的内容
+3）说明git仓库同步的流程，如何merge
+4）在warmup阶段，有一些例子引用了仓库链接，需要同步仓库后更新这些链接！
+ -->
 
 # Lab2 中间代码生成
 
@@ -11,25 +16,25 @@
 ### 阶段一
 
 - 内容一：
-  阅读 [Light IR 预热](./warmup.md)并参考 [Light IR 简介](../common/LightIR.md)，掌握手写 Light IR，使用 Light IR C++ 库生成 IR 的方法。
+  阅读 [Light IR 预热](./warmup.md)并参考 [Light IR 手册](./LightIR.md)，掌握手写 Light IR，使用 Light IR C++ 库生成 IR 的方法。
 - 内容二：
   阅读[访问者模式](./visitor_pattern.md)，理解 C++ 访问者模式的工作原理及遍历顺序。
 
-阶段一需要**回答 [Light IR 预热](./warmup.md)与[访问者模式](./visitor_pattern.md)文档中的思考题**，回答内容保存为 `answer.pdf`。并完成 `tests/2-ir-gen/warmup/stu_ll` 与 `tests/2-ir-gen/warmup/stu_cpp` 目录下代码的编写。
+阶段一需要 **回答 [Light IR 预热](./warmup.md#思考题)与[访问者模式](./visitor_pattern.md#思考题)文档中的思考题**，回答内容保存为 `answer.pdf`。并完成 `tests/2-ir-gen/warmup/stu_ll` 与 `tests/2-ir-gen/warmup/stu_cpp` 目录下代码的编写。
+
 
 !!! warning "Deadline"
 
-    **2023 年 10 月 14 日 23:59**
+    **2024 年 10 月 xx 日 23:59**
 
 ### 阶段二
 
-<!-- TODO: 增加需要阅读的文件，以及是否需要完成 general -->
 
-阅读 [IR 自动化生成](./autogen.md)，[Cminusf 语义](../common/cminusf.md#cminusf-的语义)，补充 `include/cminusfc/cminusf_builder.hpp` 与 `src/cminusfc/cminusf_builder.cpp` 文件，并通过 `tests/2-ir-gen/autogen/testcases/`目录下 `lv0_1`, `lv0_2`, `lv1` 级别的测试样例。
+阅读 [IR 自动化生成](./autogen.md)，[Cminusf 语义](./cminusf语义.md)，补充 `include/cminusfc/cminusf_builder.hpp` 与 `src/cminusfc/cminusf_builder.cpp` 文件，并通过 `tests/2-ir-gen/autogen/testcases/`目录下 `lv0_1`, `lv0_2`, `lv1` 级别的测试样例。
 
 !!! warning "Deadline"
 
-    **2023 年 10 月 21 日 23:59**
+    **2024 年 10 月 xx 日 23:59**
 
 ### 阶段三
 
@@ -37,13 +42,13 @@
 
 !!! warning "Deadline"
 
-    **2023 年 10 月 28 日 23:59**
+    **2024 年 10 月 xx 日 23:59**
 
 ## 实验要求
 
-<!-- TODO: copy repo 的 README -->
+<!-- TODO:  -->
 
-请将[实验仓库](https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2023ustc-jianmu-compiler)设置为上游仓库，并获取本次实验更新的内容，具体步骤如下：
+请将[实验仓库](https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024ustc-jianmu-compiler)设置为上游仓库，并获取本次实验更新的内容，具体步骤如下：
 
 将上游仓库设置一个别名（alias），在这里我们用 `upstream`，你也可以改成其他你喜欢的名字。在你 fork 后的本地仓库中：
 
