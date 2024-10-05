@@ -18,7 +18,7 @@
 ### 阶段一
 
 - 内容一：
-  阅读 [Light IR 预热](./warmup.md)并参考 [Light IR 手册](./LightIR.md)，掌握手写 Light IR，使用 Light IR C++ 库生成 IR 的方法。
+  阅读 [Light IR 预热](./warmup.md)并参考 [Light IR 手册](./LightIR.md) 和 [Light IR C++库](./LightIR C++.md)，掌握手写 Light IR，使用 Light IR C++ 库生成 IR 的方法。
 - 内容二：
   阅读[访问者模式](./visitor_pattern.md)，理解 C++ 访问者模式的工作原理及遍历顺序。
 
@@ -27,7 +27,7 @@
 
 !!! warning "Deadline"
 
-    **2024 年 10 月 xx 日 23:59**
+    **2024 年 10 月 18 日 23:59**
 
 ### 阶段二
 
@@ -36,7 +36,7 @@
 
 !!! warning "Deadline"
 
-    **2024 年 10 月 xx 日 23:59**
+    **2024 年 10 月 25 日 23:59**
 
 ### 阶段三
 
@@ -44,7 +44,7 @@
 
 !!! warning "Deadline"
 
-    **2024 年 10 月 xx 日 23:59**
+    **2024 年 11 月 2 日 23:59**
 
 ## 实验要求
 
@@ -55,7 +55,7 @@
 将上游仓库设置一个别名（alias），在这里我们用 `upstream`，你也可以改成其他你喜欢的名字。在你 fork 后的本地仓库中：
 
 ```shell
-$ git remote add upstream https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2023ustc-jianmu-compiler.git
+$ git remote add upstream https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024ustc-jianmu-compiler.git
 ```
 
 尝试将远程的更新拉取到本地并进行 merge 操作：
@@ -74,5 +74,5 @@ $ git push origin master
 
 ## 提交内容
 
-- 阶段一：在希冀平台提交你的 `answer.pdf` 文件，在希冀平台提交你实验仓库的 url（如 `https://cscourse.ustc.edu.cn/vdir/Gitlab/xxx/2023ustc-jianmu-compiler.git`）。
-- 阶段二、三：在希冀平台提交你实验仓库的 url（如 `https://cscourse.ustc.edu.cn/vdir/Gitlab/xxx/2023ustc-jianmu-compiler.git`）。
+- 阶段一：在希冀平台提交你的 `answer.pdf` 文件，在希冀平台提交你实验仓库的 url（如 `https://cscourse.ustc.edu.cn/vdir/Gitlab/xxx/2024ustc-jianmu-compiler.git`）。
+- 阶段二、三：在希冀平台提交你实验仓库的 url（如 `https://cscourse.ustc.edu.cn/vdir/Gitlab/xxx/2024ustc-jianmu-compiler.git`）。

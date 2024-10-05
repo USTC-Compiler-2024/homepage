@@ -4,7 +4,7 @@
 
 1. 阅读 [Light IR 手册](./LightIR.md)，了解 LLVM IR 与 Light IR 关系，认识 Light IR 的结构及指令语法。在 clang 翻译出的 IR 作为参考下，手动编写 IR 文件。
 
-2. 了解并掌握 Light IR C++ 库的使用方法，通过调用 Light IR C++ 库提供的接口生成 IR 文件。
+2. 了解并掌握 [Light IR C++ 库](./LightIR C++.md)的使用方法，通过调用 Light IR C++ 库提供的接口生成 IR 文件。
 
 与 Light IR 预热实验相关文件如下：
 
@@ -90,11 +90,11 @@ Light IR 指令参考手册：[Light IR 手册](./LightIR.md)
 
 LLVM 项目提供了辅助 IR 生成的 C++ 库，但其类继承关系过于复杂，并且存在很多为了编译性能的额外设计，不利于学生理解 IR 抽象。因此实验依据 LLVM 的设计，为 Light IR 提供了配套简化的 C++ 库。与 LLVM IR C++ 库相比，Light IR C++ 库仅保留必要的核心类，简化了核心类的继承关系与成员设计，且给学生提供与 LLVM 相同的生成 IR 的接口。
 
-Light IR IR C++ 库参考手册：[Light IR cpp APIs](./LightIR.md#light-ir-c-库)
+Light IR IR C++ 库参考手册：[Light IR cpp APIs](./LightIR C++.md)
 
 ### 使用 Light IR C++ 库生成 IR 示例
 
-阅读样例 [gcd_array.c](https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2023ustc-jianmu-compiler/-/blob/master/tests/2-ir-gen/warmup/ta_gcd/gcd_array.c), [gcd_array_generator.cpp](https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2023ustc-jianmu-compiler/-/blob/master/tests/2-ir-gen/warmup/ta_gcd/gcd_array_generator.cpp)。结合该样例的注释与 [Light IR C++ 库](./LightIR.md#light-ir-c-库)章节，掌握使用 Light IR C++ 库生成 IR 的方法
+阅读样例 [gcd_array.c](https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2023ustc-jianmu-compiler/-/blob/master/tests/2-ir-gen/warmup/ta_gcd/gcd_array.c), [gcd_array_generator.cpp](https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2023ustc-jianmu-compiler/-/blob/master/tests/2-ir-gen/warmup/ta_gcd/gcd_array_generator.cpp)。结合该样例的注释与 [Light IR C++ 库](./LightIR C++.md)章节，掌握使用 Light IR C++ 库生成 IR 的方法
 
 ### 实验内容
 

@@ -90,7 +90,7 @@ struct {
 
 1. 请比较通过 cminusfc 产生的 IR 和通过 clang 产生的 IR 来找出可能的问题或发现新的思路。
 2. 使用 GDB 进行调试来检查错误的原因。
-3. 我们为 `Function`、`Type` 等类都实现了 `print` 接口，可以使用我们提供的 [logging 工具](./logging.md) 进行打印调试。
+3. 我们为 `Function`、`Type` 等类都实现了 `print` 接口，可以使用我们提供的 [logging 工具](../lab0/debug.md#logging 工具使用) 进行打印调试。
 4. 对于 C++ 不熟悉的学生可以复习 [Lab0 的 C++ 简介](../lab0/cpp.md)。
 
 ## 编译、运行和评测
