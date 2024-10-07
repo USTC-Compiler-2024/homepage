@@ -55,12 +55,12 @@
 
 ![](figs/remote-info.png)
 
-两个仓库之间各有 3 条分支：main、lab0 和 lab1：
+两个仓库各有 3 条分支（红色字体）：main、lab0 和 lab1，如下图。最上边的 lab1 和 main 代表本地的分支，分别追踪远程的 `origin/lab1` 和 `origin/main`，main 前边的星号 `*` 和绿色字体代表当前处于 main 分支下：
 
 ![](figs/branches.png)
 
 !!! info
-    以上两条命令分别是：`git remote -v` 和 `git branch --all`，如果第二条命令的输出中缺少 upstream 的分支，你可以通过 `git fetch --all` 来获取。
+    以上两条命令分别是：`git remote -v` 和 `git branch --all -vv`，如果第二条命令的输出中缺少 upstream 的分支，你可以通过 `git fetch --all` 来获取。
 
 在实验一中，我们通过 lab1 分支发布实验，与 lab0 作为区分，因此学生也是处于 lab1 分支下完成实验。从本次实验开始，我们将使用 main 分支发布实验。在开始撰写本次实验代码之前，学生需要抓取最新的 main 分支到本地，然后将 lab1 分支合并到 main 分支，并处理可能的冲突。以下是详细的指导。
 
@@ -88,7 +88,7 @@
     我们检查这个文件，看到一处冲突，截图如下：
     ![](figs/conflict-solve-1.png)
 
-    在这里，我们（上游仓库）最新的代码将 `ASTVisitor::visit` 接口的返回值更新成了 `Value *`，这种接口变动要以上游为准。现在是将 lab1 合并进 main 分支，所以进行 merge 的双方，current 时上游内容，incoming 是 lab1 的内容，在这里保留 current 内容。
+    在这里，我们（上游仓库）最新的代码将 `ASTVisitor::visit` 接口的返回值更新成了 `Value *`，这种接口变动要以上游为准。现在是将 lab1 合并进 main 分支，所以进行 merge 的双方，current 是上游内容，incoming 是 lab1 的内容，在这里保留 current 内容。
 
     在完成文件的更改后，保存文件，你仍然在 merge 的阶段，你可以使用 `git status` 查看，并使用 `git merge --continue` 完成你的合并操作，如下图所示。
 
