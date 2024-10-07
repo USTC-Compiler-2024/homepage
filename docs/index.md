@@ -46,19 +46,19 @@
 ## <strong>公告</strong>
 
 - 2024-09-02：[课程平台介绍](exp_platform_intro/README.md) 已发布
-- 2024-09-06：[Lab0](lab0/index.md) 已发布，Deadline：**2023 年 9 月 18 日**
-- 2024-09-18：第一次作业已发布，Deadline：**2023 年 9 月 20 日**
-- 2024-09-18：[Lab1](lab1/index.md) 已发布，Deadline：**Phase1 : 2023 年 9 月 28 日 / Phase2 : 2023 年 10 月 7 日**
-- 2023-09-25：第二次作业已发布，Deadline：**2023 年 9 月 30 日**
-<!-- - 2023-10-05：[Lab2](lab2/index.md) 已发布，注意分阶段 Deadline
-- 2023-10-11：第三次作业：3.27、3.37、4.3、4.5、4.9（教材[<sup>1</sup>](#textbook)），Deadline：**2023 年 10 月 18 日 16:00**
-- 2023-11-01：[Lab3](lab3/index.md) 已发布，注意分阶段 Deadline
-- 2023-11-01：第四次作业已发布，Deadline：**2023 年 11 月 8 日 17:25**
-- 2023-11-14：第五次作业：4.13、4.15、5.5、6.5、6.6（教材[<sup>1</sup>](#textbook)），Deadline：**2023 年 11 月 21 日 09:00**
-- 2023-11-27：[Lab4](lab4/index.md) 已发布，Deadline：**2023 年 12 月 18 日**
-- 2023-12-08：第六次作业：7.2c、7.5、7.12、8.1e、8.2e、8.6（教材[<sup>1</sup>](#textbook)），Deadline：**2023 年 12 月 20 日 24:00**
-- 2023-12-08：第七次作业：9.1、9.2、9.3、9.15af（教材[<sup>1</sup>](#textbook)），Deadline：**2024 年 1 月 3 日 24:00**
-- 2024-01-14：[建木杯–编译原理创新实验](innovative-lab/index.md) 已发布 -->
+- 2024-09-06：[Lab0](lab0/index.md) 已发布，Deadline：**2024 年 9 月 18 日**
+- 2024-09-18：第一次作业已发布，Deadline：**2024 年 9 月 20 日**
+- 2024-09-18：[Lab1](lab1/index.md) 已发布，Deadline：**Phase1 : 2024 年 9 月 28 日 / Phase2 : 2024 年 10 月 7 日**
+- 2024-09-25：第二次作业已发布，Deadline：**2024 年 9 月 30 日**
+<!-- - 2024-10-05：[Lab2](lab2/index.md) 已发布，注意分阶段 Deadline
+- 2024-10-11：第三次作业：3.27、3.37、4.3、4.5、4.9（教材[<sup>1</sup>](#textbook)），Deadline：**2024 年 10 月 18 日 16:00**
+- 2024-11-01：[Lab3](lab3/index.md) 已发布，注意分阶段 Deadline
+- 2024-11-01：第四次作业已发布，Deadline：**2024 年 11 月 8 日 17:25**
+- 2024-11-14：第五次作业：4.13、4.15、5.5、6.5、6.6（教材[<sup>1</sup>](#textbook)），Deadline：**2024 年 11 月 21 日 09:00**
+- 2024-11-27：[Lab4](lab4/index.md) 已发布，Deadline：**2024 年 12 月 18 日**
+- 2024-12-08：第六次作业：7.2c、7.5、7.12、8.1e、8.2e、8.6（教材[<sup>1</sup>](#textbook)），Deadline：**2024 年 12 月 20 日 24:00**
+- 2024-12-08：第七次作业：9.1、9.2、9.3、9.15af（教材[<sup>1</sup>](#textbook)），Deadline：**2024 年 1 月 3 日 24:00**
+- 2025-01-14：[建木杯–编译原理创新实验](innovative-lab/index.md) 已发布 -->
 
 ## <strong>教学课件</strong>
 
@@ -68,34 +68,34 @@
 | 2024-09-04 |                                 词法分析                                  | [Lexical-analysis](ppt/Lecture2-Lexical-analysis.pdf)|
 | 2024-09-11 |                         语法分析 - 上下文无关文法                         |                                                                              [Parser-part1](ppt/Lecture3-Parser-part1.pdf)                                                                              |
 | 2024-09-14 |                      语法分析 - 自顶向下 - 递归下降                       |                                                                              [Parser-part2](ppt/Lecture4-Parser-part2.pdf)                                                                              |
-| 2023-09-16 |                     语法分析 - 自顶向下 - LL(1) 文法                      |                                                                              [Parser-part3](ppt/Lecture5-Parser-part3.pdf)                                                                              |
-| 2023-09-18 |           语法分析 - 自底向上 - 移进规约 & LR 分析器的简单模型            |                                       [Parser-part4](ppt/Lecture6-Parser-part4.pdf), [Parser-part5](ppt/Lecture7-Parser-part5.pdf)                                        |
-| 2023-09-23 |                语法分析 - 简单的 LR 方法 & 规范的 LR 方法                 |                                       [Parser-part6](ppt/Lecture8-Parser-part6.pdf), [Parser-part7](ppt/Lecture9-Parser-part7.pdf)                                        |
-<!-- | 2023-09-27 |                               中间代码表示                                |                                                                              [part1](https://rec.ustc.edu.cn/share/3fba3780-64dc-11ee-b89d-3bff5ec34c27)                                                                              |
-| 2023-10-07 |               语法制导翻译 - 语法制导定义 & S/L 属性的定义                |                                       [part1](https://rec.ustc.edu.cn/share/e0e4d8e0-5cdf-11ee-a097-75437996f503), [part2](https://rec.ustc.edu.cn/share/10e6d050-68c7-11ee-a697-13d9155d40a5)                                        |
-| 2023-10-11 |          语法制导翻译 - 语法制导翻译方案 & L 属性定义的翻译方案           |                                       [part3](https://rec.ustc.edu.cn/share/60f07260-68c7-11ee-ac16-c97fd4666cee), [part4](https://rec.ustc.edu.cn/share/71c78a80-68c7-11ee-b670-b5952f4e628a)                                        |
-| 2023-10-16 |                中间代码翻译 - 简单语句、控制流与布尔表达式                |                                       [part1](https://rec.ustc.edu.cn/share/aaa7e250-81e3-11ee-b601-cf1e5b684040), [part2](https://rec.ustc.edu.cn/share/b97993e0-81e3-11ee-b4bf-238eae90436f)                                        |
-| 2023-10-18 |                    中间代码翻译 - 标号回填与布尔表达式                    |                                                                              [part3](https://rec.ustc.edu.cn/share/898d59b0-81e4-11ee-a431-a7ebbdb09b39)                                                                              |
-| 2023-10-30 |                    中间代码翻译 - 标号回填与控制流语句                    |                                                                              [part4](https://rec.ustc.edu.cn/share/898d59b0-81e4-11ee-a431-a7ebbdb09b39)                                                                              |
-| 2023-11-01 |               中间代码翻译 - 类型表达式 & 符号表与声明语句                |                                       [part5](https://rec.ustc.edu.cn/share/898d59b0-81e4-11ee-a431-a7ebbdb09b39), [part6](https://rec.ustc.edu.cn/share/898d59b0-81e4-11ee-a431-a7ebbdb09b39)                                        |
-| 2023-11-06 |              中间代码翻译 - 数组寻址 & 运行时管理 - 存储组织              |                                       [part7](https://rec.ustc.edu.cn/share/898d59b0-81e4-11ee-a431-a7ebbdb09b39), [part1](https://rec.ustc.edu.cn/share/898d59b0-81e4-11ee-a431-a7ebbdb09b39)                                        |
-| 2023-11-08 |           运行时管理 - 栈式分配 & 代码生成 - 概述与简单机器模型           |                                       [part2](https://rec.ustc.edu.cn/share/898d59b0-81e4-11ee-a431-a7ebbdb09b39), [part1](https://rec.ustc.edu.cn/share/898d59b0-81e4-11ee-a431-a7ebbdb09b39)                                        |
-| 2023-11-13 |                     机器无关代码优化 - 常见的优化方式                     |                                                                              [part1](https://rec.ustc.edu.cn/share/898d59b0-81e4-11ee-a431-a7ebbdb09b39)                                                                              |
-| 2023-11-15 | 机器无关代码优化 - 数据流与到达定值、可用表达式分析、数据流与活跃变量分析 | [part2](https://rec.ustc.edu.cn/share/ec735a10-8372-11ee-a33f-3f4ce56e99ac), [part3](https://rec.ustc.edu.cn/share/f7edf830-8372-11ee-a4ee-89e3b900b6a4), [part4](https://rec.ustc.edu.cn/share/49526e90-9043-11ee-b984-bfcfb1e71335) |
-| 2023-11-20 | 机器无关代码优化 - 数据流与活跃变量分析、基本块内的优化 & 寄存器分配方法  | [part4](https://rec.ustc.edu.cn/share/49526e90-9043-11ee-b984-bfcfb1e71335), [part5](https://rec.ustc.edu.cn/share/6b7a21f0-9043-11ee-b553-ab6f413f1658), [part1](https://rec.ustc.edu.cn/share/05972ed0-9044-11ee-9278-b9679a1c57b3) |
-| 2023-11-22 |                        静态类型检查 & 流图中的循环                        |                                       [part1](https://rec.ustc.edu.cn/share/60bbf180-9045-11ee-bc96-e388a9810d5b), [part1](https://rec.ustc.edu.cn/share/4ad00130-9045-11ee-a6b5-83f7236ec56e)                                        |
-| 2023-11-27 |                      运行时刻环境 - 非局部变量的访问                      |                                                                              [part2](https://rec.ustc.edu.cn/share/bef41780-9045-11ee-8887-1ba1740d80fe)                                                                              |
-| 2023-11-29 |                          面向目标机器的代码优化                           |                                                                              [part1](https://rec.ustc.edu.cn/share/d6169380-9045-11ee-8a37-87201671ab8d)                                                                              |
-| 2023-12-04 |                               guest lecture                               |                                                                                                               无 slides                                                                                                               |
-| 2023-12-06 |                               guest lecture                               |                                                                                                               无 slides                                                                                                               |
-| 2023-12-13 |                                  复习课                                   |                                                                             [slides](https://rec.ustc.edu.cn/share/3a4ffcf0-995a-11ee-9fdc-a7ee4ffd604e)                                                                              | -->
+| 2024-09-16 |                     语法分析 - 自顶向下 - LL(1) 文法                      |                                                                              [Parser-part3](ppt/Lecture5-Parser-part3.pdf)                                                                              |
+| 2024-09-18 |           语法分析 - 自底向上 - 移进规约 & LR 分析器的简单模型            |                                       [Parser-part4](ppt/Lecture6-Parser-part4.pdf), [Parser-part5](ppt/Lecture7-Parser-part5.pdf)                                        |
+| 2024-09-23 |                语法分析 - 简单的 LR 方法 & 规范的 LR 方法                 |                                       [Parser-part6](ppt/Lecture8-Parser-part6.pdf), [Parser-part7](ppt/Lecture9-Parser-part7.pdf)                                        |
+<!-- | 2024-09-27 |                               中间代码表示                                |                                                                              [part1](https://rec.ustc.edu.cn/share/3fba3780-64dc-11ee-b89d-3bff5ec34c27)                                                                              |
+| 2024-10-07 |               语法制导翻译 - 语法制导定义 & S/L 属性的定义                |                                       [part1](https://rec.ustc.edu.cn/share/e0e4d8e0-5cdf-11ee-a097-75437996f503), [part2](https://rec.ustc.edu.cn/share/10e6d050-68c7-11ee-a697-13d9155d40a5)                                        |
+| 2024-10-11 |          语法制导翻译 - 语法制导翻译方案 & L 属性定义的翻译方案           |                                       [part3](https://rec.ustc.edu.cn/share/60f07260-68c7-11ee-ac16-c97fd4666cee), [part4](https://rec.ustc.edu.cn/share/71c78a80-68c7-11ee-b670-b5952f4e628a)                                        |
+| 2024-10-16 |                中间代码翻译 - 简单语句、控制流与布尔表达式                |                                       [part1](https://rec.ustc.edu.cn/share/aaa7e250-81e3-11ee-b601-cf1e5b684040), [part2](https://rec.ustc.edu.cn/share/b97993e0-81e3-11ee-b4bf-238eae90436f)                                        |
+| 2024-10-18 |                    中间代码翻译 - 标号回填与布尔表达式                    |                                                                              [part3](https://rec.ustc.edu.cn/share/898d59b0-81e4-11ee-a431-a7ebbdb09b39)                                                                              |
+| 2024-10-30 |                    中间代码翻译 - 标号回填与控制流语句                    |                                                                              [part4](https://rec.ustc.edu.cn/share/898d59b0-81e4-11ee-a431-a7ebbdb09b39)                                                                              |
+| 2024-11-01 |               中间代码翻译 - 类型表达式 & 符号表与声明语句                |                                       [part5](https://rec.ustc.edu.cn/share/898d59b0-81e4-11ee-a431-a7ebbdb09b39), [part6](https://rec.ustc.edu.cn/share/898d59b0-81e4-11ee-a431-a7ebbdb09b39)                                        |
+| 2024-11-06 |              中间代码翻译 - 数组寻址 & 运行时管理 - 存储组织              |                                       [part7](https://rec.ustc.edu.cn/share/898d59b0-81e4-11ee-a431-a7ebbdb09b39), [part1](https://rec.ustc.edu.cn/share/898d59b0-81e4-11ee-a431-a7ebbdb09b39)                                        |
+| 2024-11-08 |           运行时管理 - 栈式分配 & 代码生成 - 概述与简单机器模型           |                                       [part2](https://rec.ustc.edu.cn/share/898d59b0-81e4-11ee-a431-a7ebbdb09b39), [part1](https://rec.ustc.edu.cn/share/898d59b0-81e4-11ee-a431-a7ebbdb09b39)                                        |
+| 2024-11-13 |                     机器无关代码优化 - 常见的优化方式                     |                                                                              [part1](https://rec.ustc.edu.cn/share/898d59b0-81e4-11ee-a431-a7ebbdb09b39)                                                                              |
+| 2024-11-15 | 机器无关代码优化 - 数据流与到达定值、可用表达式分析、数据流与活跃变量分析 | [part2](https://rec.ustc.edu.cn/share/ec735a10-8372-11ee-a33f-3f4ce56e99ac), [part3](https://rec.ustc.edu.cn/share/f7edf830-8372-11ee-a4ee-89e3b900b6a4), [part4](https://rec.ustc.edu.cn/share/49526e90-9043-11ee-b984-bfcfb1e71335) |
+| 2024-11-20 | 机器无关代码优化 - 数据流与活跃变量分析、基本块内的优化 & 寄存器分配方法  | [part4](https://rec.ustc.edu.cn/share/49526e90-9043-11ee-b984-bfcfb1e71335), [part5](https://rec.ustc.edu.cn/share/6b7a21f0-9043-11ee-b553-ab6f413f1658), [part1](https://rec.ustc.edu.cn/share/05972ed0-9044-11ee-9278-b9679a1c57b3) |
+| 2024-11-22 |                        静态类型检查 & 流图中的循环                        |                                       [part1](https://rec.ustc.edu.cn/share/60bbf180-9045-11ee-bc96-e388a9810d5b), [part1](https://rec.ustc.edu.cn/share/4ad00130-9045-11ee-a6b5-83f7236ec56e)                                        |
+| 2024-11-27 |                      运行时刻环境 - 非局部变量的访问                      |                                                                              [part2](https://rec.ustc.edu.cn/share/bef41780-9045-11ee-8887-1ba1740d80fe)                                                                              |
+| 2024-11-29 |                          面向目标机器的代码优化                           |                                                                              [part1](https://rec.ustc.edu.cn/share/d6169380-9045-11ee-8a37-87201671ab8d)                                                                              |
+| 2024-12-04 |                               guest lecture                               |                                                                                                               无 slides                                                                                                               |
+| 2024-12-06 |                               guest lecture                               |                                                                                                               无 slides                                                                                                               |
+| 2024-12-13 |                                  复习课                                   |                                                                             [slides](https://rec.ustc.edu.cn/share/3a4ffcf0-995a-11ee-9fdc-a7ee4ffd604e)                                                                              | -->
 
 ## <strong>参考资料</strong>
 
 ### <strong>教材和参考书</strong>
 
 - <div id='textbook'></div>[1] 陈意云、张昱，编译原理（第 3 版），高等教育出版社，2014
-- <div id='textbook2'></div>[2] 李诚、徐伟，现代编译器设计与实现（实验讲义版本，高等教育出版社待出版，2023）。[教材资源及实验框架](https://ustc-compiler-principles.github.io/textbook/)
+- <div id='textbook2'></div>[2] 李诚、徐伟，现代编译器设计与实现（实验讲义版本，高等教育出版社待出版，2024）。[教材资源及实验框架](https://ustc-compiler-principles.github.io/textbook/)
 - A. V. Aho, M. S. Lam, R. Sethi, and J. D. Ullman 著，赵建华等译，编译原理，机械工业出版社，2017
 
 ### <strong>其他资料</strong>
