@@ -16,7 +16,7 @@ Light IR C++ 库依据 LLVM 设计，用于生成 IR。在介绍其核心类之�
 - 最上层的是 module，对应一个 Cminusf 源文件。包含全局变量 global_variable 和函数 function
 - function 由头部和函数体组成。function 的头部包括返回值类型、函数名和参数表。函数体可以由一个或多个 basicblock 构成。
 - basicblock 是指程序顺序执行的语句序列，只有一个入口和一个出口。basicblock 由若干指令 instruction 构成。
-- 注意一个 basicblock 中**只能有一条终止指令**（Ret/Br）。
+- 注意一个 basicblock 中 **只能有一条终止指令**（Ret/Br）。
 
 !!! note
 
@@ -60,7 +60,7 @@ Light IR C++ 库依据 LLVM 设计，用于生成 IR。在介绍其核心类之�
 
 ### Light IR C++ 类型基类：Type
 
-在 [Light IR 指令假设](./LightIR.md#lightir-指令假设)中提到，Light IR 保留了 LLVM IR 的强类型系统，包含基本类型与组合类型，`Type` 类是所有类型基类，其子类继承关系如图所示，其中 `IntegerType`, `FloatType` 对应表示 Light IR 中的 `i1`，`i32`，`float` 基本类型。`ArrayType`，`PointerType`，`FunctionType` 对应表示组合类型：数组类型，指针类型，函数类型。
+在 [Light IR 指令假设](./LightIR.md#light-ir-指令假设)中提到，Light IR 保留了 LLVM IR 的强类型系统，包含基本类型与组合类型，`Type` 类是所有类型基类，其子类继承关系如图所示，其中 `IntegerType`, `FloatType` 对应表示 Light IR 中的 `i1`，`i32`，`float` 基本类型。`ArrayType`，`PointerType`，`FunctionType` 对应表示组合类型：数组类型，指针类型，函数类型。
 
 ![type_inherit](./figs/type_inherit.png)
 

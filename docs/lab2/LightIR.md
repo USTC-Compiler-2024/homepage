@@ -151,7 +151,7 @@ Light IR 指令从 LLVM IR 中裁剪得到，因此保留了 LLVM IR 如下的�
 
 ##### ZExt
 
-- 概念：`zext`指令将其操作数**零**扩展为`type2`类型。
+- 概念：`zext`指令将其操作数 **零** 扩展为`type2`类型。
 - 格式：`<result> = zext <type> <value> to <type2>`
 - 例子：`%1 = zext i1 %0 to i32`
 
@@ -191,7 +191,7 @@ Light IR 指令从 LLVM IR 中裁剪得到，因此保留了 LLVM IR 如下的�
 
 ##### GetElementPtr
 
-- 概念：`getelementptr`指令用于获取数组结构的元素的地址。它**仅执行地址计算**，并且不访问内存。
+- 概念：`getelementptr`指令用于获取数组结构的元素的地址。它 **仅执行地址计算** ，并且不访问内存。
 - 格式
   - 数组：`<result> = getelementptr <type>, <type>* <ptrval>, i32 0, i32 <idx>`
   - 指针（仅在数组作为函数参数时存在）：`<result> = getelementptr <type>, <type>* <ptrval>, i32 <idx>`
