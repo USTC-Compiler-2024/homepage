@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.36">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.33">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.06209087.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -54,7 +54,7 @@
     
       <link rel="stylesheet" href="../../styles.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -89,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#在cmake构建的大型项目中如何debug" class="md-skip">
+        <a href="#在-cmake-构建的大型项目中如何-debug" class="md-skip">
           跳转至
         </a>
       
@@ -108,12 +108,12 @@
     <a href="../.." title="USTC 编译原理和技术 2024" class="md-header__button md-logo" aria-label="USTC 编译原理和技术 2024" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M384 96v224H64V96zM64 32C28.7 32 0 60.7 0 96v224c0 35.3 28.7 64 64 64h117.3l-10.7 32H96c-17.7 0-32 14.3-32 32s14.3 32 32 32h256c17.7 0 32-14.3 32-32s-14.3-32-32-32h-74.7l-10.7-32H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm464 0c-26.5 0-48 21.5-48 48v352c0 26.5 21.5 48 48 48h64c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm16 64h32c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16s7.2-16 16-16m-16 80c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16m32 160a32 32 0 1 1 0 64 32 32 0 1 1 0-64"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M384 96v224H64V96h320zM64 32C28.7 32 0 60.7 0 96v224c0 35.3 28.7 64 64 64h117.3l-10.7 32H96c-17.7 0-32 14.3-32 32s14.3 32 32 32h256c17.7 0 32-14.3 32-32s-14.3-32-32-32h-74.7l-10.7-32H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm464 0c-26.5 0-48 21.5-48 48v352c0 26.5 21.5 48 48 48h64c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48h-64zm16 64h32c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16s7.2-16 16-16zm-16 80c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16zm32 160a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -141,7 +141,7 @@
     <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple"  aria-label="切换到夜晚模式"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="切换到夜晚模式" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
       </label>
     
   
@@ -151,7 +151,7 @@
     <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换到白天模式"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="切换到白天模式" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
       </label>
     
   
@@ -159,13 +159,13 @@
       
     
     
-      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
     
       <label class="md-header__button md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
       </label>
       <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
@@ -174,15 +174,15 @@
       <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="查找">
         
         <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
       
@@ -285,24 +285,6 @@
   
   
   
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../lab2/" class="md-tabs__link">
-          
-  
-  Lab2
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
     <li class="md-tabs__item">
       <a href="../../faq/" class="md-tabs__link">
         
@@ -347,7 +329,7 @@
     <a href="../.." title="USTC 编译原理和技术 2024" class="md-nav__button md-logo" aria-label="USTC 编译原理和技术 2024" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M384 96v224H64V96zM64 32C28.7 32 0 60.7 0 96v224c0 35.3 28.7 64 64 64h117.3l-10.7 32H96c-17.7 0-32 14.3-32 32s14.3 32 32 32h256c17.7 0 32-14.3 32-32s-14.3-32-32-32h-74.7l-10.7-32H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm464 0c-26.5 0-48 21.5-48 48v352c0 26.5 21.5 48 48 48h64c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm16 64h32c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16s7.2-16 16-16m-16 80c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16m32 160a32 32 0 1 1 0 64 32 32 0 1 1 0-64"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M384 96v224H64V96h320zM64 32C28.7 32 0 60.7 0 96v224c0 35.3 28.7 64 64 64h117.3l-10.7 32H96c-17.7 0-32 14.3-32 32s14.3 32 32 32h256c17.7 0 32-14.3 32-32s-14.3-32-32-32h-74.7l-10.7-32H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm464 0c-26.5 0-48 21.5-48 48v352c0 26.5 21.5 48 48 48h64c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48h-64zm16 64h32c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16s7.2-16 16-16zm-16 80c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16zm32 160a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
 
     </a>
     USTC 编译原理和技术 2024
@@ -596,22 +578,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#clangd语言服务器" class="md-nav__link">
+  <a href="#clangd-语言服务器" class="md-nav__link">
     <span class="md-ellipsis">
-      Clangd语言服务器
+      Clangd 语言服务器
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#图形化的lldb调试工具" class="md-nav__link">
+  <a href="#图形化的-lldb-调试工具" class="md-nav__link">
     <span class="md-ellipsis">
-      图形化的LLDB调试工具
+      图形化的 LLDB 调试工具
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="图形化的LLDB调试工具">
+    <nav class="md-nav" aria-label="图形化的 LLDB 调试工具">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -638,9 +620,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#如何在cmake构建的大型项目中定位-segmentation-fault" class="md-nav__link">
+  <a href="#如何在-cmake-构建的大型项目中定位-segmentation-fault" class="md-nav__link">
     <span class="md-ellipsis">
-      如何在CMake构建的大型项目中定位 Segmentation Fault
+      如何在 CMake 构建的大型项目中定位 Segmentation Fault
     </span>
   </a>
   
@@ -904,200 +886,6 @@
   
   
   
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Lab2
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
-            <span class="md-nav__icon md-icon"></span>
-            Lab2
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../lab2/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Lab2 简介
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../lab2/LightIR/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Light IR 手册
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../lab2/LightIR%20C%2B%2B/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Light IR C++ 库
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../lab2/visitor_pattern/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    访问者模式
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../lab2/warmup/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Light IR 预热
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../lab2/cminusf%E8%AF%AD%E4%B9%89/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Cminusf 语义
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../lab2/autogen/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    IR 自动化生成
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
     <li class="md-nav__item">
       <a href="../../faq/" class="md-nav__link">
         
@@ -1139,22 +927,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#clangd语言服务器" class="md-nav__link">
+  <a href="#clangd-语言服务器" class="md-nav__link">
     <span class="md-ellipsis">
-      Clangd语言服务器
+      Clangd 语言服务器
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#图形化的lldb调试工具" class="md-nav__link">
+  <a href="#图形化的-lldb-调试工具" class="md-nav__link">
     <span class="md-ellipsis">
-      图形化的LLDB调试工具
+      图形化的 LLDB 调试工具
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="图形化的LLDB调试工具">
+    <nav class="md-nav" aria-label="图形化的 LLDB 调试工具">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1181,9 +969,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#如何在cmake构建的大型项目中定位-segmentation-fault" class="md-nav__link">
+  <a href="#如何在-cmake-构建的大型项目中定位-segmentation-fault" class="md-nav__link">
     <span class="md-ellipsis">
-      如何在CMake构建的大型项目中定位 Segmentation Fault
+      如何在 CMake 构建的大型项目中定位 Segmentation Fault
     </span>
   </a>
   
@@ -1246,18 +1034,18 @@
                   
 
 
-<h1 id="在cmake构建的大型项目中如何debug">在CMake构建的大型项目中如何Debug<a class="headerlink" href="#在cmake构建的大型项目中如何debug" title="Permanent link">&para;</a></h1>
+<h1 id="在-cmake-构建的大型项目中如何-debug">在 CMake 构建的大型项目中如何 Debug<a class="headerlink" href="#在-cmake-构建的大型项目中如何-debug" title="Permanent link">&para;</a></h1>
 <details class="info">
 <summary>CMake</summary>
 <p>CMake 是一个开源的跨平台构建系统工具，用于管理项目的构建过程。它使用简单的文本文件（CMakeLists.txt）来定义项目的构建配置，并生成标准的构建文件（如 Makefile 或 Visual Studio 工程文件）</p>
 </details>
 <p>对于一个大型工程而言，Debug 是相对困难的，我们为大家提供了两种可行的 Debug 方法，<strong><font color = red>这两种调试方法并不是互斥的，我们强烈建议组合使用</font></strong></p>
-<h2 id="clangd语言服务器">Clangd语言服务器<a class="headerlink" href="#clangd语言服务器" title="Permanent link">&para;</a></h2>
+<h2 id="clangd-语言服务器">Clangd 语言服务器<a class="headerlink" href="#clangd-语言服务器" title="Permanent link">&para;</a></h2>
 <p>大家在以往写 C/C++ 工程时，肯定都使用过 Microsoft C/C++ ，但该扩展在较大的的项目中表现并不优秀。我们强烈建议大家使用 Clangd 并在 VSCode 中安装 Clangd 扩展。</p>
-<p>在终端输入以下命令安装 Clangd ：
+<p>在终端输入以下命令安装 Clangd：</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>clangd
 </code></pre></div>
-安装完成后在VSCode中搜索 Clangd 并安装
+<p>安装完成后在 VSCode 中搜索 Clangd 并安装
 <a class="glightbox" href="../photos/Clangd.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Clangd" src="../photos/Clangd.png" /></a></p>
 <p>由于 Clangd 和 Microsoft C/C++ 扩展冲突，我们建议大家在使用 Clangd 时禁用 Microsoft C/C++ 扩展。</p>
 <p>如果正确安装了 Clangd，那么可以通过以下方式进行跳转：</p>
@@ -1267,7 +1055,7 @@
 <li><strong>跳转到引用</strong>：在光标停留在某个函数或变量上时，按下<code>Shift</code>+<code>F12</code>键即可转到引用。</li>
 </ul>
 <p>同时，Clangd 还提供了强大的代码补全功能和错误提示功能，可以帮助同学们更好地编写代码。大家可以在之后的实验中一一体验。</p>
-<h2 id="图形化的lldb调试工具">图形化的LLDB调试工具<a class="headerlink" href="#图形化的lldb调试工具" title="Permanent link">&para;</a></h2>
+<h2 id="图形化的-lldb-调试工具">图形化的 LLDB 调试工具<a class="headerlink" href="#图形化的-lldb-调试工具" title="Permanent link">&para;</a></h2>
 <details class="info" open="open">
 <summary>依赖</summary>
 <p>这种调试方法实际上是使用了lldb调试工具以及VSCode <code>CodeLLDB</code>扩展。</p>
@@ -1283,9 +1071,9 @@
     <a class="glightbox" href="../photos/codelldb.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="CodeLLDB" src="../photos/codelldb.png" /></a>
 - CMake &amp; CMake Tools
     <a class="glightbox" href="../photos/CMake.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="CMakeExt" src="../photos/CMake.png" /></a></p>
-<p><strong>安装CMake扩展后会弹出窗口提示选择工具包(ToolKit)，请选择最高版本的clang</strong>。</p>
+<p><strong>安装 CMake 扩展后会弹出窗口提示选择工具包 (ToolKit)，请选择最高版本的 clang</strong>。</p>
 </details>
-<p>LLDB是LLVM项目开发的调试器，通过设置VSCode扩展可以方便地调试大型项目。下面将以一个小型工程为例：</p>
+<p>LLDB 是 LLVM 项目开发的调试器，通过设置 VSCode 扩展可以方便地调试大型项目。下面将以一个小型工程为例：</p>
 <h3 id="克隆需要的测试工程并构建项目">克隆需要的测试工程并构建项目<a class="headerlink" href="#克隆需要的测试工程并构建项目" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024ustc-jianmu-compiler.git
 <span class="nb">cd</span><span class="w"> </span>2024ustc-jianmu-compiler
@@ -1298,7 +1086,7 @@ make
 <p>或者你可以直接点击下边栏的生成：</p>
 <p><a class="glightbox" href="../photos/make.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="make" src="../photos/make.png" /></a></p>
 <p>经过这一步后，在<code>${workspaceFolder}/build/src/</code>下可以找到生成的可执行文件<code>lab0_debug</code></p>
-<p>运行lab0_debug，你会得到类似下面的输出：</p>
+<p>运行 lab0_debug，你会得到类似下面的输出：</p>
 <div class="highlight"><pre><span></span><code>jyjs@JHost<span class="w"> </span>stl_debug<span class="w"> </span>%<span class="w"> </span>./build/src/lab0_debug<span class="w"> </span>-t
 Hello,<span class="w"> </span>from<span class="w"> </span>stl_debug!
 MyMyI<span class="err">&#39;</span>mStudent<span class="w"> </span>object<span class="w"> </span>created
@@ -1317,11 +1105,11 @@ Student<span class="w"> </span>destructor<span class="w"> </span>called
 Human<span class="w"> </span>destructor<span class="w"> </span>called
 Human<span class="w"> </span>destructor<span class="w"> </span>called
 </code></pre></div>
-<p>我们将在下面一小节来带大家de出这个bug！</p>
+<p>我们将在下面一小节来带大家 de 出这个 bug！</p>
 <h3 id="json-文件设置及-debug-示例">json 文件设置及 debug 示例<a class="headerlink" href="#json-文件设置及-debug-示例" title="Permanent link">&para;</a></h3>
-<p><code>.vscode/launch.json</code>文件记录了调试器需要的基本信息，它是由vscode自动生成的。</p>
+<p><code>.vscode/launch.json</code>文件记录了调试器需要的基本信息，它是由 vscode 自动生成的。</p>
 <details class="info">
-<summary>如何自动生成一个.json文件</summary>
+<summary>如何自动生成一个.json 文件</summary>
 <p>点击<code>运行/启动调试(F5)</code>：</p>
 <p><a class="glightbox" href="../photos/F5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="F5" src="../photos/F5.png" /></a></p>
 <p>上方提示栏弹出，选择LLDB：</p>
@@ -1329,7 +1117,7 @@ Human<span class="w"> </span>destructor<span class="w"> </span>called
 <p>这时由于vscode的CODELLDB扩展不知道如何调试，会报错并为我们创建<code>.vscode/launch.json</code>文件。</p>
 <p><a class="glightbox" href="../photos/error.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="json" src="../photos/error.png" /></a></p>
 <p><div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="c1">// 使用 IntelliSense 了解相关属性。 </span>
+<span class="w">    </span><span class="c1">// 使用 IntelliSense 了解相关属性。</span>
 <span class="w">    </span><span class="c1">// 悬停以查看现有属性的描述。</span>
 <span class="w">    </span><span class="c1">// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span>
 <span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.2.0&quot;</span><span class="p">,</span>
@@ -1348,40 +1136,38 @@ Human<span class="w"> </span>destructor<span class="w"> </span>called
 下文的json文件就是这么得到的，只不过助教做了一些注释。</p>
 </details>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="c1">// 使用 IntelliSense 了解相关属性。 </span>
-<span class="w">    </span><span class="c1">// 悬停以查看现有属性的描述。</span>
-<span class="w">    </span><span class="c1">// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span>
-<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.2.0&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;configurations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lldb&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Debug&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}/&lt;executable file&gt;&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">//TODO: Add executable file here</span>
-<span class="w">            </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">                </span><span class="s2">&quot;&lt;arguments&gt;&quot;</span><span class="w"> </span><span class="c1">// TODO: Add arguments here</span>
-<span class="w">            </span><span class="p">],</span>
-<span class="w">            </span><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}&quot;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="c1">// 使用 IntelliSense 了解相关属性。</span>
+<span class="w">  </span><span class="c1">// 悬停以查看现有属性的描述。</span>
+<span class="w">  </span><span class="c1">// 欲了解更多信息，请访问：https://go.microsoft.com/fwlink/?linkid=830387</span>
+<span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.2.0&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;configurations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lldb&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Debug&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}/&lt;executable file&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">//TODO: Add executable file here</span>
+<span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;&lt;arguments&gt;&quot;</span><span class="w"> </span><span class="c1">// TODO: Add arguments here</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
 <ul>
 <li>version 域指定了调试器的版本信息</li>
-<li>configurations 域指定了配置信息，其中包括：<ul>
-<li>type：任务类型 这是一个lldb任务</li>
-<li>request：需要执行的任务 launch即只有它本身</li>
-<li>name：将这个任务命名为Debug</li>
-<li>program：被调试的程序 注： <em><font color=grey>${workspaceFolder} 是一个环境变量，即工程文件所在文件夹</font></em></li>
+<li>configurations 域指定了配置信息，其中包括：</li>
+<li>type：任务类型 这是一个 lldb 任务</li>
+<li>request：需要执行的任务 launch 即只有它本身</li>
+<li>name：将这个任务命名为 Debug</li>
+<li>program：被调试的程序 注：<em><font color=grey>${workspaceFolder} 是一个环境变量，即工程文件所在文件夹</font></em></li>
 <li>args：设置需要的参数</li>
 <li>cwd：指令执行的目录</li>
 </ul>
-</li>
-</ul>
 <p>主要修改 program &amp; args 域即可。</p>
 <hr />
-<p>读工程中的CMakeLists.txt文件即可得知，生成的可执行文件目录为<code>${workspaceFolder}/build/src/</code>，可执行文件名为<code>lab0_debug</code></p>
-<p>而main.cpp:17-20L 要求输入-t参数，因此可以做如下修改：</p>
+<p>读工程中的 CMakeLists.txt 文件即可得知，生成的可执行文件目录为<code>${workspaceFolder}/build/src/</code>，可执行文件名为<code>lab0_debug</code></p>
+<p>而 main.cpp:17-20L 要求输入-t 参数，因此可以做如下修改：</p>
 <div class="highlight"><pre><span></span><code><span class="err">...</span>
 <span class="w">    </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}/build/src/lab0_debug&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
@@ -1389,11 +1175,11 @@ Human<span class="w"> </span>destructor<span class="w"> </span>called
 <span class="w">    </span><span class="p">],</span>
 <span class="err">...</span>
 </code></pre></div>
-<p>之后在main入口处打断点再执行即可开始调试了。</p>
+<p>之后在 main 入口处打断点再执行即可开始调试了。</p>
 <p><a class="glightbox" href="../photos/debug.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="debug" src="../photos/debug.png" /></a></p>
-<p>在<code>h-&gt;print()</code>处 step in 之后，不难发现是print方法的返回值逻辑处理有误。</p>
+<p>在<code>h-&gt;print()</code>处 step in 之后，不难发现是 print 方法的返回值逻辑处理有误。</p>
 <p><a class="glightbox" href="../photos/bug.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="bug" src="../photos/bug.png" /></a></p>
-<p>将Student.cpp:16L &amp; Human.cpp:13L 用<code>res = ss.str();</code>代替后，重新make(构建)项目并运行。</p>
+<p>将 Student.cpp:16L &amp; Human.cpp:13L 用<code>res = ss.str();</code>代替后，重新 make(构建) 项目并运行。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>build<span class="p">;</span><span class="w"> </span>make<span class="p">;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>..
 ./build/src/lab0_debug<span class="w"> </span>-t
 </code></pre></div>
@@ -1415,7 +1201,7 @@ Student<span class="w"> </span>destructor<span class="w"> </span>called
 Human<span class="w"> </span>destructor<span class="w"> </span>called
 Human<span class="w"> </span>destructor<span class="w"> </span>called
 </code></pre></div>
-<h2 id="如何在cmake构建的大型项目中定位-segmentation-fault">如何在CMake构建的大型项目中定位 Segmentation Fault<a class="headerlink" href="#如何在cmake构建的大型项目中定位-segmentation-fault" title="Permanent link">&para;</a></h2>
+<h2 id="如何在-cmake-构建的大型项目中定位-segmentation-fault">如何在 CMake 构建的大型项目中定位 Segmentation Fault<a class="headerlink" href="#如何在-cmake-构建的大型项目中定位-segmentation-fault" title="Permanent link">&para;</a></h2>
 <details class="info">
 <summary>什么是 <strong>ASAN</strong> </summary>
 <p>ASAN（Address Sanitizer）是针对 C/C++ 的快速内存错误检测工具，在运行时检测 C/C++ 代码中的多种内存错误。</p>
@@ -1489,7 +1275,7 @@ Shadow<span class="w"> </span>bytes<span class="w"> </span>around<span class="w"
 0x0c067fff8050:<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa<span class="w"> </span>fa
 Shadow<span class="w"> </span>byte<span class="w"> </span>legend<span class="w"> </span><span class="o">(</span>one<span class="w"> </span>shadow<span class="w"> </span>byte<span class="w"> </span>represents<span class="w"> </span><span class="m">8</span><span class="w"> </span>application<span class="w"> </span>bytes<span class="o">)</span>:
 Addressable:<span class="w">           </span><span class="m">00</span>
-Partially<span class="w"> </span>addressable:<span class="w"> </span><span class="m">01</span><span class="w"> </span><span class="m">02</span><span class="w"> </span><span class="m">03</span><span class="w"> </span><span class="m">04</span><span class="w"> </span><span class="m">05</span><span class="w"> </span><span class="m">06</span><span class="w"> </span><span class="m">07</span><span class="w"> </span>
+Partially<span class="w"> </span>addressable:<span class="w"> </span><span class="m">01</span><span class="w"> </span><span class="m">02</span><span class="w"> </span><span class="m">03</span><span class="w"> </span><span class="m">04</span><span class="w"> </span><span class="m">05</span><span class="w"> </span><span class="m">06</span><span class="w"> </span><span class="m">07</span>
 Heap<span class="w"> </span>left<span class="w"> </span>redzone:<span class="w">       </span>fa
 Freed<span class="w"> </span>heap<span class="w"> </span>region:<span class="w">       </span>fd
 Stack<span class="w"> </span>left<span class="w"> </span>redzone:<span class="w">      </span>f1
@@ -1575,9 +1361,9 @@ Shadow<span class="w"> </span>gap:<span class="w">              </span><span cla
       
   <span class="md-source-file__fact">
     <span class="md-icon" title="最后更新">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年9月13日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 7, 2024</span>
   </span>
 
     
@@ -1588,7 +1374,7 @@ Shadow<span class="w"> </span>gap:<span class="w">              </span><span cla
   <span class="md-source-file__fact">
     <span class="md-icon" title="贡献者">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.536 5.536 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13v-1.75M0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20H0m24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9V20Z"/></svg>
       
     </span>
     <nav>
@@ -1627,7 +1413,7 @@ Shadow<span class="w"> </span>gap:<span class="w">              </span><span cla
           <a href="../cpp/" class="md-footer__link md-footer__link--prev" aria-label="上一页: C++ 语法">
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
@@ -1652,7 +1438,7 @@ Shadow<span class="w"> </span>gap:<span class="w">              </span><span cla
             </div>
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
             </div>
           </a>
         
@@ -1681,10 +1467,10 @@ Shadow<span class="w"> </span>gap:<span class="w">              </span><span cla
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.footer", "content.code.copy"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.footer", "content.code.copy"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      <script src="../../assets/javascripts/bundle.af256bd8.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
