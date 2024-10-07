@@ -1272,11 +1272,11 @@
 <li>origin：学生 fork 得到的私有仓库</li>
 </ul>
 <p><a class="glightbox" href="figs/remote-info.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="figs/remote-info.png" /></a></p>
-<p>两个仓库之间各有 3 条分支：main、lab0 和 lab1：</p>
+<p>两个仓库各有 3 条分支（红色字体）：main、lab0 和 lab1，如下图。最上边的 lab1 和 main 代表本地的分支，分别追踪远程的 <code>origin/lab1</code> 和 <code>origin/main</code>，main 前边的星号 <code>*</code> 和绿色字体代表当前处于 main 分支下：</p>
 <p><a class="glightbox" href="figs/branches.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="figs/branches.png" /></a></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>以上两条命令分别是：<code>git remote -v</code> 和 <code>git branch --all</code>，如果第二条命令的输出中缺少 upstream 的分支，你可以通过 <code>git fetch --all</code> 来获取。</p>
+<p>以上两条命令分别是：<code>git remote -v</code> 和 <code>git branch --all -vv</code>，如果第二条命令的输出中缺少 upstream 的分支，你可以通过 <code>git fetch --all</code> 来获取。</p>
 </div>
 <p>在实验一中，我们通过 lab1 分支发布实验，与 lab0 作为区分，因此学生也是处于 lab1 分支下完成实验。从本次实验开始，我们将使用 main 分支发布实验。在开始撰写本次实验代码之前，学生需要抓取最新的 main 分支到本地，然后将 lab1 分支合并到 main 分支，并处理可能的冲突。以下是详细的指导。</p>
 <h3 id="拉取最新代码">拉取最新代码<a class="headerlink" href="#拉取最新代码" title="Permanent link">&para;</a></h3>
@@ -1296,7 +1296,7 @@
 <a class="glightbox" href="figs/conflict.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="figs/conflict.png" /></a></p>
 <p>我们检查这个文件，看到一处冲突，截图如下：
 <a class="glightbox" href="figs/conflict-solve-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="figs/conflict-solve-1.png" /></a></p>
-<p>在这里，我们（上游仓库）最新的代码将 <code>ASTVisitor::visit</code> 接口的返回值更新成了 <code>Value *</code>，这种接口变动要以上游为准。现在是将 lab1 合并进 main 分支，所以进行 merge 的双方，current 时上游内容，incoming 是 lab1 的内容，在这里保留 current 内容。</p>
+<p>在这里，我们（上游仓库）最新的代码将 <code>ASTVisitor::visit</code> 接口的返回值更新成了 <code>Value *</code>，这种接口变动要以上游为准。现在是将 lab1 合并进 main 分支，所以进行 merge 的双方，current 是上游内容，incoming 是 lab1 的内容，在这里保留 current 内容。</p>
 <p>在完成文件的更改后，保存文件，你仍然在 merge 的阶段，你可以使用 <code>git status</code> 查看，并使用 <code>git merge --continue</code> 完成你的合并操作，如下图所示。</p>
 <p><a class="glightbox" href="figs/conflict-solve-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="figs/conflict-solve-2.png" /></a></p>
 <p>事实上，在处理本次合并可能的冲突时，只需要保留你在 lab1 编写的代码即可，其余基本上都保留上游仓库的最新内容。</p>
