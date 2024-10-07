@@ -16,7 +16,7 @@
     
     
       
-        <title>Cminusf 的语法与语义 - USTC 编译原理和技术 2024</title>
+        <title>logging 工具使用 - USTC 编译原理和技术 2024</title>
       
     
     
@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cminusf-的语法与语义" class="md-skip">
+        <a href="#logging-工具使用" class="md-skip">
           跳转至
         </a>
       
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Cminusf 的语法与语义
+              logging 工具使用
             
           </span>
         </div>
@@ -282,7 +282,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../lab2/" class="md-tabs__link">
+        <a href="../" class="md-tabs__link">
           
   
   Lab2
@@ -803,7 +803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lab2/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -824,7 +824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lab2/LightIR/" class="md-nav__link">
+      <a href="../LightIR/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -845,7 +845,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lab2/LightIR%20C%2B%2B/" class="md-nav__link">
+      <a href="../LightIR%20C%2B%2B/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -866,7 +866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lab2/visitor_pattern/" class="md-nav__link">
+      <a href="../visitor_pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -887,7 +887,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lab2/warmup/" class="md-nav__link">
+      <a href="../warmup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -908,7 +908,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lab2/cminusf%E8%AF%AD%E4%B9%89/" class="md-nav__link">
+      <a href="../cminusf%E8%AF%AD%E4%B9%89/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -929,7 +929,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lab2/autogen/" class="md-nav__link">
+      <a href="../autogen/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -997,18 +997,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cminusf-的语法" class="md-nav__link">
+  <a href="#介绍" class="md-nav__link">
     <span class="md-ellipsis">
-      Cminusf 的语法
+      介绍
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#cminusf-的语义" class="md-nav__link">
+  <a href="#使用" class="md-nav__link">
     <span class="md-ellipsis">
-      Cminusf 的语义
+      使用
     </span>
   </a>
   
@@ -1029,153 +1029,42 @@
                   
 
 
-<h1 id="cminusf-的语法与语义">Cminusf 的语法与语义<a class="headerlink" href="#cminusf-的语法与语义" title="Permanent link">&para;</a></h1>
-<h2 id="cminusf-的语法">Cminusf 的语法<a class="headerlink" href="#cminusf-的语法" title="Permanent link">&para;</a></h2>
-<ol>
-<li><span class="arithmatex">\(\text{program} \rightarrow \text{declaration-list}\)</span></li>
-<li><span class="arithmatex">\(\text{declaration-list} \rightarrow \text{declaration-list}\ \text{declaration}\ |\ \text{declaration}\)</span></li>
-<li><span class="arithmatex">\(\text{declaration} \rightarrow \text{var-declaration}\ |\ \text{fun-declaration}\)</span></li>
-<li><span class="arithmatex">\(\text{var-declaration}\ \rightarrow \text{type-specifier}\ \underline{\textbf{ID}}\ \underline{\textbf{;}}\ |\ \text{type-specifier}\ \underline{\textbf{ID}}\ \underline{\textbf{[}}\ \underline{\textbf{INTEGER}}\ \underline{\textbf{]}}\ \underline{\textbf{;}}\)</span></li>
-<li><span class="arithmatex">\(\text{type-specifier} \rightarrow \underline{\textbf{int}}\ |\ \underline{\textbf{float}}\ |\ \underline{\textbf{void}}\)</span></li>
-<li><span class="arithmatex">\(\text{fun-declaration} \rightarrow \text{type-specifier}\ \underline{\textbf{ID}}\ \underline{\textbf{(}}\ \text{params}\ \underline{\textbf{)}}\ \text{compound-stmt}\)</span></li>
-<li><span class="arithmatex">\(\text{params} \rightarrow \text{param-list}\ |\ \underline{\textbf{void}}\)</span></li>
-<li><span class="arithmatex">\(\text{param-list} \rightarrow \text{param-list}\ \underline{\textbf{,}}\ \text{param}\ |\ \text{param}\)</span></li>
-<li><span class="arithmatex">\(\text{param} \rightarrow \text{type-specifier}\ \underline{\textbf{ID}}\ |\ \text{type-specifier}\ \underline{\textbf{ID}}\ \underline{\textbf{[}}\ \underline{\textbf{]}}\)</span></li>
-<li><span class="arithmatex">\(\text{compound-stmt} \rightarrow \underline{\textbf{\\{}}\ \text{local-declarations}\ \text{statement-list}\ \underline{\textbf{\\}}}\)</span></li>
-<li><span class="arithmatex">\(\text{local-declarations} \rightarrow \text{local-declarations var-declaration}\ |\ \text{empty}\)</span></li>
-<li><span class="arithmatex">\(\text{statement-list} \rightarrow \text{statement-list}\ \text{statement}\ |\ \text{empty}\)</span></li>
-<li><span class="arithmatex">\(\begin{aligned}\text{statement} \rightarrow\ &amp;\text{expression-stmt}\\\ &amp;|\ \text{compound-stmt}\\\ &amp;|\ \text{selection-stmt}\\\ &amp;|\ \text{iteration-stmt}\\\ &amp;|\ \text{return-stmt}\end{aligned}\)</span></li>
-<li><span class="arithmatex">\(\text{expression-stmt} \rightarrow \text{expression}\ \underline{\textbf{;}}\ |\ \underline{\textbf{;}}\)</span></li>
-<li><span class="arithmatex">\(\begin{aligned}\text{selection-stmt} \rightarrow\ &amp;\underline{\textbf{if}}\ \underline{\textbf{(}}\ \text{expression}\ \underline{\textbf{)}}\ \text{statement}\\\ &amp;|\ \underline{\textbf{if}}\ \underline{\textbf{(}}\ \text{expression}\ \underline{\textbf{)}}\ \text{statement}\ \underline{\textbf{else}}\ \text{statement}\end{aligned}\)</span></li>
-<li><span class="arithmatex">\(\text{iteration-stmt} \rightarrow \underline{\textbf{while}}\ \underline{\textbf{(}}\ \text{expression}\ \underline{\textbf{)}}\ \text{statement}\)</span></li>
-<li><span class="arithmatex">\(\text{return-stmt} \rightarrow \underline{\textbf{return}}\ \underline{\textbf{;}}\ |\ \underline{\textbf{return}}\ \text{expression}\ \underline{\textbf{;}}\)</span></li>
-<li><span class="arithmatex">\(\text{expression} \rightarrow \text{var}\ \underline{\textbf{=}}\ \text{expression}\ |\ \text{simple-expression}\)</span></li>
-<li><span class="arithmatex">\(\text{var} \rightarrow \underline{\textbf{ID}}\ |\ \underline{\textbf{ID}}\ \underline{\textbf{[}}\ \text{expression} \underline{\textbf{]}}\)</span></li>
-<li><span class="arithmatex">\(\text{simple-expression} \rightarrow \text{additive-expression}\ \text{relop}\ \text{additive-expression}\ |\ \text{additive-expression}\)</span></li>
-<li><span class="arithmatex">\(\text{relop}\ \rightarrow \underline{\textbf{&lt;=}}\ |\ \underline{\textbf{&lt;}}\ |\ \underline{\textbf{&gt;}}\ |\ \underline{\textbf{&gt;=}}\ |\ \underline{\textbf<mark class="critic">}}\ |\ \underline{\textbf{!=}}\)</span></li>
-<li><span class="arithmatex">\(\text{additive-expression} \rightarrow \text{additive-expression}\ \text{addop}\ \text{term}\ |\ \text{term}\)</span></li>
-<li><span class="arithmatex">\(\text{addop} \rightarrow \underline{\textbf{+}}\ |\ \underline{\textbf{-}}\)</span></li>
-<li><span class="arithmatex">\(\text{term} \rightarrow \text{term}\ \text{mulop}\ \text{factor}\ |\ \text{factor}\)</span></li>
-<li><span class="arithmatex">\(\text{mulop} \rightarrow \underline{\textbf{*}}\ |\ \underline{\textbf{/}}\)</span></li>
-<li><span class="arithmatex">\(\text{factor} \rightarrow \underline{\textbf{(}}\ \text{expression}\ \underline{\textbf{)}}\ |\ \text{var}\ |\ \text{call}\ |\ \text{integer}\ |\ \text{float}\)</span></li>
-<li><span class="arithmatex">\(\text{integer} \rightarrow \underline{\textbf{INTEGER}}\)</span></li>
-<li><span class="arithmatex">\(\text{float} \rightarrow \underline{\textbf{FLOATPOINT}}\)</span></li>
-<li><span class="arithmatex">\(\text{call} \rightarrow \underline{\textbf{ID}}\ \underline{\textbf{(}}\ \text{args} \underline{\textbf{)}}\)</span></li>
-<li><span class="arithmatex">\(\text{args} \rightarrow \text{arg-list}\ |\ \text{empty}\)</span></li>
-<li><span class="arithmatex">\(\text{arg-list} \rightarrow \text{arg-list}\ \underline{\textbf{,}}\ \text{expression}\ |\ \text{expression}\)</span></li>
-</ol>
-<h2 id="cminusf-的语义">Cminusf 的语义<a class="headerlink" href="#cminusf-的语义" title="Permanent link">&para;</a></h2>
-<p>在上述语法规则中，我们定义了 Cminusf 语言的语法，接着，我们对照语法规则，给出相关的语义和解释。
-在阅读前，需要理解 Cminusf 主要源自于 C 语言，因此它的行为都会接近 C 语言。</p>
-<ul>
-<li><span class="arithmatex">\(\text{program} \rightarrow \text{declaration-list}\)</span></li>
-<li><span class="arithmatex">\(\text{declaration-list} \rightarrow \text{declaration-list}\ \text{declaration}\ |\ \text{declaration}\)</span></li>
-<li><span class="arithmatex">\(\text{declaration} \rightarrow \text{var-declaration}\ |\ \text{fun-declaration}\)</span></li>
-</ul>
-<p>一个程序由一系列声明组成，声明包括了变量声明和函数声明，它们可以以任意顺序排列。</p>
-<p>全局变量需要初始化为全 0。</p>
-<p>所有的变量必须在使用前先进行声明，所有的函数必须在使用前先进行定义。</p>
-<p>一个程序中至少要有一个 <code>main</code> 函数的声明。</p>
-<p>因为没有原型这个概念，Cminusf 不区分函数的声明和定义。</p>
-<ul>
-<li><span class="arithmatex">\(\text{var-declaration}\ \rightarrow \text{type-specifier}\ \underline{\textbf{ID}}\ \underline{\textbf{;}}\ |\ \text{type-specifier}\ \underline{\textbf{ID}}\ \underline{\textbf{[}}\ \underline{\textbf{INTEGER}}\ \underline{\textbf{]}}\ \underline{\textbf{;}}\)</span></li>
-<li><span class="arithmatex">\(\text{type-specifier} \rightarrow \underline{\textbf{int}}\ |\ \underline{\textbf{float}}\ |\ \underline{\textbf{void}}\)</span></li>
-</ul>
-<p>Cminusf 的基础类型只有整型 (<code>int</code>)、浮点型 (<code>float</code>) 和 <code>void</code>。而在变量声明中，只有整型和浮点型可以使用，<code>void</code> 仅用于函数声明。</p>
-<p>一个变量声明定义一个整型或者浮点型的变量，或者一个整型或浮点型的数组变量（这里整型指的是 32 位有符号整型，浮点数是指 32 位浮点数）。</p>
-<p>数组变量在声明时，<span class="arithmatex">\(\textbf{INTEGER}\)</span> 应当大于 0。</p>
-<p>一次只能声明一个变量。</p>
-<ul>
-<li><span class="arithmatex">\(\text{fun-declaration} \rightarrow \text{type-specifier}\ \underline{\textbf{ID}}\ \underline{\textbf{(}}\ \text{params}\ \underline{\textbf{)}}\ \text{compound-stmt}\)</span></li>
-<li><span class="arithmatex">\(\text{params} \rightarrow \text{param-list}\ |\ \underline{\textbf{void}}\)</span></li>
-<li><span class="arithmatex">\(\text{param-list} \rightarrow \text{param-list}\ \underline{\textbf{,}}\ \text{param}\ |\ \text{param}\)</span></li>
-<li><span class="arithmatex">\(\text{param} \rightarrow \text{type-specifier}\ \underline{\textbf{ID}}\ |\ \text{type-specifier}\ \underline{\textbf{ID}}\ \underline{\textbf{[}}\ \underline{\textbf{]}}\)</span></li>
-</ul>
-<p>函数声明包含了返回类型，标识符，由逗号分隔的形参列表，还有一个复合语句。</p>
-<p>当函数的返回类型是 <code>void</code> 时，函数不返回任何值。</p>
-<p>函数的参数可以是 <code>void</code> ，也可以是一个列表。当函数的形参是 <code>void</code> 时，调用该函数时不用传入任何参数。</p>
-<p>形参中跟着中括号代表数组参数，它们可以有不同长度。</p>
-<p>整型参数通过值来传入函数（pass by value），而数组参数通过引用来传入函数（pass by reference，即指针）。</p>
-<p>函数的形参拥有和函数声明的复合语句相同的作用域，并且每次函数调用都会产生一组独立内存的参数（和 C 语言一致）。</p>
-<p>函数可以递归调用。</p>
-<ul>
-<li><span class="arithmatex">\(\text{compound-stmt} \rightarrow \underline{\textbf{\\{}}\ \text{local-declarations}\ \text{statement-list}\ \underline{\textbf{\\}}}\)</span></li>
-</ul>
-<p>一个复合语句由一对大括号和其中的局部声明与语句列表组成。</p>
-<p>复合语句的执行时，对包含着的语句按照语句列表中的顺序执行。</p>
-<p>局部声明拥有和复合语句中的语句列表一样的作用域，且其优先级高于任何同名的全局声明（常见的静态作用域）。</p>
-<ul>
-<li><span class="arithmatex">\(\text{local-declarations} \rightarrow \text{local-declarations var-declaration}\ |\ \text{empty}\)</span></li>
-<li><span class="arithmatex">\(\text{statement-list} \rightarrow \text{statement-list}\ \text{statement}\ |\ \text{empty}\)</span></li>
-</ul>
-<p>局部声明和语句列表都可以为空（empty 表示空字符串，即 <span class="arithmatex">\(\varepsilon\)</span>）。</p>
-<ul>
-<li><span class="arithmatex">\(\begin{aligned}\text{statement} \rightarrow\ &amp;\text{expression-stmt}\\\ &amp;|\ \text{compound-stmt}\\\ &amp;|\ \text{selection-stmt}\\\ &amp;|\ \text{iteration-stmt}\\\ &amp;|\ \text{return-stmt}\end{aligned}\)</span></li>
-<li><span class="arithmatex">\(\text{expression-stmt} \rightarrow \text{expression}\ \underline{\textbf{;}}\ |\ \underline{\textbf{;}}\)</span></li>
-</ul>
-<p>表达式语句由一个可选的表达式（即可以没有表达式）和一个分号组成。</p>
-<p>我们通常使用表达式语句中的表达式计算时产生的副作用，所以这种语句用于赋值和函数调用。</p>
-<ul>
-<li><span class="arithmatex">\(\begin{aligned}\text{selection-stmt} \rightarrow\ &amp;\underline{\textbf{if}}\ \underline{\textbf{(}}\ \text{expression}\ \underline{\textbf{)}}\ \text{statement}\\\ &amp;|\ \underline{\textbf{if}}\ \underline{\textbf{(}}\ \text{expression}\ \underline{\textbf{)}}\ \text{statement}\ \underline{\textbf{else}}\ \text{statement}\end{aligned}\)</span></li>
-</ul>
-<p><code>if</code> 语句中的表达式将被求值，若结果的值等于 0，则第二个语句执行（如果存在的话），否则第一个语句会执行。</p>
-<p>为了避免歧义，<span class="arithmatex">\(\textbf{else}\)</span> 将会匹配最近的 <span class="arithmatex">\(\textbf{if}\)</span>。</p>
-<ul>
-<li><span class="arithmatex">\(\text{iteration-stmt} \rightarrow \underline{\textbf{while}}\ \underline{\textbf{(}}\ \text{expression}\ \underline{\textbf{)}}\ \text{statement}\)</span></li>
-</ul>
-<p><code>while</code> 语句是 Cminusf 中唯一的迭代语句。它执行时，会不断对表达式进行求值，并且在对表达式的求值结果等于 0 前，循环执行下面的语句。</p>
-<ul>
-<li><span class="arithmatex">\(\text{return-stmt} \rightarrow \underline{\textbf{return}}\ \underline{\textbf{;}}\ |\ \underline{\textbf{return}}\ \text{expression}\ \underline{\textbf{;}}\)</span></li>
-</ul>
-<p><code>return</code> 语句可以返回值，也可以不返回值。</p>
-<p>未声明为 <span class="arithmatex">\(\textbf{void}\)</span> 类型的函数必须返回和函数返回类型相同的值。</p>
-<p><code>return</code> 会将程序的控制转移给当前函数的调用者，而 <span class="arithmatex">\(\textbf{main}\)</span> 函数的 <code>return</code> 会使得程序终止。</p>
-<ul>
-<li><span class="arithmatex">\(\text{expression} \rightarrow \text{var}\ \underline{\textbf{=}}\ \text{expression}\ |\ \text{simple-expression}\)</span></li>
-<li><span class="arithmatex">\(\text{var} \rightarrow \underline{\textbf{ID}}\ |\ \underline{\textbf{ID}}\ \underline{\textbf{[}}\ \text{expression} \underline{\textbf{]}}\)</span></li>
-</ul>
-<p>一个表达式可以是一个变量引用（即 <code>var</code>）接着一个赋值符号（=）以及一个表达式，也可以是一个简单表达式。</p>
-<p><code>var</code> 可以是一个整型变量、浮点变量，或者一个取了下标的数组变量。</p>
-<p>数组的下标值为整型，作为数组下标值的表达式计算结果可能需要类型转换变成整型值。</p>
-<p>一个负的下标会导致程序终止，需要调用框架中的内置函数 <code>neg_idx_except</code>（该内部函数会主动退出程序，只需要调用该函数即可），但是对于上界并不做检查。</p>
-<p>赋值语义为：先找到 <code>var</code> 代表的变量地址（如果是数组，需要先对下标表达式求值），然后对右侧的表达式进行求值，求值结果将在转换成变量类型后存储在先前找到的地址中。同时，存储在 <code>var</code> 中的值将作为赋值表达式的求值结果。</p>
-<p>在 C 中，赋值对象（即 <code>var</code> ）必须是左值，而左值可以通过多种方式获得。Cminusf 中，唯一的左值就是通过 <code>var</code> 的语法得到的，因此 Cminusf 通过语法限制了 <code>var</code> 为左值，而不是像 C 中一样通过类型检查，这也是为什么 Cminusf 中不允许进行指针算数。</p>
-<ul>
-<li><span class="arithmatex">\(\text{simple-expression} \rightarrow \text{additive-expression}\ \text{relop}\ \text{additive-expression}\ |\ \text{additive-expression}\)</span></li>
-<li><span class="arithmatex">\(\text{relop}\ \rightarrow \underline{\textbf{&lt;=}}\ |\ \underline{\textbf{&lt;}}\ |\ \underline{\textbf{&gt;}}\ |\ \underline{\textbf{&gt;=}}\ |\ \underline{\textbf{</mark>}\ |\ \underline{\textbf{!=}}\)</span></li>
-<li><span class="arithmatex">\(\text{additive-expression} \rightarrow \text{additive-expression}\ \text{addop}\ \text{term}\ |\ \text{term}\)</span></li>
-<li><span class="arithmatex">\(\text{addop} \rightarrow \underline{\textbf{+}}\ |\ \underline{\textbf{-}}\)</span></li>
-<li><span class="arithmatex">\(\text{term} \rightarrow \text{term}\ \text{mulop}\ \text{factor}\ |\ \text{factor}\)</span></li>
-<li><span class="arithmatex">\(\text{mulop} \rightarrow \underline{\textbf{*}}\ |\ \underline{\textbf{/}}\)</span></li>
-</ul>
-<p>一个简单表达式是一个加法表达式或者两个加法表达式的关系运算。当它是加法表达式时，它的值就是加法表达式的值。而当它是关系运算时，如果关系运算结果为真则值为整型值 1，反之则值为整型值 0。</p>
-<p>加法表达式表现出了四则运算的结合性质与优先级顺序，四则运算的含义和 C 中的整型运算一致。</p>
-<p>浮点数和整型一起运算时，整型值需要进行类型提升，转换成浮点数类型，且运算结果也是浮点数类型。</p>
-<ul>
-<li><span class="arithmatex">\(\text{factor} \rightarrow \underline{\textbf{(}}\ \text{expression}\ \underline{\textbf{)}}\ |\ \text{var}\ |\ \text{call}\ |\ \text{integer}\ |\ \text{float}\)</span></li>
-</ul>
-<p>因数可以是一个括号包围的表达式（此时它的值是表达式的值），或者是一个变量（此时它的值是变量的值），或者是一个函数调用（此时它的值是函数调用的返回值），或者是一个数字字面量（此时它的值为该字面量的值）。当因数是数组变量时，除非此时它被用作一个函数调用中的数组参数，否则它必须要带有下标。</p>
-<ul>
-<li><span class="arithmatex">\(\text{integer} \rightarrow \underline{\textbf{INTEGER}}\)</span></li>
-<li><span class="arithmatex">\(\text{float} \rightarrow \underline{\textbf{FLOATPOINT}}\)</span></li>
-<li><span class="arithmatex">\(\text{call} \rightarrow \underline{\textbf{ID}}\ \underline{\textbf{(}}\ \text{args} \underline{\textbf{)}}\)</span></li>
-<li><span class="arithmatex">\(\text{args} \rightarrow \text{arg-list}\ |\ \text{empty}\)</span></li>
-<li><span class="arithmatex">\(\text{arg-list} \rightarrow \text{arg-list}\ \underline{\textbf{,}}\ \text{expression}\ |\ \text{expression}\)</span></li>
-</ul>
-<p>函数调用由一个函数的标识符与一组括号包围的实参组成。实参可以为空，也可以是由逗号分隔的的表达式组成的列表，这些表达式代表着函数调用时，传给形参的值。函数调用时的实参数量和类型必须与函数声明中的形参一致，必要时需要进行类型转换。</p>
-<p>Cminusf 中包含四个预定义的函数 <code>input</code> 、 <code>output</code>、 <code>outputFloat</code> 和 <code>neg_idx_except</code>，它们的声明为：</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">input</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{...}</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">output</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{...}</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">outputFloat</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{...}</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">neg_idx_except</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{...}</span>
+<h1 id="logging-工具使用">logging 工具使用<a class="headerlink" href="#logging-工具使用" title="Permanent link">&para;</a></h1>
+<h2 id="介绍">介绍<a class="headerlink" href="#介绍" title="Permanent link">&para;</a></h2>
+<p>为了方便同学们在之后的实验中 debug，为大家设计了一个 C++ 简单实用的分级日志工具。该工具将日志输出信息从低到高分成四种等级：<code>DEBUG</code>，<code>INFO</code>，<code>WARNING</code>，<code>ERROR</code>。通过设定环境变量 <code>LOGV</code> 的值，来选择输出哪些等级的日志。<code>LOGV</code> 的取值是 <strong>0 到 3</strong>，分别对应到上述的 4 种级别 (<code>0:DEBUG</code>,<code>1:INFO</code>,<code>2:WARNING</code>,<code>3:ERROR</code>)。此外输出中还会包含打印该日志的代码所在位置。</p>
+<h2 id="使用">使用<a class="headerlink" href="#使用" title="Permanent link">&para;</a></h2>
+<p>项目编译好之后，可以在 <code>build</code> 目录下运行 test_logging 可执行文件，该文件的源代码在 <code>tests/test_logging.cpp</code>，用法如下：</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;logging.hpp&quot;</span>
+<span class="c1">// 引入头文件</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+<span class="w">    </span><span class="n">LOG</span><span class="p">(</span><span class="n">DEBUG</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;This is DEBUG log item.&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// 使用关键字 LOG，括号中填入要输出的日志等级</span>
+<span class="w">    </span><span class="c1">// 紧接着就是&lt;&lt;以及日志的具体信息，就跟使用 std::cout 一样</span>
+<span class="w">    </span><span class="n">LOG</span><span class="p">(</span><span class="n">INFO</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;This is INFO log item&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">LOG</span><span class="p">(</span><span class="n">WARNING</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;This is WARNING log item&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">LOG</span><span class="p">(</span><span class="n">ERROR</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;This is ERROR log item&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
-<ul>
-<li><code>input</code> 函数没有形参，且返回一个从标准输入中读到的整型值。</li>
-<li><code>output</code> 函数接受一个整型参数，然后将它的值打印到标准输出，并输出换行符。</li>
-<li><code>outputFloat</code> 函数接受一个浮点参数，然后将它的值打印到标准输出，并输出换行符。</li>
-<li><code>neg_idx_except</code> 函数没有形参，执行后报错并退出。</li>
-</ul>
-<p>除此之外，其它规则和 C 中类似，比如同一个作用域下不允许定义重名变量或函数。</p>
+<p>接着在运行该程序的时候，设定环境变量 <code>LOGV=0</code>，那么程序就会输出级别 <strong>大于等于 0</strong> 日志信息：</p>
+<div class="highlight"><pre><span></span><code>user@user:<span class="si">${</span><span class="nv">ProjectDir</span><span class="si">}</span>/build$<span class="w"> </span><span class="nv">LOGV</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>./test_logging
+<span class="o">[</span>DEBUG<span class="o">]</span><span class="w"> </span><span class="o">(</span>test_logging.cpp:5L<span class="w">  </span>main<span class="o">)</span>This<span class="w"> </span>is<span class="w"> </span>DEBUG<span class="w"> </span>log<span class="w"> </span>item.
+<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">(</span>test_logging.cpp:6L<span class="w">  </span>main<span class="o">)</span>This<span class="w"> </span>is<span class="w"> </span>INFO<span class="w"> </span>log<span class="w"> </span>item
+<span class="o">[</span>WARNING<span class="o">]</span><span class="w"> </span><span class="o">(</span>test_logging.cpp:7L<span class="w">  </span>main<span class="o">)</span>This<span class="w"> </span>is<span class="w"> </span>WARNING<span class="w"> </span>log<span class="w"> </span>item
+<span class="o">[</span>ERROR<span class="o">]</span><span class="w"> </span><span class="o">(</span>test_logging.cpp:8L<span class="w">  </span>main<span class="o">)</span>This<span class="w"> </span>is<span class="w"> </span>ERROR<span class="w"> </span>log<span class="w"> </span>item
+</code></pre></div>
+<p>输出中除了包含日志级别和用户想打印的信息，在圆括号中还包含了打印该信息代码的具体位置（包括文件名称、所在行、所在函数名称），可以很方便地定位到出问题的地方。</p>
+<p>假如我们觉得程序已经没有问题了，不想看那么多的 DEBUG 信息，那么我们就可以设定环境变量 <code>LOGV=1</code>，选择只看 <strong>级别大于等于 1</strong> 的日志信息：</p>
+<div class="highlight"><pre><span></span><code>user@user:<span class="si">${</span><span class="nv">ProjectDir</span><span class="si">}</span>/build$<span class="w"> </span><span class="nv">LOGV</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>./test_logging
+<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">(</span>test_logging.cpp:6L<span class="w">  </span>main<span class="o">)</span>This<span class="w"> </span>is<span class="w"> </span>INFO<span class="w"> </span>log<span class="w"> </span>item
+<span class="o">[</span>WARNING<span class="o">]</span><span class="w"> </span><span class="o">(</span>test_logging.cpp:7L<span class="w">  </span>main<span class="o">)</span>This<span class="w"> </span>is<span class="w"> </span>WARNING<span class="w"> </span>log<span class="w"> </span>item
+<span class="o">[</span>ERROR<span class="o">]</span><span class="w"> </span><span class="o">(</span>test_logging.cpp:8L<span class="w">  </span>main<span class="o">)</span>This<span class="w"> </span>is<span class="w"> </span>ERROR<span class="w"> </span>log<span class="w"> </span>item
+</code></pre></div>
+<p>当然 <code>LOGV</code> 值越大，日志的信息将更加简略。如果没有设定 <code>LOGV</code> 的环境变量，将默认不输出任何信息。</p>
+<p>这里再附带一个小技巧，如果日志内容多，在终端观看体验较差，可以输入以下命令将日志输出到文件中：</p>
+<div class="highlight"><pre><span></span><code>user@user:${ProjectDir}/build$ LOGV=0 ./test_logging &gt; log
+</code></pre></div>
+<p>然后就可以输出到文件名为 log 的文件中啦～</p>
 
 
 
@@ -1196,7 +1085,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年8月27日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年10月3日</span>
   </span>
 
     
@@ -1212,7 +1101,7 @@
     </span>
     <nav>
       
-        <a href="mailto:95729892+jyjsxx@users.noreply.github.com">JYJSXX</a>
+        <a href="mailto:877250099@qq.com">lxq</a>
     </nav>
   </span>
 

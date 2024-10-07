@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../visitor_pattern/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../cminusf%E8%AF%AD%E4%B9%89/">
+        <link rel="next" href="../LightIR%20C%2B%2B/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Light IR 预热 - USTC 编译原理和技术 2024</title>
+        <title>Light IR 手册 - USTC 编译原理和技术 2024</title>
       
     
     
@@ -89,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#light-ir-预热" class="md-skip">
+        <a href="#light-ir" class="md-skip">
           跳转至
         </a>
       
@@ -125,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Light IR 预热
+              Light IR 手册
             
           </span>
         </div>
@@ -830,10 +830,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../LightIR/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Light IR 手册
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -842,6 +862,284 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#light-ir-简介" class="md-nav__link">
+    <span class="md-ellipsis">
+      Light IR 简介
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light-ir-指令" class="md-nav__link">
+    <span class="md-ellipsis">
+      Light IR 指令
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Light IR 指令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#light-ir-指令假设" class="md-nav__link">
+    <span class="md-ellipsis">
+      Light IR 指令假设
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#light-ir-指令详解" class="md-nav__link">
+    <span class="md-ellipsis">
+      Light IR 指令详解
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Light IR 指令详解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#terminator-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terminator Instructions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Terminator Instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ret" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ret
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#br" class="md-nav__link">
+    <span class="md-ellipsis">
+      Br
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standard-binary-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Binary Instructions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Standard Binary Instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-fadd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add FAdd
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sub-fsub" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sub FSub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mul-fmul" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mul FMul
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sdiv-fdiv" class="md-nav__link">
+    <span class="md-ellipsis">
+      SDiv FDiv
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory Instructions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Memory Instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alloca" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alloca
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#store" class="md-nav__link">
+    <span class="md-ellipsis">
+      Store
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#castinst" class="md-nav__link">
+    <span class="md-ellipsis">
+      CastInst
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CastInst">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zext" class="md-nav__link">
+    <span class="md-ellipsis">
+      ZExt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fptosi" class="md-nav__link">
+    <span class="md-ellipsis">
+      FpToSi
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sitofp" class="md-nav__link">
+    <span class="md-ellipsis">
+      SiToFp
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other Instructions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Other Instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#icmp-fcmp" class="md-nav__link">
+    <span class="md-ellipsis">
+      ICmp FCmp
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#call" class="md-nav__link">
+    <span class="md-ellipsis">
+      Call
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getelementptr" class="md-nav__link">
+    <span class="md-ellipsis">
+      GetElementPtr
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -893,30 +1191,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Light IR 预热
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../warmup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -925,152 +1203,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#ir-介绍" class="md-nav__link">
-    <span class="md-ellipsis">
-      IR 介绍
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="IR 介绍">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#llvm-ir" class="md-nav__link">
-    <span class="md-ellipsis">
-      LLVM IR
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#light-ir" class="md-nav__link">
-    <span class="md-ellipsis">
-      Light IR
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#task-1手工编写-ir-文件" class="md-nav__link">
-    <span class="md-ellipsis">
-      Task 1：手工编写 IR 文件
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Task 1：手工编写 IR 文件">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#实验内容" class="md-nav__link">
-    <span class="md-ellipsis">
-      实验内容
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#运行测试" class="md-nav__link">
-    <span class="md-ellipsis">
-      运行、测试
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#task-2使用-c-库生成-ir-文件" class="md-nav__link">
-    <span class="md-ellipsis">
-      Task 2：使用 C++ 库生成 IR 文件
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Task 2：使用 C++ 库生成 IR 文件">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#light-ir-c-库介绍" class="md-nav__link">
-    <span class="md-ellipsis">
-      Light IR C++ 库介绍
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#使用-light-ir-c-库生成-ir-示例" class="md-nav__link">
-    <span class="md-ellipsis">
-      使用 Light IR C++ 库生成 IR 示例
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#实验内容_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      实验内容
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#编译运行测试" class="md-nav__link">
-    <span class="md-ellipsis">
-      编译、运行、测试
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#思考题" class="md-nav__link">
-    <span class="md-ellipsis">
-      思考题
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1172,28 +1304,66 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ir-介绍" class="md-nav__link">
+  <a href="#light-ir-简介" class="md-nav__link">
     <span class="md-ellipsis">
-      IR 介绍
+      Light IR 简介
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="IR 介绍">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light-ir-指令" class="md-nav__link">
+    <span class="md-ellipsis">
+      Light IR 指令
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Light IR 指令">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#llvm-ir" class="md-nav__link">
+  <a href="#light-ir-指令假设" class="md-nav__link">
     <span class="md-ellipsis">
-      LLVM IR
+      Light IR 指令假设
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#light-ir" class="md-nav__link">
+  <a href="#light-ir-指令详解" class="md-nav__link">
     <span class="md-ellipsis">
-      Light IR
+      Light IR 指令详解
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Light IR 指令详解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#terminator-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terminator Instructions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Terminator Instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ret" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ret
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#br" class="md-nav__link">
+    <span class="md-ellipsis">
+      Br
     </span>
   </a>
   
@@ -1203,30 +1373,48 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#task-1手工编写-ir-文件" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#standard-binary-instructions" class="md-nav__link">
     <span class="md-ellipsis">
-      Task 1：手工编写 IR 文件
+      Standard Binary Instructions
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Task 1：手工编写 IR 文件">
+    <nav class="md-nav" aria-label="Standard Binary Instructions">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#实验内容" class="md-nav__link">
+  <a href="#add-fadd" class="md-nav__link">
     <span class="md-ellipsis">
-      实验内容
+      Add FAdd
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#运行测试" class="md-nav__link">
+  <a href="#sub-fsub" class="md-nav__link">
     <span class="md-ellipsis">
-      运行、测试
+      Sub FSub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mul-fmul" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mul FMul
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sdiv-fdiv" class="md-nav__link">
+    <span class="md-ellipsis">
+      SDiv FDiv
     </span>
   </a>
   
@@ -1236,48 +1424,39 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#task-2使用-c-库生成-ir-文件" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#memory-instructions" class="md-nav__link">
     <span class="md-ellipsis">
-      Task 2：使用 C++ 库生成 IR 文件
+      Memory Instructions
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Task 2：使用 C++ 库生成 IR 文件">
+    <nav class="md-nav" aria-label="Memory Instructions">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#light-ir-c-库介绍" class="md-nav__link">
+  <a href="#alloca" class="md-nav__link">
     <span class="md-ellipsis">
-      Light IR C++ 库介绍
+      Alloca
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#使用-light-ir-c-库生成-ir-示例" class="md-nav__link">
+  <a href="#load" class="md-nav__link">
     <span class="md-ellipsis">
-      使用 Light IR C++ 库生成 IR 示例
+      Load
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#实验内容_1" class="md-nav__link">
+  <a href="#store" class="md-nav__link">
     <span class="md-ellipsis">
-      实验内容
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#编译运行测试" class="md-nav__link">
-    <span class="md-ellipsis">
-      编译、运行、测试
+      Store
     </span>
   </a>
   
@@ -1287,13 +1466,98 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#思考题" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#castinst" class="md-nav__link">
     <span class="md-ellipsis">
-      思考题
+      CastInst
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="CastInst">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zext" class="md-nav__link">
+    <span class="md-ellipsis">
+      ZExt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fptosi" class="md-nav__link">
+    <span class="md-ellipsis">
+      FpToSi
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sitofp" class="md-nav__link">
+    <span class="md-ellipsis">
+      SiToFp
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other Instructions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Other Instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#icmp-fcmp" class="md-nav__link">
+    <span class="md-ellipsis">
+      ICmp FCmp
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#call" class="md-nav__link">
+    <span class="md-ellipsis">
+      Call
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getelementptr" class="md-nav__link">
+    <span class="md-ellipsis">
+      GetElementPtr
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1312,109 +1576,200 @@
                   
 
 
-<h1 id="light-ir-预热">Light IR 预热<a class="headerlink" href="#light-ir-预热" title="Permanent link">&para;</a></h1>
-<p>本阶段实验需要完成以下两部分</p>
-<ol>
-<li>
-<p>阅读 <a href="../LightIR/">Light IR 手册</a>，了解 LLVM IR 与 Light IR 关系，认识 Light IR 的结构及指令语法。在 clang 翻译出的 IR 作为参考下，手动编写 IR 文件。</p>
-</li>
-<li>
-<p>了解并掌握 <a href="../LightIR%20C%2B%2B/">Light IR C++ 库</a>的使用方法，通过调用 Light IR C++ 库提供的接口生成 IR 文件。</p>
-</li>
-</ol>
-<p>与 Light IR 预热实验相关文件如下：</p>
-<div class="highlight"><pre><span></span><code>.
-├── ...
-├── include
-│   ├── common
-│   └── lightir/*
-└── tests
-    ├── ...
-    └── 2-ir-gen
-        └── warmup
-            ├── CMakeLists.txt
-            ├── c_cases           &lt;- 需要翻译的 c 代码
-            ├── calculator        &lt;- 助教编写的计算器示例
-            ├── stu_ll            &lt;- 学生需要手动编写的 .ll 代码   （Task 1）
-            ├── stu_cpp           &lt;- 学生需要编写的 .ll 代码生成器 （Task 2）
-            └── ta_gcd            &lt;- 助教编写的 .ll 代码手动生成器示例
-</code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>我们已经创建了 <code>stu_ll</code> 与 <code>stu_cpp</code> 目录下的相应空文件，请不要修改文件名！否则希冀平台的测试将会失败。</p>
-</div>
-<h2 id="ir-介绍">IR 介绍<a class="headerlink" href="#ir-介绍" title="Permanent link">&para;</a></h2>
-<h3 id="llvm-ir">LLVM IR<a class="headerlink" href="#llvm-ir" title="Permanent link">&para;</a></h3>
-<p>根据<a href="https://zh.wikipedia.org/zh-cn/LLVM">维基百科</a>的介绍，LLVM 是一个自由软件项目，它是一种编译器基础设施，以 C++ 写成，包含一系列模块化的编译器组件和工具链，用来开发编译器前端和后端。IR 的全称是 Intermediate Representation，即中间表示。LLVM IR 是 LLVM 项目定义的编译器中间代码。</p>
-<p>LLVM IR 指令参考手册：<a href="https://llvm.org/docs/LangRef.html">Reference Manual</a></p>
-<details class="note" open="open">
-<summary>使用 clang 生成 LLVM IR 并利用 lli 运行</summary>
-<p><span id='clang-gen-llvm-ir'></span></p>
-<blockquote>
-<p>LLVM 相关软件，我们已经在<a href="../../lab0/software/#llvmclang-安装"> lab0 阶段</a>安装好。</p>
-</blockquote>
-<p>LLVM IR 文件以 <code>.ll</code> 为文件后缀，clang 是 LLVM 工具链中的前端，可实现从 C 语言向 LLVM IR 的翻译，操作流程如下：</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># 可用 clang 生成 C 代码对应的 .ll 文件</span>
-$<span class="w"> </span>clang<span class="w"> </span>-S<span class="w"> </span>-emit-llvm<span class="w"> </span>gcd_array.c
-<span class="c1"># lli 可用来执行 .ll 文件</span>
-$<span class="w"> </span>lli<span class="w"> </span>gcd_array.ll
-<span class="c1"># `$?` 的内容是上一条命令所返回的结果，而 `echo $?` 可以将其输出到终端中</span>
-$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$?</span>
-</code></pre></div>
-<p><a href="https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024ustc-jianmu-compiler/-/blob/main/tests/2-ir-gen/warmup/ta_gcd/gcd_array.c">gcd_array.c</a> 是实验提供的例子，学生可以通过使用 clang 翻译示例，并查阅 <a href="../LightIR/#light-ir-指令">Light IR 手册</a>来理解每条 LLVM IR 指令含义。</p>
-</details>
-<h3 id="light-ir">Light IR<a class="headerlink" href="#light-ir" title="Permanent link">&para;</a></h3>
-<p>LLVM IR 的目标是成为一种通用 IR（支持包括动态与静态语言），因此 IR 指令种类较为复杂繁多。本课程从 LLVM IR 中裁剪出了适用于教学的精简的 IR 子集，并将其命名为 Light IR。</p>
-<p>Light IR 指令参考手册：<a href="../LightIR/">Light IR 手册</a></p>
-<h2 id="task-1手工编写-ir-文件">Task 1：手工编写 IR 文件<a class="headerlink" href="#task-1手工编写-ir-文件" title="Permanent link">&para;</a></h2>
-<h3 id="实验内容">实验内容<a class="headerlink" href="#实验内容" title="Permanent link">&para;</a></h3>
-<p>实验在 <code>tests/2-ir-gen/warmup/c_cases/</code> 目录下提供了四个 C 程序：</p>
+<h1 id="light-ir">Light IR<a class="headerlink" href="#light-ir" title="Permanent link">&para;</a></h1>
+<h2 id="light-ir-简介">Light IR 简介<a class="headerlink" href="#light-ir-简介" title="Permanent link">&para;</a></h2>
+<p>本课程以 Cminusf 语言为源语言，从 LLVM IR 中裁剪出了适用于教学的精简的 IR 子集，并将其命名为 Light IR。同时依据 LLVM 的设计，为 Light IR 提供了配套简化的 <a href="../LightIR%20C%2B%2B/">C++ 库</a>，用于生成 IR。</p>
+<p>如下是一段 C 语言代码 <code>easy.c</code> 与 其对应的 IR 文件 <code>easy.ll</code> 示例。</p>
 <ul>
-<li><code>assign.c</code></li>
-<li><code>fun.c</code></li>
-<li><code>if.c</code></li>
-<li><code>while.c</code></li>
+<li><code>easy.c</code>:</li>
 </ul>
-<p>学生需要在 <code>test/2-ir-gen/warmup/stu_ll</code> 目录中，手动将这四个 C 程序翻译成 IR 代码，得到 <code>assign_hand.ll</code>、<code>func_hand.ll</code>、<code>if_handf.ll</code> 和 <code>while_hand.ll</code>，可参考 <code>clang -S -emit-llvm</code> 的输出。</p>
-<h3 id="运行测试">运行、测试<a class="headerlink" href="#运行测试" title="Permanent link">&para;</a></h3>
-<p>我们主要通过 lli 运行 <code>tests/2-ir-gen/warmup/stu_ll</code> 目录下四个.ll 文件，并通过检查返回值来判断 .ll 文件的正确性。</p>
-<p>关于 .ll 文件的运行与测试，请参考<a href="./#clang-gen-llvm-ir">这里</a>。</p>
-<h2 id="task-2使用-c-库生成-ir-文件">Task 2：使用 C++ 库生成 IR 文件<a class="headerlink" href="#task-2使用-c-库生成-ir-文件" title="Permanent link">&para;</a></h2>
-<h3 id="light-ir-c-库介绍">Light IR C++ 库介绍<a class="headerlink" href="#light-ir-c-库介绍" title="Permanent link">&para;</a></h3>
-<p>LLVM 项目提供了辅助 IR 生成的 C++ 库，但其类继承关系过于复杂，并且存在很多为了编译性能的额外设计，不利于学生理解 IR 抽象。因此实验依据 LLVM 的设计，为 Light IR 提供了配套简化的 C++ 库。与 LLVM IR C++ 库相比，Light IR C++ 库仅保留必要的核心类，简化了核心类的继承关系与成员设计，且给学生提供与 LLVM 相同的生成 IR 的接口。</p>
-<p>Light IR IR C++ 库参考手册：<a href="../LightIR%20C%2B%2B/">Light IR cpp APIs</a></p>
-<h3 id="使用-light-ir-c-库生成-ir-示例">使用 Light IR C++ 库生成 IR 示例<a class="headerlink" href="#使用-light-ir-c-库生成-ir-示例" title="Permanent link">&para;</a></h3>
-<p>阅读样例 <a href="https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024ustc-jianmu-compiler/-/blob/main/tests/2-ir-gen/warmup/ta_gcd/gcd_array.c">gcd_array.c</a>, <a href="https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024ustc-jianmu-compiler/-/blob/main/tests/2-ir-gen/warmup/ta_gcd/gcd_array_generator.cpp">gcd_array_generator.cpp</a>。结合该样例的注释与 <a href="../LightIR%20C%2B%2B/">Light IR C++ 库</a>章节，掌握使用 Light IR C++ 库生成 IR 的方法</p>
-<h3 id="实验内容_1">实验内容<a class="headerlink" href="#实验内容_1" title="Permanent link">&para;</a></h3>
-<p>实验在 <code>tests/2-ir-gen/warmup/c_cases/</code> 目录下提供了四个 C 程序。学生需要在 <code>tests/2-ir-gen/warmup/stu_cpp/</code> 目录中，参考上面提供的 <code>gcd_array_generator.cpp</code> 样例，使用 Light IR C++ 库，编写 <code>assign_generator.cpp</code>、<code>fun_generator.cpp</code>、<code>if_generator.cpp</code> 和 <code>while_generator.cpp</code> 四个 cpp 程序。这四个程序运行后应该能够生成 <code>tests/2-ir-gen/warmup/c_cases/</code> 目录下四个 C 程序对应的 .ll 文件。</p>
-<h3 id="编译运行测试">编译、运行、测试<a class="headerlink" href="#编译运行测试" title="Permanent link">&para;</a></h3>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>如果你在 <code>cmake ..</code> 一步遇到如下报错<code>Target "IR_lib" links to target "ZLIB::ZLIB" but the target was not found.</code>，请使用 <code>sudo apt install zlib1g-dev</code> 安装 zlib 库，然后重新 <code>cmake .. &amp;&amp; make</code>。</p>
-</div>
-<p><strong>编译</strong></p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>2024ustc-jianmu-compiler
-$<span class="w"> </span>mkdir<span class="w"> </span>build
-$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
-<span class="c1"># 使用 cmake 生成 makefile 等文件</span>
-$<span class="w"> </span>cmake<span class="w"> </span>..
-<span class="c1"># 使用 make 进行编译</span>
-$<span class="w"> </span>make
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">  </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>如果构建成功，你会在 <code>build</code> 文件夹下找到 <code>gcd_array_generator</code>, <code>stu_assign_generator</code> 等可执行文件。</p>
-<p><strong>运行与测试</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># 在 build 目录下操作</span>
-$<span class="w"> </span>./gcd_array_generator<span class="w"> </span>&gt;<span class="w"> </span>gcd_array_generator.ll
-$<span class="w"> </span>lli<span class="w"> </span>gcd_array_generator.ll
-$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$?</span>
+<ul>
+<li><code>easy.ll</code>:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="p">;</span><span class="w"> </span><span class="n">整个</span><span class="w"> </span><span class="p">.</span><span class="n">ll</span><span class="w"> </span><span class="n">文件称为</span><span class="w"> </span><span class="n">module</span>
+<span class="p">;</span><span class="w"> </span><span class="n">ModuleID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">&#39;</span><span class="n">easy</span><span class="p">.</span><span class="n">c</span><span class="err">&#39;</span>
+<span class="p">;</span><span class="w"> </span><span class="p">...</span>
+<span class="p">;</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="n">中至少有一个</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="n">function</span>
+<span class="n">define</span><span class="w"> </span><span class="n">dso_local</span><span class="w"> </span><span class="n">i32</span><span class="w"> </span><span class="err">@</span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="err">#</span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">;</span><span class="w"> </span><span class="n">此处</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="n">function</span><span class="w"> </span><span class="n">仅有</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">个</span><span class="w"> </span><span class="n">basicblock</span>
+<span class="w">  </span><span class="p">;</span><span class="w"> </span><span class="n">basicblock</span><span class="w"> </span><span class="n">由一系列</span><span class="w"> </span><span class="n">instruction</span><span class="w"> </span><span class="n">组成</span>
+<span class="w">  </span><span class="o">%</span><span class="mi">1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">alloca</span><span class="w"> </span><span class="n">i32</span><span class="p">,</span><span class="w"> </span><span class="n">align</span><span class="w"> </span><span class="mi">4</span>
+<span class="w">  </span><span class="o">%</span><span class="mi">2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">alloca</span><span class="w"> </span><span class="n">i32</span><span class="p">,</span><span class="w"> </span><span class="n">align</span><span class="w"> </span><span class="mi">4</span>
+<span class="w">  </span><span class="o">%</span><span class="mi">3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">alloca</span><span class="w"> </span><span class="n">i32</span><span class="p">,</span><span class="w"> </span><span class="n">align</span><span class="w"> </span><span class="mi">4</span>
+<span class="w">  </span><span class="n">store</span><span class="w"> </span><span class="n">i32</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">i32</span><span class="o">*</span><span class="w"> </span><span class="o">%</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">align</span><span class="w"> </span><span class="mi">4</span>
+<span class="w">  </span><span class="n">store</span><span class="w"> </span><span class="n">i32</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">i32</span><span class="o">*</span><span class="w"> </span><span class="o">%</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">align</span><span class="w"> </span><span class="mi">4</span>
+<span class="w">  </span><span class="n">store</span><span class="w"> </span><span class="n">i32</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">i32</span><span class="o">*</span><span class="w"> </span><span class="o">%</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">align</span><span class="w"> </span><span class="mi">4</span>
+<span class="w">  </span><span class="o">%</span><span class="mi">4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">load</span><span class="w"> </span><span class="n">i32</span><span class="p">,</span><span class="w"> </span><span class="n">i32</span><span class="o">*</span><span class="w"> </span><span class="o">%</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">align</span><span class="w"> </span><span class="mi">4</span>
+<span class="w">  </span><span class="o">%</span><span class="mi">5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">load</span><span class="w"> </span><span class="n">i32</span><span class="p">,</span><span class="w"> </span><span class="n">i32</span><span class="o">*</span><span class="w"> </span><span class="o">%</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">align</span><span class="w"> </span><span class="mi">4</span>
+<span class="w">  </span><span class="o">%</span><span class="mi">6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="n">nsw</span><span class="w"> </span><span class="n">i32</span><span class="w"> </span><span class="o">%</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="o">%</span><span class="mi">5</span>
+<span class="w">  </span><span class="n">ret</span><span class="w"> </span><span class="n">i32</span><span class="w"> </span><span class="o">%</span><span class="mi">6</span>
+<span class="p">}</span>
+<span class="p">;</span><span class="w"> </span><span class="p">...</span>
 </code></pre></div>
-<p>你可以通过观察原来的 C++ 代码来推断 <code>echo $?</code> 应该返回的正确结果，也可以通过 <code>clang -S -emit-llvm</code> 编译 <code>tests/2-ir-gen/warmup/c_cases</code> 目录下 4 个 CPP 文件获得 4 个相应的 .ll 文件，再用 <code>lli</code> 执行 .ll 文件来获取正确结果。</p>
-<h2 id="思考题">思考题<a class="headerlink" href="#思考题" title="Permanent link">&para;</a></h2>
-<ol>
-<li>在 <a href="../LightIR/">Light IR 手册</a>里，你已经了解了 IR 代码的基本结构，请尝试编写一个有全局变量的 cminus 程序，并用 <code>clang</code> 编译生成中间代码，解释全局变量在其中的位置。</li>
-<li>Light IR 中基本类型 label 在 Light IR C++ 库中是如何用类表示的？</li>
-<li>Light IR C++ 库中 <code>Module</code> 类中对基本类型与组合类型存储的方式是一样的吗？请尝试解释组合类型使用其存储方式的原因。</li>
-</ol>
+<h2 id="light-ir-指令">Light IR 指令<a class="headerlink" href="#light-ir-指令" title="Permanent link">&para;</a></h2>
+<h3 id="light-ir-指令假设">Light IR 指令假设<a class="headerlink" href="#light-ir-指令假设" title="Permanent link">&para;</a></h3>
+<p>Light IR 指令从 LLVM IR 中裁剪得到，因此保留了 LLVM IR 如下的指令规范</p>
+<ul>
+<li>采用 3 地址的方式</li>
+<li><code>%2 = add i32 %0, %1</code></li>
+<li>无限寄存器 + 静态单赋值形式</li>
+<li>IR 中的变量均代表了一个虚拟寄存器，并且数量无上限</li>
+<li>每个虚拟寄存器只被赋值一次</li>
+<li>
+<p>强类型系统</p>
+</li>
+<li>
+<p>每个操作数都具备自身的类型，分为基本类型，以及组合类型</p>
+<p>基本类型：</p>
+<ul>
+<li><code>i1</code>：1 位宽的整数类型</li>
+<li><code>i32</code>：32 位宽的整数类型</li>
+<li><code>float</code>：单精度浮点数类型</li>
+<li><code>label</code>: 基本块的标识符类型</li>
+</ul>
+<p>组合类型：</p>
+<ul>
+<li>指针类型：<code>&lt;type&gt; *</code>，例如 <code>i32*, [10 x i32*]</code></li>
+<li>数组类型：<code>[n x &lt;type&gt;]</code>，例如 <code>[10 x i32], [10 x [10 x i32]]</code></li>
+<li>函数类型：<code>&lt;ret-type&gt;@(&lt;arg-type&gt;)</code>，由函数返回值类型与参数类型列表组合成的类型</li>
+</ul>
+<p>组合类型可以嵌套，例如前面的 <code>[10 x [10 x i32]]</code> 就是嵌套后的类型。</p>
+</li>
+</ul>
+<h3 id="light-ir-指令详解">Light IR 指令详解<a class="headerlink" href="#light-ir-指令详解" title="Permanent link">&para;</a></h3>
+<h4 id="terminator-instructions">Terminator Instructions<a class="headerlink" href="#terminator-instructions" title="Permanent link">&para;</a></h4>
+<p><strong>注</strong>：<code>ret</code> 与 <code>br</code> 都是 Terminator Instructions 也就是终止指令，在 llvm 基本块的定义里，基本块是单进单出的，因此只能有一条终止指令（<code>ret</code> 或 <code>br</code>）。</p>
+<h5 id="ret">Ret<a class="headerlink" href="#ret" title="Permanent link">&para;</a></h5>
+<ul>
+<li>概念：返回指令。用于将控制流（以及可选的值）从函数返回给调用者。<code>ret</code>指令有两种形式：一种返回值，然后终结函数，另一种仅终结函数。</li>
+<li>格式</li>
+<li><code>ret &lt;type&gt; &lt;value&gt;</code></li>
+<li><code>ret void</code></li>
+<li>例子：</li>
+<li><code>ret i32 %0</code></li>
+<li><code>ret void</code></li>
+</ul>
+<h5 id="br">Br<a class="headerlink" href="#br" title="Permanent link">&para;</a></h5>
+<ul>
+<li>概念：跳转指令。用于使控制流转移到当前功能中的另一个基本块。该指令有两种形式，分别对应于条件分支和无条件分支。</li>
+<li>格式：</li>
+<li><code>br i1 &lt;cond&gt;, label &lt;iftrue&gt;, label &lt;iffalse&gt;</code></li>
+<li><code>br label &lt;dest&gt;</code></li>
+<li>例子：</li>
+<li><code>br i1 %cond, label %truebb, label %falsebb</code></li>
+<li><code>br label %bb</code></li>
+</ul>
+<h4 id="standard-binary-instructions">Standard Binary Instructions<a class="headerlink" href="#standard-binary-instructions" title="Permanent link">&para;</a></h4>
+<h5 id="add-fadd">Add FAdd<a class="headerlink" href="#add-fadd" title="Permanent link">&para;</a></h5>
+<ul>
+<li>概念：<code>add</code>指令返回其两个<code>i32</code>类型的操作数之和，返回值为<code>i32</code>类型，<code>fadd</code>指令返回其两个<code>float</code>类型的操作数之和，返回值为<code>float</code>类型。</li>
+<li>格式：</li>
+<li><code>&lt;result&gt; = add &lt;type&gt; &lt;op1&gt;, &lt;op2&gt;</code></li>
+<li><code>&lt;result&gt; = fadd &lt;type&gt; &lt;op1&gt;, &lt;op2&gt;</code></li>
+<li>例子：</li>
+<li><code>%2 = add i32 %1, %0</code></li>
+<li><code>%2 = fadd float %1, %0</code></li>
+</ul>
+<h5 id="sub-fsub">Sub FSub<a class="headerlink" href="#sub-fsub" title="Permanent link">&para;</a></h5>
+<ul>
+<li>概念：<code>sub</code>指令返回其两个<code>i32</code>类型的操作数之差，返回值为<code>i32</code>类型，<code>fsub</code>指令返回其两个<code>float</code>类型的操作数之差，返回值为<code>float</code>类型。</li>
+<li>格式与例子与<code>add</code>，<code>fadd</code>类似</li>
+</ul>
+<h5 id="mul-fmul">Mul FMul<a class="headerlink" href="#mul-fmul" title="Permanent link">&para;</a></h5>
+<ul>
+<li>概念：<code>mul</code>指令返回其两个<code>i32</code>类型的操作数之积，返回值为<code>i32</code>类型，<code>fmul</code>指令返回其两个<code>float</code>类型的操作数之积，返回值为<code>float</code>类型。</li>
+<li>格式与例子与<code>add</code>，<code>fadd</code>类似</li>
+</ul>
+<h5 id="sdiv-fdiv">SDiv FDiv<a class="headerlink" href="#sdiv-fdiv" title="Permanent link">&para;</a></h5>
+<ul>
+<li>概念：<code>sdiv</code>指令返回其两个<code>i32</code>类型的操作数之商，返回值为<code>i32</code>类型，<code>fdiv</code>指令返回其两个<code>float</code>类型的操作数之商，返回值为<code>float</code>类型。</li>
+<li>格式与例子与<code>add</code>，<code>fadd</code>类似</li>
+</ul>
+<h4 id="memory-instructions">Memory Instructions<a class="headerlink" href="#memory-instructions" title="Permanent link">&para;</a></h4>
+<h5 id="alloca">Alloca<a class="headerlink" href="#alloca" title="Permanent link">&para;</a></h5>
+<ul>
+<li>概念： <code>alloca</code>指令在当前执行函数的栈帧（Stack Frame）上分配内存。</li>
+<li>格式：<code>&lt;result&gt; = alloca &lt;type&gt;</code></li>
+<li>例子：</li>
+<li><code>%ptr = alloca i32</code></li>
+<li><code>%ptr = alloca [10 x i32]</code></li>
+</ul>
+<h5 id="load">Load<a class="headerlink" href="#load" title="Permanent link">&para;</a></h5>
+<ul>
+<li>概念：<code>load</code>指令用于从内存中读取。</li>
+<li>格式：<code>&lt;result&gt; = load &lt;type&gt;, &lt;type&gt;* &lt;pointer&gt;</code></li>
+<li>例子：<code>%val = load i32, i32* %ptr</code></li>
+</ul>
+<h5 id="store">Store<a class="headerlink" href="#store" title="Permanent link">&para;</a></h5>
+<ul>
+<li>概念：<code>store</code>指令用于写入内存。</li>
+<li>格式：<code>store &lt;type&gt; &lt;value&gt;, &lt;type&gt;* &lt;pointer&gt;</code></li>
+<li>例子：<code>store i32 3, i32* %ptr</code></li>
+</ul>
+<h4 id="castinst">CastInst<a class="headerlink" href="#castinst" title="Permanent link">&para;</a></h4>
+<h5 id="zext">ZExt<a class="headerlink" href="#zext" title="Permanent link">&para;</a></h5>
+<ul>
+<li>概念：<code>zext</code>指令将其操作数 <strong>零</strong> 扩展为<code>type2</code>类型。</li>
+<li>格式：<code>&lt;result&gt; = zext &lt;type&gt; &lt;value&gt; to &lt;type2&gt;</code></li>
+<li>例子：<code>%1 = zext i1 %0 to i32</code></li>
+</ul>
+<h5 id="fptosi">FpToSi<a class="headerlink" href="#fptosi" title="Permanent link">&para;</a></h5>
+<ul>
+<li>概念：<code>fptosi</code>指令将浮点值转换为<code>type2</code>（整数）类型。</li>
+<li>格式：<code>&lt;result&gt; = fptosi &lt;type&gt; &lt;value&gt; to &lt;type2&gt;</code></li>
+<li>例子：<code>%Y = fptosi float 1.0E-247 to i32</code></li>
+</ul>
+<h5 id="sitofp">SiToFp<a class="headerlink" href="#sitofp" title="Permanent link">&para;</a></h5>
+<ul>
+<li>概念：<code>sitofp</code>指令将有符号整数转换为<code>type2</code>（浮点数）类型。</li>
+<li>格式：<code>&lt;result&gt; = sitofp &lt;type&gt; &lt;value&gt; to &lt;type2&gt;</code></li>
+<li>例子：<code>%X = sitofp i32 257 to float</code></li>
+</ul>
+<h4 id="other-instructions">Other Instructions<a class="headerlink" href="#other-instructions" title="Permanent link">&para;</a></h4>
+<h5 id="icmp-fcmp">ICmp FCmp<a class="headerlink" href="#icmp-fcmp" title="Permanent link">&para;</a></h5>
+<ul>
+<li>概念：<code>icmp</code>指令根据两个整数的比较返回布尔值，<code>fcmp</code>指令根据两个浮点数的比较返回布尔值。</li>
+<li>格式：</li>
+<li><code>&lt;result&gt; = icmp &lt;cond&gt; &lt;type&gt; &lt;op1&gt;, &lt;op2&gt;</code><ul>
+<li><code>&lt;cond&gt; = eq | ne | sgt | sge | slt | sle</code></li>
+</ul>
+</li>
+<li><code>&lt;result&gt; = fcmp &lt;cond&gt; &lt;type&gt; &lt;op1&gt;, &lt;op2&gt;</code><ul>
+<li><code>&lt;cond&gt; = eq | ne | ugt | uge | ult | ule</code></li>
+</ul>
+</li>
+<li>例子：<code>i1 %2 = icmp sge i32 %0, %1</code></li>
+</ul>
+<h5 id="call">Call<a class="headerlink" href="#call" title="Permanent link">&para;</a></h5>
+<ul>
+<li>概念：<code>call</code>指令用于使控制流转移到指定的函数，其传入参数绑定到指定的值。在被调用函数中执行<code>ret</code>指令后，如果被调用函数返回值不为 <code>void</code> 类型，控制流程将在函数调用后继续执行该指令，并且该函数的返回值绑定到<code>result</code>参数。</li>
+<li>格式：</li>
+<li><code>&lt;result&gt; = call &lt;return ty&gt; &lt;func name&gt;(&lt;function args&gt;)</code></li>
+<li><code>call &lt;func name&gt;(&lt;function args&gt;)</code></li>
+<li>例子：</li>
+<li><code>%0 = call i32 @func( i32 %1, i32* %0)</code></li>
+<li><code>call @func( i32 %arg)</code></li>
+</ul>
+<h5 id="getelementptr">GetElementPtr<a class="headerlink" href="#getelementptr" title="Permanent link">&para;</a></h5>
+<ul>
+<li>概念：<code>getelementptr</code>指令用于获取数组结构的元素的地址。它 <strong>仅执行地址计算</strong> ，并且不访问内存。</li>
+<li>格式</li>
+<li>数组：<code>&lt;result&gt; = getelementptr &lt;type&gt;, &lt;type&gt;* &lt;ptrval&gt;, i32 0, i32 &lt;idx&gt;</code></li>
+<li>指针（仅在数组作为函数参数时存在）：<code>&lt;result&gt; = getelementptr &lt;type&gt;, &lt;type&gt;* &lt;ptrval&gt;, i32 &lt;idx&gt;</code></li>
+<li>参数解释：<code>getelementptr</code> 后面的两个 <code>&lt;type&gt;</code> 一定是相同的。<code>&lt;ptrval&gt;</code> 表示指针，<code>&lt;idx&gt;</code> 表示索引（也即数组下标）</li>
+<li>例子：</li>
+<li><code>%2 = getelementptr [10 x i32], [10 x i32]* %1, i32 0, i32 %0</code></li>
+<li><code>%2 = getelementptr i32, i32* %1 i32 %0</code></li>
+<li>额外阅读：<a href="https://llvm.org/docs/GetElementPtr.html">The Often Misunderstood GEP Instruction</a></li>
+</ul>
 
 
 
@@ -1451,7 +1806,6 @@ $<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><sp
     </span>
     <nav>
       
-        <a href="mailto:95729892+jyjsxx@users.noreply.github.com">JYJSXX</a>, 
         <a href="mailto:2313392804@qq.com">XZQshiyu</a>, 
         <a href="mailto:877250099@qq.com">lxq</a>
     </nav>
@@ -1482,7 +1836,7 @@ $<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><sp
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../visitor_pattern/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 访问者模式">
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="上一页: Lab2 简介">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1492,20 +1846,20 @@ $<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><sp
                 上一页
               </span>
               <div class="md-ellipsis">
-                访问者模式
+                Lab2 简介
               </div>
             </div>
           </a>
         
         
           
-          <a href="../cminusf%E8%AF%AD%E4%B9%89/" class="md-footer__link md-footer__link--next" aria-label="下一页: Cminusf 语义">
+          <a href="../LightIR%20C%2B%2B/" class="md-footer__link md-footer__link--next" aria-label="下一页: Light IR C++ 库">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                Cminusf 语义
+                Light IR C++ 库
               </div>
             </div>
             <div class="md-footer__button md-icon">

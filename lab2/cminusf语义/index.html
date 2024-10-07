@@ -9,6 +9,10 @@
       
       
       
+        <link rel="prev" href="../warmup/">
+      
+      
+        <link rel="next" href="../autogen/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -16,7 +20,7 @@
     
     
       
-        <title>Cminusf 的语法与语义 - USTC 编译原理和技术 2024</title>
+        <title>Cminusf 语义 - USTC 编译原理和技术 2024</title>
       
     
     
@@ -85,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cminusf-的语法与语义" class="md-skip">
+        <a href="#cminusf-语义" class="md-skip">
           跳转至
         </a>
       
@@ -121,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Cminusf 的语法与语义
+              Cminusf 语义
             
           </span>
         </div>
@@ -278,11 +282,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../lab2/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   Lab2
@@ -760,25 +766,28 @@
       
   
   
+    
   
   
+  
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -789,7 +798,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Lab2
@@ -803,7 +812,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lab2/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -824,7 +833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lab2/LightIR/" class="md-nav__link">
+      <a href="../LightIR/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -845,7 +854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lab2/LightIR%20C%2B%2B/" class="md-nav__link">
+      <a href="../LightIR%20C%2B%2B/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -866,7 +875,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lab2/visitor_pattern/" class="md-nav__link">
+      <a href="../visitor_pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -887,7 +896,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lab2/warmup/" class="md-nav__link">
+      <a href="../warmup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -905,10 +914,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../lab2/cminusf%E8%AF%AD%E4%B9%89/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -917,6 +935,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -929,7 +948,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lab2/autogen/" class="md-nav__link">
+      <a href="../autogen/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -990,32 +1009,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#cminusf-的语法" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cminusf 的语法
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cminusf-的语义" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cminusf 的语义
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1029,43 +1022,11 @@
                   
 
 
-<h1 id="cminusf-的语法与语义">Cminusf 的语法与语义<a class="headerlink" href="#cminusf-的语法与语义" title="Permanent link">&para;</a></h1>
-<h2 id="cminusf-的语法">Cminusf 的语法<a class="headerlink" href="#cminusf-的语法" title="Permanent link">&para;</a></h2>
-<ol>
-<li><span class="arithmatex">\(\text{program} \rightarrow \text{declaration-list}\)</span></li>
-<li><span class="arithmatex">\(\text{declaration-list} \rightarrow \text{declaration-list}\ \text{declaration}\ |\ \text{declaration}\)</span></li>
-<li><span class="arithmatex">\(\text{declaration} \rightarrow \text{var-declaration}\ |\ \text{fun-declaration}\)</span></li>
-<li><span class="arithmatex">\(\text{var-declaration}\ \rightarrow \text{type-specifier}\ \underline{\textbf{ID}}\ \underline{\textbf{;}}\ |\ \text{type-specifier}\ \underline{\textbf{ID}}\ \underline{\textbf{[}}\ \underline{\textbf{INTEGER}}\ \underline{\textbf{]}}\ \underline{\textbf{;}}\)</span></li>
-<li><span class="arithmatex">\(\text{type-specifier} \rightarrow \underline{\textbf{int}}\ |\ \underline{\textbf{float}}\ |\ \underline{\textbf{void}}\)</span></li>
-<li><span class="arithmatex">\(\text{fun-declaration} \rightarrow \text{type-specifier}\ \underline{\textbf{ID}}\ \underline{\textbf{(}}\ \text{params}\ \underline{\textbf{)}}\ \text{compound-stmt}\)</span></li>
-<li><span class="arithmatex">\(\text{params} \rightarrow \text{param-list}\ |\ \underline{\textbf{void}}\)</span></li>
-<li><span class="arithmatex">\(\text{param-list} \rightarrow \text{param-list}\ \underline{\textbf{,}}\ \text{param}\ |\ \text{param}\)</span></li>
-<li><span class="arithmatex">\(\text{param} \rightarrow \text{type-specifier}\ \underline{\textbf{ID}}\ |\ \text{type-specifier}\ \underline{\textbf{ID}}\ \underline{\textbf{[}}\ \underline{\textbf{]}}\)</span></li>
-<li><span class="arithmatex">\(\text{compound-stmt} \rightarrow \underline{\textbf{\\{}}\ \text{local-declarations}\ \text{statement-list}\ \underline{\textbf{\\}}}\)</span></li>
-<li><span class="arithmatex">\(\text{local-declarations} \rightarrow \text{local-declarations var-declaration}\ |\ \text{empty}\)</span></li>
-<li><span class="arithmatex">\(\text{statement-list} \rightarrow \text{statement-list}\ \text{statement}\ |\ \text{empty}\)</span></li>
-<li><span class="arithmatex">\(\begin{aligned}\text{statement} \rightarrow\ &amp;\text{expression-stmt}\\\ &amp;|\ \text{compound-stmt}\\\ &amp;|\ \text{selection-stmt}\\\ &amp;|\ \text{iteration-stmt}\\\ &amp;|\ \text{return-stmt}\end{aligned}\)</span></li>
-<li><span class="arithmatex">\(\text{expression-stmt} \rightarrow \text{expression}\ \underline{\textbf{;}}\ |\ \underline{\textbf{;}}\)</span></li>
-<li><span class="arithmatex">\(\begin{aligned}\text{selection-stmt} \rightarrow\ &amp;\underline{\textbf{if}}\ \underline{\textbf{(}}\ \text{expression}\ \underline{\textbf{)}}\ \text{statement}\\\ &amp;|\ \underline{\textbf{if}}\ \underline{\textbf{(}}\ \text{expression}\ \underline{\textbf{)}}\ \text{statement}\ \underline{\textbf{else}}\ \text{statement}\end{aligned}\)</span></li>
-<li><span class="arithmatex">\(\text{iteration-stmt} \rightarrow \underline{\textbf{while}}\ \underline{\textbf{(}}\ \text{expression}\ \underline{\textbf{)}}\ \text{statement}\)</span></li>
-<li><span class="arithmatex">\(\text{return-stmt} \rightarrow \underline{\textbf{return}}\ \underline{\textbf{;}}\ |\ \underline{\textbf{return}}\ \text{expression}\ \underline{\textbf{;}}\)</span></li>
-<li><span class="arithmatex">\(\text{expression} \rightarrow \text{var}\ \underline{\textbf{=}}\ \text{expression}\ |\ \text{simple-expression}\)</span></li>
-<li><span class="arithmatex">\(\text{var} \rightarrow \underline{\textbf{ID}}\ |\ \underline{\textbf{ID}}\ \underline{\textbf{[}}\ \text{expression} \underline{\textbf{]}}\)</span></li>
-<li><span class="arithmatex">\(\text{simple-expression} \rightarrow \text{additive-expression}\ \text{relop}\ \text{additive-expression}\ |\ \text{additive-expression}\)</span></li>
-<li><span class="arithmatex">\(\text{relop}\ \rightarrow \underline{\textbf{&lt;=}}\ |\ \underline{\textbf{&lt;}}\ |\ \underline{\textbf{&gt;}}\ |\ \underline{\textbf{&gt;=}}\ |\ \underline{\textbf<mark class="critic">}}\ |\ \underline{\textbf{!=}}\)</span></li>
-<li><span class="arithmatex">\(\text{additive-expression} \rightarrow \text{additive-expression}\ \text{addop}\ \text{term}\ |\ \text{term}\)</span></li>
-<li><span class="arithmatex">\(\text{addop} \rightarrow \underline{\textbf{+}}\ |\ \underline{\textbf{-}}\)</span></li>
-<li><span class="arithmatex">\(\text{term} \rightarrow \text{term}\ \text{mulop}\ \text{factor}\ |\ \text{factor}\)</span></li>
-<li><span class="arithmatex">\(\text{mulop} \rightarrow \underline{\textbf{*}}\ |\ \underline{\textbf{/}}\)</span></li>
-<li><span class="arithmatex">\(\text{factor} \rightarrow \underline{\textbf{(}}\ \text{expression}\ \underline{\textbf{)}}\ |\ \text{var}\ |\ \text{call}\ |\ \text{integer}\ |\ \text{float}\)</span></li>
-<li><span class="arithmatex">\(\text{integer} \rightarrow \underline{\textbf{INTEGER}}\)</span></li>
-<li><span class="arithmatex">\(\text{float} \rightarrow \underline{\textbf{FLOATPOINT}}\)</span></li>
-<li><span class="arithmatex">\(\text{call} \rightarrow \underline{\textbf{ID}}\ \underline{\textbf{(}}\ \text{args} \underline{\textbf{)}}\)</span></li>
-<li><span class="arithmatex">\(\text{args} \rightarrow \text{arg-list}\ |\ \text{empty}\)</span></li>
-<li><span class="arithmatex">\(\text{arg-list} \rightarrow \text{arg-list}\ \underline{\textbf{,}}\ \text{expression}\ |\ \text{expression}\)</span></li>
-</ol>
-<h2 id="cminusf-的语义">Cminusf 的语义<a class="headerlink" href="#cminusf-的语义" title="Permanent link">&para;</a></h2>
-<p>在上述语法规则中，我们定义了 Cminusf 语言的语法，接着，我们对照语法规则，给出相关的语义和解释。
+<h1 id="cminusf-语义">Cminusf 语义<a class="headerlink" href="#cminusf-语义" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>Cminusf 语法规则，可以参考 <a href="../../lab1/%E8%AF%8D%E6%B3%95%E8%AF%AD%E6%B3%95%E8%A7%A3%E6%9E%90/#cminusf-语法">Lab1 的介绍</a></p>
+</blockquote>
+<p>在语法规则中，我们定义了 Cminusf 语言的语法，接着，我们对照语法规则，给出相关的语义和解释。
 在阅读前，需要理解 Cminusf 主要源自于 C 语言，因此它的行为都会接近 C 语言。</p>
 <ul>
 <li><span class="arithmatex">\(\text{program} \rightarrow \text{declaration-list}\)</span></li>
@@ -1099,7 +1060,7 @@
 <p>函数的形参拥有和函数声明的复合语句相同的作用域，并且每次函数调用都会产生一组独立内存的参数（和 C 语言一致）。</p>
 <p>函数可以递归调用。</p>
 <ul>
-<li><span class="arithmatex">\(\text{compound-stmt} \rightarrow \underline{\textbf{\\{}}\ \text{local-declarations}\ \text{statement-list}\ \underline{\textbf{\\}}}\)</span></li>
+<li><span class="arithmatex">\(\text{compound-stmt} \rightarrow \underline{\textbf{\{}}\ \text{local-declarations}\ \text{statement-list}\ \underline{\textbf{\}}}\)</span></li>
 </ul>
 <p>一个复合语句由一对大括号和其中的局部声明与语句列表组成。</p>
 <p>复合语句的执行时，对包含着的语句按照语句列表中的顺序执行。</p>
@@ -1142,7 +1103,7 @@
 <p>在 C 中，赋值对象（即 <code>var</code> ）必须是左值，而左值可以通过多种方式获得。Cminusf 中，唯一的左值就是通过 <code>var</code> 的语法得到的，因此 Cminusf 通过语法限制了 <code>var</code> 为左值，而不是像 C 中一样通过类型检查，这也是为什么 Cminusf 中不允许进行指针算数。</p>
 <ul>
 <li><span class="arithmatex">\(\text{simple-expression} \rightarrow \text{additive-expression}\ \text{relop}\ \text{additive-expression}\ |\ \text{additive-expression}\)</span></li>
-<li><span class="arithmatex">\(\text{relop}\ \rightarrow \underline{\textbf{&lt;=}}\ |\ \underline{\textbf{&lt;}}\ |\ \underline{\textbf{&gt;}}\ |\ \underline{\textbf{&gt;=}}\ |\ \underline{\textbf{</mark>}\ |\ \underline{\textbf{!=}}\)</span></li>
+<li><span class="arithmatex">\(\text{relop}\ \rightarrow \underline{\textbf{&lt;=}}\ |\ \underline{\textbf{&lt;}}\ |\ \underline{\textbf{&gt;}}\ |\ \underline{\textbf{&gt;=}}\ |\ \underline{\textbf{==}}\ |\ \underline{\textbf{!=}}\)</span></li>
 <li><span class="arithmatex">\(\text{additive-expression} \rightarrow \text{additive-expression}\ \text{addop}\ \text{term}\ |\ \text{term}\)</span></li>
 <li><span class="arithmatex">\(\text{addop} \rightarrow \underline{\textbf{+}}\ |\ \underline{\textbf{-}}\)</span></li>
 <li><span class="arithmatex">\(\text{term} \rightarrow \text{term}\ \text{mulop}\ \text{factor}\ |\ \text{factor}\)</span></li>
@@ -1196,7 +1157,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年8月27日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年10月3日</span>
   </span>
 
     
@@ -1212,7 +1173,7 @@
     </span>
     <nav>
       
-        <a href="mailto:95729892+jyjsxx@users.noreply.github.com">JYJSXX</a>
+        <a href="mailto:877250099@qq.com">lxq</a>
     </nav>
   </span>
 
@@ -1236,6 +1197,44 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../warmup/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Light IR 预热">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                Light IR 预热
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../autogen/" class="md-footer__link md-footer__link--next" aria-label="下一页: IR 自动化生成">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                IR 自动化生成
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
