@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lab3-实验指导" class="md-skip">
+        <a href="#lab3" class="md-skip">
           跳转至
         </a>
       
@@ -785,7 +785,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#阶段一预热实验" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       阶段一：预热实验
     </span>
@@ -795,7 +795,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#仓库目录结构" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       仓库目录结构
     </span>
@@ -804,7 +804,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#实验内容" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       实验内容
     </span>
@@ -813,7 +813,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#编译" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       编译
     </span>
@@ -822,7 +822,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#运行与测试" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       运行与测试
     </span>
@@ -836,7 +836,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#阶段二编译器后端" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       阶段二：编译器后端
     </span>
@@ -846,7 +846,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#仓库目录结构_1" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       仓库目录结构
     </span>
@@ -855,7 +855,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#实验内容_1" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       实验内容
     </span>
@@ -864,7 +864,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#编译_1" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       编译
     </span>
@@ -873,7 +873,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#运行" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       运行
     </span>
@@ -882,7 +882,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#测试" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       测试
     </span>
@@ -910,9 +910,9 @@
                   
 
 
-<h1 id="lab3-实验指导">Lab3 实验指导<a class="headerlink" href="#lab3-实验指导" title="Permanent link">&para;</a></h1>
-<h2 id="阶段一预热实验">阶段一：预热实验<a class="headerlink" href="#阶段一预热实验" title="Permanent link">&para;</a></h2>
-<h3 id="仓库目录结构">仓库目录结构<a class="headerlink" href="#仓库目录结构" title="Permanent link">&para;</a></h3>
+<h1 id="lab3">Lab3 实验指导</h1>
+<h2 id="_1">阶段一：预热实验</h2>
+<h3 id="_2">仓库目录结构</h3>
 <p>与预热实验相关的文件如下：</p>
 <div class="highlight"><pre><span></span><code>.
 ├── ...
@@ -927,9 +927,9 @@
             ├── ll_cases          &lt;- 需要翻译的 ll 代码
             └── stu_cpp           &lt;- 学生需要编写的汇编代码手动生成器
 </code></pre></div>
-<h3 id="实验内容">实验内容<a class="headerlink" href="#实验内容" title="Permanent link">&para;</a></h3>
+<h3 id="_3">实验内容</h3>
 <p>实验在 <code>tests/3-codegen/warmup/ll_cases/</code> 目录下提供了六个 <code>.ll</code> 文件。学生需要在 <code>tests/3-codegen/warmup/stu_cpp/</code> 目录中，依次完成 <code>assign_codegen.cpp</code>、<code>float_codegen.cpp</code>、<code>global_codegen.cpp</code>、<code>function_codegen.cpp</code>、<code>icmp_codegen.cpp</code> 和 <code>fcmp_codegen.cpp</code> 六个 C++ 程序中的 TODO。这六个程序运行后应该能够生成 <code>tests/3-codegen/warmup/ll_cases/</code> 目录下六个 <code>.ll</code> 文件对应的汇编程序。</p>
-<h3 id="编译">编译<a class="headerlink" href="#编译" title="Permanent link">&para;</a></h3>
+<h3 id="_4">编译</h3>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>2023ustc-jianmu-compiler
 $<span class="w"> </span>mkdir<span class="w"> </span>build
 $<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
@@ -939,7 +939,7 @@ $<span class="w"> </span>cmake<span class="w"> </span>..
 $<span class="w"> </span>make
 </code></pre></div>
 <p>如果构建成功，你会在 <code>build</code> 文件夹下找到 <code>stu_assign_codegen</code>, <code>stu_float_codegen</code> 等可执行文件。</p>
-<h3 id="运行与测试">运行与测试<a class="headerlink" href="#运行与测试" title="Permanent link">&para;</a></h3>
+<h3 id="_5">运行与测试</h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>在运行和测试之前，你应该确保你完成了<a href="../environment/">后端环境配置</a>。</p>
@@ -955,8 +955,8 @@ $<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><sp
 <p class="admonition-title">Note</p>
 <p>请注意，<code>echo $?</code> 返回的值是 qemu 执行完毕后的退出状态，也就是你的程序的返回值。由于 Linux 系统的限制，这个返回值只包含低 8 位，即范围在 0 到 255 之间。如果你的程序返回值超过了这个范围，那么 <code>echo $?</code> 将只显示该返回值的低 8 位。</p>
 </div>
-<h2 id="阶段二编译器后端">阶段二：编译器后端<a class="headerlink" href="#阶段二编译器后端" title="Permanent link">&para;</a></h2>
-<h3 id="仓库目录结构_1">仓库目录结构<a class="headerlink" href="#仓库目录结构_1" title="Permanent link">&para;</a></h3>
+<h2 id="_6">阶段二：编译器后端</h2>
+<h3 id="_7">仓库目录结构</h3>
 <p>与实验第二阶段相关的文件如下：</p>
 <div class="highlight"><pre><span></span><code>.
 ├── include
@@ -971,7 +971,7 @@ $<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><sp
     │       └── testcases       &lt;-- lab3 第二阶段的测例目录一
     └── testcases_general       &lt;-- lab3 第二阶段的测例目录二
 </code></pre></div>
-<h3 id="实验内容_1">实验内容<a class="headerlink" href="#实验内容_1" title="Permanent link">&para;</a></h3>
+<h3 id="_8">实验内容</h3>
 <p>补全 <code>src/codegen/CodeGen.cpp</code> 中的 TODO，并按需修改 <code>include/codegen/CodeGen.hpp</code> 等文件，使编译器能够生成正确的汇编代码。</p>
 <div class="admonition info">
 <p class="admonition-title">实现约定</p>
@@ -986,7 +986,7 @@ $<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><sp
 </ul>
 <p>此外，存在部分 <code>void main() {...}</code> 的样例，其返回值是未定义的，我们要求这样的主函数通过寄存器 <code>$a0</code> 返回 0，以顺利进行测评。</p>
 </div>
-<h3 id="编译_1">编译<a class="headerlink" href="#编译_1" title="Permanent link">&para;</a></h3>
+<h3 id="_9">编译</h3>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>2023ustc-jianmu-compiler
 $<span class="w"> </span>mkdir<span class="w"> </span>build
 $<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
@@ -1002,7 +1002,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>make<span class="w"> </span
 <p class="admonition-title">Note</p>
 <p>为了让 cminusfc 在 <code>$PATH</code> 中，一定要 <code>sudo make install</code>。</p>
 </div>
-<h3 id="运行">运行<a class="headerlink" href="#运行" title="Permanent link">&para;</a></h3>
+<h3 id="_10">运行</h3>
 <p>完成第二阶段，编译器能够将 <code>.cminus</code> 文件翻译成正确的龙芯汇编 <code>.s</code> 文件：</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># 假设 cminusfc 的路径在你的 $PATH 中，并且你现在在 test.cminus 文件所在目录中</span>
 $<span class="w"> </span>cminusfc<span class="w"> </span>test.cminus<span class="w"> </span>-S
@@ -1019,8 +1019,8 @@ $<span class="w"> </span>loongarch64-unknown-linux-gnu-gcc<span class="w"> </spa
 <p>然后你可以使用 <code>qemu-loongarch64</code> 运行二进制文件 <code>test</code></p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>qemu-loongarch64<span class="w"> </span>./test
 </code></pre></div>
-<h3 id="测试">测试<a class="headerlink" href="#测试" title="Permanent link">&para;</a></h3>
-<p>在 <code>tests/3-codegen/autogen</code> 目录下，使用我们提供的 <code>eval_lab3.sh</code> 进行本地评测，其接受两个**参数**：</p>
+<h3 id="_11">测试</h3>
+<p>在 <code>tests/3-codegen/autogen</code> 目录下，使用我们提供的 <code>eval_lab3.sh</code> 进行本地评测，其接受两个<strong>参数</strong>：</p>
 <ol>
 <li>测试样例目录：考核的两个测例目录分别是 <code>./testcases</code> 和 <code>../../testcases_general</code></li>
 <li>评测模式：<code>test</code> 和 <code>debug</code> 两种模式都能正常测评，后者会额外生成 <code>.ll</code> 文件</li>
@@ -1031,8 +1031,8 @@ $<span class="w"> </span>loongarch64-unknown-linux-gnu-gcc<span class="w"> </spa
 <li><code>log.txt</code> 文件：该文件收录了编译器报错信息及评测的比较信息 (<code>diff</code> 的结果)</li>
 </ul>
 <p>出现错误时请查阅相关文件。</p>
-<p>在结束测评后，你可以使用 <code>./cleanup.sh</code> **清空**上述文件/目录，以保持仓库的清爽。</p>
-<p>以下是评测脚本的**使用示例**：</p>
+<p>在结束测评后，你可以使用 <code>./cleanup.sh</code> <strong>清空</strong>上述文件/目录，以保持仓库的清爽。</p>
+<p>以下是评测脚本的<strong>使用示例</strong>：</p>
 <p>以 <code>./testcases</code> 为测例目录，使用评测脚本 <code>test</code> 模式测试（我们使用正确的实现，但是故意在 <code>13-complex.cminus</code> 中制造了语法错误）：</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>./eval_lab3.sh<span class="w"> </span>./testcases<span class="w"> </span><span class="nb">test</span>
 <span class="o">[</span>info<span class="o">]</span><span class="w"> </span>Start<span class="w"> </span>testing,<span class="w"> </span>using<span class="w"> </span>testcase<span class="w"> </span>dir:<span class="w"> </span>./testcases

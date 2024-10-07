@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#light-ir-预热" class="md-skip">
+        <a href="#light-ir" class="md-skip">
           跳转至
         </a>
       
@@ -785,7 +785,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ir-介绍" class="md-nav__link">
+  <a href="#ir" class="md-nav__link">
     <span class="md-ellipsis">
       IR 介绍
     </span>
@@ -804,7 +804,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#light-ir" class="md-nav__link">
+  <a href="#light-ir_1" class="md-nav__link">
     <span class="md-ellipsis">
       Light IR
     </span>
@@ -818,7 +818,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#task-1手工编写-ir-文件" class="md-nav__link">
+  <a href="#task-1-ir" class="md-nav__link">
     <span class="md-ellipsis">
       Task 1：手工编写 IR 文件
     </span>
@@ -828,7 +828,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#实验内容" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       实验内容
     </span>
@@ -837,7 +837,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#运行测试" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       运行、测试
     </span>
@@ -851,7 +851,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#task-2使用-c-库生成-ir-文件" class="md-nav__link">
+  <a href="#task-2-c-ir" class="md-nav__link">
     <span class="md-ellipsis">
       Task 2：使用 C++ 库生成 IR 文件
     </span>
@@ -861,7 +861,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#light-ir-c-库介绍" class="md-nav__link">
+  <a href="#light-ir-c" class="md-nav__link">
     <span class="md-ellipsis">
       Light IR C++ 库介绍
     </span>
@@ -870,7 +870,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#使用-light-ir-c-库生成-ir-示例" class="md-nav__link">
+  <a href="#light-ir-c-ir" class="md-nav__link">
     <span class="md-ellipsis">
       使用 Light IR C++ 库生成 IR 示例
     </span>
@@ -879,7 +879,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#实验内容_1" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       实验内容
     </span>
@@ -888,7 +888,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#编译运行测试" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       编译、运行、测试
     </span>
@@ -902,7 +902,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#思考题" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       思考题
     </span>
@@ -925,7 +925,7 @@
                   
 
 
-<h1 id="light-ir-预热">Light IR 预热<a class="headerlink" href="#light-ir-预热" title="Permanent link">&para;</a></h1>
+<h1 id="light-ir">Light IR 预热</h1>
 <p>本阶段实验需要完成以下两部分</p>
 <ol>
 <li>
@@ -956,8 +956,8 @@
 <p class="admonition-title">Warning</p>
 <p>我们已经创建了 <code>stu_ll</code> 与 <code>stu_cpp</code> 目录下的相应空文件，请不要修改文件名！否则希冀平台的测试将会失败。</p>
 </div>
-<h2 id="ir-介绍">IR 介绍<a class="headerlink" href="#ir-介绍" title="Permanent link">&para;</a></h2>
-<h3 id="llvm-ir">LLVM IR<a class="headerlink" href="#llvm-ir" title="Permanent link">&para;</a></h3>
+<h2 id="ir">IR 介绍</h2>
+<h3 id="llvm-ir">LLVM IR</h3>
 <p>根据<a href="https://zh.wikipedia.org/zh-cn/LLVM">维基百科</a>的介绍，LLVM 是一个自由软件项目，它是一种编译器基础设施，以 C++ 写成，包含一系列模块化的编译器组件和工具链，用来开发编译器前端和后端。IR 的全称是 Intermediate Representation，即中间表示。LLVM IR 是 LLVM 项目定义的编译器中间代码。</p>
 <p>LLVM IR 指令参考手册：<a href="https://llvm.org/docs/LangRef.html">Reference Manual</a></p>
 <details class="note" open="open">
@@ -977,11 +977,11 @@ $ echo $?
 
 [gcd_array.c](https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024ustc-jianmu-compiler/-/blob/main/tests/2-ir-gen/warmup/ta_gcd/gcd_array.c) 是实验提供的例子，学生可以通过使用 clang 翻译示例，并查阅 [Light IR 手册](./LightIR.md#light-ir-指令)来理解每条 LLVM IR 指令含义。
 </code></pre>
-<h3 id="light-ir">Light IR<a class="headerlink" href="#light-ir" title="Permanent link">&para;</a></h3>
+<h3 id="light-ir_1">Light IR</h3>
 <p>LLVM IR 的目标是成为一种通用 IR（支持包括动态与静态语言），因此 IR 指令种类较为复杂繁多。本课程从 LLVM IR 中裁剪出了适用于教学的精简的 IR 子集，并将其命名为 Light IR。</p>
 <p>Light IR 指令参考手册：<a href="../LightIR/">Light IR 手册</a></p>
-<h2 id="task-1手工编写-ir-文件">Task 1：手工编写 IR 文件<a class="headerlink" href="#task-1手工编写-ir-文件" title="Permanent link">&para;</a></h2>
-<h3 id="实验内容">实验内容<a class="headerlink" href="#实验内容" title="Permanent link">&para;</a></h3>
+<h2 id="task-1-ir">Task 1：手工编写 IR 文件</h2>
+<h3 id="_1">实验内容</h3>
 <p>实验在 <code>tests/2-ir-gen/warmup/c_cases/</code> 目录下提供了四个 C 程序：</p>
 <ul>
 <li><code>assign.c</code></li>
@@ -990,18 +990,18 @@ $ echo $?
 <li><code>while.c</code></li>
 </ul>
 <p>学生需要在 <code>test/2-ir-gen/warmup/stu_ll</code> 目录中，手动将这四个 C 程序翻译成 IR 代码，得到 <code>assign_hand.ll</code>、<code>func_hand.ll</code>、<code>if_handf.ll</code> 和 <code>while_hand.ll</code>，可参考 <code>clang -S -emit-llvm</code> 的输出。</p>
-<h3 id="运行测试">运行、测试<a class="headerlink" href="#运行测试" title="Permanent link">&para;</a></h3>
+<h3 id="_2">运行、测试</h3>
 <p>我们主要通过 lli 运行 <code>tests/2-ir-gen/warmup/stu_ll</code> 目录下四个.ll 文件，并通过检查返回值来判断 .ll 文件的正确性。</p>
 <p>关于 .ll 文件的运行与测试，请参考<a href="./#clang-gen-llvm-ir">这里</a>。</p>
-<h2 id="task-2使用-c-库生成-ir-文件">Task 2：使用 C++ 库生成 IR 文件<a class="headerlink" href="#task-2使用-c-库生成-ir-文件" title="Permanent link">&para;</a></h2>
-<h3 id="light-ir-c-库介绍">Light IR C++ 库介绍<a class="headerlink" href="#light-ir-c-库介绍" title="Permanent link">&para;</a></h3>
+<h2 id="task-2-c-ir">Task 2：使用 C++ 库生成 IR 文件</h2>
+<h3 id="light-ir-c">Light IR C++ 库介绍</h3>
 <p>LLVM 项目提供了辅助 IR 生成的 C++ 库，但其类继承关系过于复杂，并且存在很多为了编译性能的额外设计，不利于学生理解 IR 抽象。因此实验依据 LLVM 的设计，为 Light IR 提供了配套简化的 C++ 库。与 LLVM IR C++ 库相比，Light IR C++ 库仅保留必要的核心类，简化了核心类的继承关系与成员设计，且给学生提供与 LLVM 相同的生成 IR 的接口。</p>
 <p>Light IR IR C++ 库参考手册：<a href="../LightIR%20C%2B%2B/">Light IR cpp APIs</a></p>
-<h3 id="使用-light-ir-c-库生成-ir-示例">使用 Light IR C++ 库生成 IR 示例<a class="headerlink" href="#使用-light-ir-c-库生成-ir-示例" title="Permanent link">&para;</a></h3>
+<h3 id="light-ir-c-ir">使用 Light IR C++ 库生成 IR 示例</h3>
 <p>阅读样例 <a href="https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024ustc-jianmu-compiler/-/blob/main/tests/2-ir-gen/warmup/ta_gcd/gcd_array.c">gcd_array.c</a>, <a href="https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024ustc-jianmu-compiler/-/blob/main/tests/2-ir-gen/warmup/ta_gcd/gcd_array_generator.cpp">gcd_array_generator.cpp</a>。结合该样例的注释与 <a href="../LightIR%20C%2B%2B/">Light IR C++ 库</a>章节，掌握使用 Light IR C++ 库生成 IR 的方法</p>
-<h3 id="实验内容_1">实验内容<a class="headerlink" href="#实验内容_1" title="Permanent link">&para;</a></h3>
+<h3 id="_3">实验内容</h3>
 <p>实验在 <code>tests/2-ir-gen/warmup/c_cases/</code> 目录下提供了四个 C 程序。学生需要在 <code>tests/2-ir-gen/warmup/stu_cpp/</code> 目录中，参考上面提供的 <code>gcd_array_generator.cpp</code> 样例，使用 Light IR C++ 库，编写 <code>assign_generator.cpp</code>、<code>fun_generator.cpp</code>、<code>if_generator.cpp</code> 和 <code>while_generator.cpp</code> 四个 cpp 程序。这四个程序运行后应该能够生成 <code>tests/2-ir-gen/warmup/c_cases/</code> 目录下四个 C 程序对应的 .ll 文件。</p>
-<h3 id="编译运行测试">编译、运行、测试<a class="headerlink" href="#编译运行测试" title="Permanent link">&para;</a></h3>
+<h3 id="_4">编译、运行、测试</h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>如果你在 <code>cmake ..</code> 一步遇到如下报错<code>Target "IR_lib" links to target "ZLIB::ZLIB" but the target was not found.</code>，请使用 <code>sudo apt install zlib1g-dev</code> 安装 zlib 库，然后重新 <code>cmake .. &amp;&amp; make</code>。</p>
@@ -1023,7 +1023,7 @@ $<span class="w"> </span>lli<span class="w"> </span>gcd_array_generator.ll
 $<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$?</span>
 </code></pre></div>
 <p>你可以通过观察原来的 C++ 代码来推断 <code>echo $?</code> 应该返回的正确结果，也可以通过 <code>clang -S -emit-llvm</code> 编译 <code>tests/2-ir-gen/warmup/c_cases</code> 目录下 4 个 CPP 文件获得 4 个相应的 .ll 文件，再用 <code>lli</code> 执行 .ll 文件来获取正确结果。</p>
-<h2 id="思考题">思考题<a class="headerlink" href="#思考题" title="Permanent link">&para;</a></h2>
+<h2 id="_5">思考题</h2>
 <ol>
 <li>在 <a href="../LightIR/">Light IR 手册</a>里，你已经了解了 IR 代码的基本结构，请尝试编写一个有全局变量的 cminus 程序，并用 <code>clang</code> 编译生成中间代码，解释全局变量在其中的位置。</li>
 <li>Light IR 中基本类型 label 在 Light IR C++ 库中是如何用类表示的？</li>

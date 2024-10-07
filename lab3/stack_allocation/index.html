@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#栈式分配介绍" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -785,7 +785,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#核心思想" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       核心思想
     </span>
@@ -794,7 +794,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#实验方案" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       实验方案
     </span>
@@ -803,7 +803,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#举个例子" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       举个例子
     </span>
@@ -826,10 +826,10 @@
                   
 
 
-<h1 id="栈式分配介绍">栈式分配介绍<a class="headerlink" href="#栈式分配介绍" title="Permanent link">&para;</a></h1>
+<h1 id="_1">栈式分配介绍</h1>
 <p>本篇文档介绍后端代码生成中栈式分配的核心思想及实验方案，我们假设你已经阅读了<a href="../../common/asm_intro/">龙芯汇编介绍</a>章节，并基本了解了龙芯的寄存器、汇编指令、调用规范等。</p>
-<h2 id="核心思想">核心思想<a class="headerlink" href="#核心思想" title="Permanent link">&para;</a></h2>
-<p>栈式分配，是指**程序的所有变量都保存在栈上**，只在参与计算时提取到寄存器中。</p>
+<h2 id="_2">核心思想</h2>
+<p>栈式分配，是指<strong>程序的所有变量都保存在栈上</strong>，只在参与计算时提取到寄存器中。</p>
 <p>在栈式分配策略下，编译器后端主要分为两个步骤：</p>
 <ol>
 <li>
@@ -843,7 +843,7 @@
 <li>将计算结果存储到栈上（store）</li>
 </ol>
 <p>而在寄存器分配策略下，变量活跃期间数据都保留在各自的寄存器中，不需要 2.a 的 load 和 2.c 的 store。所以性能上，栈式分配不如寄存器分配，而在实现难度上，栈式分配要简单许多。</p>
-<h2 id="实验方案">实验方案<a class="headerlink" href="#实验方案" title="Permanent link">&para;</a></h2>
+<h2 id="_3">实验方案</h2>
 <p>关于变量分配，我们需要为函数中每个变量分配一段栈空间，这个并没有固定的标准，我们提供并已经为你实现好的方案如下：</p>
 <ul>
 <li>记录每个变量相对于栈底 <code>$fp</code> 的偏移，由于栈从高向低生长，所以这个偏移量为负数</li>
@@ -856,13 +856,13 @@
 <p><a class="glightbox" href="../figs/stack-frame.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../figs/stack-frame.png" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">注意</p>
-<p>为变量分配空间，实际上就是移动栈指针，这里注意 <code>$sp</code> 和 <code>$fp</code> 需要**对齐到 16 字节**，详见<a href="../../common/asm_intro/#栈帧布局">汇编介绍中的栈帧布局章节</a>。</p>
+<p>为变量分配空间，实际上就是移动栈指针，这里注意 <code>$sp</code> 和 <code>$fp</code> 需要<strong>对齐到 16 字节</strong>，详见<a href="../../common/asm_intro/#栈帧布局">汇编介绍中的栈帧布局章节</a>。</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">代码</p>
 <p>查阅框架中的代码实现：<code>src/codegen/CodeGen.cpp</code> 中 <code>CodeGen::allocate()</code></p>
 </div>
-<h2 id="举个例子">举个例子<a class="headerlink" href="#举个例子" title="Permanent link">&para;</a></h2>
+<h2 id="_4">举个例子</h2>
 <p>例如如下的 Cminusf 程序：</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>

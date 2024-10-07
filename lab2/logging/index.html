@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#logging-工具使用" class="md-skip">
+        <a href="#logging" class="md-skip">
           跳转至
         </a>
       
@@ -785,7 +785,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#介绍" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       介绍
     </span>
@@ -794,7 +794,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#使用" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       使用
     </span>
@@ -817,10 +817,10 @@
                   
 
 
-<h1 id="logging-工具使用">logging 工具使用<a class="headerlink" href="#logging-工具使用" title="Permanent link">&para;</a></h1>
-<h2 id="介绍">介绍<a class="headerlink" href="#介绍" title="Permanent link">&para;</a></h2>
+<h1 id="logging">logging 工具使用</h1>
+<h2 id="_1">介绍</h2>
 <p>为了方便同学们在之后的实验中 debug，为大家设计了一个 C++ 简单实用的分级日志工具。该工具将日志输出信息从低到高分成四种等级：<code>DEBUG</code>，<code>INFO</code>，<code>WARNING</code>，<code>ERROR</code>。通过设定环境变量 <code>LOGV</code> 的值，来选择输出哪些等级的日志。<code>LOGV</code> 的取值是 <strong>0 到 3</strong>，分别对应到上述的 4 种级别 (<code>0:DEBUG</code>,<code>1:INFO</code>,<code>2:WARNING</code>,<code>3:ERROR</code>)。此外输出中还会包含打印该日志的代码所在位置。</p>
-<h2 id="使用">使用<a class="headerlink" href="#使用" title="Permanent link">&para;</a></h2>
+<h2 id="_2">使用</h2>
 <p>项目编译好之后，可以在 <code>build</code> 目录下运行 test_logging 可执行文件，该文件的源代码在 <code>tests/test_logging.cpp</code>，用法如下：</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;logging.hpp&quot;</span>
 <span class="c1">// 引入头文件</span>

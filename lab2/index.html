@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lab2-中间代码生成" class="md-skip">
+        <a href="#lab2" class="md-skip">
           跳转至
         </a>
       
@@ -785,7 +785,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#实验内容" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       实验内容
     </span>
@@ -795,7 +795,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#阶段一" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       阶段一
     </span>
@@ -804,7 +804,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#阶段二" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       阶段二
     </span>
@@ -813,7 +813,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#阶段三" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       阶段三
     </span>
@@ -827,7 +827,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#实验要求" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       实验要求
     </span>
@@ -837,7 +837,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#拉取最新代码" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       拉取最新代码
     </span>
@@ -846,7 +846,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#合并-lab1-分支" class="md-nav__link">
+  <a href="#lab1" class="md-nav__link">
     <span class="md-ellipsis">
       合并 lab1 分支
     </span>
@@ -860,7 +860,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#提交内容" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       提交内容
     </span>
@@ -892,11 +892,11 @@
 
  -->
 
-<h1 id="lab2-中间代码生成">Lab2 中间代码生成<a class="headerlink" href="#lab2-中间代码生成" title="Permanent link">&para;</a></h1>
+<h1 id="lab2">Lab2 中间代码生成</h1>
 <p>本次实验需要同学们在 Lab1 实现的 Cminusf 解析器基础上，完成从语法树向中间代码的自动化翻译过程。</p>
-<h2 id="实验内容">实验内容<a class="headerlink" href="#实验内容" title="Permanent link">&para;</a></h2>
+<h2 id="_1">实验内容</h2>
 <p>本次实验需要分阶段完成及验收。</p>
-<h3 id="阶段一">阶段一<a class="headerlink" href="#阶段一" title="Permanent link">&para;</a></h3>
+<h3 id="_2">阶段一</h3>
 <ul>
 <li>内容一：
   阅读 <a href="warmup/">Light IR 预热</a>并参考 <a href="LightIR/">Light IR 手册</a> 和 <a href="LightIR%20C%2B%2B/">Light IR C++ 库</a>，掌握手写 Light IR，使用 Light IR C++ 库生成 IR 的方法。</li>
@@ -908,19 +908,19 @@
 <p class="admonition-title">Deadline</p>
 <p><strong>2024 年 10 月 18 日 23:59</strong></p>
 </div>
-<h3 id="阶段二">阶段二<a class="headerlink" href="#阶段二" title="Permanent link">&para;</a></h3>
+<h3 id="_3">阶段二</h3>
 <p>阅读 <a href="autogen/">IR 自动化生成</a>，<a href="cminusf%E8%AF%AD%E4%B9%89/">Cminusf 语义</a>，补充 <code>include/cminusfc/cminusf_builder.hpp</code> 与 <code>src/cminusfc/cminusf_builder.cpp</code> 文件，并通过 <code>tests/2-ir-gen/autogen/testcases/</code>目录下 <code>lv0_1</code>, <code>lv0_2</code>, <code>lv1</code> 级别的测试样例。</p>
 <div class="admonition warning">
 <p class="admonition-title">Deadline</p>
 <p><strong>2024 年 10 月 25 日 23:59</strong></p>
 </div>
-<h3 id="阶段三">阶段三<a class="headerlink" href="#阶段三" title="Permanent link">&para;</a></h3>
+<h3 id="_4">阶段三</h3>
 <p>在阶段二的基础上，继续补充 <code>include/cminusfc/cminusf_builder.hpp</code> 与 <code>src/cminusfc/cminusf_builder.cpp</code> 文件，并通过 <code>tests/2-ir-gen/autogen/testcases/</code> 目录下所有提供的测试样例。</p>
 <div class="admonition warning">
 <p class="admonition-title">Deadline</p>
 <p><strong>2024 年 11 月 2 日 23:59</strong></p>
 </div>
-<h2 id="实验要求">实验要求<a class="headerlink" href="#实验要求" title="Permanent link">&para;</a></h2>
+<h2 id="_5">实验要求</h2>
 <p>根据 <a href="../lab1/#实验要求">Lab1 的要求</a>，学生有两个远程仓库：</p>
 <ul>
 <li>upstream：课程发布实验代码的公开仓库</li>
@@ -934,14 +934,14 @@
 </div>
 <p>以上两条命令分别是：<code>git remote -v</code> 和 <code>git branch --all -vv</code>，如果第二条命令的输出中缺少 upstream 的分支，你可以通过 <code>git fetch --all</code> 来获取。</p>
 <p>在实验一中，我们通过 lab1 分支发布实验，与 lab0 作为区分，因此学生也是处于 lab1 分支下完成实验。从本次实验开始，我们将使用 main 分支发布实验。在开始撰写本次实验代码之前，学生需要抓取最新的 main 分支到本地，然后将 lab1 分支合并到 main 分支，并处理可能的冲突。以下是详细的指导。</p>
-<h3 id="拉取最新代码">拉取最新代码<a class="headerlink" href="#拉取最新代码" title="Permanent link">&para;</a></h3>
+<h3 id="_6">拉取最新代码</h3>
 <p>首先切换到 main 分支下：</p>
 <ul>
 <li><code>git checkout main</code>：如果 <code>git branch</code> 的输出存在 main</li>
 <li>或 <code>git checkout -b main --track origin/main</code>：如果 <code>git branch</code> 的输出不存在 main</li>
 </ul>
 <p>然后使用 <code>git pull upstream main</code> 获取最新内容。此时你应该可以在项目下找到 <code>tests/2-ir-gen/**</code> 和 <code>src/lightir/**</code> 等内容。</p>
-<h3 id="合并-lab1-分支">合并 lab1 分支<a class="headerlink" href="#合并-lab1-分支" title="Permanent link">&para;</a></h3>
+<h3 id="lab1">合并 lab1 分支</h3>
 <p>检查当前关于 lab1 的实验内容：<code>src/parser/lexical_analyzer.l</code>、<code>src/parser/syntax_analyzer.y</code> 和 <code>src/common/ast.cpp</code>，你会发现曾经完成的代码不见了，这三个文件处于 lab1 开始前的版本。现在使用 <code>git merge lab1</code>，将你在 lab1 完成的内容合并到主分支（main）下。</p>
 <details class="note">
 <summary>如果你遇到了冲突</summary>
@@ -972,7 +972,7 @@
 同一分支上越靠上的节点，代表越新的更改。这里我们关注红色线，因为这是 master 分支，我们看到 `origin/main` 当前落后于 `upstream/main` 一个提交。我们使用命令 `git merge upstream/main` 将最新的实验内容合并到本地。
 -->
 
-<h2 id="提交内容">提交内容<a class="headerlink" href="#提交内容" title="Permanent link">&para;</a></h2>
+<h2 id="_7">提交内容</h2>
 <ul>
 <li>阶段一：在希冀平台提交你的 <code>answer.pdf</code> 文件，在希冀平台提交你实验仓库的 url（如 <code>https://cscourse.ustc.edu.cn/vdir/Gitlab/xxx/2024ustc-jianmu-compiler.git</code>）。</li>
 <li>阶段二、三：在希冀平台提交你实验仓库的 url（如 <code>https://cscourse.ustc.edu.cn/vdir/Gitlab/xxx/2024ustc-jianmu-compiler.git</code>）。</li>

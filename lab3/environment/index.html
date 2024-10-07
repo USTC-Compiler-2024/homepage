@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#后端环境配置" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -785,7 +785,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#交叉编译" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       交叉编译
     </span>
@@ -794,7 +794,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#安装" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       安装
     </span>
@@ -803,7 +803,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#测试" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       测试
     </span>
@@ -813,7 +813,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#测试-gcc-与-qemu" class="md-nav__link">
+  <a href="#gcc-qemu" class="md-nav__link">
     <span class="md-ellipsis">
       测试 gcc 与 qemu
     </span>
@@ -822,7 +822,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#测试-使用-gdb" class="md-nav__link">
+  <a href="#gdb" class="md-nav__link">
     <span class="md-ellipsis">
       测试 / 使用 gdb
     </span>
@@ -850,13 +850,13 @@
                   
 
 
-<h1 id="后端环境配置">后端环境配置<a class="headerlink" href="#后端环境配置" title="Permanent link">&para;</a></h1>
+<h1 id="_1">后端环境配置</h1>
 <p>本次实验需要安装龙芯的交叉编译工具链。这篇文档将帮助你安装好相关工具。</p>
-<h2 id="交叉编译">交叉编译<a class="headerlink" href="#交叉编译" title="Permanent link">&para;</a></h2>
+<h2 id="_2">交叉编译</h2>
 <p>我们的后端面向的是龙芯架构，而虚拟机和宿主机都是 x86 架构，不能直接运行龙芯程序。</p>
 <p>所谓的交叉编译，就是在一个平台上生成另一个平台上的可执行代码。</p>
 <p>具体到我们的实验，我们将在虚拟机上安装龙芯 gcc、qemu 和 gdb，使得我们可以在虚拟机中生成龙芯的可执行文件、模拟运行并且调试。</p>
-<h2 id="安装">安装<a class="headerlink" href="#安装" title="Permanent link">&para;</a></h2>
+<h2 id="_3">安装</h2>
 <p>助教准备了<a href="https://rec.ustc.edu.cn/share/d8c57580-669d-11ee-8794-d542ef642531">龙芯交叉编译的相关工具</a>，以便同学们在本地完成测试与调试。</p>
 <p>具体来说有以下四项：</p>
 <ul>
@@ -897,7 +897,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>tar<span class="w"> </span>
 <p>需要使用绝对路径访问。为了使用方便和 <strong>Lab3 的顺利测评</strong>，我们将上述路径加入到<code>PATH</code>中：</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;export PATH=\$PATH:/opt/cross-tools.gcc_glibc/bin:/opt/gdb/bin:/opt/qemu/bin&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>~/.bashrc
 </code></pre></div>
-<h2 id="测试">测试<a class="headerlink" href="#测试" title="Permanent link">&para;</a></h2>
+<h2 id="_4">测试</h2>
 <p>经过上述步骤，你可以使用以下三个命令简单检查是否安装成功：</p>
 <details class="info">
 <summary>检查龙芯 gcc 版本</summary>
@@ -940,7 +940,7 @@ There<span class="w"> </span>is<span class="w"> </span>NO<span class="w"> </span
 ├──<span class="w"> </span>inline-assembly.c<span class="w">   </span><span class="c1"># 内嵌汇编的 c 程序</span>
 └──<span class="w"> </span>Makefile<span class="w">            </span><span class="c1"># 使用 make 自动测试 gcc 和 qemu 是否安装成功</span>
 </code></pre></div>
-<h3 id="测试-gcc-与-qemu">测试 gcc 与 qemu<a class="headerlink" href="#测试-gcc-与-qemu" title="Permanent link">&para;</a></h3>
+<h3 id="gcc-qemu">测试 gcc 与 qemu</h3>
 <p>进入上述 <code>test-env</code> 文件夹中，<code>make</code>，三段源程序将被编译成面向龙芯的可执行文件，并用 qemu 模拟运行。</p>
 <details>
     <summary>期望输出</summary>
@@ -973,7 +973,7 @@ There<span class="w"> </span>is<span class="w"> </span>NO<span class="w"> </span
     test6 expected error</br>
 </details>
 <p>如果得到以上输出，说明 gcc 和 qemu 被正确安装，你已经可以正常进行 Lab3 的评测。</p>
-<h3 id="测试-使用-gdb">测试 / 使用 gdb<a class="headerlink" href="#测试-使用-gdb" title="Permanent link">&para;</a></h3>
+<h3 id="gdb">测试 / 使用 gdb</h3>
 <div class="admonition warning">
 <p class="admonition-title">Lazy Reading</p>
 <p>这一小节是为了调试生成的汇编，你可以在需要调试时再回来查看。</p>

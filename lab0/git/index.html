@@ -89,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#git-的使用" class="md-skip">
+        <a href="#git" class="md-skip">
           跳转至
         </a>
       
@@ -536,7 +536,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#git-配置" class="md-nav__link">
+  <a href="#git_1" class="md-nav__link">
     <span class="md-ellipsis">
       Git 配置
     </span>
@@ -545,7 +545,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#创建你的仓库" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       创建你的仓库
     </span>
@@ -554,7 +554,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#进行一次提交" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       进行一次提交
     </span>
@@ -563,7 +563,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#上下游同步和冲突处理" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       上下游同步和冲突处理
     </span>
@@ -572,7 +572,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#扩展材料" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       扩展材料
     </span>
@@ -581,7 +581,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#实验任务" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       实验任务
     </span>
@@ -888,7 +888,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#git-配置" class="md-nav__link">
+  <a href="#git_1" class="md-nav__link">
     <span class="md-ellipsis">
       Git 配置
     </span>
@@ -897,7 +897,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#创建你的仓库" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       创建你的仓库
     </span>
@@ -906,7 +906,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#进行一次提交" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       进行一次提交
     </span>
@@ -915,7 +915,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#上下游同步和冲突处理" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       上下游同步和冲突处理
     </span>
@@ -924,7 +924,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#扩展材料" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       扩展材料
     </span>
@@ -933,7 +933,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#实验任务" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       实验任务
     </span>
@@ -956,15 +956,15 @@
                   
 
 
-<h1 id="git-的使用">Git 的使用<a class="headerlink" href="#git-的使用" title="Permanent link">&para;</a></h1>
+<h1 id="git">Git 的使用</h1>
 <p>本课程使用 Git 作为代码管理工具，GitLab 作为代码管理仓库。为了后续实验的便捷进行，需要掌握 Git 的基本用法。</p>
-<h2 id="git-配置">Git 配置<a class="headerlink" href="#git-配置" title="Permanent link">&para;</a></h2>
+<h2 id="git_1">Git 配置</h2>
 <p>在 Linux 环境中，我们已经通过 apt 安装了 Git。然而，还需要进行一些配置以确保每次代码提交都能正确标识提交者。在 Shell 中运行以下命令，并将 "Your Name" 和 "Your Email" 替换为你自己的信息：</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;Your Name&quot;</span>
 git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;Your Email&quot;</span>
 </code></pre></div>
 <p>这些配置信息会记录每次代码更新的提交者和联系方式，有助于代码的追踪。</p>
-<h2 id="创建你的仓库">创建你的仓库<a class="headerlink" href="#创建你的仓库" title="Permanent link">&para;</a></h2>
+<h2 id="_1">创建你的仓库</h2>
 <p>我们将使用 GitLab 进行远程代码管理。虽然你没有权限在 GitLab 上创建仓库，但你可以通过 fork 的方式拥有一个属于自己的仓库。</p>
 <ol>
 <li>进入以下公开仓库链接： <strong><a href="https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024_warm_up.git">https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024_warm_up.git</a></strong></li>
@@ -976,7 +976,7 @@ git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"
 </ol>
 <p><a class="glightbox" href="../photos/git2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Untitled" src="../photos/git2.png" /></a></p>
 <p>现在，你已经成功拥有了自己的第一个仓库。接下来，我们可以开始对这个仓库进行修改。</p>
-<h2 id="进行一次提交">进行一次提交<a class="headerlink" href="#进行一次提交" title="Permanent link">&para;</a></h2>
+<h2 id="_2">进行一次提交</h2>
 <p>由于仓库目前在服务器上，我们首先得到仓库的 URL，并通过 git clone 将其下载到本地。</p>
 <ol>
 <li>得到仓库的 URL</li>
@@ -1069,7 +1069,7 @@ To<span class="w"> </span>https://cscourse.ustc.edu.cn/vdir/Gitlab/ustc_gongping
 </code></pre></div>
 <p>现在，刷新 GitLab 页面，刚刚提交的内容已经显示在网页上。</p>
 <p><a class="glightbox" href="../photos/git4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Untitled" src="../photos/git4.png" /></a></p>
-<h2 id="上下游同步和冲突处理">上下游同步和冲突处理<a class="headerlink" href="#上下游同步和冲突处理" title="Permanent link">&para;</a></h2>
+<h2 id="_3">上下游同步和冲突处理</h2>
 <p>通过 fork 操作，你已经拥有了一个自己的仓库，在此我们可以引入上下游的概念。假设通过 fork 仓库 A 得到仓库 B，那么 A 就是 B 的上游。尽管 A 和 B 可能有大部分相同的内容，但对 A 和 B 的修改是彼此独立的。在这个课程实验中，我们将以类似的方式发布实验代码，助教维护上游仓库 A，而学生修改下游仓库 B。由于 A 和 B 的修改是相互独立的，接下来我们将介绍如何使 B 同步 A 的相关修改。</p>
 <p>接下来，以 <strong><a href="https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024_warm_up_upstream">https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024_warm_up_upstream</a></strong> 作为上游仓库为例：</p>
 <ul>
@@ -1157,12 +1157,12 @@ To<span class="w"> </span>https://cscourse.ustc.edu.cn/vdir/Gitlab/ustc_gongping
 <span class="w">   </span>bc20c0b..126d5c9<span class="w">  </span>master<span class="w"> </span>-&gt;<span class="w"> </span>master
 </code></pre></div>
 <p>注：在完成冲突处理后 <code>git commit</code> 时，终端弹出的默认编辑器应该是 GNU nano，并带有默认的 commit message <code>Merge remote-tracking branch 'upstream/master'</code>，这时用 <code>Ctrl + X</code> 再选择 <code>Y</code> 即可完成 commit。感兴趣的同学可以阅读 <a href="https://zhuanlan.zhihu.com/p/341705638">这篇文章</a> 进一步学习 GNU nano 的使用。</p>
-<h2 id="扩展材料">扩展材料<a class="headerlink" href="#扩展材料" title="Permanent link">&para;</a></h2>
+<h2 id="_4">扩展材料</h2>
 <p><strong>Git 教程</strong> <a href="https://www.liaoxuefeng.com/wiki/896043488029600">https://www.liaoxuefeng.com/wiki/896043488029600</a></p>
 <p><strong>Git 文档</strong> <a href="https://git-scm.com/book/zh/v2">https://git-scm.com/book/zh/v2</a></p>
 <p><strong>一个学习 Git 的小游戏</strong>
 <a href="https://learngitbranching.js.org/?locale=zh_CN">https://learngitbranching.js.org/?locale=zh_CN</a></p>
-<h2 id="实验任务">实验任务<a class="headerlink" href="#实验任务" title="Permanent link">&para;</a></h2>
+<h2 id="_5">实验任务</h2>
 <ol>
 <li>根据上述操作，完成 readme.md 添加、上游仓库添加和冲突处理等操作。</li>
 <li>阅读扩展材料，回答以下问题，将答案添加到 <code>answer.pdf</code>。</li>

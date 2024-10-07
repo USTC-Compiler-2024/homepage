@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lab3-后端代码生成" class="md-skip">
+        <a href="#lab3" class="md-skip">
           跳转至
         </a>
       
@@ -785,7 +785,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#同步实验仓库" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       同步实验仓库
     </span>
@@ -794,7 +794,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#实验内容" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       实验内容
     </span>
@@ -804,7 +804,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#阶段一" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       阶段一
     </span>
@@ -813,7 +813,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#阶段二" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       阶段二
     </span>
@@ -827,7 +827,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#提交内容" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       提交内容
     </span>
@@ -850,9 +850,9 @@
                   
 
 
-<h1 id="lab3-后端代码生成">Lab3 后端代码生成<a class="headerlink" href="#lab3-后端代码生成" title="Permanent link">&para;</a></h1>
+<h1 id="lab3">Lab3 后端代码生成</h1>
 <p>经过 Lab1 和 Lab2，我们的编译器能够将 Cminusf 源代码翻译成 Light IR。本次实验要求同学们将 IR 翻译成龙芯汇编指令。</p>
-<h2 id="同步实验仓库">同步实验仓库<a class="headerlink" href="#同步实验仓库" title="Permanent link">&para;</a></h2>
+<h2 id="_1">同步实验仓库</h2>
 <p>在进行实验之前，首先拉取<a href="https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2023ustc-jianmu-compiler">实验仓库</a>的最新代码，具体步骤可以参考 <a href="../lab2/#实验要求">Lab2 中的指导</a>。</p>
 <p>本次实验仓库更新的内容如下，每个阶段的文件将在对应文档详细说明：</p>
 <div class="highlight"><pre><span></span><code>.
@@ -876,10 +876,10 @@
         ├── warmup          &lt;-- lab3 第一阶段（代码撰写）
         └── autogen         &lt;-- lab3 第二阶段的测试
 </code></pre></div>
-<h2 id="实验内容">实验内容<a class="headerlink" href="#实验内容" title="Permanent link">&para;</a></h2>
+<h2 id="_2">实验内容</h2>
 <!--TODO 预估时间-->
 
-<h3 id="阶段一">阶段一<a class="headerlink" href="#阶段一" title="Permanent link">&para;</a></h3>
+<h3 id="_3">阶段一</h3>
 <p>此为预热实验，主要引导同学完成环境的配置并学习相关知识。</p>
 <ol>
 <li>阅读<a href="environment/">后端环境配置</a>章节，完成龙芯交叉编译工具链的安装。</li>
@@ -891,7 +891,7 @@
 <p class="admonition-title">Deadline</p>
 <p><strong>2023 年 11 月 10 日 23:59</strong></p>
 </div>
-<h3 id="阶段二">阶段二<a class="headerlink" href="#阶段二" title="Permanent link">&para;</a></h3>
+<h3 id="_4">阶段二</h3>
 <p>来到本次实验的核心：实现编译器后端，即根据 IR 翻译得到龙芯汇编指令。</p>
 <p>一个典型的编译器后端从中间代码获取信息，进行活跃变量分析、寄存器分配、指令选择、指令优化等一系列流程，最终生成高质量的后端代码。</p>
 <p>本次实验，我们将这些复杂的流程简化，仅追求实现的完整性，要求同学们采用栈式分配的策略，完成后端代码生成。</p>
@@ -904,7 +904,7 @@
 <p class="admonition-title">Deadline</p>
 <p><strong>2023 年 11 月 24 日 23:59</strong></p>
 </div>
-<h2 id="提交内容">提交内容<a class="headerlink" href="#提交内容" title="Permanent link">&para;</a></h2>
+<h2 id="_5">提交内容</h2>
 <p>阶段一、二：在希冀平台提交你实验仓库的 url（如 <code>https://cscourse.ustc.edu.cn/vdir/Gitlab/xxx/2023ustc-jianmu-compiler.git</code>）。</p>
 <p>在提交之前，请确保你 fork 得到的远程仓库与本地同步：</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>master

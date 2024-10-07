@@ -751,7 +751,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#简介" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       简介
     </span>
@@ -760,7 +760,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#转换示例" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       转换示例
     </span>
@@ -769,7 +769,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#如何转换" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       如何转换？
     </span>
@@ -779,7 +779,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#syntax_tree定义" class="md-nav__link">
+  <a href="#syntax_tree" class="md-nav__link">
     <span class="md-ellipsis">
       syntax_tree定义
     </span>
@@ -788,7 +788,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ast-类定义" class="md-nav__link">
+  <a href="#ast_1" class="md-nav__link">
     <span class="md-ellipsis">
       AST 类定义
     </span>
@@ -797,7 +797,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#transform_node_iter函数" class="md-nav__link">
+  <a href="#transform_node_iter" class="md-nav__link">
     <span class="md-ellipsis">
       transform_node_iter函数
     </span>
@@ -811,7 +811,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ast-结点" class="md-nav__link">
+  <a href="#ast_2" class="md-nav__link">
     <span class="md-ellipsis">
       AST 结点
     </span>
@@ -830,7 +830,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#一个-ast-结点类的例子" class="md-nav__link">
+  <a href="#ast_3" class="md-nav__link">
     <span class="md-ellipsis">
       一个 AST 结点类的例子
     </span>
@@ -927,7 +927,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#简介" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       简介
     </span>
@@ -936,7 +936,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#转换示例" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       转换示例
     </span>
@@ -945,7 +945,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#如何转换" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       如何转换？
     </span>
@@ -955,7 +955,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#syntax_tree定义" class="md-nav__link">
+  <a href="#syntax_tree" class="md-nav__link">
     <span class="md-ellipsis">
       syntax_tree定义
     </span>
@@ -964,7 +964,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ast-类定义" class="md-nav__link">
+  <a href="#ast_1" class="md-nav__link">
     <span class="md-ellipsis">
       AST 类定义
     </span>
@@ -973,7 +973,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#transform_node_iter函数" class="md-nav__link">
+  <a href="#transform_node_iter" class="md-nav__link">
     <span class="md-ellipsis">
       transform_node_iter函数
     </span>
@@ -987,7 +987,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ast-结点" class="md-nav__link">
+  <a href="#ast_2" class="md-nav__link">
     <span class="md-ellipsis">
       AST 结点
     </span>
@@ -1006,7 +1006,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#一个-ast-结点类的例子" class="md-nav__link">
+  <a href="#ast_3" class="md-nav__link">
     <span class="md-ellipsis">
       一个 AST 结点类的例子
     </span>
@@ -1034,8 +1034,8 @@
                   
 
 
-<h1 id="ast">AST<a class="headerlink" href="#ast" title="Permanent link">&para;</a></h1>
-<h2 id="简介">简介<a class="headerlink" href="#简介" title="Permanent link">&para;</a></h2>
+<h1 id="ast">AST</h1>
+<h2 id="_1">简介</h2>
 <p><strong>AST（抽象语法树，Abstract Syntax Tree）</strong> 是编程语言中的一种树状数据结构，用于表示源代码的语法结构。AST 将程序代码中的元素（如变量、运算符、语句等）按照层次结构组织起来，去除掉原始源代码中的一些无关紧要的信息（例如注释和格式），并抽象出表达式和控制流的关键部分。</p>
 <p>AST 是编译器用来理解和处理源代码的关键步骤。编译器首先将源代码解析成 AST，然后再进行优化，生成中间代码。</p>
 <p>对于 phase1 中 <code>Bison</code> 生成的 <code>syntax_tree</code> 本身就是 AST，但为了适配 lab2 中通过访问者模式进行中间代码生成的需求，我们在这里需要将其简化，将每个语法树结点类型抽象为一个类，在每个类中填充一些属性，并按类进行中间代码生成。</p>
@@ -1044,7 +1044,7 @@
 <p class="admonition-title">分析树（Parse Tree）与抽象语法树（Abstract Syntax Tree）</p>
 <p>分析树在语法分析的过程中被构造；抽象语法树则是分析树的浓缩表示，使用运算符作为根结点和内部结点，并使用操作数作为子结点。进一步了解可以阅读 <a href="https://stackoverflow.com/questions/5026517/whats-the-difference-between-parse-trees-and-abstract-syntax-trees-asts">分析树和抽象语法树的比较</a>。</p>
 </div>
-<h2 id="转换示例">转换示例<a class="headerlink" href="#转换示例" title="Permanent link">&para;</a></h2>
+<h2 id="_2">转换示例</h2>
 <p>比如，我们有如下样例：</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
@@ -1093,9 +1093,9 @@
 <blockquote>
 <p>这两个不同语法树的输出都是直接将语法树结点名字按 DFS 的顺序做输出，可以发现后者的结点数量明显更少。在后面的结点类属性分析中，我们可以发现每个结点的信息更丰富。</p>
 </blockquote>
-<h2 id="如何转换">如何转换？<a class="headerlink" href="#如何转换" title="Permanent link">&para;</a></h2>
+<h2 id="_3">如何转换？</h2>
 <p>整体的转换逻辑是将一棵 <code>syntax_tree</code> 按 DFS 的顺序遍历所有结点，将 <code>syntax_tree</code> 的不同结点转化为作用相似的 <code>ASTNode</code>。</p>
-<h3 id="syntax_tree定义"><code>syntax_tree</code>定义<a class="headerlink" href="#syntax_tree定义" title="Permanent link">&para;</a></h3>
+<h3 id="syntax_tree"><code>syntax_tree</code>定义</h3>
 <div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">_syntax_tree_node</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">_syntax_tree_node</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">parent</span><span class="p">;</span>
 <span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">_syntax_tree_node</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">children</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
@@ -1128,7 +1128,7 @@
 <li><code>name = "declaration-list"</code></li>
 </ul>
 <p>第二个产生式同理。</p>
-<h3 id="ast-类定义">AST 类定义<a class="headerlink" href="#ast-类定义" title="Permanent link">&para;</a></h3>
+<h3 id="ast_1">AST 类定义</h3>
 <p><code>Class AST</code> 定义如下：</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">AST</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">public</span><span class="o">:</span>
@@ -1178,7 +1178,7 @@
 <li>我们从 <code>syntax_tree</code> 的根结点开始进行 DFS，并将这个新的 <code>AST</code> 的根赋给 <code>AST</code> 实例的 <code>root</code>。</li>
 <li>转换结束会删除原先的 <code>syntax_tree</code>，并释放内存空间。</li>
 </ul>
-<h3 id="transform_node_iter函数"><code>transform_node_iter</code>函数<a class="headerlink" href="#transform_node_iter函数" title="Permanent link">&para;</a></h3>
+<h3 id="transform_node_iter"><code>transform_node_iter</code>函数</h3>
 <p>本次实验最主要的就是补全 <code>transform_node_iter</code> 这个函数的内容。我们将以一个具体的结点例子介绍 <code>transform_node_iter</code> 函数的逻辑。</p>
 <div class="highlight"><pre><span></span><code><span class="n">ASTNode</span><span class="w"> </span><span class="o">*</span><span class="nf">AST::transform_node_iter</span><span class="p">(</span><span class="n">syntax_tree_node</span><span class="w"> </span><span class="o">*</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_STR_EQ</span><span class="p">(</span><span class="n">n</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;program&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
@@ -1224,7 +1224,7 @@ declaration-list -&gt; declaration-list declaration | declaration
 <p>flatten 这个操作也大量出现在本次实验中。</p>
 </blockquote>
 <p>填充完成 <code>declarations</code> 后，返回这个结点 node。</p>
-<h2 id="ast-结点">AST 结点<a class="headerlink" href="#ast-结点" title="Permanent link">&para;</a></h2>
+<h2 id="ast_2">AST 结点</h2>
 <p>AST 结点类如下：</p>
 <div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">ASTNode</span><span class="p">;</span>
 <span class="k">struct</span><span class="w"> </span><span class="nc">ASTProgram</span><span class="p">;</span>
@@ -1254,7 +1254,7 @@ declaration-list -&gt; declaration-list declaration | declaration
 <p>结点之间的继承关系如下图：</p>
 <p><a class="glightbox" href="../assets/image-20240915150429119.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20240915150429119" src="../assets/image-20240915150429119.png" /></a></p>
 <p><a class="glightbox" href="../assets/image-20240915150442943.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20240915150442943" src="../assets/image-20240915150442943.png" /></a></p>
-<h3 id="astnode">ASTNode<a class="headerlink" href="#astnode" title="Permanent link">&para;</a></h3>
+<h3 id="astnode">ASTNode</h3>
 <div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">ASTNode</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">accept</span><span class="p">(</span><span class="n">ASTVisitor</span><span class="w"> </span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="o">~</span><span class="n">ASTNode</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
@@ -1266,7 +1266,7 @@ declaration-list -&gt; declaration-list declaration | declaration
 <blockquote>
 <p>对不同 AST 结点类的 <code>visit</code> 函数不同，相关接口可以在 <code>src/common/ast.cpp</code> 中查看，本次实验不需要修改。</p>
 </blockquote>
-<h3 id="一个-ast-结点类的例子">一个 AST 结点类的例子<a class="headerlink" href="#一个-ast-结点类的例子" title="Permanent link">&para;</a></h3>
+<h3 id="ast_3">一个 AST 结点类的例子</h3>
 <p><code>ASTVarDeclaration</code> 类</p>
 <div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">ASTVarDeclaration</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">ASTDeclaration</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">accept</span><span class="p">(</span><span class="n">ASTVisitor</span><span class="w"> </span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">final</span><span class="p">;</span>

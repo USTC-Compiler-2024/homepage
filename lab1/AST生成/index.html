@@ -89,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ast-生成" class="md-skip">
+        <a href="#ast" class="md-skip">
           跳转至
         </a>
       
@@ -772,7 +772,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#syntax_tree-向-ast-的转换" class="md-nav__link">
+  <a href="#syntax_tree-ast" class="md-nav__link">
     <span class="md-ellipsis">
       syntax_tree 向 AST 的转换
     </span>
@@ -782,7 +782,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#实验内容" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       实验内容
     </span>
@@ -796,7 +796,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#实验要求" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       实验要求
     </span>
@@ -806,7 +806,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#仓库目录结构" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       仓库目录结构
     </span>
@@ -815,7 +815,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#编译运行和评测" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       编译、运行和评测
     </span>
@@ -825,7 +825,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#编译" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       编译
     </span>
@@ -834,7 +834,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#运行" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       运行
     </span>
@@ -843,7 +843,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#测试" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       测试
     </span>
@@ -924,7 +924,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#syntax_tree-向-ast-的转换" class="md-nav__link">
+  <a href="#syntax_tree-ast" class="md-nav__link">
     <span class="md-ellipsis">
       syntax_tree 向 AST 的转换
     </span>
@@ -934,7 +934,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#实验内容" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       实验内容
     </span>
@@ -948,7 +948,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#实验要求" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       实验要求
     </span>
@@ -958,7 +958,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#仓库目录结构" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       仓库目录结构
     </span>
@@ -967,7 +967,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#编译运行和评测" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       编译、运行和评测
     </span>
@@ -977,7 +977,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#编译" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       编译
     </span>
@@ -986,7 +986,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#运行" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       运行
     </span>
@@ -995,7 +995,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#测试" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       测试
     </span>
@@ -1028,12 +1028,12 @@
                   
 
 
-<h1 id="ast-生成">AST 生成<a class="headerlink" href="#ast-生成" title="Permanent link">&para;</a></h1>
-<h2 id="syntax_tree-向-ast-的转换"><code>syntax_tree</code> 向 AST 的转换<a class="headerlink" href="#syntax_tree-向-ast-的转换" title="Permanent link">&para;</a></h2>
+<h1 id="ast">AST 生成</h1>
+<h2 id="syntax_tree-ast"><code>syntax_tree</code> 向 AST 的转换</h2>
 <p>现在我们开始实现 由 <code>syntax_tree</code> 向 <code>AST</code> 的转换。</p>
 <p><code>AST</code>中所有结点类都在 <code>include/common/ast.hpp</code> 中有所定义，并在 <code>src/common/ast.cpp</code> 补充了相关实现。</p>
 <p>关于 <code>AST</code> 的具体知识请参考 <a href="../AST/">AST</a></p>
-<h3 id="实验内容">实验内容<a class="headerlink" href="#实验内容" title="Permanent link">&para;</a></h3>
+<h3 id="_1">实验内容</h3>
 <p>本部分需要各位同学在 <code>src/common/ast.cpp</code> 中，根据 Cminusf 的文法规则和 AST 结点类型完成由 <code>syntax_tree</code> 向 <code>AST</code> 的转化。</p>
 <p>在 <code>src/common/ast.cpp</code> 中，你需要补充部分 <code>TODO</code> 部分的代码逻辑，能够通过测试脚本生成恰当的 <code>AST</code>。例如输入</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
@@ -1057,8 +1057,8 @@
 <li><code>TODO4</code>：<code>ASTAdditiveExpression</code></li>
 <li><code>TODO5</code>：<code>ASTSelectionStmt</code></li>
 </ul>
-<h2 id="实验要求">实验要求<a class="headerlink" href="#实验要求" title="Permanent link">&para;</a></h2>
-<h3 id="仓库目录结构">仓库目录结构<a class="headerlink" href="#仓库目录结构" title="Permanent link">&para;</a></h3>
+<h2 id="_2">实验要求</h2>
+<h3 id="_3">仓库目录结构</h3>
 <p>与本次实验有关的文件如下。</p>
 <div class="highlight"><pre><span></span><code>.
 ├── build
@@ -1091,9 +1091,9 @@
     │   ├── output_standard_ast # 标准的ast输出
     └── testcases_general # 整个课程所用到的测试样例
 </code></pre></div>
-<h3 id="编译运行和评测">编译、运行和评测<a class="headerlink" href="#编译运行和评测" title="Permanent link">&para;</a></h3>
+<h3 id="_4">编译、运行和评测</h3>
 <p>首先将你的实验仓库克隆的本地虚拟机中。要编译和测试 <code>AST</code>，请按照以下步骤在本地虚拟机中进行操作：</p>
-<h4 id="编译">编译<a class="headerlink" href="#编译" title="Permanent link">&para;</a></h4>
+<h4 id="_5">编译</h4>
 <div class="highlight"><pre><span></span><code><span class="n">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="mi">2024u</span><span class="n">stc</span><span class="o">-</span><span class="n">jianmu</span><span class="o">-</span><span class="n">compiler</span>
 <span class="n">$</span><span class="w"> </span><span class="n">mkdir</span><span class="w"> </span><span class="n">build</span>
 <span class="n">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">build</span>
@@ -1112,7 +1112,7 @@ $ ./cminusfc
 <blockquote>
 <p>这里需要给 <code>cminusfc</code> 可执行文件 提供测试样例，也即 cminus 文件。</p>
 </blockquote>
-<h4 id="运行">运行<a class="headerlink" href="#运行" title="Permanent link">&para;</a></h4>
+<h4 id="_6">运行</h4>
 <p>我们在 <code>tests/testcases_general</code> 文件夹中准备了一些通用案例。</p>
 <div class="highlight"><pre><span></span><code><span class="cp"># 返回 2024ustc-jianmu-compiler 的根目录</span>
 
@@ -1123,7 +1123,7 @@ $ ./cminusfc
 <span class="o">----</span><span class="n">compound</span><span class="o">-</span><span class="n">stmt</span>
 <span class="o">------</span><span class="k">return</span><span class="o">-</span><span class="n">stmt</span><span class="o">:</span><span class="w"> </span><span class="kt">void</span>
 </code></pre></div>
-<h4 id="测试">测试<a class="headerlink" href="#测试" title="Permanent link">&para;</a></h4>
+<h4 id="_7">测试</h4>
 <p>测试样例分为两个部分，分别是 <code>tests/testcases_general</code> 和 lab1 限定的 <code>tests/1-parser</code>。</p>
 <p>我们重点使用 <code>tests/1-parser</code> 考察 AST 的正确性。其结构如下：</p>
 <div class="highlight"><pre><span></span><code>.

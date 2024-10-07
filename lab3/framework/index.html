@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#后端框架介绍" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -785,7 +785,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#极简框架" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       极简框架
     </span>
@@ -794,7 +794,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#基本类描述" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       基本类描述
     </span>
@@ -804,7 +804,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#指令类" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       指令类
     </span>
@@ -813,7 +813,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#寄存器类" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       寄存器类
     </span>
@@ -827,7 +827,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#辅助函数" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       辅助函数
     </span>
@@ -860,7 +860,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#变量分配" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       变量分配
     </span>
@@ -883,9 +883,9 @@
                   
 
 
-<h1 id="后端框架介绍">后端框架介绍<a class="headerlink" href="#后端框架介绍" title="Permanent link">&para;</a></h1>
+<h1 id="_1">后端框架介绍</h1>
 <p>本篇文档将介绍后端的代码框架。阅读前，你应该浏览下<a href="../#同步实验仓库">这里的目录结构</a>，对框架的文件布局有总体的印象。</p>
-<h2 id="极简框架">极简框架<a class="headerlink" href="#极简框架" title="Permanent link">&para;</a></h2>
+<h2 id="_2">极简框架</h2>
 <p>本次实验的框架相对简单，你只需要少量的代码阅读就能快速进入代码撰写的环节。</p>
 <p>顶层的 <code>Codegen</code> 类只维护了如下成员：</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">CodeGen</span><span class="w"> </span><span class="p">{</span>
@@ -927,9 +927,9 @@
 <span class="p">};</span>
 </code></pre></div>
 <p>初始代码已经为你处理好了一些繁琐的细节，如全局变量的定义及初始化、汇编中 <code>section</code> <code>type</code> 的定义等，所以你可以把重点放在栈式分配的实现中。</p>
-<h2 id="基本类描述">基本类描述<a class="headerlink" href="#基本类描述" title="Permanent link">&para;</a></h2>
+<h2 id="_3">基本类描述</h2>
 <p>框架对后端中的指令和寄存器进行了抽象，下面将依次介绍这两个基本类。</p>
-<h3 id="指令类">指令类<a class="headerlink" href="#指令类" title="Permanent link">&para;</a></h3>
+<h3 id="_4">指令类</h3>
 <p>指令类 <code>ASMInstruction</code> 是用来描述一行汇编指令的，在 <code>CodeGen</code> 中以 <code>std::list</code> 形式组织。指令类的代码定义如下：</p>
 <div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">ASMInstruction</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">enum</span><span class="w"> </span><span class="nc">InstType</span><span class="w"> </span><span class="p">{</span>
@@ -946,7 +946,7 @@
 <span class="p">};</span>
 </code></pre></div>
 <p>举个例子，<code>ASMInstruction("some debug info", ASMInstruction::Comment)</code> 定义了一个指令类实例，其用途是注释， <code>format()</code> 的返回结果是如下字符串：<code>"#some debug info\n"</code>。</p>
-<h3 id="寄存器类">寄存器类<a class="headerlink" href="#寄存器类" title="Permanent link">&para;</a></h3>
+<h3 id="_5">寄存器类</h3>
 <p>寄存器分为通用寄存器 <code>Reg</code> 、浮点寄存器 <code>FReg</code> 和条件标志寄存器 <code>CFReg</code>。</p>
 <p>以下是 <code>FReg</code> 的代码定义，<code>Reg</code> 与 <code>CFReg</code> 的定义与之类似：</p>
 <div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">FReg</span><span class="w"> </span><span class="p">{</span>
@@ -967,9 +967,9 @@
 <li><code>FReg(0)</code> 定义了寄存器 <code>$f0</code> 的实例，<code>print()</code> 的结果是 <code>"$fa0"</code></li>
 <li>为了获得 <code>$ft0</code> 的实例，你可以使用 <code>FReg(8)</code>，也可以使用更方便的<code>FReg::ft(0)</code></li>
 </ul>
-<h2 id="辅助函数">辅助函数<a class="headerlink" href="#辅助函数" title="Permanent link">&para;</a></h2>
+<h2 id="_6">辅助函数</h2>
 <p>在顶层的 <code>CodeGen</code> 类中，助教提供了很多辅助函数，主要是进行数据装载/写回的 load/store 相关和追加指令相关两大类，来帮助你更舒适地完成本次实验。</p>
-<h3 id="loadstore">load/store<a class="headerlink" href="#loadstore" title="Permanent link">&para;</a></h3>
+<h3 id="loadstore">load/store</h3>
 <p>阅读过<a href="../stack_allocation/">栈式分配介绍</a>后，你将认同：我们生成的汇编中，load、store 的使用会非常频繁。</p>
 <p>针对此，我们提供了如下函数，用于方便地提取数据至寄存器和将寄存器数据保存至栈上。</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">CodeGen</span><span class="w"> </span><span class="p">{</span>
@@ -996,7 +996,7 @@
 <span class="p">};</span>
 </code></pre></div>
 <p>关于这些 API，虽然在这里给出了一些注释，它们看起来很好用，但是仍然不建议你开箱即用，希望你能简单阅读一下源码，理解其中在做什么后，再拿来使用。</p>
-<h3 id="append_inst">append_inst()<a class="headerlink" href="#append_inst" title="Permanent link">&para;</a></h3>
+<h3 id="append_inst">append_inst()</h3>
 <p><code>CodeGen</code> 中以 <code>std::list</code> 的形式组织 <code>ASMInstruction</code>，<code>append_inst()</code> 接口就是用来添加新的 <code>ASMInstruction</code>。</p>
 <p>这里有两个版本的<code>append_inst()</code>：</p>
 <ul>
@@ -1016,7 +1016,7 @@
 <p>这么看还没有什么区别，在 <code>include/codegen/CodeGenUtil.hpp</code> 中，我们定义了一系列宏定义，你可以去看看，使用这些宏定义，结合其他 API，上述调用会变得不太一样：</p>
 <div class="highlight"><pre><span></span><code><span class="n">append_inst</span><span class="p">(</span><span class="n">STORE</span><span class="w"> </span><span class="n">DOUBLE</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="n">Reg</span><span class="o">::</span><span class="n">ra</span><span class="p">().</span><span class="n">print</span><span class="p">(),</span><span class="w"> </span><span class="n">Reg</span><span class="o">::</span><span class="n">sp</span><span class="p">().</span><span class="n">print</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;-8&quot;</span><span class="p">});</span>
 </code></pre></div>
-<h2 id="变量分配">变量分配<a class="headerlink" href="#变量分配" title="Permanent link">&para;</a></h2>
+<h2 id="_7">变量分配</h2>
 <p>关于变量分配的实验方案，我们已经在<a href="../stack_allocation/#实验方案">栈式分配介绍</a>中有过提及，初始代码已经为你实现，在 <code>src/codegen/CodeGen.cpp</code> 中的 <code>CodeGen::allocate()</code>。</p>
 <p>你可以设计自己喜欢的 <code>allocate()</code>，但是这不被推荐，因为我们不能保证框架的其他部分（主要是辅助函数）和你的设计兼容。</p>
 

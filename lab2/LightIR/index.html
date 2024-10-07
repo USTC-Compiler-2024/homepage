@@ -785,7 +785,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#light-ir-简介" class="md-nav__link">
+  <a href="#light-ir_1" class="md-nav__link">
     <span class="md-ellipsis">
       Light IR 简介
     </span>
@@ -794,7 +794,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#light-ir-指令" class="md-nav__link">
+  <a href="#light-ir_2" class="md-nav__link">
     <span class="md-ellipsis">
       Light IR 指令
     </span>
@@ -804,7 +804,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#light-ir-指令假设" class="md-nav__link">
+  <a href="#light-ir_3" class="md-nav__link">
     <span class="md-ellipsis">
       Light IR 指令假设
     </span>
@@ -813,7 +813,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#light-ir-指令详解" class="md-nav__link">
+  <a href="#light-ir_4" class="md-nav__link">
     <span class="md-ellipsis">
       Light IR 指令详解
     </span>
@@ -1057,8 +1057,8 @@
                   
 
 
-<h1 id="light-ir">Light IR<a class="headerlink" href="#light-ir" title="Permanent link">&para;</a></h1>
-<h2 id="light-ir-简介">Light IR 简介<a class="headerlink" href="#light-ir-简介" title="Permanent link">&para;</a></h2>
+<h1 id="light-ir">Light IR</h1>
+<h2 id="light-ir_1">Light IR 简介</h2>
 <p>本课程以 Cminusf 语言为源语言，从 LLVM IR 中裁剪出了适用于教学的精简的 IR 子集，并将其命名为 Light IR。同时依据 LLVM 的设计，为 Light IR 提供了配套简化的 <a href="../LightIR%20C%2B%2B/">C++ 库</a>，用于生成 IR。</p>
 <p>如下是一段 C 语言代码 <code>easy.c</code> 与 其对应的 IR 文件 <code>easy.ll</code> 示例。</p>
 <ul>
@@ -1095,8 +1095,8 @@
 <span class="p">}</span>
 <span class="p">;</span><span class="w"> </span><span class="p">...</span>
 </code></pre></div>
-<h2 id="light-ir-指令">Light IR 指令<a class="headerlink" href="#light-ir-指令" title="Permanent link">&para;</a></h2>
-<h3 id="light-ir-指令假设">Light IR 指令假设<a class="headerlink" href="#light-ir-指令假设" title="Permanent link">&para;</a></h3>
+<h2 id="light-ir_2">Light IR 指令</h2>
+<h3 id="light-ir_3">Light IR 指令假设</h3>
 <p>Light IR 指令从 LLVM IR 中裁剪得到，因此保留了 LLVM IR 如下的指令规范</p>
 <ul>
 <li>采用 3 地址的方式</li>
@@ -1125,10 +1125,10 @@
 <p>组合类型可以嵌套，例如前面的 <code>[10 x [10 x i32]]</code> 就是嵌套后的类型。</p>
 </li>
 </ul>
-<h3 id="light-ir-指令详解">Light IR 指令详解<a class="headerlink" href="#light-ir-指令详解" title="Permanent link">&para;</a></h3>
-<h4 id="terminator-instructions">Terminator Instructions<a class="headerlink" href="#terminator-instructions" title="Permanent link">&para;</a></h4>
+<h3 id="light-ir_4">Light IR 指令详解</h3>
+<h4 id="terminator-instructions">Terminator Instructions</h4>
 <p><strong>注</strong>：<code>ret</code> 与 <code>br</code> 都是 Terminator Instructions 也就是终止指令，在 llvm 基本块的定义里，基本块是单进单出的，因此只能有一条终止指令（<code>ret</code> 或 <code>br</code>）。</p>
-<h5 id="ret">Ret<a class="headerlink" href="#ret" title="Permanent link">&para;</a></h5>
+<h5 id="ret">Ret</h5>
 <ul>
 <li>概念：返回指令。用于将控制流（以及可选的值）从函数返回给调用者。<code>ret</code>指令有两种形式：一种返回值，然后终结函数，另一种仅终结函数。</li>
 <li>格式</li>
@@ -1138,7 +1138,7 @@
 <li><code>ret i32 %0</code></li>
 <li><code>ret void</code></li>
 </ul>
-<h5 id="br">Br<a class="headerlink" href="#br" title="Permanent link">&para;</a></h5>
+<h5 id="br">Br</h5>
 <ul>
 <li>概念：跳转指令。用于使控制流转移到当前功能中的另一个基本块。该指令有两种形式，分别对应于条件分支和无条件分支。</li>
 <li>格式：</li>
@@ -1148,8 +1148,8 @@
 <li><code>br i1 %cond, label %truebb, label %falsebb</code></li>
 <li><code>br label %bb</code></li>
 </ul>
-<h4 id="standard-binary-instructions">Standard Binary Instructions<a class="headerlink" href="#standard-binary-instructions" title="Permanent link">&para;</a></h4>
-<h5 id="add-fadd">Add FAdd<a class="headerlink" href="#add-fadd" title="Permanent link">&para;</a></h5>
+<h4 id="standard-binary-instructions">Standard Binary Instructions</h4>
+<h5 id="add-fadd">Add FAdd</h5>
 <ul>
 <li>概念：<code>add</code>指令返回其两个<code>i32</code>类型的操作数之和，返回值为<code>i32</code>类型，<code>fadd</code>指令返回其两个<code>float</code>类型的操作数之和，返回值为<code>float</code>类型。</li>
 <li>格式：</li>
@@ -1159,23 +1159,23 @@
 <li><code>%2 = add i32 %1, %0</code></li>
 <li><code>%2 = fadd float %1, %0</code></li>
 </ul>
-<h5 id="sub-fsub">Sub FSub<a class="headerlink" href="#sub-fsub" title="Permanent link">&para;</a></h5>
+<h5 id="sub-fsub">Sub FSub</h5>
 <ul>
 <li>概念：<code>sub</code>指令返回其两个<code>i32</code>类型的操作数之差，返回值为<code>i32</code>类型，<code>fsub</code>指令返回其两个<code>float</code>类型的操作数之差，返回值为<code>float</code>类型。</li>
 <li>格式与例子与<code>add</code>，<code>fadd</code>类似</li>
 </ul>
-<h5 id="mul-fmul">Mul FMul<a class="headerlink" href="#mul-fmul" title="Permanent link">&para;</a></h5>
+<h5 id="mul-fmul">Mul FMul</h5>
 <ul>
 <li>概念：<code>mul</code>指令返回其两个<code>i32</code>类型的操作数之积，返回值为<code>i32</code>类型，<code>fmul</code>指令返回其两个<code>float</code>类型的操作数之积，返回值为<code>float</code>类型。</li>
 <li>格式与例子与<code>add</code>，<code>fadd</code>类似</li>
 </ul>
-<h5 id="sdiv-fdiv">SDiv FDiv<a class="headerlink" href="#sdiv-fdiv" title="Permanent link">&para;</a></h5>
+<h5 id="sdiv-fdiv">SDiv FDiv</h5>
 <ul>
 <li>概念：<code>sdiv</code>指令返回其两个<code>i32</code>类型的操作数之商，返回值为<code>i32</code>类型，<code>fdiv</code>指令返回其两个<code>float</code>类型的操作数之商，返回值为<code>float</code>类型。</li>
 <li>格式与例子与<code>add</code>，<code>fadd</code>类似</li>
 </ul>
-<h4 id="memory-instructions">Memory Instructions<a class="headerlink" href="#memory-instructions" title="Permanent link">&para;</a></h4>
-<h5 id="alloca">Alloca<a class="headerlink" href="#alloca" title="Permanent link">&para;</a></h5>
+<h4 id="memory-instructions">Memory Instructions</h4>
+<h5 id="alloca">Alloca</h5>
 <ul>
 <li>概念： <code>alloca</code>指令在当前执行函数的栈帧（Stack Frame）上分配内存。</li>
 <li>格式：<code>&lt;result&gt; = alloca &lt;type&gt;</code></li>
@@ -1183,39 +1183,39 @@
 <li><code>%ptr = alloca i32</code></li>
 <li><code>%ptr = alloca [10 x i32]</code></li>
 </ul>
-<h5 id="load">Load<a class="headerlink" href="#load" title="Permanent link">&para;</a></h5>
+<h5 id="load">Load</h5>
 <ul>
 <li>概念：<code>load</code>指令用于从内存中读取。</li>
 <li>格式：<code>&lt;result&gt; = load &lt;type&gt;, &lt;type&gt;* &lt;pointer&gt;</code></li>
 <li>例子：<code>%val = load i32, i32* %ptr</code></li>
 </ul>
-<h5 id="store">Store<a class="headerlink" href="#store" title="Permanent link">&para;</a></h5>
+<h5 id="store">Store</h5>
 <ul>
 <li>概念：<code>store</code>指令用于写入内存。</li>
 <li>格式：<code>store &lt;type&gt; &lt;value&gt;, &lt;type&gt;* &lt;pointer&gt;</code></li>
 <li>例子：<code>store i32 3, i32* %ptr</code></li>
 </ul>
-<h4 id="castinst">CastInst<a class="headerlink" href="#castinst" title="Permanent link">&para;</a></h4>
-<h5 id="zext">ZExt<a class="headerlink" href="#zext" title="Permanent link">&para;</a></h5>
+<h4 id="castinst">CastInst</h4>
+<h5 id="zext">ZExt</h5>
 <ul>
 <li>概念：<code>zext</code>指令将其操作数 <strong>零</strong> 扩展为<code>type2</code>类型。</li>
 <li>格式：<code>&lt;result&gt; = zext &lt;type&gt; &lt;value&gt; to &lt;type2&gt;</code></li>
 <li>例子：<code>%1 = zext i1 %0 to i32</code></li>
 </ul>
-<h5 id="fptosi">FpToSi<a class="headerlink" href="#fptosi" title="Permanent link">&para;</a></h5>
+<h5 id="fptosi">FpToSi</h5>
 <ul>
 <li>概念：<code>fptosi</code>指令将浮点值转换为<code>type2</code>（整数）类型。</li>
 <li>格式：<code>&lt;result&gt; = fptosi &lt;type&gt; &lt;value&gt; to &lt;type2&gt;</code></li>
 <li>例子：<code>%Y = fptosi float 1.0E-247 to i32</code></li>
 </ul>
-<h5 id="sitofp">SiToFp<a class="headerlink" href="#sitofp" title="Permanent link">&para;</a></h5>
+<h5 id="sitofp">SiToFp</h5>
 <ul>
 <li>概念：<code>sitofp</code>指令将有符号整数转换为<code>type2</code>（浮点数）类型。</li>
 <li>格式：<code>&lt;result&gt; = sitofp &lt;type&gt; &lt;value&gt; to &lt;type2&gt;</code></li>
 <li>例子：<code>%X = sitofp i32 257 to float</code></li>
 </ul>
-<h4 id="other-instructions">Other Instructions<a class="headerlink" href="#other-instructions" title="Permanent link">&para;</a></h4>
-<h5 id="icmp-fcmp">ICmp FCmp<a class="headerlink" href="#icmp-fcmp" title="Permanent link">&para;</a></h5>
+<h4 id="other-instructions">Other Instructions</h4>
+<h5 id="icmp-fcmp">ICmp FCmp</h5>
 <ul>
 <li>概念：<code>icmp</code>指令根据两个整数的比较返回布尔值，<code>fcmp</code>指令根据两个浮点数的比较返回布尔值。</li>
 <li>格式：</li>
@@ -1229,7 +1229,7 @@
 </li>
 <li>例子：<code>i1 %2 = icmp sge i32 %0, %1</code></li>
 </ul>
-<h5 id="call">Call<a class="headerlink" href="#call" title="Permanent link">&para;</a></h5>
+<h5 id="call">Call</h5>
 <ul>
 <li>概念：<code>call</code>指令用于使控制流转移到指定的函数，其传入参数绑定到指定的值。在被调用函数中执行<code>ret</code>指令后，如果被调用函数返回值不为 <code>void</code> 类型，控制流程将在函数调用后继续执行该指令，并且该函数的返回值绑定到<code>result</code>参数。</li>
 <li>格式：</li>
@@ -1239,7 +1239,7 @@
 <li><code>%0 = call i32 @func( i32 %1, i32* %0)</code></li>
 <li><code>call @func( i32 %arg)</code></li>
 </ul>
-<h5 id="getelementptr">GetElementPtr<a class="headerlink" href="#getelementptr" title="Permanent link">&para;</a></h5>
+<h5 id="getelementptr">GetElementPtr</h5>
 <ul>
 <li>概念：<code>getelementptr</code>指令用于获取数组结构的元素的地址。它 <strong>仅执行地址计算</strong> ，并且不访问内存。</li>
 <li>格式</li>

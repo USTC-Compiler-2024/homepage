@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ir-自动化生成" class="md-skip">
+        <a href="#ir" class="md-skip">
           跳转至
         </a>
       
@@ -785,7 +785,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#实验框架介绍" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       实验框架介绍
     </span>
@@ -795,7 +795,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#抽象语法树" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       抽象语法树
     </span>
@@ -804,7 +804,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#符号表-scope" class="md-nav__link">
+  <a href="#scope" class="md-nav__link">
     <span class="md-ellipsis">
       符号表 Scope
     </span>
@@ -813,7 +813,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#cminusfbuilder-类" class="md-nav__link">
+  <a href="#cminusfbuilder" class="md-nav__link">
     <span class="md-ellipsis">
       CminusfBuilder 类
     </span>
@@ -827,7 +827,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#实验内容" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       实验内容
     </span>
@@ -836,7 +836,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#编译运行和评测" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       编译、运行和评测
     </span>
@@ -846,7 +846,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#编译" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       编译
     </span>
@@ -855,7 +855,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#运行" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       运行
     </span>
@@ -865,7 +865,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#情况一生成-ir-文件" class="md-nav__link">
+  <a href="#ir_1" class="md-nav__link">
     <span class="md-ellipsis">
       情况一：生成 IR 文件
     </span>
@@ -874,7 +874,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#情况二生成可执行文件" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       情况二：生成可执行文件
     </span>
@@ -888,7 +888,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#评测" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       评测
     </span>
@@ -916,7 +916,7 @@
                   
 
 
-<h1 id="ir-自动化生成">IR 自动化生成<a class="headerlink" href="#ir-自动化生成" title="Permanent link">&para;</a></h1>
+<h1 id="ir">IR 自动化生成</h1>
 <p>学生将在本阶段提供的实验框架下，利用访问者模式遍历抽象语法树，调用 Light IR C++ 库，实现 IR 自动化生成。</p>
 <p>与该阶段有关的文件如下：</p>
 <div class="highlight"><pre><span></span><code>.
@@ -943,14 +943,14 @@
             ├── answers                  &lt;- 助教提供的测试样例
             └── eval_lab2.sh             &lt;- 助教提供的测试脚本
 </code></pre></div>
-<h2 id="实验框架介绍">实验框架介绍<a class="headerlink" href="#实验框架介绍" title="Permanent link">&para;</a></h2>
-<h3 id="抽象语法树">抽象语法树<a class="headerlink" href="#抽象语法树" title="Permanent link">&para;</a></h3>
+<h2 id="_1">实验框架介绍</h2>
+<h3 id="_2">抽象语法树</h3>
 <div class="admonition notes">
 <p class="admonition-title">分析树（Parse Tree）与抽象语法树（Abstract Syntax Tree）</p>
 <p>分析树在语法分析的过程中被构造；抽象语法树则是分析树的浓缩表示，使用运算符作为根节点和内部节点，并使用操作数作为子节点。进一步了解可以阅读 <a href="https://stackoverflow.com/questions/5026517/whats-the-difference-between-parse-trees-and-abstract-syntax-trees-asts">分析树和抽象语法树的比较</a>。</p>
 </div>
 <p>实验框架实现了 Lab1 生成的分析树到 C++ 上的抽象语法树的转换。可以使用<a href="../visitor_pattern/">访问者模式</a>来实现对抽象语法树的遍历，<a href="https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024ustc-jianmu-compiler/-/blob/main/include/common/ast.hpp">ast.hpp</a> 文件中包含抽象语法树节点定义。</p>
-<h3 id="符号表-scope">符号表 Scope<a class="headerlink" href="#符号表-scope" title="Permanent link">&para;</a></h3>
+<h3 id="scope">符号表 Scope</h3>
 <p>在 <code>include/cminusf_builder.hpp</code> 中，我们定义了一个用于存储作用域的类 <code>Scope</code>。它的作用是辅助我们在遍历语法树时，管理不同作用域中的变量。它提供了以下接口：</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// 进入一个新的作用域</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">enter</span><span class="p">();</span>
@@ -964,7 +964,7 @@
 <span class="kt">bool</span><span class="w"> </span><span class="nf">in_global</span><span class="p">();</span>
 </code></pre></div>
 <p>你需要根据语义合理调用 <code>enter</code> 与 <code>exit</code>，并且在变量声明和使用时正确调用 <code>push</code> 与 <code>find</code>。</p>
-<h3 id="cminusfbuilder-类"><code>CminusfBuilder</code> 类<a class="headerlink" href="#cminusfbuilder-类" title="Permanent link">&para;</a></h3>
+<h3 id="cminusfbuilder"><code>CminusfBuilder</code> 类</h3>
 <p><code>CminusfBuilder</code> 类定义在 <a href="https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024ustc-jianmu-compiler/-/blob/main/include/cminusfc/cminusf_builder.hpp">cminusf_builder.hpp</a>文件中，<code>CminusfBuilder</code> 类中定义了对抽象语法树不同语法节点的 <code>visit</code> 函数，实验已给出了一些语法树节点的访问规则，其余的需要学生补充。</p>
 <p>在 <code>CminusfBuilder</code> 构造函数函数中，下列代码片段是对 <a href="../cminusf%E8%AF%AD%E4%B9%89/">Cminusf 语义</a>中的 4 个预定义函数进行声明并加入全局符号表中，在生成 IR 时可从符号表中查找。我们的测试样例会使用这些函数，从而实现 IO。</p>
 <div class="highlight"><pre><span></span><code><span class="n">scope</span><span class="p">.</span><span class="n">enter</span><span class="p">();</span>
@@ -979,7 +979,7 @@
 <span class="w">    </span><span class="n">Function</span><span class="w"> </span><span class="o">*</span><span class="n">func</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
 <span class="p">}</span><span class="w"> </span><span class="n">context</span><span class="p">;</span>
 </code></pre></div>
-<h2 id="实验内容">实验内容<a class="headerlink" href="#实验内容" title="Permanent link">&para;</a></h2>
+<h2 id="_3">实验内容</h2>
 <p>阅读 <a href="../cminusf%E8%AF%AD%E4%B9%89/">Cminusf 语义</a>，并根据语义补全 <code>include/cminusfc/cminusf_builder.hpp</code> 与 <code>src/cminusfc/cminusf_builder.cpp</code> 文件，实现 IR 自动产生的算法，使得它能正确编译任何合法的 Cminusf 程序，生成符合 <a href="../cminusf%E8%AF%AD%E4%B9%89/">Cminusf 语义</a>的 IR。</p>
 <p><strong>友情提示</strong>：</p>
 <ol>
@@ -988,8 +988,8 @@
 <li>我们为 <code>Function</code>、<code>Type</code> 等类都实现了 <code>print</code> 接口，可以使用我们提供的 <a href="../../lab0/debug/#logging-工具使用">logging 工具</a> 进行打印调试。</li>
 <li>对于 C++ 不熟悉的学生可以复习 <a href="../../lab0/cpp/">Lab0 的 C++ 简介</a>。</li>
 </ol>
-<h2 id="编译运行和评测">编译、运行和评测<a class="headerlink" href="#编译运行和评测" title="Permanent link">&para;</a></h2>
-<h3 id="编译">编译<a class="headerlink" href="#编译" title="Permanent link">&para;</a></h3>
+<h2 id="_4">编译、运行和评测</h2>
+<h3 id="_5">编译</h3>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>2024ustc-jianmu-compiler
 $<span class="w"> </span>mkdir<span class="w"> </span>build
 $<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
@@ -1001,9 +1001,9 @@ $<span class="w"> </span>make
 $<span class="w"> </span>sudo<span class="w"> </span>make<span class="w"> </span>install
 </code></pre></div>
 <p>如果构建成功，你会在 <code>build</code> 文件夹下找到 cminusfc 可执行文件，它能将 cminus 文件输出为 IR 文件，编译成二进制可执行文件。</p>
-<h3 id="运行">运行<a class="headerlink" href="#运行" title="Permanent link">&para;</a></h3>
+<h3 id="_6">运行</h3>
 <p>我们在 <code>tests/testcases_general</code> 文件夹中准备了一些通用案例。当需要对 <code>.cminus</code> 单个文件测试时，可以这样使用：</p>
-<h4 id="情况一生成-ir-文件">情况一：生成 IR 文件<a class="headerlink" href="#情况一生成-ir-文件" title="Permanent link">&para;</a></h4>
+<h4 id="ir_1">情况一：生成 IR 文件</h4>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>为了让 cminusfc 在 <code>$PATH</code> 中，一定要 <code>sudo make install</code>。</p>
@@ -1012,7 +1012,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>make<span class="w"> </span
 $<span class="w"> </span>cminusfc<span class="w"> </span>test.cminus<span class="w"> </span>-emit-llvm
 </code></pre></div>
 <p>此时会在同目录下生成同名的 .ll 文件，在这里即为 <code>test.ll</code>。也可以使用 <code>-o</code> 指定输出文件名，比如 <code>cminusfc test.cminus -emit-llvm -o anyname.ll</code>，这里 <code>-o anyname.ll</code> 与 <code>-emit-llvm</code> 的顺序可以是任意的。</p>
-<h4 id="情况二生成可执行文件">情况二：生成可执行文件<a class="headerlink" href="#情况二生成可执行文件" title="Permanent link">&para;</a></h4>
+<h4 id="_7">情况二：生成可执行文件</h4>
 <p>上面生成的 .ll 文件用于阅读，如果需要运行，需要调用 clang 编译链接生成二进制文件 <code>test</code></p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>clang<span class="w"> </span>-O0<span class="w"> </span>-w<span class="w"> </span>-no-pie<span class="w"> </span>test.ll<span class="w"> </span>-o<span class="w"> </span><span class="nb">test</span><span class="w"> </span>-lcminus_io
 </code></pre></div>
@@ -1020,7 +1020,7 @@ $<span class="w"> </span>cminusfc<span class="w"> </span>test.cminus<span class=
 <p class="admonition-title">Note</p>
 <p>上面的命令编译了 <code>test.ll</code>，并链接了 <code>cminus_io</code> 库。</p>
 </div>
-<h3 id="评测">评测<a class="headerlink" href="#评测" title="Permanent link">&para;</a></h3>
+<h3 id="_8">评测</h3>
 <p>自动测试脚本和所有测试样例都是公开的，它在 <code>tests/2-ir-gen/autogen</code> 目录下，使用方法如下：</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># 在 tests/2-ir-gen/autogen 目录下运行：</span>
 $<span class="w"> </span>./eval_lab2.sh
