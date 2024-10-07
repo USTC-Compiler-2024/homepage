@@ -65,7 +65,7 @@ git push origin lab1
 
 - 在希冀平台提交你实验仓库的 url（如 `https://cscourse.ustc.edu.cn/vdir/Gitlab/xxx/2024ustc-jianmu-compiler.git`）。
 - 在希冀平台提交你的 `answer.pdf` 文件，其中包含：
-    - [正则表达式](./正则表达式.md#_2)
-    - [Flex](./Flex.md#_4)
-    - [Bison](./Bison.md#_2)
+    - [正则表达式](./正则表达式.md#思考题)
+    - [Flex](./Flex.md#思考题)
+    - [Bison](./Bison.md#思考题)
 
