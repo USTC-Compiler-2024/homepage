@@ -54,7 +54,7 @@ LLVM IR 指令参考手册：[Reference Manual](https://llvm.org/docs/LangRef.ht
     $ echo $?
     ```
 
-    [gcd_array.c](https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2023ustc-jianmu-compiler/-/blob/master/tests/2-ir-gen/warmup/ta_gcd/gcd_array.c) 是实验提供的例子，学生可以通过使用 clang 翻译示例，并查阅 [Light IR 手册](./LightIR.md#light-ir-指令)来理解每条 LLVM IR 指令含义。
+    [gcd_array.c](https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024ustc-jianmu-compiler/-/blob/main/tests/2-ir-gen/warmup/ta_gcd/gcd_array.c) 是实验提供的例子，学生可以通过使用 clang 翻译示例，并查阅 [Light IR 手册](./LightIR.md#light-ir-指令)来理解每条 LLVM IR 指令含义。
     
 
 
@@ -94,7 +94,7 @@ Light IR IR C++ 库参考手册：[Light IR cpp APIs](./LightIR C++.md)
 
 ### 使用 Light IR C++ 库生成 IR 示例
 
-阅读样例 [gcd_array.c](https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2023ustc-jianmu-compiler/-/blob/master/tests/2-ir-gen/warmup/ta_gcd/gcd_array.c), [gcd_array_generator.cpp](https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2023ustc-jianmu-compiler/-/blob/master/tests/2-ir-gen/warmup/ta_gcd/gcd_array_generator.cpp)。结合该样例的注释与 [Light IR C++ 库](./LightIR C++.md)章节，掌握使用 Light IR C++ 库生成 IR 的方法
+阅读样例 [gcd_array.c](https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024ustc-jianmu-compiler/-/blob/main/tests/2-ir-gen/warmup/ta_gcd/gcd_array.c), [gcd_array_generator.cpp](https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024ustc-jianmu-compiler/-/blob/main/tests/2-ir-gen/warmup/ta_gcd/gcd_array_generator.cpp)。结合该样例的注释与 [Light IR C++ 库](./LightIR C++.md)章节，掌握使用 Light IR C++ 库生成 IR 的方法
 
 ### 实验内容
 
