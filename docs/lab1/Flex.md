@@ -129,31 +129,30 @@ $ info flex
 
 1. 如果存在同时以下规则和动作，对于字符串 `+=`，哪条规则会被触发，并尝试解释理由。
 
-    ```c
-    %%
-    \+ { return ADD; }
-    = { return ASSIGN; }
-    \+= { return ASSIGNADD; }
-    %%
-    ```
+   ```c
+   %%
+   \+ { return ADD; }
+   = { return ASSIGN; }
+   \+= { return ASSIGNADD; }
+   %%
+   ```
 
 2. 如果存在同时以下规则和动作，对于字符串 `ABC`，哪条规则会被触发，并尝试解释理由。
 
-    ```c
-    %%
-    ABC { return 1; }
-    [a-zA-Z]+ {return 2; }
-    %%
-    ```
+   ```c
+   %%
+   ABC { return 1; }
+   [a-zA-Z]+ {return 2; }
+   %%
+   ```
 
 3. 如果存在同时以下规则和动作，对于字符串 `ABC`，哪条规则会被触发，并尝试解释理由。
 
-    ```c
-    %%
-    [a-zA-Z]+ {return 2; }
-    ABC { return 1; }
-    %%
-    ```
+   ```c
+   %%
+   [a-zA-Z]+ {return 2; }
+   ABC { return 1; }
+   %%
+   ```
 
 提示：你可以编写相关程序，实际进行执行。具体原因在 Flex 自带手册的 `Matching` 章节中有详细说明。
-

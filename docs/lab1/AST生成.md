@@ -1,4 +1,4 @@
-# AST生成
+# AST 生成
 
 ## `syntax_tree` 向 AST 的转换
 
@@ -10,7 +10,7 @@
 
 ### 实验内容
 
-本部分需要各位同学在 `src/common/ast.cpp` 中，根据 Cminusf 的文法规则和 AST 结点类型完成由 `syntax_tree` 向 `AST` 的转化。 
+本部分需要各位同学在 `src/common/ast.cpp` 中，根据 Cminusf 的文法规则和 AST 结点类型完成由 `syntax_tree` 向 `AST` 的转化。
 
 在 `src/common/ast.cpp` 中，你需要补充部分 `TODO` 部分的代码逻辑，能够通过测试脚本生成恰当的 `AST`。例如输入
 
@@ -33,7 +33,7 @@ program
 
 **这一部分必须严格遵守我们给出的语法，输出必须与标准程序输出完全一致。**
 
-这部分一共有5个 `TODO` 待实现，请按照 `TODO` 的顺序实现，并仿照其他结点的实现逻辑，填充代码。
+这部分一共有 5 个 `TODO` 待实现，请按照 `TODO` 的顺序实现，并仿照其他结点的实现逻辑，填充代码。
 
 - `TODO1`：`ASTFunDeclaration`
 - `TODO2`：`ASTCompoundStmt`
@@ -106,7 +106,7 @@ $ ./cminusfc
 ./cminusfc: no input file
 ```
 
->这里需要给 `cminusfc` 可执行文件 提供测试样例，也即 cminus文件。
+> 这里需要给 `cminusfc` 可执行文件 提供测试样例，也即 cminus 文件。
 
 #### 运行
 
@@ -116,7 +116,7 @@ $ ./cminusfc
 # 返回 2024ustc-jianmu-compiler 的根目录
 
 # 运行 cminusfc，进行AST生成
-$ ./build/cminusfc ./tests/testcases_general/1-return.cminus 
+$ ./build/cminusfc ./tests/testcases_general/1-return.cminus
 program
 --fun-declaration: main
 ----compound-stmt
@@ -127,7 +127,7 @@ program
 
 测试样例分为两个部分，分别是 `tests/testcases_general` 和 lab1 限定的 `tests/1-parser`。
 
-我们重点使用 `tests/1-parser` 考察AST的正确性。其结构如下：
+我们重点使用 `tests/1-parser` 考察 AST 的正确性。其结构如下：
 
 ```
 .
@@ -164,59 +164,59 @@ $ diff output_student_ast/normal/local-decl.ast output_standard_ast/normal/local
 
 该脚本有两种使用方式
 
-- 使用 `-all` 参数一键测试 4个测试集的所有样例。并会在最后给出正确的样例个数，如下。
+- 使用 `-all` 参数一键测试 4 个测试集的所有样例。并会在最后给出正确的样例个数，如下。
 
-    ```
-    innerpeace@innerpeace:~/stl_debug/tests/1-parser$ ./eval_phase2.sh -all
-    [info] Found 2 valid files in /home/innerpeace/stl_debug/tests/1-parser/input/easy
-    [info] Skipping FAIL_comment2.cminus (starts with FAIL)
-    [info] Skipping FAIL_comment.cminus (starts with FAIL)
-    [info] Skipping FAIL_function.cminus (starts with FAIL)
-    [info] Skipping FAIL_id.cminus (starts with FAIL)
-    [info] Analyzing id.cminus
-    [info] Comparing id.cminus...
-    [info] id.cminus is correct!
-    [info] Score for /home/innerpeace/stl_debug/tests/1-parser/input/easy: 2/2
-    [info] Found 5 valid files in /home/innerpeace/stl_debug/tests/1-parser/input/normal
-    ...
-    [info] local-decl.cminus is correct!
-    [info] Analyzing skip_spaces.cminus
-    [info] Comparing skip_spaces.cminus...
-    [info] skip_spaces.cminus is correct!
-    [info] Score for /home/innerpeace/stl_debug/tests/1-parser/input/normal: 5/5
-    [info] Found 6 valid files in /home/innerpeace/stl_debug/tests/1-parser/input/hard
-    ...
-    [info] Analyzing You_Should_Pass.cminus
-    [info] Comparing You_Should_Pass.cminus...
-    [info] You_Should_Pass.cminus is correct!
-    [info] Score for /home/innerpeace/stl_debug/tests/1-parser/input/hard: 6/6
-    [info] Found 21 valid files in /home/innerpeace/stl_debug/tests/1-parser/../testcases_general
-    ...
-    [info] Analyzing 9-assign_cast.cminus
-    [info] Comparing 9-assign_cast.cminus...
-    [info] 9-assign_cast.cminus is correct!
-    [info] Score for /home/innerpeace/stl_debug/tests/1-parser/../testcases_general: 21/21
-    [info] Total score for all testcases: 34/34
-    ```
+  ```
+  innerpeace@innerpeace:~/stl_debug/tests/1-parser$ ./eval_phase2.sh -all
+  [info] Found 2 valid files in /home/innerpeace/stl_debug/tests/1-parser/input/easy
+  [info] Skipping FAIL_comment2.cminus (starts with FAIL)
+  [info] Skipping FAIL_comment.cminus (starts with FAIL)
+  [info] Skipping FAIL_function.cminus (starts with FAIL)
+  [info] Skipping FAIL_id.cminus (starts with FAIL)
+  [info] Analyzing id.cminus
+  [info] Comparing id.cminus...
+  [info] id.cminus is correct!
+  [info] Score for /home/innerpeace/stl_debug/tests/1-parser/input/easy: 2/2
+  [info] Found 5 valid files in /home/innerpeace/stl_debug/tests/1-parser/input/normal
+  ...
+  [info] local-decl.cminus is correct!
+  [info] Analyzing skip_spaces.cminus
+  [info] Comparing skip_spaces.cminus...
+  [info] skip_spaces.cminus is correct!
+  [info] Score for /home/innerpeace/stl_debug/tests/1-parser/input/normal: 5/5
+  [info] Found 6 valid files in /home/innerpeace/stl_debug/tests/1-parser/input/hard
+  ...
+  [info] Analyzing You_Should_Pass.cminus
+  [info] Comparing You_Should_Pass.cminus...
+  [info] You_Should_Pass.cminus is correct!
+  [info] Score for /home/innerpeace/stl_debug/tests/1-parser/input/hard: 6/6
+  [info] Found 21 valid files in /home/innerpeace/stl_debug/tests/1-parser/../testcases_general
+  ...
+  [info] Analyzing 9-assign_cast.cminus
+  [info] Comparing 9-assign_cast.cminus...
+  [info] 9-assign_cast.cminus is correct!
+  [info] Score for /home/innerpeace/stl_debug/tests/1-parser/../testcases_general: 21/21
+  [info] Total score for all testcases: 34/34
+  ```
 
-    一共有34个测试样例（除去phase1中的6个无法生成 `syntax_tree` 的样例）
+  一共有 34 个测试样例（除去 phase1 中的 6 个无法生成 `syntax_tree` 的样例）
 
-    >请按TODO的顺序完成，如果严格按照顺序实现，参考得分如下。当然，你也可以一次性全部做完再做测试
-    >
-    >- `TODO1`：`Total score for all testcases: 1/34`
-    >- `TODO2`：`Total score for all testcases: 8/34`
-    >- `TODO3`：`Total score for all testcases: 15/34`
-    >- `TODO4`：`Total score for all testcases: 23/34`
-    >- `TODO5`：`Total score for all testcases: 34/34`
+  > 请按 TODO 的顺序完成，如果严格按照顺序实现，参考得分如下。当然，你也可以一次性全部做完再做测试
+  >
+  > - `TODO1`：`Total score for all testcases: 1/34`
+  > - `TODO2`：`Total score for all testcases: 8/34`
+  > - `TODO3`：`Total score for all testcases: 15/34`
+  > - `TODO4`：`Total score for all testcases: 23/34`
+  > - `TODO5`：`Total score for all testcases: 34/34`
 
 - 第二种使用方法：
 
-    第一个参数可以是 `easy`、 `normal`、 `hard` 以及 `testcases_general`，并且有第二个可选参数，用于批量 `diff` 和助教提供的标准参考结果进行比较。
+  第一个参数可以是 `easy`、 `normal`、 `hard` 以及 `testcases_general`，并且有第二个可选参数，用于批量 `diff` 和助教提供的标准参考结果进行比较。
 
-    第二个参数为 `no/yes/verbose`
+  第二个参数为 `no/yes/verbose`
 
-    - `no`：不进行`diff`
-    - `yes`：进行`diff`
-    - `verbose`：进行`diff`，并得到更详细的输出
+  - `no`：不进行`diff`
+  - `yes`：进行`diff`
+  - `verbose`：进行`diff`，并得到更详细的输出
 
 脚本运行后会将生成结果放在 `tests/1-parser/output_student_ast` 文件夹里，而助教的参考输出则在 `tests/1-parser/output_standard_ast` 中。

@@ -1,4 +1,4 @@
-# 在CMake构建的大型项目中如何Debug
+# 在 CMake 构建的大型项目中如何 Debug
 
 ??? Info "CMake"
 
@@ -6,17 +6,19 @@
 
 对于一个大型工程而言，Debug 是相对困难的，我们为大家提供了两种可行的 Debug 方法，**<font color = red>这两种调试方法并不是互斥的，我们强烈建议组合使用</font>**
 
-## Clangd语言服务器
+## Clangd 语言服务器
 
 大家在以往写 C/C++ 工程时，肯定都使用过 Microsoft C/C++ ，但该扩展在较大的的项目中表现并不优秀。我们强烈建议大家使用 Clangd 并在 VSCode 中安装 Clangd 扩展。
 
-在终端输入以下命令安装 Clangd ：
+在终端输入以下命令安装 Clangd：
+
 ```shell
 sudo apt install clangd
 ```
-安装完成后在VSCode中搜索 Clangd 并安装
+
+安装完成后在 VSCode 中搜索 Clangd 并安装
 ![Clangd](photos/Clangd.png)
-    
+
 由于 Clangd 和 Microsoft C/C++ 扩展冲突，我们建议大家在使用 Clangd 时禁用 Microsoft C/C++ 扩展。
 
 如果正确安装了 Clangd，那么可以通过以下方式进行跳转：
@@ -27,9 +29,7 @@ sudo apt install clangd
 
 同时，Clangd 还提供了强大的代码补全功能和错误提示功能，可以帮助同学们更好地编写代码。大家可以在之后的实验中一一体验。
 
-
-
-## 图形化的LLDB调试工具
+## 图形化的 LLDB 调试工具
 
 ???+ Info "依赖"
 
@@ -55,9 +55,9 @@ sudo apt install clangd
     - CMake & CMake Tools
         ![CMakeExt](photos/CMake.png)
 
-    **安装CMake扩展后会弹出窗口提示选择工具包(ToolKit)，请选择最高版本的clang**。
+    **安装 CMake 扩展后会弹出窗口提示选择工具包 (ToolKit)，请选择最高版本的 clang**。
 
-LLDB是LLVM项目开发的调试器，通过设置VSCode扩展可以方便地调试大型项目。下面将以一个小型工程为例：
+LLDB 是 LLVM 项目开发的调试器，通过设置 VSCode 扩展可以方便地调试大型项目。下面将以一个小型工程为例：
 
 ### 克隆需要的测试工程并构建项目
 
@@ -77,7 +77,7 @@ make
 
 经过这一步后，在`${workspaceFolder}/build/src/`下可以找到生成的可执行文件`lab0_debug`
 
-运行lab0_debug，你会得到类似下面的输出：
+运行 lab0_debug，你会得到类似下面的输出：
 
 ```shell
 
@@ -104,18 +104,18 @@ Human destructor called
 Human destructor called
 ```
 
-我们将在下面一小节来带大家de出这个bug！
+我们将在下面一小节来带大家 de 出这个 bug！
 
 ### json 文件设置及 debug 示例
 
-`.vscode/launch.json`文件记录了调试器需要的基本信息，它是由vscode自动生成的。
+`.vscode/launch.json`文件记录了调试器需要的基本信息，它是由 vscode 自动生成的。
 
-??? Info "如何自动生成一个.json文件"
+??? Info "如何自动生成一个.json 文件"
 
     点击`运行/启动调试(F5)`：
 
     ![F5](photos/F5.png)
-    
+
     上方提示栏弹出，选择LLDB：
 
     ![LLDB](photos/LLDB.png)
@@ -126,7 +126,7 @@ Human destructor called
 
     ```json
     {
-        // 使用 IntelliSense 了解相关属性。 
+        // 使用 IntelliSense 了解相关属性。
         // 悬停以查看现有属性的描述。
         // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
         "version": "0.2.0",
@@ -146,41 +146,41 @@ Human destructor called
 
 ```json
 {
-    // 使用 IntelliSense 了解相关属性。 
-    // 悬停以查看现有属性的描述。
-    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "lldb",
-            "request": "launch",
-            "name": "Debug",
-            "program": "${workspaceFolder}/<executable file>",  //TODO: Add executable file here
-            "args": [
-                "<arguments>" // TODO: Add arguments here
-            ],
-            "cwd": "${workspaceFolder}"
-        }
-    ]
+  // 使用 IntelliSense 了解相关属性。
+  // 悬停以查看现有属性的描述。
+  // 欲了解更多信息，请访问：https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug",
+      "program": "${workspaceFolder}/<executable file>", //TODO: Add executable file here
+      "args": [
+        "<arguments>" // TODO: Add arguments here
+      ],
+      "cwd": "${workspaceFolder}"
+    }
+  ]
 }
 ```
 
 - version 域指定了调试器的版本信息
 - configurations 域指定了配置信息，其中包括：
-    -  type：任务类型 这是一个lldb任务
-    -  request：需要执行的任务 launch即只有它本身
-    -  name：将这个任务命名为Debug
-    -  program：被调试的程序 注： *<font color=grey>${workspaceFolder} 是一个环境变量，即工程文件所在文件夹</font>*
-    -  args：设置需要的参数
-    -  cwd：指令执行的目录
+  - type：任务类型 这是一个 lldb 任务
+  - request：需要执行的任务 launch 即只有它本身
+  - name：将这个任务命名为 Debug
+  - program：被调试的程序 注：_<font color=grey>${workspaceFolder} 是一个环境变量，即工程文件所在文件夹</font>_
+  - args：设置需要的参数
+  - cwd：指令执行的目录
 
 主要修改 program & args 域即可。
 
 ---
 
-读工程中的CMakeLists.txt文件即可得知，生成的可执行文件目录为`${workspaceFolder}/build/src/`，可执行文件名为`lab0_debug`
+读工程中的 CMakeLists.txt 文件即可得知，生成的可执行文件目录为`${workspaceFolder}/build/src/`，可执行文件名为`lab0_debug`
 
-而main.cpp:17-20L 要求输入-t参数，因此可以做如下修改：
+而 main.cpp:17-20L 要求输入-t 参数，因此可以做如下修改：
 
 ```json
 
@@ -193,15 +193,15 @@ Human destructor called
 
 ```
 
-之后在main入口处打断点再执行即可开始调试了。
+之后在 main 入口处打断点再执行即可开始调试了。
 
 ![debug](photos/debug.png)
 
-在`h->print()`处 step in 之后，不难发现是print方法的返回值逻辑处理有误。
+在`h->print()`处 step in 之后，不难发现是 print 方法的返回值逻辑处理有误。
 
 ![bug](photos/bug.png)
 
-将Student.cpp:16L & Human.cpp:13L 用`res = ss.str();`代替后，重新make(构建)项目并运行。
+将 Student.cpp:16L & Human.cpp:13L 用`res = ss.str();`代替后，重新 make(构建) 项目并运行。
 
 ```shell
 cd build; make; cd ..
@@ -229,7 +229,7 @@ Human destructor called
 Human destructor called
 ```
 
-## 如何在CMake构建的大型项目中定位 Segmentation Fault
+## 如何在 CMake 构建的大型项目中定位 Segmentation Fault
 
 ??? Info "什么是 **ASAN** "
 
@@ -238,7 +238,7 @@ Human destructor called
     ASAN 早先是 LLVM 中的特性，后被集成到 GCC 4.8 中，在 4.9 版本中加入了对 ARM 平台的支持。
 
 ??? Warning "请先拉取最新仓库"
-    
+
     ```bash
     # 在 2024ustc-jianmu-compiler 目录下
     $ git pull
@@ -314,7 +314,7 @@ Human destructor called
     0x0c067fff8050: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
     Shadow byte legend (one shadow byte represents 8 application bytes):
     Addressable:           00
-    Partially addressable: 01 02 03 04 05 06 07 
+    Partially addressable: 01 02 03 04 05 06 07
     Heap left redzone:       fa
     Freed heap region:       fd
     Stack left redzone:      f1
@@ -342,7 +342,6 @@ Human destructor called
 然后再次运行你的错误代码，Asan 会提供更详细的报错信息。
 
 需要注意的是，要更换到别的 build type（如 Debug 或 Release）时需要显式指定，否则 cmake 会使用 cached 的版本。
-
 
 ## logging 工具使用
 
@@ -399,13 +398,10 @@ user@user:${ProjectDir}/build/src$ LOGV=0 ./test_logging > log
 
 然后就可以输出到文件名为 log 的文件中啦～
 
-
 ## 实验任务
+
 通过调试这个工程文件，回答下面三个问题：
 
 1. 为什么用 main.cpp:30L 替换 main.cpp:31L 会出现报错？
 2. 为什么用 main.cpp:32L 替换 main.cpp:33L 会出现报错？
 3. 为什么取消注释 main.cpp:35-39L 不会报错，但运行会出现段错误？
-
-
-

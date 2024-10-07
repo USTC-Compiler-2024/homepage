@@ -50,31 +50,31 @@
 下面介绍 VirtualBox 创建、安装虚拟机的过程。
 
 1. 点击“新建”创建虚拟机。设置虚拟机的名称，指定文件夹，设置类型与版本，虚拟光盘可以先不用指定：
-    ![V1](photos/V1.png)
+   ![V1](photos/V1.png)
 2. 下一步后给虚拟机分配内存，请至少分配 2GB 以上的内存给虚拟机。对于处理器的分配可结合个人情况进行分配：
-    ![V2](photos/V2.png)
+   ![V2](photos/V2.png)
 3. 下一步后给硬盘分配空间：
-    ![V3](photos/V3.png)
-    如果各位同学只将该虚拟机用于本学期的实验那么设置最大磁盘大小为 25~40GB 即可，本学期的实验不会占用过多磁盘空间。但**不建议将磁盘大小设置过小**，因为磁盘空间不够引发的相关问题将会非常棘手。
+   ![V3](photos/V3.png)
+   如果各位同学只将该虚拟机用于本学期的实验那么设置最大磁盘大小为 25~40GB 即可，本学期的实验不会占用过多磁盘空间。但**不建议将磁盘大小设置过小**，因为磁盘空间不够引发的相关问题将会非常棘手。
 4. 下一步后点击完成，虚拟机已经创建完毕，点击启动进入虚拟机：
-    ![V4](photos/V4.png)
+   ![V4](photos/V4.png)
 5. 启动虚拟机后其会提示加载虚拟光盘，在这里选择我们先前已经按照的 Ubuntu 镜像文件：
-    ![V5](photos/V5.png)
+   ![V5](photos/V5.png)
 6. 选择完毕后点击挂载并尝试启动，等待其出现如下的界面：
-    ![Vs6](photos/V6.png)
-    按图示选择第一项后点击回车即可，以下 **选择确认时均需回车**。
+   ![Vs6](photos/V6.png)
+   按图示选择第一项后点击回车即可，以下 **选择确认时均需回车**。
 7. 以后出现的界面选择较简单，选择默认选择即可；
 8. 选择至出现下述界面，按自己喜好进行填写即可：
-    ![V8](photos/V7.png)
-    > 务必记住 username 以及 password
+   ![V8](photos/V7.png)
+   > 务必记住 username 以及 password
 9. 填写完后一路按照默认选择至如下界面并且下方出现 Reboot 时选择 Reboot 即可；注意当出现下述界面时需要 **保持等待**直到其出现 Reboot 按键：
-    ![Vs17](photos/V8.png)
+   ![Vs17](photos/V8.png)
 10. 等待重启过程中如果界面卡住不发生变化时可以尝试按回车，例如出现如下界面时可按回车尝试解决：
-     ![Vs20](photos/V9.png)
+    ![Vs20](photos/V9.png)
 11. 等到出现如下界面时输入你的用户名以及密码即可成功登录：
-     ![Vs18](photos/V10.png)
+    ![Vs18](photos/V10.png)
 12. 出现此界面后即表示配置成功：
-     ![Vs19](photos/V11.png)
+    ![Vs19](photos/V11.png)
 
 ### 1.3 使用 VSCode
 
@@ -137,17 +137,17 @@ root         765  0.0  0.0  15420  8784 ?        Ss   03:50   0:00 sshd: /usr/sb
 
 1. 打开虚拟机启动界面，在设置中选择网络：
 
-    ![V20](photos/V13.png)
+   ![V20](photos/V13.png)
 
 2. 这里连接方式选择 <u>**NAT**</u>，在高级中选择端口转发：
 
-    ![V21](photos/V14.png)
+   ![V21](photos/V14.png)
 
 3. 在出现的界面中添加一个转发规则：
 
-    ![V22](photos/V15.png)
+   ![V22](photos/V15.png)
 
-    规则的名称可以自行命名，主机 IP 与子系统 IP 可以不填，子系统端口 **必须是 22**（为什么？）；主机端口可以随意，不产生端口冲突即可
+   规则的名称可以自行命名，主机 IP 与子系统 IP 可以不填，子系统端口 **必须是 22**（为什么？）；主机端口可以随意，不产生端口冲突即可
 
 4. 添加完后点击确认即可。
 
@@ -186,41 +186,41 @@ ssh -p 1145 虚拟机用户名@127.0.0.1
 
 1. 下载并安装 Remote-SSH 插件：
 
-    ![image-20230907232746795](photos/image-20230907232746795.png)
+   ![image-20230907232746795](photos/image-20230907232746795.png)
 
-    > remote-ssh 是一个专门用于通过 SSH 来远程连接服务器的辅助工具。
+   > remote-ssh 是一个专门用于通过 SSH 来远程连接服务器的辅助工具。
 
 2. 下载完毕后在 VSCode 的左边栏找到远程资源管理器，在上方选择栏中选择 **远程（隧道/SSH）**：
 
-    ![V24](photos/V17.png)
+   ![V24](photos/V17.png)
 
 3. 在 SSH 中点击设置，后选择 SSH 配置文件：
 
-    ![V25](photos/V18.png)
+   ![V25](photos/V18.png)
 
 4. 在配置文件中加入如下代码段，保存：
 
-    ```sshconfig
-    # Host 名字可以随意
-    Host vbox
-      HostName 127.0.0.1
-      # User 填入你自己的虚拟机 username
-      User test
-      # Port 填入在设置虚拟机网络时你填入的主机端口
-      Port 4514
-    ```
+   ```sshconfig
+   # Host 名字可以随意
+   Host vbox
+     HostName 127.0.0.1
+     # User 填入你自己的虚拟机 username
+     User test
+     # Port 填入在设置虚拟机网络时你填入的主机端口
+     Port 4514
+   ```
 
-    随后刷新左侧列表可以在 SSH 下看到如下项：
+   随后刷新左侧列表可以在 SSH 下看到如下项：
 
-    ![V26](photos/V19.png)
+   ![V26](photos/V19.png)
 
 5. 在自己设置的项（助教这里是 vbox）右侧点击右箭头开始连接：
 
-    ![V27](photos/V20.png)
+   ![V27](photos/V20.png)
 
 6. 这里出现的 platform 选择 Linux：
 
-    ![V28](photos/V21.png)
+   ![V28](photos/V21.png)
 
 7. 随后点击 Continue；
 
@@ -228,7 +228,7 @@ ssh -p 1145 虚拟机用户名@127.0.0.1
 
 9. 耐心等待连接，等到界面左下方出现如下情况即表示连接成功：
 
-    ![V31](photos/V22.png)
+   ![V31](photos/V22.png)
 
 10. 随后即可在 VSCode 上愉快地使用虚拟机。VSCode 拥有一系列针对各种语言的插件，同学们按需安装，这里不再做过多展开。
 
@@ -322,17 +322,17 @@ Hello VirtualBox!
 
 - 安装客户机系统时，选择安装程序映像文件，选择你刚刚下载的镜像文件
 - 请记住你设置的密码
-- 磁盘空间请设置25GB～40GB(推荐)
-- 安装时语言尽量选择英文，否则你的home目录下可能会出现中文路径(可以进系统后换成中文)
-- Installation Type 请选择Eraze disk and install Ubuntu
+- 磁盘空间请设置 25GB～40GB(推荐)
+- 安装时语言尽量选择英文，否则你的 home 目录下可能会出现中文路径 (可以进系统后换成中文)
+- Installation Type 请选择 Eraze disk and install Ubuntu
 
 ### 2.3 VS Code
 
-请参照 [VS Code](#13-使用-vscode) 节，安装VS Code
+请参照 [VS Code](#13-使用-vscode) 节，安装 VS Code
 
 ### 2.4 通过 VSCode 连接虚拟机
 
-打开虚拟机后，请点击 右键-在终端中打开 
+打开虚拟机后，请点击 右键 - 在终端中打开
 
 ```shell
 sudo apt install net-tools openssh-server
@@ -342,37 +342,37 @@ sudo systemctl restart ssh
 ifconfig
 ```
 
-ifconfig会输出你的所有网络接口(如果是新建的虚拟机，应该仅有两个接口)，请忽略`lo:`一组，它代表着本地环回。请记下另一组中的inet字段，例：`192.168.32.169`
+ifconfig 会输出你的所有网络接口 (如果是新建的虚拟机，应该仅有两个接口)，请忽略`lo:`一组，它代表着本地环回。请记下另一组中的 inet 字段，例：`192.168.32.169`
 
 打开 VSCode 执行以下操作：
 
 1. 下载并安装 Remote-SSH 插件：
 
-    ![image-20230907232746795](photos/image-20230907232746795.png)
+   ![image-20230907232746795](photos/image-20230907232746795.png)
 
-    > remote-ssh 是一个专门用于通过 SSH 来远程连接服务器的辅助工具。
+   > remote-ssh 是一个专门用于通过 SSH 来远程连接服务器的辅助工具。
 
 2. 下载完毕后在 VSCode 的左边栏找到远程资源管理器，在上方选择栏中选择 **远程（隧道/SSH）**：
 
-    ![V24](photos/V17.png)
+   ![V24](photos/V17.png)
 
 3. 在 SSH 中点击设置，后选择 SSH 配置文件：
 
-    ![V25](photos/V18.png)
+   ![V25](photos/V18.png)
 
 4. 在配置文件中加入如下代码段，保存：
 
-    ```sshconfig
-    # Host 名字可以随意
-    Host vbox
-      # HostName 填入刚刚的inet字段
-      HostName 192.168.32.169 # 请改掉
-      # User 填入你自己的虚拟机 username
-      User test
-    ```
+   ```sshconfig
+   # Host 名字可以随意
+   Host vbox
+     # HostName 填入刚刚的 inet 字段
+     HostName 192.168.32.169 # 请改掉
+     # User 填入你自己的虚拟机 username
+     User test
+   ```
 
-    随后刷新左侧列表可以在 SSH 下看到如下项：
+   随后刷新左侧列表可以在 SSH 下看到如下项：
 
-    ![V26](photos/V19.png)
+   ![V26](photos/V19.png)
 
 之后的步骤和[上方](#1421-vscode-设置) 相同

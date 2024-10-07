@@ -1,5 +1,3 @@
-
-
 # Lab1 简介
 
 本次实验需要同学们从无到有完成一个完整的 Cminusf 解析器，包括基于 **Flex** 的词法分析器和基于 Bison 的语法分析器，并将得到的语法分析树转化成抽象语法树（AST）。
@@ -13,7 +11,7 @@
 - [Bison](./Bison.md)
 - [词法语法解析](词法语法解析.md)
 - [AST](./AST.md)
-- [AST生成](AST生成.md)
+- [AST 生成](AST生成.md)
 
 ## 实验内容
 
@@ -33,7 +31,7 @@
 
 内容一：阅读[AST](./AST.md)，掌握由语法分析树向抽象语法树的转换逻辑。
 
-内容二：阅读[AST生成](AST生成.md)，完成抽象语法树（AST）的构建。
+内容二：阅读[AST 生成](AST生成.md)，完成抽象语法树（AST）的构建。
 
 !!! warning "Deadline"
 
@@ -41,7 +39,7 @@
 
 ## 实验要求
 
-!!! Warning "请务必先fork后拉取最新的实验仓库"
+!!! Warning "请务必先 fork 后拉取最新的实验仓库"
 
     请使用自己fork后的仓库完成今后的实验！
 
@@ -65,7 +63,6 @@ git push origin lab1
 
 - 在希冀平台提交你实验仓库的 url（如 `https://cscourse.ustc.edu.cn/vdir/Gitlab/xxx/2024ustc-jianmu-compiler.git`）。
 - 在希冀平台提交你的 `answer.pdf` 文件，其中包含：
-    - [正则表达式](./正则表达式.md#思考题)
-    - [Flex](./Flex.md#思考题)
-    - [Bison](./Bison.md#思考题)
-
+  - [正则表达式](./正则表达式.md#思考题)
+  - [Flex](./Flex.md#思考题)
+  - [Bison](./Bison.md#思考题)
