@@ -14,7 +14,7 @@
 
 ### Q3: `Segmentation Fault` 好难 debug！
 
-**A** : 请参考[如何在 CMake 构建的大型项目中定位 Segmentation Fault](../lab0/debug.md#如何在cmake构建的大型项目中定位-segmentation-fault)一节。
+**A** : 请参考[如何在 CMake 构建的大型项目中定位 Segmentation Fault](../lab0/debug.md#如何在-cmake-构建的大型项目中定位-segmentation-fault)一节。
 
 ## Lab 1
 
