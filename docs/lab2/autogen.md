@@ -151,6 +151,7 @@ $ cat eval_result
 ```
 
 !!! info
-确保你的 Linux 中安装了 python3： `sudo apt install python3`。
+    
+    确保你的 Linux 中安装了 python3： `sudo apt install python3`。
 
 测试结果会输出到 `tests/2-ir-gen/autogen/eval_result`。
