@@ -62,15 +62,17 @@
     
     
    <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-    html.glightbox-open { overflow: initial; height: 100%; }
-    .gslide-title { margin-top: 0px; user-select: text; }
-    .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }
-    .gscrollbar-fixer { padding-right: 15px; }
-    .gdesc-inner { font-size: 0.75rem; }
-    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1117,12 +1119,12 @@
 <p>网址：<strong><a href="http://cscourse.ustc.edu.cn/">http://cscourse.ustc.edu.cn/</a></strong></p>
 <p>进入希冀平台后，使用学生入口填写学号（大写字母，如 PB20110001）和默认密码（与学号相同）登录。如果您已注册过希冀平台账号，请使用原密码登录。</p>
 <p>在网页右上角选择“编译原理和技术”课程实验平台。</p>
-<p><a class="glightbox" href="Untitled.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Untitled" src="Untitled.png" /></a></p>
+<p><a class="glightbox" href="Untitled.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Untitled" src="Untitled.png" /></a></p>
 <p>首次登录希冀平台时，请记得修改默认密码并完善个人信息。</p>
 <p>在希冀平台，您可以查看最新公告、作业和截止时间。<strong>请注意，所有作业和实验都需要在平台上提交和批改。</strong></p>
 <h2 id="作业及实验提交">作业及实验提交<a class="headerlink" href="#作业及实验提交" title="Permanent link">&para;</a></h2>
 <p>在课程平台左上角选择当前作业，在线提交如下：</p>
-<p><a class="glightbox" href="image.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Untitled" src="image.png" /></a></p>
+<p><a class="glightbox" href="image.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Untitled" src="image.png" /></a></p>
 <ol>
 <li>请提交作业和实验报告的 PDF 文件，确保照片部分清晰可读。如果因图片清晰度问题而导致扣分，则不接受相关的申诉。</li>
 <li>提交作业不接受迟交或补交。</li>
@@ -1161,10 +1163,10 @@
 </ul>
 <p>参考阅读材料：<a href="https://www.tutorialspoint.com/gitlab/gitlab_create_project.htm">https://www.liaoxuefeng.com/wiki/896043488029600</a></p>
 <p>要访问 GitLab，请点击实验平台右上角的导航栏。</p>
-<p><a class="glightbox" href="Untitled2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Untitled" src="Untitled2.png" /></a></p>
+<p><a class="glightbox" href="Untitled2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Untitled" src="Untitled2.png" /></a></p>
 <p>若尚未设置电子邮箱账号，请进行注册。注册成功后 GitLab 用户名和密码和希冀平台相同。</p>
 <p><strong>请注意，不要更改 GitLab 账户用户名，因用户名导致的错判漏判，一律不接受申诉。</strong></p>
-<p><a class="glightbox" href="Untitled3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Untitled" src="Untitled3.png" /></a></p>
+<p><a class="glightbox" href="Untitled3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Untitled" src="Untitled3.png" /></a></p>
 
 
 
@@ -1308,7 +1310,5 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

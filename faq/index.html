@@ -60,15 +60,17 @@
     
     
    <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-    html.glightbox-open { overflow: initial; height: 100%; }
-    .gslide-title { margin-top: 0px; user-select: text; }
-    .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }
-    .gscrollbar-fixer { padding-right: 15px; }
-    .gdesc-inner { font-size: 0.75rem; }
-    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1099,6 +1101,30 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#lab-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lab 2
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lab 2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1-ir_builder-中-value-类型变量-name-分配" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q1: ir_builder 中 Value 类型变量 name 分配
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1226,6 +1252,30 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#lab-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lab 2
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lab 2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1-ir_builder-中-value-类型变量-name-分配" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q1: ir_builder 中 Value 类型变量 name 分配
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1246,7 +1296,7 @@
 <h3 id="q1-环境配置相关">Q1: 环境配置相关<a class="headerlink" href="#q1-环境配置相关" title="Permanent link">&para;</a></h3>
 <p><strong>A</strong> : 助教会在在 9 月 8 日和 15 日晚 11～12 节 在 GTB-212 准时刷新，为大家解决环境相关问题。也欢迎大家 QQ 联系助教。</p>
 <h3 id="q2-git-clone-指令卡住不动">Q2: <code>git clone</code> 指令卡住不动<a class="headerlink" href="#q2-git-clone-指令卡住不动" title="Permanent link">&para;</a></h3>
-<p><a class="glightbox" href="clone_waiting.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="clone_waiting.png" /></a></p>
+<p><a class="glightbox" href="clone_waiting.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="clone_waiting.png" /></a></p>
 <p><strong>A</strong> : 是因为 VSCode 一直在等你输入用户名和密码 (希冀平台 Gitlab)。</p>
 <h3 id="q3-segmentation-fault-好难-debug">Q3: <code>Segmentation Fault</code> 好难 debug！<a class="headerlink" href="#q3-segmentation-fault-好难-debug" title="Permanent link">&para;</a></h3>
 <p><strong>A</strong> : 请参考<a href="../lab0/debug/#如何在-cmake-构建的大型项目中定位-segmentation-fault">如何在 CMake 构建的大型项目中定位 Segmentation Fault</a>一节。</p>
@@ -1273,6 +1323,23 @@
 <div class="highlight"><pre><span></span><code><span class="err">\</span><span class="n">n</span><span class="w">  </span><span class="p">{</span><span class="n">lines</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="n">pos_start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">pos_end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;}</span>
 <span class="p">[</span><span class="w"> </span><span class="err">\</span><span class="n">t</span><span class="p">]</span><span class="w">   </span><span class="p">{</span><span class="n">pos_start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pos_end</span><span class="p">;</span><span class="w"> </span><span class="n">pos_end</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;}</span>
 </code></pre></div>
+<h2 id="lab-2">Lab 2<a class="headerlink" href="#lab-2" title="Permanent link">&para;</a></h2>
+<h3 id="q1-ir_builder-中-value-类型变量-name-分配">Q1: ir_builder 中 Value 类型变量 name 分配<a class="headerlink" href="#q1-ir_builder-中-value-类型变量-name-分配" title="Permanent link">&para;</a></h3>
+<p><strong>A1</strong></p>
+<p>在使用诸如 <code>create</code> 这样的接口创建一个 <code>Value*</code> 类型变量(如 <code>BasicBlock *</code>, <code>Instruction *</code>等)不指定 <code>name</code>时，变量名编号默认从 <code>0</code> 开始分配，包括args，basicblock, instruction等等。这个编号序列是按照 <code>Function</code> 为单位进行分配的，不同的 <code>Function</code> 对象内的变量 name 编号都默认从0开始。</p>
+<p>相关逻辑在 <code>./2024ustc-jianmu-compiler/src/lightir/Function.cpp</code> 中的 <code>set_instr_name()</code>函数</p>
+<ul>
+<li>这个函数采用了一个 <code>map</code> 存储不同 <code>Value</code> 和其编号的 键值对。对于用户没有指定的变量，name 编号默认从0开始。</li>
+</ul>
+<p>对于用户在创建对象时指定的 name 的变量，依然会占用一个编号，比如：</p>
+<div class="highlight"><pre><span></span><code><span class="nl">label_callee</span><span class="p">:</span>
+<span class="w">  </span><span class="o">%</span><span class="n">op1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">alloca</span><span class="w"> </span><span class="n">i32</span>
+<span class="w">  </span><span class="n">store</span><span class="w"> </span><span class="n">i32</span><span class="w"> </span><span class="o">%</span><span class="n">arg0</span><span class="p">,</span><span class="w"> </span><span class="n">i32</span><span class="o">*</span><span class="w"> </span><span class="o">%</span><span class="n">op1</span>
+<span class="w">  </span><span class="o">%</span><span class="n">op2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">load</span><span class="w"> </span><span class="n">i32</span><span class="p">,</span><span class="w"> </span><span class="n">i32</span><span class="o">*</span><span class="w"> </span><span class="o">%</span><span class="n">op1</span>
+<span class="w">  </span><span class="o">%</span><span class="n">op3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mul</span><span class="w"> </span><span class="n">i32</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="o">%</span><span class="n">op2</span>
+<span class="w">  </span><span class="n">ret</span><span class="w"> </span><span class="n">i32</span><span class="w"> </span><span class="o">%</span><span class="n">op3</span>
+</code></pre></div>
+<p>基本块 <code>label_callee</code>占用了编号 0，但用户指定其 name 为 <code>callee</code>（<code>label_</code>为基本块的默认前缀），因此后续所有变量编号从 1 开始。</p>
 
 
 
@@ -1293,7 +1360,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 8, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 10, 2024</span>
   </span>
 
     
@@ -1402,7 +1469,5 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

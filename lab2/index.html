@@ -62,15 +62,17 @@
     
     
    <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-    html.glightbox-open { overflow: initial; height: 100%; }
-    .gslide-title { margin-top: 0px; user-select: text; }
-    .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }
-    .gscrollbar-fixer { padding-right: 15px; }
-    .gdesc-inner { font-size: 0.75rem; }
-    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1245,9 +1247,9 @@
 <li>upstream：课程发布实验代码的公开仓库</li>
 <li>origin：学生 fork 得到的私有仓库</li>
 </ul>
-<p><a class="glightbox" href="figs/remote-info.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="figs/remote-info.png" /></a></p>
+<p><a class="glightbox" href="figs/remote-info.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="figs/remote-info.png" /></a></p>
 <p>两个仓库各有 3 条分支（红色字体）：main、lab0 和 lab1，如下图。最上边的 lab1 和 main 代表本地的分支，分别追踪远程的 <code>origin/lab1</code> 和 <code>origin/main</code>，main 前边的星号 <code>*</code> 和绿色字体代表当前处于 main 分支下：</p>
-<p><a class="glightbox" href="figs/branches.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="figs/branches.png" /></a></p>
+<p><a class="glightbox" href="figs/branches.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="figs/branches.png" /></a></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>以上两条命令分别是：<code>git remote -v</code> 和 <code>git branch --all -vv</code>，如果第二条命令的输出中缺少 upstream 的分支，你可以通过 <code>git fetch --all</code> 来获取。</p>
@@ -1267,12 +1269,12 @@
 <p>在执行 merge 时，git 会尝试自动合并经过修改的文件内容，如果一处内容同时被两方（current 和 incoming）修改，就会产生冲突，需要手动决定保留哪一方的更改（或者都保留）。</p>
 <p><a href="../lab0/git/#上下游同步和冲突处理">回顾 Lab0 中关于 git 冲突处理的讲解</a>。</p>
 <p>下图就是在合并时出现了冲突的例子，表示在 <code>src/common/ast.cpp</code> 文件出现了冲突。
-<a class="glightbox" href="figs/conflict.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="figs/conflict.png" /></a></p>
+<a class="glightbox" href="figs/conflict.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="figs/conflict.png" /></a></p>
 <p>我们检查这个文件，看到一处冲突，截图如下：
-<a class="glightbox" href="figs/conflict-solve-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="figs/conflict-solve-1.png" /></a></p>
+<a class="glightbox" href="figs/conflict-solve-1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="figs/conflict-solve-1.png" /></a></p>
 <p>在这里，我们（上游仓库）最新的代码将 <code>ASTVisitor::visit</code> 接口的返回值更新成了 <code>Value *</code>，这种接口变动要以上游为准。现在是将 lab1 合并进 main 分支，所以进行 merge 的双方，current 是上游内容，incoming 是 lab1 的内容，在这里保留 current 内容。</p>
 <p>在完成文件的更改后，保存文件，你仍然在 merge 的阶段，你可以使用 <code>git status</code> 查看，并使用 <code>git merge --continue</code> 完成你的合并操作，如下图所示。</p>
-<p><a class="glightbox" href="figs/conflict-solve-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="figs/conflict-solve-2.png" /></a></p>
+<p><a class="glightbox" href="figs/conflict-solve-2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="figs/conflict-solve-2.png" /></a></p>
 <p>事实上，在处理本次合并可能的冲突时，只需要保留你在 lab1 编写的代码即可，其余基本上都保留上游仓库的最新内容。</p>
 </details>
 <p>此时进入 build 文件夹，使用 <code>make -j</code> 编译最新的程序，然后进入 lab1 的测试目录 <code>tests/1-parser</code>，执行 lab1 的两个脚本。在正确合并分支的情况下，你应该能够正常编译项目并通过 lab1 的两个脚本，这时你可以开始本次实验的撰写了。</p>
@@ -1460,7 +1462,5 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

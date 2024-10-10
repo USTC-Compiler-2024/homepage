@@ -60,15 +60,17 @@
     
     
    <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-    html.glightbox-open { overflow: initial; height: 100%; }
-    .gslide-title { margin-top: 0px; user-select: text; }
-    .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }
-    .gscrollbar-fixer { padding-right: 15px; }
-    .gdesc-inner { font-size: 0.75rem; }
-    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="assets/javascripts/glightbox.min.js"></script></head>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1350,13 +1352,11 @@
 <li>2024-09-18：第一次作业已发布，Deadline：<strong>2024 年 9 月 20 日</strong></li>
 <li>2024-09-18：<a href="lab1/">Lab1</a> 已发布，Deadline：<strong>Phase1 : 2024 年 9 月 28 日 / Phase2 : 2024 年 10 月 7 日</strong></li>
 <li>2024-09-25：第二次作业已发布，Deadline：<strong>2024 年 9 月 30 日</strong></li>
-<li>2024-10-08：<a href="lab2/">Lab2</a> 已发布，Deadline：<ul>
-<li><strong>Phase1 : 2024 年 10 月 18 日</strong></li>
-<li><strong>Phase2 : 2024 年 10 月 25 日</strong></li>
-<li><strong>Phase3 : 2024 年 11 月 2 日</strong></li>
 </ul>
-</li>
-</ul>
+<!-- - 2024-10-08：[Lab2](lab2/index.md) 已发布，Deadline：
+    - **Phase1 : 2024 年 10 月 18 日**
+    - **Phase2 : 2024 年 10 月 25 日**
+    - **Phase3 : 2024 年 11 月 2 日** -->
 <!--
 - 2024-10-11：第三次作业：3.27、3.37、4.3、4.5、4.9（教材[<sup>1</sup>](#textbook)），Deadline：**2024 年 10 月 18 日 16:00**
 - 2024-11-01：[Lab3](lab3/index.md) 已发布，注意分阶段 Deadline
@@ -1529,7 +1529,6 @@
       
         <a href="mailto:95729892+jyjsxx@users.noreply.github.com">JYJSXX</a>, 
         <a href="mailto:liuruibo21@mail.ustc.edu.cn">JYJSXX</a>, 
-        <a href="mailto:not.committed.yet">Not Committed Yet</a>, 
         <a href="mailto:877250099@qq.com">lxq</a>
     </nav>
   </span>
@@ -1620,7 +1619,5 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>
