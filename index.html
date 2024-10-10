@@ -1409,15 +1409,30 @@
 </tr>
 <tr>
 <td style="text-align: center;">2024-09-23</td>
+<td style="text-align: center;">语法分析 - 简单的 LR 方法</td>
+<td style="text-align: center;"><a href="ppt/Lecture8-Parser-part6.pdf">Parser-part6</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">2024-09-25</td>
 <td style="text-align: center;">语法分析 - 简单的 LR 方法 &amp; 规范的 LR 方法</td>
 <td style="text-align: center;"><a href="ppt/Lecture8-Parser-part6.pdf">Parser-part6</a>, <a href="ppt/Lecture9-Parser-part7.pdf">Parser-part7</a></td>
 </tr>
+<tr>
+<td style="text-align: center;">2024-09-30</td>
+<td style="text-align: center;">语法分析 - 规范的 LR 方法</td>
+<td style="text-align: center;"><a href="ppt/Lecture9-Parser-part7.pdf">Parser-part7</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">2024-10-09</td>
+<td style="text-align: center;">中间代码表示</td>
+<td style="text-align: center;"><a href="ppt/Lecture10-IR.pdf">IR</a></td>
+</tr>
 </tbody>
 </table>
-<!-- | 2024-09-27 |                               中间代码表示                                |                                                                              [part1](https://rec.ustc.edu.cn/share/3fba3780-64dc-11ee-b89d-3bff5ec34c27)                                                                              |
-| 2024-10-07 |               语法制导翻译 - 语法制导定义 & S/L 属性的定义                |                                       [part1](https://rec.ustc.edu.cn/share/e0e4d8e0-5cdf-11ee-a097-75437996f503), [part2](https://rec.ustc.edu.cn/share/10e6d050-68c7-11ee-a697-13d9155d40a5)                                        |
-| 2024-10-11 |          语法制导翻译 - 语法制导翻译方案 & L 属性定义的翻译方案           |                                       [part3](https://rec.ustc.edu.cn/share/60f07260-68c7-11ee-ac16-c97fd4666cee), [part4](https://rec.ustc.edu.cn/share/71c78a80-68c7-11ee-b670-b5952f4e628a)                                        |
-| 2024-10-16 |                中间代码翻译 - 简单语句、控制流与布尔表达式                |                                       [part1](https://rec.ustc.edu.cn/share/aaa7e250-81e3-11ee-b601-cf1e5b684040), [part2](https://rec.ustc.edu.cn/share/b97993e0-81e3-11ee-b4bf-238eae90436f)                                        |
+<!-- | 2024-09-25 |                               中间代码表示                                |                                                                              [part1](https://rec.ustc.edu.cn/share/3fba3780-64dc-11ee-b89d-3bff5ec34c27)                                                                              |
+| 2024-09-30 |               语法制导翻译 - 语法制导定义 & S/L 属性的定义                |                                       [part1](https://rec.ustc.edu.cn/share/e0e4d8e0-5cdf-11ee-a097-75437996f503), [part2](https://rec.ustc.edu.cn/share/10e6d050-68c7-11ee-a697-13d9155d40a5)                                        |
+| 2024-10-9 |          语法制导翻译 - 语法制导翻译方案 & L 属性定义的翻译方案           |                                       [part3](https://rec.ustc.edu.cn/share/60f07260-68c7-11ee-ac16-c97fd4666cee), [part4](https://rec.ustc.edu.cn/share/71c78a80-68c7-11ee-b670-b5952f4e628a)                                        | -->
+<!-- | 2024-10-16 |                中间代码翻译 - 简单语句、控制流与布尔表达式                |                                       [part1](https://rec.ustc.edu.cn/share/aaa7e250-81e3-11ee-b601-cf1e5b684040), [part2](https://rec.ustc.edu.cn/share/b97993e0-81e3-11ee-b4bf-238eae90436f)                                        |
 | 2024-10-18 |                    中间代码翻译 - 标号回填与布尔表达式                    |                                                                              [part3](https://rec.ustc.edu.cn/share/898d59b0-81e4-11ee-a431-a7ebbdb09b39)                                                                              |
 | 2024-10-30 |                    中间代码翻译 - 标号回填与控制流语句                    |                                                                              [part4](https://rec.ustc.edu.cn/share/898d59b0-81e4-11ee-a431-a7ebbdb09b39)                                                                              |
 | 2024-11-01 |               中间代码翻译 - 类型表达式 & 符号表与声明语句                |                                       [part5](https://rec.ustc.edu.cn/share/898d59b0-81e4-11ee-a431-a7ebbdb09b39), [part6](https://rec.ustc.edu.cn/share/898d59b0-81e4-11ee-a431-a7ebbdb09b39)                                        |
@@ -1511,7 +1526,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 7, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 10, 2024</span>
   </span>
 
     
