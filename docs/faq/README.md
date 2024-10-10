@@ -85,7 +85,6 @@ label_callee:
   %op2 = load i32, i32* %op1
   %op3 = mul i32 2, %op2
   ret i32 %op3
-}
 ```
 
 基本块 `label_callee`占用了编号 0，但用户指定其 name 为 `callee`（`label_`为基本块的默认前缀），因此后续所有变量编号从 1 开始。
