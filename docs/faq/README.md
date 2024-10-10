@@ -64,3 +64,28 @@ Cminusf文法中虽然没有对空白符的说明，但在词法分析中需要�
 [ \t] 	{pos_start = pos_end; pos_end += 1;}
 ```
 
+## Lab 2
+
+### Q1: ir_builder 中 Value 类型变量 name 分配
+
+**A1**
+
+在使用诸如 `create` 这样的接口创建一个 `Value*` 类型变量(如 `BasicBlock *`, `Instruction *`等)不指定 `name`时，变量名编号默认从 `0` 开始分配，包括args，basicblock, instruction等等。这个编号序列是按照 `Function` 为单位进行分配的，不同的 `Function` 对象内的变量 name 编号都默认从0开始。
+
+相关逻辑在 `./2024ustc-jianmu-compiler/src/lightir/Function.cpp` 中的 `set_instr_name()`函数
+
+- 这个函数采用了一个 `map` 存储不同 `Value` 和其编号的 键值对。对于用户没有指定的变量，name 编号默认从0开始。
+
+对于用户在创建对象时指定的 name 的变量，依然会占用一个编号，比如：
+
+```c++
+label_callee:
+  %op1 = alloca i32
+  store i32 %arg0, i32* %op1
+  %op2 = load i32, i32* %op1
+  %op3 = mul i32 2, %op2
+  ret i32 %op3
+}
+```
+
+基本块 `label_callee`占用了编号 0，但用户指定其 name 为 `callee`（`label_`为基本块的默认前缀），因此后续所有变量编号从 1 开始。
