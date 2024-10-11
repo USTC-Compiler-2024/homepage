@@ -58,17 +58,15 @@
     
     
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1752,7 +1750,7 @@
 <p>龙芯架构 LoongArch 是一种精简指令集计算机（RISC）风格的指令系统架构，分为 32 位和 64 位两个版本，分别称为 LA32 架构和 LA64 架构。我们主要关注 LA64 架构中的非向量整数指令和非向量浮点指令中的一部分，如果你想了解更多关于龙芯汇编的内容，可以参考<a href="https://github.com/loongson/LoongArch-Documentation/releases/download/2023.04.20/LoongArch-Vol1-v1.10-CN.pdf">《龙芯架构参考手册 - 卷一：基础架构》</a>。</p>
 <h2 id="汇编文件的组成">汇编文件的组成<a class="headerlink" href="#汇编文件的组成" title="Permanent link">&para;</a></h2>
 <p>以<a href="#示例-2">示例 2</a> 中的汇编文件为例，下图展示了一个汇编文件的整体结构与组成：</p>
-<p><a class="glightbox" href="../figs/asm_structure.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="汇编文件结构" src="../figs/asm_structure.png" /></a></p>
+<p><a class="glightbox" href="../figs/asm_structure.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="汇编文件结构" src="../figs/asm_structure.png" /></a></p>
 <p>其中</p>
 <ul>
 <li>每一行 <code>#</code> 之后的是注释；</li>
@@ -3036,7 +3034,7 @@
 <li>堆栈指针 <code>$sp</code> 指向栈帧的顶部</li>
 </ul>
 <p>这两个寄存器的值应该对齐到 16 字节。维护好这两个寄存器的值后，就可以比较方便地访问栈帧中的函数上下文信息，比如返回地址和局部变量。下面是调用堆栈的一个示意图：</p>
-<p><a class="glightbox" href="../figs/stack_frame.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="栈帧示意图" src="../figs/stack_frame.png" /></a></p>
+<p><a class="glightbox" href="../figs/stack_frame.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="栈帧示意图" src="../figs/stack_frame.png" /></a></p>
 <h3 id="函数调用过程">函数调用过程<a class="headerlink" href="#函数调用过程" title="Permanent link">&para;</a></h3>
 <p>函数调用的过程由调用者和被调用函数共同完成：</p>
 <ol>
@@ -3390,5 +3388,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

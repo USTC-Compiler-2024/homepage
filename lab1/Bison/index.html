@@ -62,17 +62,15 @@
     
     
    <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1173,7 +1171,7 @@
 <p>Bison 根据语法规则生成的抽象语法树（AST）在我们这次实验中为 <code>syntax_tree</code>，是一个较为复杂的结构，因此在 lab1 中我们还会将其简化，即我们得到的 AST 是 Bison 输出简化的结果。</p>
 </blockquote>
 <p>以计算器程序（该程序即为下文的<a href="#一个复杂的-bison-程序">一个复杂的 Bison 程序</a>）为例，用户在界面输入 <code>2 + 2 * 2</code>，Flex 将输入识别为 token 流，其中 2 被识别为 <code>number</code>，<code>+</code> 被识别为 <code>ADD</code>，<code>*</code> 被识别为 <code>MUL</code>。接下来，Bison 负责根据语法规则将这些 token 组织成 AST 树，流程如下图所示：</p>
-<p><a class="glightbox" href="../assets/image-20230913142328935.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image-20230913142328935" src="../assets/image-20230913142328935.png" width="40%" /></a></p>
+<p><a class="glightbox" href="../assets/image-20230913142328935.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20230913142328935" src="../assets/image-20230913142328935.png" width="40%" /></a></p>
 <h2 id="bison-程序结构">Bison 程序结构<a class="headerlink" href="#bison-程序结构" title="Permanent link">&para;</a></h2>
 <p>Bison 源程序的一般结构如下所示。Bison 源程序后缀一般为 <code>.y</code>。</p>
 <div class="highlight"><pre><span></span><code>定义部分
@@ -1454,7 +1452,7 @@ $<span class="w"> </span>./calc
 <span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span>.000000
 </code></pre></div>
 <p>其大致工作流程如下：</p>
-<p><a class="glightbox" href="../assets/image-20230913164805071-1694594895535-1-1694594931543-3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image-20230913164805071" src="../assets/image-20230913164805071-1694594895535-1-1694594931543-3.png" /></a></p>
+<p><a class="glightbox" href="../assets/image-20230913164805071-1694594895535-1-1694594931543-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20230913164805071" src="../assets/image-20230913164805071-1694594895535-1-1694594931543-3.png" /></a></p>
 <h3 id="思考题">思考题<a class="headerlink" href="#思考题" title="Permanent link">&para;</a></h3>
 <ul>
 <li>上述计算器例子的文法中存在左递归，为什么 <code>bison</code> 可以处理？</li>
@@ -1604,5 +1602,7 @@ $<span class="w"> </span>./calc
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

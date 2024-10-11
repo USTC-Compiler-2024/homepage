@@ -60,17 +60,15 @@
     
     
    <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1296,7 +1294,7 @@
 <h3 id="q1-环境配置相关">Q1: 环境配置相关<a class="headerlink" href="#q1-环境配置相关" title="Permanent link">&para;</a></h3>
 <p><strong>A</strong> : 助教会在在 9 月 8 日和 15 日晚 11～12 节 在 GTB-212 准时刷新，为大家解决环境相关问题。也欢迎大家 QQ 联系助教。</p>
 <h3 id="q2-git-clone-指令卡住不动">Q2: <code>git clone</code> 指令卡住不动<a class="headerlink" href="#q2-git-clone-指令卡住不动" title="Permanent link">&para;</a></h3>
-<p><a class="glightbox" href="clone_waiting.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="clone_waiting.png" /></a></p>
+<p><a class="glightbox" href="clone_waiting.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="clone_waiting.png" /></a></p>
 <p><strong>A</strong> : 是因为 VSCode 一直在等你输入用户名和密码 (希冀平台 Gitlab)。</p>
 <h3 id="q3-segmentation-fault-好难-debug">Q3: <code>Segmentation Fault</code> 好难 debug！<a class="headerlink" href="#q3-segmentation-fault-好难-debug" title="Permanent link">&para;</a></h3>
 <p><strong>A</strong> : 请参考<a href="../lab0/debug/#如何在-cmake-构建的大型项目中定位-segmentation-fault">如何在 CMake 构建的大型项目中定位 Segmentation Fault</a>一节。</p>
@@ -1469,5 +1467,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>
