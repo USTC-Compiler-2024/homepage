@@ -1390,7 +1390,7 @@ $ echo $?
 <p>实验在 <code>tests/2-ir-gen/warmup/c_cases/</code> 目录下提供了四个 C 程序。学生需要在 <code>tests/2-ir-gen/warmup/stu_cpp/</code> 目录中，参考上面提供的 <code>gcd_array_generator.cpp</code> 样例，使用 Light IR C++ 库，编写 <code>assign_generator.cpp</code>、<code>fun_generator.cpp</code>、<code>if_generator.cpp</code> 和 <code>while_generator.cpp</code> 四个 cpp 程序。这四个程序运行后应该能够生成 <code>tests/2-ir-gen/warmup/c_cases/</code> 目录下四个 C 程序对应的 .ll 文件。</p>
 <h3 id="编译运行测试">编译、运行、测试<a class="headerlink" href="#编译运行测试" title="Permanent link">&para;</a></h3>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
+<p class="admonition-title">ZLIB 相关报错</p>
 <p>如果你在 <code>cmake ..</code> 一步遇到如下报错<code>Target "IR_lib" links to target "ZLIB::ZLIB" but the target was not found.</code>，请使用 <code>sudo apt install zlib1g-dev</code> 安装 zlib 库，然后重新 <code>cmake .. &amp;&amp; make</code>。</p>
 </div>
 <p><strong>编译</strong></p>
@@ -1436,7 +1436,7 @@ $<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><sp
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 7, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 12, 2024</span>
   </span>
 
     
