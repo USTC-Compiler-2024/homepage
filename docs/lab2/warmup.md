@@ -39,7 +39,7 @@
 LLVM IR 指令参考手册：[Reference Manual](https://llvm.org/docs/LangRef.html)
 
 ???+ note "使用 clang 生成 LLVM IR 并利用 lli 运行"
-<span id='clang-gen-llvm-ir'></span> > LLVM 相关软件，我们已经在[ lab0 阶段](../lab0/software.md/#llvmclang-安装)安装好。
+    <span id='clang-gen-llvm-ir'></span>  LLVM 相关软件，我们已经在[ lab0 阶段](../lab0/software.md/#llvmclang-安装)安装好。
 
     LLVM IR 文件以 `.ll` 为文件后缀，clang 是 LLVM 工具链中的前端，可实现从 C 语言向 LLVM IR 的翻译，操作流程如下：
 
@@ -52,7 +52,7 @@ LLVM IR 指令参考手册：[Reference Manual](https://llvm.org/docs/LangRef.ht
     $ echo $?
     ```
 
-    [gcd_array.c](https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024ustc-jianmu-compiler/-/blob/main/tests/2-ir-gen/warmup/ta_gcd/gcd_array.c) 是实验提供的例子，学生可以通过使用 clang 翻译示例，并查阅 [Light IR 手册](./LightIR.md#light-ir-指令)来理解每条 LLVM IR 指令含义。
+[gcd_array.c](https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024ustc-jianmu-compiler/-/blob/main/tests/2-ir-gen/warmup/ta_gcd/gcd_array.c) 是实验提供的例子，学生可以通过使用 clang 翻译示例，并查阅 [Light IR 手册](./LightIR.md#light-ir-指令)来理解每条 LLVM IR 指令含义。
 
 ### Light IR
 
