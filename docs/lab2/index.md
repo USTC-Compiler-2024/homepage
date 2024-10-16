@@ -63,7 +63,11 @@
 
     事实上，在处理本次合并可能的冲突时，只需要保留你在 lab1 编写的代码即可，其余基本上都保留上游仓库的最新内容。
 
-此时进入 build 文件夹，使用 `make -j` 编译最新的程序，然后进入 lab1 的测试目录 `tests/1-parser`，执行 lab1 的两个脚本。在正确合并分支的情况下，你应该能够正常编译项目并通过 lab1 的两个脚本，这时你可以开始本次实验的撰写了。
+此时进入 build 文件夹，执行 `cmake ..` 和 `make -j` 编译最新的程序，然后进入 lab1 的测试目录 `tests/1-parser`，执行 lab1 的两个脚本。在正确合并分支的情况下，你应该能够正常编译项目并通过 lab1 的两个脚本，这时你可以开始本次实验的撰写了。
+
+??? note "ZLIB 相关报错"
+
+    如果你在 `cmake ..` 一步遇到如下报错`Target "IR_lib" links to target "ZLIB::ZLIB" but the target was not found.`，请使用 `sudo apt install zlib1g-dev` 安装 zlib 库，然后重新 `cmake .. && make`。
 
 <!--
 然后抓取来自公开仓库（upstream）的最新内容：`git fetch --all`。这时最新内容还保存在 `remotes/upstream/main` 下边，你可以通过一款叫做 `Git Graph` 的 vscode 插件来可视化这些分支的迭代关系，如下图：
