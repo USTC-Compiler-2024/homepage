@@ -89,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#剖析llvm中的getelementptr实例详解" class="md-skip">
+        <a href="#剖析-llvm-中的-getelementptr实例详解" class="md-skip">
           跳转至
         </a>
       
@@ -1243,34 +1243,34 @@
                   
 
 
-<h1 id="剖析llvm中的getelementptr实例详解">剖析LLVM中的getelementptr：实例详解<a class="headerlink" href="#剖析llvm中的getelementptr实例详解" title="Permanent link">&para;</a></h1>
+<h1 id="剖析-llvm-中的-getelementptr实例详解">剖析 LLVM 中的 getelementptr：实例详解<a class="headerlink" href="#剖析-llvm-中的-getelementptr实例详解" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p>这篇文章翻译自<a href="https://blog.yossarian.net/2020/09/19/LLVMs-getelementptr-by-example">LLVM's getelementptr, by example</a>，原作者是<a href="https://yossarian.net/">William Woodruff</a>，发布于2020年9月。</p>
+<p>这篇文章翻译自<a href="https://blog.yossarian.net/2020/09/19/LLVMs-getelementptr-by-example">LLVM's getelementptr, by example</a>，原作者是<a href="https://yossarian.net/">William Woodruff</a>，发布于 2020 年 9 月。</p>
 </blockquote>
 <p><a class="glightbox" href="../figs/one-fear-gep.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="one-fear-gep" src="../figs/one-fear-gep.png" /></a></p>
 <h2 id="前言">前言<a class="headerlink" href="#前言" title="Permanent link">&para;</a></h2>
-<p>我已经在基于LLVM的项目中摸爬滚打了两年多，对阅读LLVM IR也早已驾轻就熟。尽管如此，每次我看到<code>getelementptr</code>指令的时候，我<strong>仍然</strong>要停下来想一想它的语义。所以这篇文章将用来帮助我自己（也许也能够帮助读者你）更加熟悉<code>getelementptr</code>。</p>
+<p>我已经在基于 LLVM 的项目中摸爬滚打了两年多，对阅读 LLVM IR 也早已驾轻就熟。尽管如此，每次我看到<code>getelementptr</code>指令的时候，我<strong>仍然</strong>要停下来想一想它的语义。所以这篇文章将用来帮助我自己（也许也能够帮助读者你）更加熟悉<code>getelementptr</code>。</p>
 <h2 id="背景">背景<a class="headerlink" href="#背景" title="Permanent link">&para;</a></h2>
 <p>首先，你要知道有个东西叫做<a href="https://llvm.org/">LLVM</a>。</p>
-<p>LLVM最初代表“Low Level Virtual Machine”（低级虚拟机），<a href="https://lists.llvm.org/pipermail/llvm-dev/2011-December/046445.html">但现在这个缩写已经完全不代表任何东西了</a>。</p>
-<p>LLVM项目包含了很多部分，但对于普通开发者来说，LLVM最出名的部分大概是作为C/C++优化编译器的Clang<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>。</p>
-<p>除了本身是个相当强大的编译器工程，LLVM最为人称道的就是它的中间表示（Intermediate Representation， IR）。有一个设计优秀、成熟稳定的IR，对一个优化编译器来说有不少好处：</p>
+<p>LLVM 最初代表“Low Level Virtual Machine”（低级虚拟机），<a href="https://lists.llvm.org/pipermail/llvm-dev/2011-December/046445.html">但现在这个缩写已经完全不代表任何东西了</a>。</p>
+<p>LLVM 项目包含了很多部分，但对于普通开发者来说，LLVM 最出名的部分大概是作为 C/C++ 优化编译器的 Clang<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>。</p>
+<p>除了本身是个相当强大的编译器工程，LLVM 最为人称道的就是它的中间表示（Intermediate Representation，IR）。有一个设计优秀、成熟稳定的 IR，对一个优化编译器来说有不少好处：</p>
 <ul>
-<li><strong>高效优化</strong>：LLVM的IR能准确反映原始程序的语义（包括C的抽象语义），同时提供了重要的优化原语。所有的优化都是通过一系列独立的转换步骤（“passes”）直接在IR上进行的。</li>
-<li><strong>加速语言开发</strong>：编程语言的开发者可以选择将LLVM的IR作为目标，而不是生成目标平台上执行的代码，这样可以直接利用LLVM支持的<a href="https://github.com/llvm/llvm-project/tree/main/llvm/lib/Target">所有平台</a>和现有的优化功能。</li>
-<li><strong>程序分析</strong>：同样的特性让LLVM的IR不仅适合做优化，也适合做静态和动态的程序分析。再加上LLVM的IR和API的稳定性，它已经成为程序分析研究中的首选工具。</li>
+<li><strong>高效优化</strong>：LLVM 的 IR 能准确反映原始程序的语义（包括 C 的抽象语义），同时提供了重要的优化原语。所有的优化都是通过一系列独立的转换步骤（“passes”）直接在 IR 上进行的。</li>
+<li><strong>加速语言开发</strong>：编程语言的开发者可以选择将 LLVM 的 IR 作为目标，而不是生成目标平台上执行的代码，这样可以直接利用 LLVM 支持的<a href="https://github.com/llvm/llvm-project/tree/main/llvm/lib/Target">所有平台</a>和现有的优化功能。</li>
+<li><strong>程序分析</strong>：同样的特性让 LLVM 的 IR 不仅适合做优化，也适合做静态和动态的程序分析。再加上 LLVM 的 IR 和 API 的稳定性，它已经成为程序分析研究中的首选工具。</li>
 </ul>
-<p>简单来说，LLVM的IR大致可以分为四个层级，范围逐渐缩小：</p>
+<p>简单来说，LLVM 的 IR 大致可以分为四个层级，范围逐渐缩小：</p>
 <ul>
-<li><a href="https://llvm.org/doxygen/classllvm_1_1Module.html"><strong>模块（Modules)</strong></a>，大致对应翻译单元（比如一个C源文件和它的头文件）</li>
+<li><a href="https://llvm.org/doxygen/classllvm_1_1Module.html"><strong>模块（Modules)</strong></a>，大致对应翻译单元（比如一个 C 源文件和它的头文件）</li>
 <li><a href="https://llvm.org/doxygen/classllvm_1_1Function.html"><strong>函数（Functions）</strong></a>，对应的就是源码中的函数（你猜对了）</li>
 <li><a href="https://llvm.org/doxygen/classllvm_1_1BasicBlock.html"><strong>基本块（Basic Blocks）</strong></a>，对应的是通过控制流连接的一段顺序执行的代码段。</li>
-<li><a href="https://llvm.org/doxygen/classllvm_1_1Instruction.html"><strong>指令（Instructions）</strong></a>，对应的是具体的操作（比如加法、减法、load、store等）</li>
+<li><a href="https://llvm.org/doxygen/classllvm_1_1Instruction.html"><strong>指令（Instructions）</strong></a>，对应的是具体的操作（比如加法、减法、load、store 等）</li>
 </ul>
 <p>指令操作的是<a href="https://llvm.org/doxygen/classllvm_1_1Value.html"><strong>值（Values）</strong></a>，而函数、基本块和指令本身也是一种值<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>（当然还有其他类型的值），这样就形成了完整的框架。</p>
-<p>这篇博客讨论的是一个单独的LLVM指令：<code>getelementptr</code>。</p>
+<p>这篇博客讨论的是一个单独的 LLVM 指令：<code>getelementptr</code>。</p>
 <h2 id="第一步">第一步<a class="headerlink" href="#第一步" title="Permanent link">&para;</a></h2>
-<p>以下是LLVM 10的<a href="https://llvm.org/docs/LangRef.html#getelementptr-instruction">LLVM语言参考手册</a>对<code>getelementptr</code>的定义和描述：</p>
+<p>以下是 LLVM 10 的<a href="https://llvm.org/docs/LangRef.html#getelementptr-instruction">LLVM 语言参考手册</a>对<code>getelementptr</code>的定义和描述：</p>
 <div class="highlight"><pre><span></span><code>&lt;result&gt; = getelementptr &lt;ty&gt;, &lt;ty&gt;* &lt;ptrval&gt;{, [inrange] &lt;ty&gt; &lt;idx&gt;}*
 &lt;result&gt; = getelementptr inbounds &lt;ty&gt;, &lt;ty&gt;* &lt;ptrval&gt;{, [inrange] &lt;ty&gt; &lt;idx&gt;}*
 &lt;result&gt; = getelementptr &lt;ty&gt;, &lt;ptr vector&gt; &lt;ptrval&gt;, [inrange] &lt;vector index type&gt; &lt;idx&gt;
@@ -1278,21 +1278,21 @@
 <blockquote>
 <p><code>getelementptr</code>指令用于获取聚合数据结构的子元素的地址。它只执行地址计算，而不访问内存。该指令还可以用于计算一组这样的地址的向量。</p>
 </blockquote>
-<p>换句话说：它是x86指令<a href="https://c9x.me/x86/html/file_module_x86_id_153.html"><code>lea</code></a>的增强版：它计算某个字段的有效地址，而实际上不访问任何内存。我说它是“增强版”是因为它能做一些单个<code>lea</code>无法做到的事情：</p>
+<p>换句话说：它是 x86 指令<a href="https://c9x.me/x86/html/file_module_x86_id_153.html"><code>lea</code></a>的增强版：它计算某个字段的有效地址，而实际上不访问任何内存。我说它是“增强版”是因为它能做一些单个<code>lea</code>无法做到的事情：</p>
 <ul>
-<li>单个<code>lea</code>能计算间接地址的能力受到x86寻址模式的限制：如果不能通过缩放、索引、基址和位移参数的组合计算数据结构中的有效地址，就需要多个<code>lea</code>才能到达最后要求的地址。而在<code>getelementptr</code>中，LLVM前端可以生成任意数量的嵌套索引，仅用一个<code>getelementptr</code>指令就能实现。</li>
-<li>像大多数LLVM指令一样，<code>getelementptr</code>有一个“向量”变体：它不仅返回一个计算的地址，还可以返回一组一起计算的地址。因此，对于向量变体，某些（甚至全部）的<code>getelementptr</code>索引参数必须是向量本身。</li>
+<li>单个<code>lea</code>能计算间接地址的能力受到 x86 寻址模式的限制：如果不能通过缩放、索引、基址和位移参数的组合计算数据结构中的有效地址，就需要多个<code>lea</code>才能到达最后要求的地址。而在<code>getelementptr</code>中，LLVM 前端可以生成任意数量的嵌套索引，仅用一个<code>getelementptr</code>指令就能实现。</li>
+<li>像大多数 LLVM 指令一样，<code>getelementptr</code>有一个“向量”变体：它不仅返回一个计算的地址，还可以返回一组一起计算的地址。因此，对于向量变体，某些（甚至全部）的<code>getelementptr</code>索引参数必须是向量本身。</li>
 </ul>
-<p>我已经把官方的概述读了几十遍，<strong>大体</strong>上我也理解它。然而，每次真正阅读IR中的<code>getelementptr</code>时，我还是有些眼花缭乱。LLVM的开发者们也意识到了<code>getelementptr</code>有多么让人感到迷茫困惑：他们专门创建了<a href="https://llvm.org/docs/GetElementPtr.html">一整个详细的页面</a>来详细解释它的语法，为什么它不涉及内存操作，以及构造一个有效的<code>getelementptr</code>所需要的各种限制条件。</p>
-<p>非常令人遗憾的是，这个页面没有很多与真实C代码的对照示例。所以，这就是我们在这里要做的。所有示例都将使用全局变量和<code>-fno-discard-value-names</code>（告诉编译器不要丢弃变量和函数的名称）来使生成的IR更容易阅读。</p>
+<p>我已经把官方的概述读了几十遍，<strong>大体</strong>上我也理解它。然而，每次真正阅读 IR 中的<code>getelementptr</code>时，我还是有些眼花缭乱。LLVM 的开发者们也意识到了<code>getelementptr</code>有多么让人感到迷茫困惑：他们专门创建了<a href="https://llvm.org/docs/GetElementPtr.html">一整个详细的页面</a>来详细解释它的语法，为什么它不涉及内存操作，以及构造一个有效的<code>getelementptr</code>所需要的各种限制条件。</p>
+<p>非常令人遗憾的是，这个页面没有很多与真实 C 代码的对照示例。所以，这就是我们在这里要做的。所有示例都将使用全局变量和<code>-fno-discard-value-names</code>（告诉编译器不要丢弃变量和函数的名称）来使生成的 IR 更容易阅读。</p>
 <h2 id="基本寻址">基本寻址<a class="headerlink" href="#基本寻址" title="Permanent link">&para;</a></h2>
-<p>让我们来看一个简单的C函数，它仅返回全局数组中的第一个元素：</p>
+<p>让我们来看一个简单的 C 函数，它仅返回全局数组中的第一个元素：</p>
 <div class="highlight"><pre><span></span><code><span class="kt">long</span><span class="w"> </span><span class="o">*</span><span class="n">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
 <span class="kt">long</span><span class="w"> </span><span class="nf">index_first</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>生成的IR如下（稍微做了化简和整理）：</p>
+<p>生成的 IR 如下（稍微做了化简和整理）：</p>
 <div class="highlight"><pre><span></span><code><span class="vg">@nums</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">dso_local</span><span class="w"> </span><span class="k">global</span><span class="w"> </span><span class="kt">i64</span><span class="p">*</span><span class="w"> </span><span class="k">inttoptr</span><span class="w"> </span><span class="p">(</span><span class="kt">i64</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="kt">i64</span><span class="p">*),</span><span class="w"> </span><span class="k">align</span><span class="w"> </span><span class="m">8</span>
 
 <span class="k">define</span><span class="w"> </span><span class="k">dso_local</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="vg">@index_first</span><span class="p">()</span><span class="w"> </span><span class="vg">#0</span><span class="w"> </span><span class="p">{</span>
@@ -1306,21 +1306,27 @@
 <p>我们一行一行来看：</p>
 <ol>
 <li>我们将全局变量<code>nums</code>加载（<code>load</code>）到<code>%0</code>中，类型为<code>i64*</code><sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>。</li>
-<li>我们使用<code>getelementptr</code>计算一个<code>i64</code>（第一个参数）的地址，使用：</li>
-<li><code>%0</code>作为基址（第二个参数）</li>
+<li>
+<p>我们使用<code>getelementptr</code>计算一个<code>i64</code>（第一个参数）的地址，使用：</p>
+</li>
+<li>
+<p><code>%0</code>作为基址（第二个参数）</p>
+</li>
 <li><code>0</code>作为索引（第三个参数）</li>
 </ol>
-<p>。。。然后我们将计算得到的地址存储到<code>%arrayidx</code>中。
-3. 我们从计算出的地址（<code>%arrayidx</code>）中加载（<code>load</code>）一个<code>i64</code>到<code>%1</code>。
-4. 我们返回加载的值（<code>%1</code>）。</p>
+<p>。。。然后我们将计算得到的地址存储到<code>%arrayidx</code>中。</p>
+<ol>
+<li>我们从计算出的地址（<code>%arrayidx</code>）中加载（<code>load</code>）一个<code>i64</code>到<code>%1</code>。</li>
+<li>我们返回加载的值（<code>%1</code>）。</li>
+</ol>
 <p>看起来还不错！<code>getelementptr</code>的行为与它所模拟的简单索引操作<strong>完全</strong>一致。</p>
-<p><strong>如果我们将<code>nums</code>改为数组呢？</strong> 在C中，数组实际上就是指针，所以结果应该是一样的，对吧？</p>
+<p><strong>如果我们将<code>nums</code>改为数组呢？</strong> 在 C 中，数组实际上就是指针，所以结果应该是一样的，对吧？</p>
 <div class="highlight"><pre><span></span><code><span class="kt">long</span><span class="w"> </span><span class="n">nums</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
 <span class="kt">long</span><span class="w"> </span><span class="nf">index_first</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>错啦！LLVM IR并不是C，它不遵循C的规则。尤其是对有固定大小的数组类型，它可以被转换为指针，但这一切不会自动发生：</p>
+<p>错啦！LLVM IR 并不是 C，它不遵循 C 的规则。尤其是对有固定大小的数组类型，它可以被转换为指针，但这一切不会自动发生：</p>
 <div class="highlight"><pre><span></span><code><span class="vg">@nums</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">dso_local</span><span class="w"> </span><span class="k">global</span><span class="w"> </span><span class="p">[</span><span class="m">3</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i64</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="kt">i64</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="m">3</span><span class="p">],</span><span class="w"> </span><span class="k">align</span><span class="w"> </span><span class="m">16</span>
 
 <span class="k">define</span><span class="w"> </span><span class="k">dso_local</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="vg">@index_first</span><span class="p">()</span><span class="w"> </span><span class="vg">#0</span><span class="w"> </span><span class="p">{</span>
@@ -1328,17 +1334,17 @@
 <span class="w">  </span><span class="k">ret</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="nv nv-Anonymous">%0</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>上面这段代码一定程度上变简单了，但在某些地方又变复杂了：<code>getelementptr</code>现在内嵌在<code>load</code>指令中<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>，但是我们也省去了一个<code>load</code>指令和两个SSA变量。</p>
+<p>上面这段代码一定程度上变简单了，但在某些地方又变复杂了：<code>getelementptr</code>现在内嵌在<code>load</code>指令中<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>，但是我们也省去了一个<code>load</code>指令和两个 SSA 变量。</p>
 <p>我们对<code>getelementptr</code>进行分析：</p>
 <ul>
-<li>我们正在计算一个<code>[3 x i64]</code>（即3个<code>i64</code>组成的数组）的地址（第一个参数）。</li>
+<li>我们正在计算一个<code>[3 x i64]</code>（即 3 个<code>i64</code>组成的数组）的地址（第一个参数）。</li>
 <li><code>nums</code>是我们的基址，类型为<code>[3 x i64]*</code>（第二个参数）。</li>
 </ul>
 <p>等下，为什么有<strong>两个</strong><code>i64 0</code>索引而不是一个呢？咋回事？</p>
-<p>据我理解，这是我们给予<code>nums</code>的新类型（也就是数组类型）所造成的诡异之处：它不再是指针，而是数组。然而，因为我们<strong>通过指针</strong>访问它（<code>getelementptr</code>就是这么定义的，这里的参数会被视作一个指针），所以我们实际上需要两个0索引：第一个用于解引用指针，第二个用于索引数组本身。我们所做的操作与前面的相同，只是在IR中稍微绕了一些弯子<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>。</p>
+<p>据我理解，这是我们给予<code>nums</code>的新类型（也就是数组类型）所造成的诡异之处：它不再是指针，而是数组。然而，因为我们<strong>通过指针</strong>访问它（<code>getelementptr</code>就是这么定义的，这里的参数会被视作一个指针），所以我们实际上需要两个 0 索引：第一个用于解引用指针，第二个用于索引数组本身。我们所做的操作与前面的相同，只是在 IR 中稍微绕了一些弯子<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>。</p>
 <h2 id="更多的间接寻址">更多的间接寻址<a class="headerlink" href="#更多的间接寻址" title="Permanent link">&para;</a></h2>
 <p>当我们增加一个源代码中的间接层次，例如一个索引变量，会发生什么呢？</p>
-<p><div class="highlight"><pre><span></span><code><span class="kt">long</span><span class="w"> </span><span class="n">nums</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
+<div class="highlight"><pre><span></span><code><span class="kt">long</span><span class="w"> </span><span class="n">nums</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
 <span class="kt">long</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 <span class="kt">long</span><span class="w"> </span><span class="nf">index_i</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
@@ -1350,14 +1356,14 @@
 <span class="k">define</span><span class="w"> </span><span class="k">dso_local</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="vg">@index_i</span><span class="p">()</span><span class="w"> </span><span class="vg">#0</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nv nv-Anonymous">%0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">load</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">*</span><span class="w"> </span><span class="vg">@i</span><span class="p">,</span><span class="w"> </span><span class="k">align</span><span class="w"> </span><span class="m">8</span>
 <span class="w">  </span><span class="nv">%arrayidx</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">getelementptr</span><span class="w"> </span><span class="k">inbounds</span><span class="w"> </span><span class="p">[</span><span class="m">3</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i64</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="m">3</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i64</span><span class="p">]*</span><span class="w"> </span><span class="vg">@nums</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="nv nv-Anonymous">%0</span>
-<span class="w">  </span><span class="nv nv-Anonymous">%1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">load</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">*</span><span class="w"> </span><span class="nv">%arrayidx</span><span class="p">,</span><span class="w"> </span><span class="k">align</span><span class="w"> </span>
+<span class="w">  </span><span class="nv nv-Anonymous">%1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">load</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">*</span><span class="w"> </span><span class="nv">%arrayidx</span><span class="p">,</span><span class="w"> </span><span class="k">align</span>
 
 <span class="m">8</span>
 <span class="w">  </span><span class="k">ret</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="nv nv-Anonymous">%1</span>
 <span class="p">}</span>
-</code></pre></div></p>
+</code></pre></div>
 <p>（在<a href="https://godbolt.org/z/MvMj5o">godbolt</a>上查看）</p>
-<p>这和我们之前的简单示例几乎是相同的！唯一有变化的是最后的索引从0变成了<code>%0</code>（它对应于加载的变量<code>i</code>）。这进一步确认了我们关于两个<code>i64 0</code>的观点：第一个（仍然存在）只是解引用指针，而第二个执行实际的索引操作。</p>
+<p>这和我们之前的简单示例几乎是相同的！唯一有变化的是最后的索引从 0 变成了<code>%0</code>（它对应于加载的变量<code>i</code>）。这进一步确认了我们关于两个<code>i64 0</code>的观点：第一个（仍然存在）只是解引用指针，而第二个执行实际的索引操作。</p>
 <p>接下来，我们加点<sub>~料</sub>~维度：</p>
 <div class="highlight"><pre><span></span><code><span class="kt">long</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">}</span><span class="w"> </span><span class="p">};</span>
 <span class="kt">long</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
@@ -1365,7 +1371,7 @@
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">];</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>生成的IR：</p>
+<p>生成的 IR：</p>
 <div class="highlight"><pre><span></span><code><span class="vg">@nums</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">dso_local</span><span class="w"> </span><span class="k">local_unnamed_addr</span><span class="w"> </span><span class="k">global</span><span class="w"> </span><span class="p">[</span><span class="m">3</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="p">[</span><span class="m">3</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i64</span><span class="p">]]</span><span class="w"> </span><span class="p">[[</span><span class="m">3</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i64</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="kt">i64</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="m">3</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="m">3</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i64</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="kt">i64</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="m">4</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="m">3</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i64</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="kt">i64</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="m">5</span><span class="p">]],</span><span class="w"> </span><span class="k">align</span><span class="w"> </span><span class="m">16</span>
 <span class="vg">@i</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">common</span><span class="w"> </span><span class="k">dso_local</span><span class="w"> </span><span class="k">local_unnamed_addr</span><span class="w"> </span><span class="k">global</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="k">align</span><span class="w"> </span><span class="m">8</span>
 
@@ -1379,13 +1385,13 @@
 <p>（在<a href="https://godbolt.org/z/6rshW3">godbolt</a>上查看）</p>
 <p>完全就像我们预期的那样：我们只是用相同的索引（<code>%0</code>）访问了聚合类型中更深的一层，<code>getelementptr</code>也自然而然的有了一个额外的参数。</p>
 <p>再加一点数学运算就能看得很清晰了，索引的顺序与我们预期是一致的。</p>
-<p><div class="highlight"><pre><span></span><code><span class="kt">long</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">}</span><span class="w"> </span><span class="p">};</span>
+<div class="highlight"><pre><span></span><code><span class="kt">long</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">}</span><span class="w"> </span><span class="p">};</span>
 <span class="kt">long</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 <span class="kt">long</span><span class="w"> </span><span class="nf">index_i2</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
 <span class="p">}</span>
 </code></pre></div>
-变成了：
+<p>变成了：</p>
 <div class="highlight"><pre><span></span><code><span class="vg">@nums</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">dso_local</span><span class="w"> </span><span class="k">local_unnamed_addr</span><span class="w"> </span><span class="k">global</span><span class="w"> </span><span class="p">[</span><span class="m">3</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="p">[</span><span class="m">3</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i64</span><span class="p">]]</span><span class="w"> </span><span class="p">[[</span><span class="m">3</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i64</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="kt">i64</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="m">3</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="m">3</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i64</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="kt">i64</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="m">4</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="m">3</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i64</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="kt">i64</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="m">5</span><span class="p">]],</span><span class="w"> </span><span class="k">align</span><span class="w"> </span><span class="m">16</span>
 <span class="vg">@i</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">common</span><span class="w"> </span><span class="k">dso_local</span><span class="w"> </span><span class="k">local_unnamed_addr</span><span class="w"> </span><span class="k">global</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="k">align</span><span class="w"> </span><span class="m">8</span>
 
@@ -1396,7 +1402,7 @@
 <span class="w">  </span><span class="nv nv-Anonymous">%1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">load</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">*</span><span class="w"> </span><span class="nv">%arrayidx1</span><span class="p">,</span><span class="w"> </span><span class="k">align</span><span class="w"> </span><span class="m">8</span>
 <span class="w">  </span><span class="k">ret</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="nv nv-Anonymous">%1</span>
 <span class="p">}</span>
-</code></pre></div></p>
+</code></pre></div>
 <p>（在<a href="https://godbolt.org/z/c85rsx">godbolt</a>上查看）</p>
 <h2 id="结构体和其他复合类型">结构体和其他复合类型<a class="headerlink" href="#结构体和其他复合类型" title="Permanent link">&para;</a></h2>
 <p>之前我们讨论了指针和数组，但实际上，<code>getelementptr</code>对于任何聚合数据结构（包括结构体）都有很好的支持。</p>
@@ -1424,7 +1430,7 @@
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">chunky</span><span class="p">.</span><span class="n">bar</span><span class="p">.</span><span class="n">baz</span><span class="p">.</span><span class="n">quux</span><span class="p">.</span><span class="n">field5</span><span class="p">[</span><span class="mi">17</span><span class="p">];</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>再一次地，LLVM无比可靠地吐出了一个优雅简单的<code>getelementptr</code>：</p>
+<p>再一次地，LLVM 无比可靠地吐出了一个优雅简单的<code>getelementptr</code>：</p>
 <div class="highlight"><pre><span></span><code><span class="nv">%struct.foo</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">%struct.anon</span><span class="w"> </span><span class="p">}</span>
 <span class="nv">%struct.anon</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="nv">%struct.anon.0</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="p">}</span>
 <span class="nv">%struct.anon.0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="nv">%union.anon</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="p">}</span>
@@ -1444,10 +1450,10 @@
 <li><code>i32 0</code>：结构体<code>foo</code>的第一个字段（即<code>foo.bar</code>）。</li>
 <li>注意到这里没有其他合法的索引：因为<code>foo</code>唯一的一个字段就是<code>bar</code>。</li>
 <li><code>i32 1</code>：嵌套聚合的第二个字段（即<code>foo.bar.baz</code><sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup>）。</li>
-<li>注意这里的<code>i32 0</code>会是<code>foo.bar.field1</code>，类似的，<code>i32 2</code>会是<code>foo.bar.field8</code>。换句话说，<strong>我们每进入一个新的聚合，我们就会从0开始重新计数</strong>。</li>
+<li>注意这里的<code>i32 0</code>会是<code>foo.bar.field1</code>，类似的，<code>i32 2</code>会是<code>foo.bar.field8</code>。换句话说，<strong>我们每进入一个新的聚合，我们就会从 0 开始重新计数</strong>。</li>
 <li><code>i32 2</code>：下一层嵌套的第三个字段（即<code>foo.bar.baz.quux</code>）。</li>
 <li><code>i32 1</code>：再下一层嵌套的第二个字段（即<code>foo.bar.baz.quux.field5</code>）。</li>
-<li>注意这里的<code>quux</code>是一个<code>union</code>而非<code>struct</code>，但LLVM不关心这种事，在它看来都是一样的聚合数据结构。</li>
+<li>注意这里的<code>quux</code>是一个<code>union</code>而非<code>struct</code>，但 LLVM 不关心这种事，在它看来都是一样的聚合数据结构。</li>
 <li><code>i64 9</code>：。。。啥玩意儿？</li>
 </ul>
 <p>怎么回事？我们的<code>17</code>跑到哪去了？这个<code>9</code>又是从哪冒出来的？</p>
@@ -1456,7 +1462,7 @@
 </code></pre></div>
 <p>首先，这并非一个真正的<code>union</code>。<strong>LLVM 并没有真正的"<code>union</code>"类型。</strong></p>
 <p>但是，如果我们仔细观察，我们就会发现 LLVM 聪明的地方：<code>%union.anon</code> 实际上是一个结构体，其中后一部分<code>field5</code>只有<span class="arithmatex">\(24\)</span>个字节，而非定义中的<span class="arithmatex">\(32\)</span>个字节——开头的<span class="arithmatex">\(8\)</span>个字节属于<code>field4</code>。就这样，LLVM 模拟了 C 中的<code>union</code>语义而避免了实现自己的<code>union</code>。</p>
-<p>所以为什么是<code>i64 9</code>？我们要注意，这里涉及的是<code>[24 x i8]</code>，也就是field5的后24个字节。换句话说，由于前面有<code>i32 1</code>的索引，我们已经跳过了<code>field5</code>的前<span class="arithmatex">\(8\)</span>个字节（也就是<code>sizeof(i64) == 8</code>），于是<span class="arithmatex">\(8 + 9 = 17\)</span>，刚好是我们要的索引！LLVM并没有让我们失望。</p>
+<p>所以为什么是<code>i64 9</code>？我们要注意，这里涉及的是<code>[24 x i8]</code>，也就是 field5 的后 24 个字节。换句话说，由于前面有<code>i32 1</code>的索引，我们已经跳过了<code>field5</code>的前<span class="arithmatex">\(8\)</span>个字节（也就是<code>sizeof(i64) == 8</code>），于是<span class="arithmatex">\(8 + 9 = 17\)</span>，刚好是我们要的索引！LLVM 并没有让我们失望。</p>
 <p>等下，但如果我们尝试访问<code>field5</code>和<code>field4</code>重叠的部分，比如<code>field5[6]</code>，会发生什么呢？</p>
 <div class="highlight"><pre><span></span><code><span class="nv nv-Anonymous">%0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">load</span><span class="w"> </span><span class="kt">i8</span><span class="p">,</span><span class="w"> </span><span class="kt">i8</span><span class="p">*</span><span class="w"> </span><span class="k">getelementptr</span><span class="w"> </span><span class="k">inbounds</span><span class="w"> </span><span class="p">([</span><span class="m">32</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="m">32</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">]*</span><span class="w"> </span><span class="k">bitcast</span><span class="w"> </span><span class="p">(</span><span class="nv">%union.anon</span><span class="p">*</span><span class="w"> </span><span class="k">getelementptr</span><span class="w"> </span><span class="k">inbounds</span><span class="w"> </span><span class="p">(</span><span class="nv">%struct.foo</span><span class="p">,</span><span class="w"> </span><span class="nv">%struct.foo</span><span class="p">*</span><span class="w"> </span><span class="vg">@chunky</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="p">[</span><span class="m">32</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i8</span><span class="p">]*),</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="m">6</span><span class="p">),</span><span class="w"> </span><span class="k">align</span><span class="w"> </span><span class="m">2</span>
 </code></pre></div>
@@ -1472,7 +1478,7 @@
 <p>（译者注：这个部分似乎有着不少错误，因此做了不少调整）</p>
 <p>比较令人尴尬的是，我花了差不多半个小时才理解上面的结构体的示例。那么，为啥不继续<sub>~被虐</sub>~学习呢？</p>
 <p>正如文章一开始所提到的那样，<code>getelementptr</code>不仅可以处理单个地址和索引，它还能处理成组的向量地址和索引。</p>
-<p>我花了大约一个小时试图让LLVM生成一个向量化的<code>getelementptr</code>，但非常不幸失败了。所以，我决定手动构造几个例子。</p>
+<p>我花了大约一个小时试图让 LLVM 生成一个向量化的<code>getelementptr</code>，但非常不幸失败了。所以，我决定手动构造几个例子。</p>
 <p>首先，我们来看一个基本的情况：用一个常量标量值索引向量中的每一个地址：</p>
 <div class="highlight"><pre><span></span><code>%foo = getelementptr i64, &lt;8 x i64*&gt; %tbl, i64 0
 </code></pre></div>
@@ -1496,11 +1502,11 @@
 <span class="c1">// ...</span>
 <span class="n">foo</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">tbl</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">long</span><span class="p">);</span>
 </code></pre></div>
-<p>就是这样！一条指令完成了8次地址计算。</p>
+<p>就是这样！一条指令完成了 8 次地址计算。</p>
 <p>接下来，我们使用一个非常数的标量：</p>
 <div class="highlight"><pre><span></span><code>%bar = getelementptr i64, &lt;8 x i64*&gt; %tbl, i64 %offset
 </code></pre></div>
-<p>如果你理解了前面的例子，这一步也很简单：我们不再使用<code>0</code>进行索引，而是使用<code>%offset</code>中指定的值:</p>
+<p>如果你理解了前面的例子，这一步也很简单：我们不再使用<code>0</code>进行索引，而是使用<code>%offset</code>中指定的值：</p>
 <div class="highlight"><pre><span></span><code><span class="kt">long</span><span class="w"> </span><span class="o">*</span><span class="n">foo</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span><span class="w"> </span><span class="o">*</span><span class="n">tbl</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span>
 <span class="kt">long</span><span class="w"> </span><span class="n">offset</span><span class="p">;</span>
 
@@ -1557,10 +1563,10 @@
 <span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">RT</span><span class="w"> </span><span class="n">Z</span><span class="p">;</span>
 <span class="p">};</span>
 </code></pre></div>
-<p>那么
+<p>那么</p>
 <div class="highlight"><pre><span></span><code><span class="nv">%bar</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">getelementptr</span><span class="w">  </span><span class="nv">%struct.ST</span><span class="p">,</span><span class="w"> </span><span class="p">&lt;</span><span class="m">8</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">ptr</span><span class="p">&gt;</span><span class="w"> </span><span class="nv">%tbl</span><span class="p">,</span><span class="w"> </span><span class="p">&lt;</span><span class="m">8</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i64</span><span class="p">&gt;</span><span class="w"> </span><span class="nv">%ind1</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="p">&lt;</span><span class="m">8</span><span class="w"> </span><span class="k">x</span><span class="w"> </span><span class="kt">i32</span><span class="p">&gt;</span><span class="w"> </span><span class="nv">%ind4</span><span class="p">,</span><span class="w"> </span><span class="kt">i64</span><span class="w"> </span><span class="m">13</span>
-</code></pre></div></p>
-<p>这样的LLVM IR也是可行的。</p>
+</code></pre></div>
+<p>这样的 LLVM IR 也是可行的。</p>
 <h2 id="一些其他的碎碎念">一些其他的碎碎念<a class="headerlink" href="#一些其他的碎碎念" title="Permanent link">&para;</a></h2>
 <p>我还没有提到<code>getelementptr</code>指令中的一些其他可以使用的关键词，比如<code>inbounds</code>和<code>inrange</code>。</p>
 <p>简单来说：</p>
@@ -1574,30 +1580,30 @@
 </ul>
 <h2 id="总结">总结<a class="headerlink" href="#总结" title="Permanent link">&para;</a></h2>
 <p>总的来说，<code>getelementptr</code>确实有点不直观且冗长，但也没有那么糟糕。</p>
-<p><code>getelementptr</code>总是非常准确而严格的：它总能告诉我们它计算的地址的类型，从哪里开始计算，以及如何得到最终有效地址的，沿着聚合数据结构的“路径”。它功能强大且灵活，就像LLVM IR本身一样。</p>
+<p><code>getelementptr</code>总是非常准确而严格的：它总能告诉我们它计算的地址的类型，从哪里开始计算，以及如何得到最终有效地址的，沿着聚合数据结构的“路径”。它功能强大且灵活，就像 LLVM IR 本身一样。</p>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p>在开源领域，LLVM是唯一能与<a href="https://en.wikipedia.org/wiki/GNU_Compiler_Collection">GCC</a>抗衡的竞争者，而且优势明显。&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>在开源领域，LLVM 是唯一能与<a href="https://en.wikipedia.org/wiki/GNU_Compiler_Collection">GCC</a>抗衡的竞争者，而且优势明显。&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
 <p>字面上来说：<code>llvm::Function</code>等类型都是从<code>llvm::Value</code>派生而来的。&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>你可能会注意到，我们从一个<code>i64**</code>类型中加载数据，尽管<code>nums</code>只是一个<code>i64*</code>。这是LLVM语义上的一些“有趣”之处：<code>load</code>指令需要一个<code>&lt;ty&gt;*</code>类型作为来源，所以加载一个<code>i64*</code>就需要<code>i64**</code>。&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>你可能会注意到，我们从一个<code>i64**</code>类型中加载数据，尽管<code>nums</code>只是一个<code>i64*</code>。这是 LLVM 语义上的一些“有趣”之处：<code>load</code>指令需要一个<code>&lt;ty&gt;*</code>类型作为来源，所以加载一个<code>i64*</code>就需要<code>i64**</code>。&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p>如果你是个杠精，你可能会说，这些内联的GEP在LLVM中实际上并不是指令，而是常量表达式（即<code>llvm::GetElementPtrConstantExpr</code>而非<code>llvm::GetElementPtrInst</code>）。但两者的语义对于我的解释来说是相同的，所以别挑我的毛病。&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p>如果你是个杠精，你可能会说，这些内联的 GEP 在 LLVM 中实际上并不是指令，而是常量表达式（即<code>llvm::GetElementPtrConstantExpr</code>而非<code>llvm::GetElementPtrInst</code>）。但两者的语义对于我的解释来说是相同的，所以别挑我的毛病。&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 <li id="fn:5">
-<p>此事在LLVM官方文档中亦有<a href="https://llvm.org/docs/GetElementPtr.html#why-is-the-extra-0-index-required">记载</a>。&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p>此事在 LLVM 官方文档中亦有<a href="https://llvm.org/docs/GetElementPtr.html#why-is-the-extra-0-index-required">记载</a>。&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 <li id="fn:6">
-<p>我完全不知道为什么LLVM在这个GEP中会在<code>i64</code>和<code>i32</code>之间切换。大多数LLVM文档似乎暗示这其实无关紧要。&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+<p>我完全不知道为什么 LLVM 在这个 GEP 中会在<code>i64</code>和<code>i32</code>之间切换。大多数 LLVM 文档似乎暗示这其实无关紧要。&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
 </li>
 <li id="fn:7">
-<p>同样说给杠精：这些是常量表达式，而不是“真正”的GEP，因此它们基本上不会带来额外的开销。&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+<p>同样说给杠精：这些是常量表达式，而不是“真正”的 GEP，因此它们基本上不会带来额外的开销。&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
 </li>
 <li id="fn:8">
 <p>没有<code>inbounds</code>的话，<code>getelementptr</code>总会返回某个结果地址，这个地址可能有效，也可能无效。&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&#8617;</a></p>
@@ -1635,11 +1641,12 @@
   <span class="md-source-file__fact">
     <span class="md-icon" title="贡献者">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.536 5.536 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13v-1.75M0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20H0m24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9V20Z"/></svg>
       
     </span>
     <nav>
       
+        <a href="mailto:liuruibo21@mail.ustc.edu.cn">JYJSXX</a>, 
         <a href="mailto:zox@mail.ustc.edu.cn">zox</a>
     </nav>
   </span>
