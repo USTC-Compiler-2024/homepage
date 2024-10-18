@@ -66,6 +66,7 @@ markdown_extensions:
   - pymdownx.tilde
   - admonition
   - pymdownx.keys
+  - footnotes
 
   - pymdownx.blocks.admonition: # 不同风格的提示块
       types:
