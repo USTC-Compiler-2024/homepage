@@ -1,41 +1,41 @@
-# 剖析LLVM中的getelementptr：实例详解
+# 剖析 LLVM 中的 getelementptr：实例详解
 
-> 这篇文章翻译自[LLVM's getelementptr, by example](https://blog.yossarian.net/2020/09/19/LLVMs-getelementptr-by-example)，原作者是[William Woodruff](https://yossarian.net/)，发布于2020年9月。
-
+> 这篇文章翻译自[LLVM's getelementptr, by example](https://blog.yossarian.net/2020/09/19/LLVMs-getelementptr-by-example)，原作者是[William Woodruff](https://yossarian.net/)，发布于 2020 年 9 月。
 
 ![one-fear-gep](figs/one-fear-gep.png)
+
 ## 前言
 
-我已经在基于LLVM的项目中摸爬滚打了两年多，对阅读LLVM IR也早已驾轻就熟。尽管如此，每次我看到`getelementptr`指令的时候，我**仍然**要停下来想一想它的语义。所以这篇文章将用来帮助我自己（也许也能够帮助读者你）更加熟悉`getelementptr`。
+我已经在基于 LLVM 的项目中摸爬滚打了两年多，对阅读 LLVM IR 也早已驾轻就熟。尽管如此，每次我看到`getelementptr`指令的时候，我**仍然**要停下来想一想它的语义。所以这篇文章将用来帮助我自己（也许也能够帮助读者你）更加熟悉`getelementptr`。
 
 ## 背景
 
 首先，你要知道有个东西叫做[LLVM](https://llvm.org/)。
 
-LLVM最初代表“Low Level Virtual Machine”（低级虚拟机），[但现在这个缩写已经完全不代表任何东西了](https://lists.llvm.org/pipermail/llvm-dev/2011-December/046445.html)。
+LLVM 最初代表“Low Level Virtual Machine”（低级虚拟机），[但现在这个缩写已经完全不代表任何东西了](https://lists.llvm.org/pipermail/llvm-dev/2011-December/046445.html)。
 
-LLVM项目包含了很多部分，但对于普通开发者来说，LLVM最出名的部分大概是作为C/C++优化编译器的Clang[^1]。
+LLVM 项目包含了很多部分，但对于普通开发者来说，LLVM 最出名的部分大概是作为 C/C++ 优化编译器的 Clang[^1]。
 
-除了本身是个相当强大的编译器工程，LLVM最为人称道的就是它的中间表示（Intermediate Representation， IR）。有一个设计优秀、成熟稳定的IR，对一个优化编译器来说有不少好处：
+除了本身是个相当强大的编译器工程，LLVM 最为人称道的就是它的中间表示（Intermediate Representation，IR）。有一个设计优秀、成熟稳定的 IR，对一个优化编译器来说有不少好处：
 
-- **高效优化**：LLVM的IR能准确反映原始程序的语义（包括C的抽象语义），同时提供了重要的优化原语。所有的优化都是通过一系列独立的转换步骤（“passes”）直接在IR上进行的。
-- **加速语言开发**：编程语言的开发者可以选择将LLVM的IR作为目标，而不是生成目标平台上执行的代码，这样可以直接利用LLVM支持的[所有平台](https://github.com/llvm/llvm-project/tree/main/llvm/lib/Target)和现有的优化功能。
-- **程序分析**：同样的特性让LLVM的IR不仅适合做优化，也适合做静态和动态的程序分析。再加上LLVM的IR和API的稳定性，它已经成为程序分析研究中的首选工具。
+- **高效优化**：LLVM 的 IR 能准确反映原始程序的语义（包括 C 的抽象语义），同时提供了重要的优化原语。所有的优化都是通过一系列独立的转换步骤（“passes”）直接在 IR 上进行的。
+- **加速语言开发**：编程语言的开发者可以选择将 LLVM 的 IR 作为目标，而不是生成目标平台上执行的代码，这样可以直接利用 LLVM 支持的[所有平台](https://github.com/llvm/llvm-project/tree/main/llvm/lib/Target)和现有的优化功能。
+- **程序分析**：同样的特性让 LLVM 的 IR 不仅适合做优化，也适合做静态和动态的程序分析。再加上 LLVM 的 IR 和 API 的稳定性，它已经成为程序分析研究中的首选工具。
 
-简单来说，LLVM的IR大致可以分为四个层级，范围逐渐缩小：
+简单来说，LLVM 的 IR 大致可以分为四个层级，范围逐渐缩小：
 
-- [**模块（Modules)**](https://llvm.org/doxygen/classllvm_1_1Module.html)，大致对应翻译单元（比如一个C源文件和它的头文件）
+- [**模块（Modules)**](https://llvm.org/doxygen/classllvm_1_1Module.html)，大致对应翻译单元（比如一个 C 源文件和它的头文件）
 - [**函数（Functions）**](https://llvm.org/doxygen/classllvm_1_1Function.html)，对应的就是源码中的函数（你猜对了）
 - [**基本块（Basic Blocks）**](https://llvm.org/doxygen/classllvm_1_1BasicBlock.html)，对应的是通过控制流连接的一段顺序执行的代码段。
-- [**指令（Instructions）**](https://llvm.org/doxygen/classllvm_1_1Instruction.html)，对应的是具体的操作（比如加法、减法、load、store等）
+- [**指令（Instructions）**](https://llvm.org/doxygen/classllvm_1_1Instruction.html)，对应的是具体的操作（比如加法、减法、load、store 等）
 
 指令操作的是[**值（Values）**](https://llvm.org/doxygen/classllvm_1_1Value.html)，而函数、基本块和指令本身也是一种值[^2]（当然还有其他类型的值），这样就形成了完整的框架。
 
-这篇博客讨论的是一个单独的LLVM指令：`getelementptr`。
+这篇博客讨论的是一个单独的 LLVM 指令：`getelementptr`。
 
 ## 第一步
 
-以下是LLVM 10的[LLVM语言参考手册](https://llvm.org/docs/LangRef.html#getelementptr-instruction)对`getelementptr`的定义和描述：
+以下是 LLVM 10 的[LLVM 语言参考手册](https://llvm.org/docs/LangRef.html#getelementptr-instruction)对`getelementptr`的定义和描述：
 
 ```
 <result> = getelementptr <ty>, <ty>* <ptrval>{, [inrange] <ty> <idx>}*
@@ -43,20 +43,20 @@ LLVM项目包含了很多部分，但对于普通开发者来说，LLVM最出名
 <result> = getelementptr <ty>, <ptr vector> <ptrval>, [inrange] <vector index type> <idx>
 ```
 
->`getelementptr`指令用于获取聚合数据结构的子元素的地址。它只执行地址计算，而不访问内存。该指令还可以用于计算一组这样的地址的向量。
+> `getelementptr`指令用于获取聚合数据结构的子元素的地址。它只执行地址计算，而不访问内存。该指令还可以用于计算一组这样的地址的向量。
 
-换句话说：它是x86指令[`lea`](https://c9x.me/x86/html/file_module_x86_id_153.html)的增强版：它计算某个字段的有效地址，而实际上不访问任何内存。我说它是“增强版”是因为它能做一些单个`lea`无法做到的事情：
+换句话说：它是 x86 指令[`lea`](https://c9x.me/x86/html/file_module_x86_id_153.html)的增强版：它计算某个字段的有效地址，而实际上不访问任何内存。我说它是“增强版”是因为它能做一些单个`lea`无法做到的事情：
 
-- 单个`lea`能计算间接地址的能力受到x86寻址模式的限制：如果不能通过缩放、索引、基址和位移参数的组合计算数据结构中的有效地址，就需要多个`lea`才能到达最后要求的地址。而在`getelementptr`中，LLVM前端可以生成任意数量的嵌套索引，仅用一个`getelementptr`指令就能实现。
-- 像大多数LLVM指令一样，`getelementptr`有一个“向量”变体：它不仅返回一个计算的地址，还可以返回一组一起计算的地址。因此，对于向量变体，某些（甚至全部）的`getelementptr`索引参数必须是向量本身。
+- 单个`lea`能计算间接地址的能力受到 x86 寻址模式的限制：如果不能通过缩放、索引、基址和位移参数的组合计算数据结构中的有效地址，就需要多个`lea`才能到达最后要求的地址。而在`getelementptr`中，LLVM 前端可以生成任意数量的嵌套索引，仅用一个`getelementptr`指令就能实现。
+- 像大多数 LLVM 指令一样，`getelementptr`有一个“向量”变体：它不仅返回一个计算的地址，还可以返回一组一起计算的地址。因此，对于向量变体，某些（甚至全部）的`getelementptr`索引参数必须是向量本身。
 
-我已经把官方的概述读了几十遍，**大体**上我也理解它。然而，每次真正阅读IR中的`getelementptr`时，我还是有些眼花缭乱。LLVM的开发者们也意识到了`getelementptr`有多么让人感到迷茫困惑：他们专门创建了[一整个详细的页面](https://llvm.org/docs/GetElementPtr.html)来详细解释它的语法，为什么它不涉及内存操作，以及构造一个有效的`getelementptr`所需要的各种限制条件。
+我已经把官方的概述读了几十遍，**大体**上我也理解它。然而，每次真正阅读 IR 中的`getelementptr`时，我还是有些眼花缭乱。LLVM 的开发者们也意识到了`getelementptr`有多么让人感到迷茫困惑：他们专门创建了[一整个详细的页面](https://llvm.org/docs/GetElementPtr.html)来详细解释它的语法，为什么它不涉及内存操作，以及构造一个有效的`getelementptr`所需要的各种限制条件。
 
-非常令人遗憾的是，这个页面没有很多与真实C代码的对照示例。所以，这就是我们在这里要做的。所有示例都将使用全局变量和`-fno-discard-value-names`（告诉编译器不要丢弃变量和函数的名称）来使生成的IR更容易阅读。
+非常令人遗憾的是，这个页面没有很多与真实 C 代码的对照示例。所以，这就是我们在这里要做的。所有示例都将使用全局变量和`-fno-discard-value-names`（告诉编译器不要丢弃变量和函数的名称）来使生成的 IR 更容易阅读。
 
 ## 基本寻址
 
-让我们来看一个简单的C函数，它仅返回全局数组中的第一个元素：
+让我们来看一个简单的 C 函数，它仅返回全局数组中的第一个元素：
 
 ```c
 long *nums = {1, 2, 3};
@@ -65,7 +65,7 @@ long index_first(void) {
 }
 ```
 
-生成的IR如下（稍微做了化简和整理）：
+生成的 IR 如下（稍微做了化简和整理）：
 
 ```llvm
 @nums = dso_local global i64* inttoptr (i64 1 to i64*), align 8
@@ -84,16 +84,18 @@ define dso_local i64 @index_first() #0 {
 
 1. 我们将全局变量`nums`加载（`load`）到`%0`中，类型为`i64*`[^3]。
 2. 我们使用`getelementptr`计算一个`i64`（第一个参数）的地址，使用：
+
    - `%0`作为基址（第二个参数）
    - `0`作为索引（第三个参数）
-   
+
    。。。然后我们将计算得到的地址存储到`%arrayidx`中。
+
 3. 我们从计算出的地址（`%arrayidx`）中加载（`load`）一个`i64`到`%1`。
 4. 我们返回加载的值（`%1`）。
 
 看起来还不错！`getelementptr`的行为与它所模拟的简单索引操作**完全**一致。
 
-**如果我们将`nums`改为数组呢？** 在C中，数组实际上就是指针，所以结果应该是一样的，对吧？
+**如果我们将`nums`改为数组呢？** 在 C 中，数组实际上就是指针，所以结果应该是一样的，对吧？
 
 ```c
 long nums[] = {1, 2, 3};
@@ -102,7 +104,7 @@ long index_first(void) {
 }
 ```
 
-错啦！LLVM IR并不是C，它不遵循C的规则。尤其是对有固定大小的数组类型，它可以被转换为指针，但这一切不会自动发生：
+错啦！LLVM IR 并不是 C，它不遵循 C 的规则。尤其是对有固定大小的数组类型，它可以被转换为指针，但这一切不会自动发生：
 
 ```llvm
 @nums = dso_local global [3 x i64] [i64 1, i64 2, i64 3], align 16
@@ -113,16 +115,16 @@ define dso_local i64 @index_first() #0 {
 }
 ```
 
-上面这段代码一定程度上变简单了，但在某些地方又变复杂了：`getelementptr`现在内嵌在`load`指令中[^4]，但是我们也省去了一个`load`指令和两个SSA变量。
+上面这段代码一定程度上变简单了，但在某些地方又变复杂了：`getelementptr`现在内嵌在`load`指令中[^4]，但是我们也省去了一个`load`指令和两个 SSA 变量。
 
 我们对`getelementptr`进行分析：
 
-- 我们正在计算一个`[3 x i64]`（即3个`i64`组成的数组）的地址（第一个参数）。
+- 我们正在计算一个`[3 x i64]`（即 3 个`i64`组成的数组）的地址（第一个参数）。
 - `nums`是我们的基址，类型为`[3 x i64]*`（第二个参数）。
 
 等下，为什么有**两个**`i64 0`索引而不是一个呢？咋回事？
 
-据我理解，这是我们给予`nums`的新类型（也就是数组类型）所造成的诡异之处：它不再是指针，而是数组。然而，因为我们**通过指针**访问它（`getelementptr`就是这么定义的，这里的参数会被视作一个指针），所以我们实际上需要两个0索引：第一个用于解引用指针，第二个用于索引数组本身。我们所做的操作与前面的相同，只是在IR中稍微绕了一些弯子[^5]。
+据我理解，这是我们给予`nums`的新类型（也就是数组类型）所造成的诡异之处：它不再是指针，而是数组。然而，因为我们**通过指针**访问它（`getelementptr`就是这么定义的，这里的参数会被视作一个指针），所以我们实际上需要两个 0 索引：第一个用于解引用指针，第二个用于索引数组本身。我们所做的操作与前面的相同，只是在 IR 中稍微绕了一些弯子[^5]。
 
 ## 更多的间接寻址
 
@@ -135,6 +137,7 @@ long index_i(void) {
   return nums[i];
 }
 ```
+
 ```llvm
 @nums = dso_local global [3 x i64] [i64 1, i64 2, i64 3], align 16
 @i = common dso_local global i64 0, align 8
@@ -142,7 +145,7 @@ long index_i(void) {
 define dso_local i64 @index_i() #0 {
   %0 = load i64, i64* @i, align 8
   %arrayidx = getelementptr inbounds [3 x i64], [3 x i64]* @nums, i64 0, i64 %0
-  %1 = load i64, i64* %arrayidx, align 
+  %1 = load i64, i64* %arrayidx, align
 
 8
   ret i64 %1
@@ -151,7 +154,7 @@ define dso_local i64 @index_i() #0 {
 
 （在[godbolt](https://godbolt.org/z/MvMj5o)上查看）
 
-这和我们之前的简单示例几乎是相同的！唯一有变化的是最后的索引从0变成了`%0`（它对应于加载的变量`i`）。这进一步确认了我们关于两个`i64 0`的观点：第一个（仍然存在）只是解引用指针，而第二个执行实际的索引操作。
+这和我们之前的简单示例几乎是相同的！唯一有变化的是最后的索引从 0 变成了`%0`（它对应于加载的变量`i`）。这进一步确认了我们关于两个`i64 0`的观点：第一个（仍然存在）只是解引用指针，而第二个执行实际的索引操作。
 
 接下来，我们加点~~料~~维度：
 
@@ -163,7 +166,7 @@ long index_i2(void) {
 }
 ```
 
-生成的IR：
+生成的 IR：
 
 ```llvm
 @nums = dso_local local_unnamed_addr global [3 x [3 x i64]] [[3 x i64] [i64 1, i64 2, i64 3], [3 x i64] [i64 2, i64 3, i64 4], [3 x i64] [i64 3, i64 4, i64 5]], align 16
@@ -190,7 +193,9 @@ long index_i2(void) {
   return nums[i][i + 1];
 }
 ```
+
 变成了：
+
 ```llvm
 @nums = dso_local local_unnamed_addr global [3 x [3 x i64]] [[3 x i64] [i64 1, i64 2, i64 3], [3 x i64] [i64 2, i64 3, i64 4], [3 x i64] [i64 3, i64 4, i64 5]], align 16
 @i = common dso_local local_unnamed_addr global i64 0, align 8
@@ -237,7 +242,7 @@ char take_field(void) {
 }
 ```
 
-再一次地，LLVM无比可靠地吐出了一个优雅简单的`getelementptr`：
+再一次地，LLVM 无比可靠地吐出了一个优雅简单的`getelementptr`：
 
 ```llvm
 %struct.foo = type { %struct.anon }
@@ -261,10 +266,10 @@ define dso_local signext i8 @take_field() local_unnamed_addr #0 {
 - `i32 0`：结构体`foo`的第一个字段（即`foo.bar`）。
   - 注意到这里没有其他合法的索引：因为`foo`唯一的一个字段就是`bar`。
 - `i32 1`：嵌套聚合的第二个字段（即`foo.bar.baz`[^6]）。
-  - 注意这里的`i32 0`会是`foo.bar.field1`，类似的，`i32 2`会是`foo.bar.field8`。换句话说，**我们每进入一个新的聚合，我们就会从0开始重新计数**。
+  - 注意这里的`i32 0`会是`foo.bar.field1`，类似的，`i32 2`会是`foo.bar.field8`。换句话说，**我们每进入一个新的聚合，我们就会从 0 开始重新计数**。
 - `i32 2`：下一层嵌套的第三个字段（即`foo.bar.baz.quux`）。
 - `i32 1`：再下一层嵌套的第二个字段（即`foo.bar.baz.quux.field5`）。
-  - 注意这里的`quux`是一个`union`而非`struct`，但LLVM不关心这种事，在它看来都是一样的聚合数据结构。
+  - 注意这里的`quux`是一个`union`而非`struct`，但 LLVM 不关心这种事，在它看来都是一样的聚合数据结构。
 - `i64 9`：。。。啥玩意儿？
 
 怎么回事？我们的`17`跑到哪去了？这个`9`又是从哪冒出来的？
@@ -279,8 +284,7 @@ define dso_local signext i8 @take_field() local_unnamed_addr #0 {
 
 但是，如果我们仔细观察，我们就会发现 LLVM 聪明的地方：`%union.anon` 实际上是一个结构体，其中后一部分`field5`只有$24$个字节，而非定义中的$32$个字节——开头的$8$个字节属于`field4`。就这样，LLVM 模拟了 C 中的`union`语义而避免了实现自己的`union`。
 
-所以为什么是`i64 9`？我们要注意，这里涉及的是`[24 x i8]`，也就是field5的后24个字节。换句话说，由于前面有`i32 1`的索引，我们已经跳过了`field5`的前$8$个字节（也就是`sizeof(i64) == 8`），于是$8 + 9 = 17$，刚好是我们要的索引！LLVM并没有让我们失望。
-
+所以为什么是`i64 9`？我们要注意，这里涉及的是`[24 x i8]`，也就是 field5 的后 24 个字节。换句话说，由于前面有`i32 1`的索引，我们已经跳过了`field5`的前$8$个字节（也就是`sizeof(i64) == 8`），于是$8 + 9 = 17$，刚好是我们要的索引！LLVM 并没有让我们失望。
 
 等下，但如果我们尝试访问`field5`和`field4`重叠的部分，比如`field5[6]`，会发生什么呢？
 
@@ -306,7 +310,7 @@ define dso_local signext i8 @take_field() local_unnamed_addr #0 {
 
 正如文章一开始所提到的那样，`getelementptr`不仅可以处理单个地址和索引，它还能处理成组的向量地址和索引。
 
-我花了大约一个小时试图让LLVM生成一个向量化的`getelementptr`，但非常不幸失败了。所以，我决定手动构造几个例子。
+我花了大约一个小时试图让 LLVM 生成一个向量化的`getelementptr`，但非常不幸失败了。所以，我决定手动构造几个例子。
 
 首先，我们来看一个基本的情况：用一个常量标量值索引向量中的每一个地址：
 
@@ -342,7 +346,7 @@ foo[2] = &tbl[2] + 0 * sizeof(long);
 foo[7] = &tbl[7] + 0 * sizeof(long);
 ```
 
-就是这样！一条指令完成了8次地址计算。
+就是这样！一条指令完成了 8 次地址计算。
 
 接下来，我们使用一个非常数的标量：
 
@@ -350,7 +354,7 @@ foo[7] = &tbl[7] + 0 * sizeof(long);
 %bar = getelementptr i64, <8 x i64*> %tbl, i64 %offset
 ```
 
-如果你理解了前面的例子，这一步也很简单：我们不再使用`0`进行索引，而是使用`%offset`中指定的值:
+如果你理解了前面的例子，这一步也很简单：我们不再使用`0`进行索引，而是使用`%offset`中指定的值：
 
 ```c
 long *foo[8], *tbl[8];
@@ -428,11 +432,12 @@ struct ST {
 ```
 
 那么
+
 ```llvm
 %bar = getelementptr  %struct.ST, <8 x ptr> %tbl, <8 x i64> %ind1, i32 2, i32 1, <8 x i32> %ind4, i64 13
 ```
 
-这样的LLVM IR也是可行的。
+这样的 LLVM IR 也是可行的。
 
 ## 一些其他的碎碎念
 
@@ -448,21 +453,20 @@ struct ST {
 
 总的来说，`getelementptr`确实有点不直观且冗长，但也没有那么糟糕。
 
-`getelementptr`总是非常准确而严格的：它总能告诉我们它计算的地址的类型，从哪里开始计算，以及如何得到最终有效地址的，沿着聚合数据结构的“路径”。它功能强大且灵活，就像LLVM IR本身一样。
+`getelementptr`总是非常准确而严格的：它总能告诉我们它计算的地址的类型，从哪里开始计算，以及如何得到最终有效地址的，沿着聚合数据结构的“路径”。它功能强大且灵活，就像 LLVM IR 本身一样。
 
-
-[^1]: 在开源领域，LLVM是唯一能与[GCC](https://en.wikipedia.org/wiki/GNU_Compiler_Collection)抗衡的竞争者，而且优势明显。
+[^1]: 在开源领域，LLVM 是唯一能与[GCC](https://en.wikipedia.org/wiki/GNU_Compiler_Collection)抗衡的竞争者，而且优势明显。
 
 [^2]: 字面上来说：`llvm::Function`等类型都是从`llvm::Value`派生而来的。
 
-[^3]: 你可能会注意到，我们从一个`i64**`类型中加载数据，尽管`nums`只是一个`i64*`。这是LLVM语义上的一些“有趣”之处：`load`指令需要一个`<ty>*`类型作为来源，所以加载一个`i64*`就需要`i64**`。
+[^3]: 你可能会注意到，我们从一个`i64**`类型中加载数据，尽管`nums`只是一个`i64*`。这是 LLVM 语义上的一些“有趣”之处：`load`指令需要一个`<ty>*`类型作为来源，所以加载一个`i64*`就需要`i64**`。
 
-[^4]: 如果你是个杠精，你可能会说，这些内联的GEP在LLVM中实际上并不是指令，而是常量表达式（即`llvm::GetElementPtrConstantExpr`而非`llvm::GetElementPtrInst`）。但两者的语义对于我的解释来说是相同的，所以别挑我的毛病。
+[^4]: 如果你是个杠精，你可能会说，这些内联的 GEP 在 LLVM 中实际上并不是指令，而是常量表达式（即`llvm::GetElementPtrConstantExpr`而非`llvm::GetElementPtrInst`）。但两者的语义对于我的解释来说是相同的，所以别挑我的毛病。
 
-[^5]: 此事在LLVM官方文档中亦有[记载](https://llvm.org/docs/GetElementPtr.html#why-is-the-extra-0-index-required)。
+[^5]: 此事在 LLVM 官方文档中亦有[记载](https://llvm.org/docs/GetElementPtr.html#why-is-the-extra-0-index-required)。
 
-[^6]: 我完全不知道为什么LLVM在这个GEP中会在`i64`和`i32`之间切换。大多数LLVM文档似乎暗示这其实无关紧要。
+[^6]: 我完全不知道为什么 LLVM 在这个 GEP 中会在`i64`和`i32`之间切换。大多数 LLVM 文档似乎暗示这其实无关紧要。
 
-[^7]: 同样说给杠精：这些是常量表达式，而不是“真正”的GEP，因此它们基本上不会带来额外的开销。
+[^7]: 同样说给杠精：这些是常量表达式，而不是“真正”的 GEP，因此它们基本上不会带来额外的开销。
 
 [^8]: 没有`inbounds`的话，`getelementptr`总会返回某个结果地址，这个地址可能有效，也可能无效。

@@ -39,7 +39,7 @@
 LLVM IR 指令参考手册：[Reference Manual](https://llvm.org/docs/LangRef.html)
 
 ???+ note "使用 clang 生成 LLVM IR 并利用 lli 运行"
-    <span id='clang-gen-llvm-ir'></span>  LLVM 相关软件，我们已经在[ lab0 阶段](../lab0/software.md/#llvmclang-安装)安装好。
+<span id='clang-gen-llvm-ir'></span> LLVM 相关软件，我们已经在[ lab0 阶段](../lab0/software.md/#llvmclang-安装)安装好。
 
     LLVM IR 文件以 `.ll` 为文件后缀，clang 是 LLVM 工具链中的前端，可实现从 C 语言向 LLVM IR 的翻译，操作流程如下：
 

@@ -169,7 +169,7 @@ builder->create_ret(xLoad);
       public:
         Module();
         ~Module() = default;
-    
+
         Type *get_void_type();
         Type *get_label_type();
         IntegerType *get_int1_type();
@@ -177,25 +177,25 @@ builder->create_ret(xLoad);
         PointerType *get_int32_ptr_type();
         FloatType *get_float_type();
         PointerType *get_float_ptr_type();
-    
+
         PointerType *get_pointer_type(Type *contained);
         ArrayType *get_array_type(Type *contained, unsigned num_elements);
         FunctionType *get_function_type(Type *retty, std::vector<Type *> &args);
-    
+
         void add_function(Function *f);
         llvm::ilist<Function> &get_functions();
         void add_global_variable(GlobalVariable *g);
         llvm::ilist<GlobalVariable> &get_global_variable();
-    
+
         void set_print_name();
         std::string print();
-    
+
       private:
         // The global variables in the module
         llvm::ilist<GlobalVariable> global_list_;
         // The functions in the module
         llvm::ilist<Function> function_list_;
-    
+
         std::unique_ptr<IntegerType> int1_ty_;
         std::unique_ptr<IntegerType> int32_ty_;
         std::unique_ptr<Type> label_ty_;
@@ -274,7 +274,7 @@ builder->create_ret(xLoad);
         Constant *init_val_;
         GlobalVariable(std::string name, Module *m, Type *ty, bool is_const,
                       Constant *init = nullptr);
-    
+
       public:
         GlobalVariable(const GlobalVariable &) = delete;
         static GlobalVariable *create(std::string name, Module *m, Type *ty,
@@ -319,28 +319,28 @@ builder->create_ret(xLoad);
         ~Function() = default;
         static Function *create(FunctionType *ty, const std::string &name,
                                 Module *parent);
-    
+
         FunctionType *get_function_type() const;
         Type *get_return_type() const;
-    
+
         void add_basic_block(BasicBlock *bb);
-    
+
         unsigned get_num_of_args() const;
         unsigned get_num_basic_blocks() const;
-    
+
         Module *get_parent() const;
-    
+
         void remove(BasicBlock *bb);
         BasicBlock *get_entry_block() { return &*basic_blocks_.begin(); }
-    
+
         llvm::ilist<BasicBlock> &get_basic_blocks() { return basic_blocks_; }
         std::list<Argument> &get_args() { return arguments_; }
-    
+
         bool is_declaration() { return basic_blocks_.empty(); }
-    
+
         void set_instr_name();
         std::string print();
-    
+
       private:
         llvm::ilist<BasicBlock> basic_blocks_;
         std::list<Argument> arguments_;
@@ -415,18 +415,18 @@ builder->create_ret(xLoad);
                           Function *f = nullptr, unsigned arg_no = 0)
             : Value(ty, name), parent_(f), arg_no_(arg_no) {}
         virtual ~Argument() {}
-    
+
         inline const Function *get_parent() const { return parent_; }
         inline Function *get_parent() { return parent_; }
-    
+
         /// For example in "void foo(int a, float b)" a is 0 and b is 1.
         unsigned get_arg_no() const {
             assert(parent_ && "can't get number of unparented arg");
             return arg_no_;
         }
-    
+
         virtual std::string print() override;
-    
+
       private:
         Function *parent_;
         unsigned arg_no_; // argument No.
@@ -460,42 +460,42 @@ builder->create_ret(xLoad);
             auto prefix = name.empty() ? "" : "label_";
             return new BasicBlock(m, prefix + name, parent);
         }
-    
+
         /****************api about cfg****************/
         std::list<BasicBlock *> &get_pre_basic_blocks() { return pre_bbs_; }
         std::list<BasicBlock *> &get_succ_basic_blocks() { return succ_bbs_; }
-    
+
         void add_pre_basic_block(BasicBlock *bb) { pre_bbs_.push_back(bb); }
         void add_succ_basic_block(BasicBlock *bb) { succ_bbs_.push_back(bb); }
         void remove_pre_basic_block(BasicBlock *bb) { pre_bbs_.remove(bb); }
         void remove_succ_basic_block(BasicBlock *bb) { succ_bbs_.remove(bb); }
-    
+
         // If the Block is terminated by ret/br
         bool is_terminated() const;
         // Get terminator, only accept valid case use
         Instruction *get_terminator();
-    
+
         /****************api about Instruction****************/
         void add_instruction(Instruction *instr);
         void add_instr_begin(Instruction *instr) { instr_list_.push_front(instr); }
         void erase_instr(Instruction *instr) { instr_list_.erase(instr); }
         void remove_instr(Instruction *instr) { instr_list_.remove(instr); }
-    
+
         llvm::ilist<Instruction> &get_instructions() { return instr_list_; }
         bool empty() const { return instr_list_.empty(); }
         int get_num_of_instr() const { return instr_list_.size(); }
-    
+
         /****************api about accessing parent****************/
         Function *get_parent() { return parent_; }
         Module *get_module();
         void erase_from_parent();
-    
+
         virtual std::string print() override;
-    
+
         private:
         BasicBlock(const BasicBlock &) = delete;
         explicit BasicBlock(Module *m, const std::string &name, Function *parent);
-    
+
         std::list<BasicBlock *> pre_bbs_;
         std::list<BasicBlock *> succ_bbs_;
         llvm::ilist<Instruction> instr_list_;
@@ -611,64 +611,64 @@ builder->create_ret(xLoad);
             fptosi,
             sitofp
             // float binary operators Logical operators
-    
+
         };
         /* @parent: if parent!=nullptr, auto insert to bb
         * @ty: result type */
         Instruction(Type *ty, OpID id, BasicBlock *parent = nullptr);
         Instruction(const Instruction &) = delete;
         virtual ~Instruction() = default;
-    
+
         BasicBlock *get_parent() { return parent_; }
         const BasicBlock *get_parent() const { return parent_; }
         void set_parent(BasicBlock *parent) { this->parent_ = parent; }
-    
+
         // Return the function this instruction belongs to.
         Function *get_function();
         Module *get_module();
-    
+
         OpID get_instr_type() const { return op_id_; }
         std::string get_instr_op_name() const;
-    
+
         bool is_void() {
             return ((op_id_ == ret) || (op_id_ == br) || (op_id_ == store) ||
                     (op_id_ == call && this->get_type()->is_void_type()));
         }
-    
+
         bool is_phi() const { return op_id_ == phi; }
         bool is_store() const { return op_id_ == store; }
         bool is_alloca() const { return op_id_ == alloca; }
         bool is_ret() const { return op_id_ == ret; }
         bool is_load() const { return op_id_ == load; }
         bool is_br() const { return op_id_ == br; }
-    
+
         bool is_add() const { return op_id_ == add; }
         bool is_sub() const { return op_id_ == sub; }
         bool is_mul() const { return op_id_ == mul; }
         bool is_div() const { return op_id_ == sdiv; }
-    
+
         bool is_fadd() const { return op_id_ == fadd; }
         bool is_fsub() const { return op_id_ == fsub; }
         bool is_fmul() const { return op_id_ == fmul; }
         bool is_fdiv() const { return op_id_ == fdiv; }
         bool is_fp2si() const { return op_id_ == fptosi; }
         bool is_si2fp() const { return op_id_ == sitofp; }
-    
+
         bool is_cmp() const { return ge <= op_id_ and op_id_ <= ne; }
         bool is_fcmp() const { return fge <= op_id_ and op_id_ <= fne; }
-    
+
         bool is_call() const { return op_id_ == call; }
         bool is_gep() const { return op_id_ == getelementptr; }
         bool is_zext() const { return op_id_ == zext; }
-    
+
         bool isBinary() const {
             return (is_add() || is_sub() || is_mul() || is_div() || is_fadd() ||
                     is_fsub() || is_fmul() || is_fdiv()) &&
                   (get_num_operand() == 2);
         }
-    
+
         bool isTerminator() const { return is_br() || is_ret(); }
-    
+
       private:
         OpID op_id_;
         BasicBlock *parent_;
@@ -724,58 +724,58 @@ builder->create_ret(xLoad);
         Constant(Type *ty, const std::string &name = "") : User(ty, name) {}
         ~Constant() = default;
     };
-    
+
     class ConstantInt : public Constant {
       private:
         int value_;
         ConstantInt(Type *ty, int val) : Constant(ty, ""), value_(val) {}
-    
+
       public:
         int get_value() { return value_; }
         static ConstantInt *get(int val, Module *m);
         static ConstantInt *get(bool val, Module *m);
         virtual std::string print() override;
     };
-    
+
     class ConstantArray : public Constant {
       private:
         std::vector<Constant *> const_array;
-    
+
         ConstantArray(ArrayType *ty, const std::vector<Constant *> &val);
-    
+
       public:
         ~ConstantArray() = default;
-    
+
         Constant *get_element_value(int index);
-    
+
         unsigned get_size_of_array() { return const_array.size(); }
-    
+
         static ConstantArray *get(ArrayType *ty,
                                   const std::vector<Constant *> &val);
-    
+
         virtual std::string print() override;
     };
-    
+
     class ConstantZero : public Constant {
       private:
         ConstantZero(Type *ty) : Constant(ty, "") {}
-    
+
       public:
         static ConstantZero *get(Type *ty, Module *m);
         virtual std::string print() override;
     };
-    
+
     class ConstantFP : public Constant {
       private:
         float val_;
         ConstantFP(Type *ty, float val) : Constant(ty, ""), val_(val) {}
-    
+
       public:
         static ConstantFP *get(float val, Module *m);
         float get_value() { return val_; }
         virtual std::string print() override;
     };
-    
+
     ```
 
 #### ConstantInt
@@ -829,7 +829,7 @@ builder->create_ret(xLoad);
       private:
         BasicBlock *BB_;
         Module *m_;
-    
+
       public:
         IRBuilder(BasicBlock *bb, Module *m) : BB_(bb), m_(m){};
         ~IRBuilder() = default;
@@ -850,7 +850,7 @@ builder->create_ret(xLoad);
         IBinaryInst *create_isdiv(Value *lhs, Value *rhs) {
             return IBinaryInst::create_sdiv(lhs, rhs, this->BB_);
         }
-    
+
         ICmpInst *create_icmp_eq(Value *lhs, Value *rhs) {
             return ICmpInst::create_eq(lhs, rhs, this->BB_);
         }
@@ -869,12 +869,12 @@ builder->create_ret(xLoad);
         ICmpInst *create_icmp_le(Value *lhs, Value *rhs) {
             return ICmpInst::create_le(lhs, rhs, this->BB_);
         }
-    
+
         CallInst *create_call(Value *func, std::vector<Value *> args) {
             return CallInst::create_call(static_cast<Function *>(func), args,
                                         this->BB_);
         }
-    
+
         BranchInst *create_br(BasicBlock *if_true) {
             return BranchInst::create_br(if_true, this->BB_);
         }
@@ -882,18 +882,18 @@ builder->create_ret(xLoad);
                                   BasicBlock *if_false) {
             return BranchInst::create_cond_br(cond, if_true, if_false, this->BB_);
         }
-    
+
         ReturnInst *create_ret(Value *val) {
             return ReturnInst::create_ret(val, this->BB_);
         }
         ReturnInst *create_void_ret() {
             return ReturnInst::create_void_ret(this->BB_);
         }
-    
+
         GetElementPtrInst *create_gep(Value *ptr, std::vector<Value *> idxs) {
             return GetElementPtrInst::create_gep(ptr, idxs, this->BB_);
         }
-    
+
         StoreInst *create_store(Value *val, Value *ptr) {
             return StoreInst::create_store(val, ptr, this->BB_);
         }
@@ -902,21 +902,21 @@ builder->create_ret(xLoad);
                   "ptr must be pointer type");
             return LoadInst::create_load(ptr, this->BB_);
         }
-    
+
         AllocaInst *create_alloca(Type *ty) {
             return AllocaInst::create_alloca(ty, this->BB_);
         }
         ZextInst *create_zext(Value *val, Type *ty) {
             return ZextInst::create_zext(val, ty, this->BB_);
         }
-    
+
         SiToFpInst *create_sitofp(Value *val, Type *ty) {
             return SiToFpInst::create_sitofp(val, this->BB_);
         }
         FpToSiInst *create_fptosi(Value *val, Type *ty) {
             return FpToSiInst::create_fptosi(val, ty, this->BB_);
         }
-    
+
         FCmpInst *create_fcmp_ne(Value *lhs, Value *rhs) {
             return FCmpInst::create_fne(lhs, rhs, this->BB_);
         }
@@ -935,7 +935,7 @@ builder->create_ret(xLoad);
         FCmpInst *create_fcmp_eq(Value *lhs, Value *rhs) {
             return FCmpInst::create_feq(lhs, rhs, this->BB_);
         }
-    
+
         FBinaryInst *create_fadd(Value *lhs, Value *rhs) {
             return FBinaryInst::create_fadd(lhs, rhs, this->BB_);
         }
@@ -982,12 +982,12 @@ builder->create_ret(xLoad);
             PointerTyID,  // Pointer
             FloatTyID     // float
         };
-    
+
         explicit Type(TypeID tid, Module *m);
         ~Type() = default;
-    
+
         TypeID get_type_id() const { return tid_; }
-    
+
         bool is_void_type() const { return get_type_id() == VoidTyID; }
         bool is_label_type() const { return get_type_id() == LabelTyID; }
         bool is_integer_type() const { return get_type_id() == IntegerTyID; }
@@ -997,84 +997,84 @@ builder->create_ret(xLoad);
         bool is_float_type() const { return get_type_id() == FloatTyID; }
         bool is_int32_type() const;
         bool is_int1_type() const;
-    
+
         // Return related data member if is the required type, else throw error
         Type *get_pointer_element_type() const;
         Type *get_array_element_type() const;
-    
+
         Module *get_module() const { return m_; }
         unsigned get_size() const;
-    
+
         std::string print() const;
-    
+
       private:
         TypeID tid_;
         Module *m_;
     };
-    
+
     class IntegerType : public Type {
       public:
         explicit IntegerType(unsigned num_bits, Module *m);
-    
+
         unsigned get_num_bits() const;
-    
+
       private:
         unsigned num_bits_;
     };
-    
+
     class FunctionType : public Type {
       public:
         FunctionType(Type *result, std::vector<Type *> params);
-    
+
         static bool is_valid_return_type(Type *ty);
         static bool is_valid_argument_type(Type *ty);
-    
+
         static FunctionType *get(Type *result, std::vector<Type *> params);
-    
+
         unsigned get_num_of_args() const;
-    
+
         Type *get_param_type(unsigned i) const;
         std::vector<Type *>::iterator param_begin() { return args_.begin(); }
         std::vector<Type *>::iterator param_end() { return args_.end(); }
         Type *get_return_type() const;
-    
+
       private:
         Type *result_;
         std::vector<Type *> args_;
     };
-    
+
     class ArrayType : public Type {
       public:
         ArrayType(Type *contained, unsigned num_elements);
-    
+
         static bool is_valid_element_type(Type *ty);
-    
+
         static ArrayType *get(Type *contained, unsigned num_elements);
-    
+
         Type *get_element_type() const { return contained_; }
         unsigned get_num_of_elements() const { return num_elements_; }
-    
+
       private:
         Type *contained_;       // The element type of the array.
         unsigned num_elements_; // Number of elements in the array.
     };
-    
+
     class PointerType : public Type {
       public:
         PointerType(Type *contained);
         Type *get_element_type() const { return contained_; }
-    
+
         static PointerType *get(Type *contained);
-    
+
       private:
         Type *contained_; // The element type of the ptr.
     };
-    
+
     class FloatType : public Type {
       public:
         FloatType(Module *m);
         static FloatType *get(Module *m);
-    
+
       private:
     };
     ```
@@ -1113,19 +1113,19 @@ builder->create_ret(xLoad);
       public:
         User(Type *ty, const std::string &name = "") : Value(ty, name){};
         virtual ~User() { remove_all_operands(); }
-    
+
         const std::vector<Value *> &get_operands() const { return operands_; }
         unsigned get_num_operand() const { return operands_.size(); }
-    
+
         // start from 0
         Value *get_operand(unsigned i) const { return operands_.at(i); };
         // start from 0
         void set_operand(unsigned i, Value *v);
         void add_operand(Value *v);
-    
+
         void remove_all_operands();
         void remove_operand(unsigned i);
-    
+
       private:
         std::vector<Value *> operands_; // operands of this value
     };
@@ -1180,21 +1180,21 @@ builder->create_ret(xLoad);
         explicit Value(Type *ty, const std::string &name = "")
             : type_(ty), name_(name){};
         virtual ~Value() { replace_all_use_with(nullptr); }
-    
+
         std::string get_name() const { return name_; };
         Type *get_type() const { return type_; }
         const std::list<Use> &get_use_list() const { return use_list_; }
-    
+
         bool set_name(std::string name);
-    
+
         void add_use(User *user, unsigned arg_no);
         void remove_use(User *user, unsigned arg_no);
-    
+
         void replace_all_use_with(Value *new_val);
         void replace_use_with_if(Value *new_val, std::function<bool(Use *)> pred);
-    
+
         virtual std::string print() = 0;
-    
+
         template<typename T>
         T *as()
         {
@@ -1216,7 +1216,7 @@ builder->create_ret(xLoad);
             static_assert(std::is_base_of<Value, T>::value, "T must be a subclass of Value");
             return dynamic_cast<const T*>(this);
         }
-    
+
       private:
         Type *type_;
         std::list<Use> use_list_; // who use this value
@@ -1242,23 +1242,23 @@ builder->create_ret(xLoad);
 
 - `set_name`：设置 value 的 `name`。
 
-    返回值表示是否设置成功，默认对已经有 name 的 value 不可修改。
+  返回值表示是否设置成功，默认对已经有 name 的 value 不可修改。
 
 - `add_use`：添加该值的使用情况。
 
-    给 user value 添加 user 引用，arg_no 表示是第几个参数。
+  给 user value 添加 user 引用，arg_no 表示是第几个参数。
 
 - `remove_use`：删除该值的使用情况。
 
-    给 user value 删除 user 引用，`arg_no`表示是第几个参数。
+  给 user value 删除 user 引用，`arg_no`表示是第几个参数。
 
 - `replace_all_use_with`：
 
-    用`new_val`替换当前 value 的所有引用。
+  用`new_val`替换当前 value 的所有引用。
 
 - `replace_use_with_if`：
 
-    用 `new_val`替换当前 value 的所有引用，但是只替换满足添加的引用。
+  用 `new_val`替换当前 value 的所有引用，但是只替换满足添加的引用。
 
 > 注意 Value 并没有对 == operator 进行重构，因此默认比较只有两个 Value 对象的内存地址相同才会认为是相等的。
 
