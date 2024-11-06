@@ -1195,7 +1195,7 @@ main: # 进入 main 函数
     addi.d $sp, $sp, -16     # 入栈, 为栈帧分配 16 字节空间
 .main_label_entry: # 分支判断入口
     addi.w  $t4, $zero, 4    # t4 = 4
-    addi.w  $t2, $zero, 0    # t2 = 0
+    addi.w  $t2, $zero, 3    # t2 = 3
     la.local $t0, a          # 将 a 所处的内存地址加载入 t0
     st.w $t4, $t0, 0         # 将 t4 的数据保存入 t0 指向的地址中
     blt $t2, $t4, .main_then # 将 t2 和 t4 比较,如果 t2 < t4 则跳转到 main_then
