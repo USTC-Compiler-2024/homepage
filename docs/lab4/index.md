@@ -1,14 +1,16 @@
-# Lab4 Mem2Reg
+# Lab4
 
-经过前序实验，同学们已经基本完成了一个贯穿从前端到后端的简单编译器，祝贺大家！然而，该编译器生成的代码只能保证语义正确、能在目标机器上运行。接下来，我们将让大家体验如何通过增加优化 pass 让生成的代码快起来。正如课上所讲，优化的方法有很多，由于时间关系，我们不能一一尝试。因此，我们为大家准备了 Mem2Reg 优化实验，在该实验中，同学们将实现这一优化 pass。完成代码后，同学们可以在测试样例中，看到优化前后的性能差距。
+经过前序实验，同学们已经基本完成了一个贯穿从前端到后端的简单编译器，祝贺大家！然而，该编译器生成的代码只能保证语义正确、能在目标机器上运行。接下来，我们将让大家体验如何通过增加优化 pass 让生成的代码快起来。正如课上所讲，优化的方法有很多，由于时间关系，我们不能一一尝试。因此，我们为大家准备了 Mem2Reg 访存优化 与 LICM 循环优化实验，在实验中，同学们将实现这两个优化 pass。完成代码后，同学们可以在测试样例中，看到优化前后的性能差距。
+
+## 阶段一 Mem2Reg
 
 !!! warning "Deadline"
 
-    **2023 年 12 月 18 日 23:59**
+    **2024 年 12 月 14 日 23:59**
 
-## 同步实验仓库
+### 同步实验仓库
 
-在进行实验之前，首先拉取[实验仓库](https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2023ustc-jianmu-compiler)的最新代码，具体步骤可以参考 [Lab2 中的指导](../lab2/index.md#实验要求)。
+在进行实验之前，首先拉取[实验仓库](https://cscourse.ustc.edu.cn/vdir/Gitlab/compiler_staff/2024ustc-jianmu-compiler)的最新代码，具体步骤可以参考 [Lab2 中的指导](../lab2/index.md#实验要求)。
 
 本次实验仓库更新的内容如下，每个阶段的文件将在对应文档详细说明：
 
@@ -25,6 +27,9 @@
 │       └── Mem2Reg.hpp			# pass 4：Mem2Reg 分析（需要阅读，根据需要修改）
 ├── src
 │   ├── ...
+│   └── codegen
+│       ├── ...
+│       └── CodeGen.cpp     <-- 需要实现对phi指令的处理
 │   └── passes
 │       ├── ...
 │       ├── Dominators.cpp	<-- 支配树分析实现，需要补全
@@ -34,9 +39,9 @@
     └── 4-mem2reg				# Lab4 的本地测试
 ```
 
-## 实验内容
+### 实验内容
 
-### 阅读与学习
+#### 阅读与学习
 
 - 回顾课上关于支配树的介绍，并阅读 [Mem2Reg 介绍](./Mem2Reg介绍.pdf)，了解 Mem2Reg 的基本原理
 
@@ -44,7 +49,7 @@
 
 - 阅读 PassManager、FuncInfo 和 DeadCode 的实现，了解如何编写 pass
 
-### 代码撰写
+#### 代码撰写
 
 1. 补全 `src/passes/Dominators.cpp` 文件，使编译器能够进行正确的支配树分析
 2. 补全 `src/passes/Mem2Reg.cpp` 文件，使编译器能够正确执行 Mem2Reg
@@ -62,9 +67,9 @@
 
     这种 naive 的方案并不完全正确，在个别极端情况下，它会带来 Lost Of Copy 等问题，但是在本次实验中不会出现，所以你可以放心采用这个方案。
 
-## 本地测试
+### 本地测试
 
-### 测试脚本
+#### 测试脚本
 
 `tests/4-mem2reg` 目录的结构如下：
 
@@ -124,7 +129,7 @@
     sys	0m0.007s
     ```
 
-### IR CFG
+#### IR CFG
 
 在实现支配树时，为了方便同学们测试支配树的正确性，本节将向你介绍两个工具：[opt](https://llvm.org/docs/CommandGuide/opt.html) 和 [dot](https://manpages.ubuntu.com/manpages/trusty/man1/dot.1.html)。opt 和 dot 配合使用可以将 IR 文件转换为 CFG 图片，将基本块之间的关系可视化，利用可视化的 CFG，可以判断生成的支配树是否正确。
 
@@ -179,12 +184,16 @@ $ dot .cmp.dot -Tpng > cmp.png
 
 ![](figs/cmp.png)
 
-## 编译与运行
+???+ info "调试接口"
+
+    我们在 Dominators.hpp 中定义了 dump_cfg(Function \*) 与 dump_dominator_tree(Function \*) 两个方法，可以自动地打印 CFG 与 支配树。使用方法可以参考 Dominators.cpp。
+
+### 编译与运行
 
 按照如下示例进行项目编译：
 
 ```shell
-$ cd 2023ustc-jianmu-compiler
+$ cd 2024ustc-jianmu-compiler
 $ mkdir build
 $ cd build
 # 使用 cmake 生成 makefile 等文件
@@ -198,7 +207,7 @@ $ sudo make install
 - 将 `test.cminus` 编译到 IR：`cminusfc -emit-llvm -mem2reg test.cminus`
 - 将 `test.cminus` 编译到汇编：`cminusfc -S -mem2reg test.cminus`
 
-## 提交方式
+### 提交方式
 
 - 在希冀平台提交实验仓库的 URL
 
