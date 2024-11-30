@@ -97,14 +97,15 @@ $ dot .cmp.dot -Tpng > cmp.png
 
 ### 测试脚本
 
-`tests/4-mem2reg` 目录的结构如下：
+`tests/4-opt` 目录的结构如下：
 
 ```
 .
 ├── cleanup.sh
 ├── eval_lab4.py
 ├── eval_lab4.sh            # 功能测试脚本
-├── test_perf.sh            # 性能测试脚本
+├── test_perf_licm.sh       # 性能测试脚本 (licm)
+├── test_perf_mem2reg.sh    # 性能测试脚本 (mem2reg)
 └── testcases
     ├── functional-cases    # 功能测试用例
     └── loop                # 性能测试用例
@@ -115,46 +116,16 @@ $ dot .cmp.dot -Tpng > cmp.png
 - `tests/testcases_general`
 - `tests/4-licm/testcases/functional-cases`
 
-此外，为了让你能够体会 Mem2Reg 的效果，我们还提供了 3 个性能测试样例，在 `performance-cases` 中。你可以使用脚本 `test_perf.sh` 来进行性能比较，使用示例如下所示。
+此外，为了让你能够体会 Mem2Reg 的效果，我们还提供了 3 个性能测试样例，在 `testcases/mem2reg` 中。你可以使用脚本 `test_perf_mem2reg.sh` 来进行性能比较，使用示例如下所示。
 
-??? info "`test_perf.sh` 使用示例"
+??? info "`test_perf_mem2reg.sh` 使用示例"
 
     ```shell
-    $ ./test_perf.sh
-    [info] Start testing, using testcase dir: ./performance-cases
-    ==========./performance-cases/const-prop.cminus==========
-    ==========mem2reg off
+    $ ./testcases/test_perf_mem2reg.sh
+    [info] Start testing, using testcase dir: ./testcases/mem2reg
+    ==========./testcases/mem2reg/mem2reg-1.cminus==========
+    ...
 
-    real	0m13.052s
-    user	0m13.014s
-    sys	0m0.009s
-    ==========mem2reg on
-
-    real	0m11.929s
-    user	0m11.905s
-    sys	0m0.007s
-    ==========./performance-cases/loop.cminus==========
-    ==========mem2reg off
-
-    real	0m7.129s
-    user	0m7.117s
-    sys	0m0.007s
-    ==========mem2reg on
-
-    real	0m5.112s
-    user	0m5.110s
-    sys	0m0.000s
-    ==========./performance-cases/transpose.cminus==========
-    ==========mem2reg off
-
-    real	0m15.186s
-    user	0m15.171s
-    sys	0m0.003s
-    ==========mem2reg on
-
-    real	0m10.473s
-    user	0m10.440s
-    sys	0m0.007s
     ```
 
 ## 编译与运行
