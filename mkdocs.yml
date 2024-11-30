@@ -153,6 +153,8 @@ nav:
     - Lab4 简介: lab4/index.md
     - Mem2Reg: lab4/Mem2Reg介绍.pdf
     - 支配树分析: lab4/Dom.pdf
+    - 循环相关介绍: lab4/loop.md
+    - 循环不变代码外提: lab4/LICM.md
   # - 建木杯–编译原理创新实验: innovative-lab/index.md
   - FAQ: faq/README.md
 
