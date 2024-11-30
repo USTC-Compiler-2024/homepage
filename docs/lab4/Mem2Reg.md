@@ -1,12 +1,12 @@
 # Mem2Reg
 
-Mem2Reg（Memory to Register Promotion）是一个重要的优化过程，它的主要目标是将内存访问转换为寄存器操作，从而提高程序的执行效率。这个优化过程主要处理程序中的局部变量，特别是那些分配在栈上的变量，将它们转换为SSA（Static Single Assignment）形式的寄存器值。
+Mem2Reg（Memory to Register Promotion）是一个重要的优化过程，它的主要目标是将内存访问转换为寄存器操作，从而提高程序的执行效率。这个优化过程主要处理程序中的局部变量，特别是那些分配在栈上的变量，将它们转换为 SSA（Static Single Assignment）形式的寄存器值。
 
-在未经优化的代码中，编译器往往会将局部变量放置在栈内存中，这导致每次访问变量时都需要执行内存加载和存储操作。这种方式虽然实现简单且容易理解，但从性能角度来看并不理想，因为内存访问的开销远大于寄存器访问。Mem2Reg优化正是通过识别这些可以安全转换的内存操作，将它们替换为更高效的寄存器操作。
+在未经优化的代码中，编译器往往会将局部变量放置在栈内存中，这导致每次访问变量时都需要执行内存加载和存储操作。这种方式虽然实现简单且容易理解，但从性能角度来看并不理想，因为内存访问的开销远大于寄存器访问。Mem2Reg 优化正是通过识别这些可以安全转换的内存操作，将它们替换为更高效的寄存器操作。
 
-Mem2Reg的工作过程通常包含多个步骤。首先，它需要识别哪些内存位置是可被转换的。这些内存位置通常是通过alloca指令分配的局部变量。然后，它会分析这些变量的使用模式，包括所有的加载和存储操作。在此基础上，优化器会构建必要的phi节点，确保在控制流汇合点正确处理变量的多个可能值。最后，它将内存操作替换为对应的寄存器操作，并建立适当的SSA形式。
+Mem2Reg 的工作过程通常包含多个步骤。首先，它需要识别哪些内存位置是可被转换的。这些内存位置通常是通过 alloca 指令分配的局部变量。然后，它会分析这些变量的使用模式，包括所有的加载和存储操作。在此基础上，优化器会构建必要的 phi 节点，确保在控制流汇合点正确处理变量的多个可能值。最后，它将内存操作替换为对应的寄存器操作，并建立适当的 SSA 形式。
 
-这个优化过程不仅能直接提升程序性能，还能为后续的优化创造更多机会。例如，当变量被提升到寄存器后，其他优化如常量传播、死代码消除等就能更容易地识别和处理这些值。此外，由于SSA形式提供了更清晰的数据流信息，这也有助于编译器进行更准确的分析和更激进的优化。
+这个优化过程不仅能直接提升程序性能，还能为后续的优化创造更多机会。例如，当变量被提升到寄存器后，其他优化如常量传播、死代码消除等就能更容易地识别和处理这些值。此外，由于 SSA 形式提供了更清晰的数据流信息，这也有助于编译器进行更准确的分析和更激进的优化。
 
 ## 阅读与学习
 
@@ -62,7 +62,7 @@ Writing '.main.dot'...
 
 可以看到 opt 输出了两个 dot 文件，分别与 ll 中的两个函数对应。然后我们使用 dot 工具将其转化为图片：
 
-```shel
+```shell
 $ dot .main.dot -Tpng > main.png
 $ dot .cmp.dot -Tpng > cmp.png
 ```
@@ -97,17 +97,19 @@ $ dot .cmp.dot -Tpng > cmp.png
 
 ### 测试脚本
 
-`tests/4-mem2reg` 目录的结构如下：
+`tests/4-opt` 目录的结构如下：
 
 ```
 .
 ├── cleanup.sh
 ├── eval_lab4.py
 ├── eval_lab4.sh            # 功能测试脚本
-├── test_perf.sh            # 性能测试脚本
+├── test_perf_licm.sh       # 性能测试脚本 (licm)
+├── test_perf_mem2reg.sh    # 性能测试脚本 (mem2reg)
 └── testcases
+    ├── ...
     ├── functional-cases    # 功能测试用例
-    └── loop                # 性能测试用例
+    └── mem2reg             # 性能测试用例
 ```
 
 其中本地测评脚本 `eval_lab4.sh` 与 Lab3 一致，使用方法可以回顾 [Lab3 测试](../lab3/guidance.md#测试)，要求通过的测例目录：
@@ -115,46 +117,16 @@ $ dot .cmp.dot -Tpng > cmp.png
 - `tests/testcases_general`
 - `tests/4-licm/testcases/functional-cases`
 
-此外，为了让你能够体会 Mem2Reg 的效果，我们还提供了 3 个性能测试样例，在 `performance-cases` 中。你可以使用脚本 `test_perf.sh` 来进行性能比较，使用示例如下所示。
+此外，为了让你能够体会 Mem2Reg 的效果，我们还提供了 3 个性能测试样例，在 `testcases/mem2reg` 中。你可以使用脚本 `test_perf_mem2reg.sh` 来进行性能比较，使用示例如下所示。
 
-??? info "`test_perf.sh` 使用示例"
+??? info "`test_perf_mem2reg.sh` 使用示例"
 
     ```shell
-    $ ./test_perf.sh
-    [info] Start testing, using testcase dir: ./performance-cases
-    ==========./performance-cases/const-prop.cminus==========
-    ==========mem2reg off
+    $ ./testcases/test_perf_mem2reg.sh
+    [info] Start testing, using testcase dir: ./testcases/mem2reg
+    ==========./testcases/mem2reg/mem2reg-1.cminus==========
+    ...
 
-    real	0m13.052s
-    user	0m13.014s
-    sys	0m0.009s
-    ==========mem2reg on
-
-    real	0m11.929s
-    user	0m11.905s
-    sys	0m0.007s
-    ==========./performance-cases/loop.cminus==========
-    ==========mem2reg off
-
-    real	0m7.129s
-    user	0m7.117s
-    sys	0m0.007s
-    ==========mem2reg on
-
-    real	0m5.112s
-    user	0m5.110s
-    sys	0m0.000s
-    ==========./performance-cases/transpose.cminus==========
-    ==========mem2reg off
-
-    real	0m15.186s
-    user	0m15.171s
-    sys	0m0.003s
-    ==========mem2reg on
-
-    real	0m10.473s
-    user	0m10.440s
-    sys	0m0.007s
     ```
 
 ## 编译与运行

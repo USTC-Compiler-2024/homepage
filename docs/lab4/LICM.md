@@ -2,9 +2,9 @@
 
 要进行循环相关的优化，我们首先要进行对循环的识别。循环检测基于支配树分析。我们根据支配树后序遍历所有基本块，这确保了先处理内层循环再处理外层循环。对每个基本块，检查其所有前驱，如果存在前驱被当前块支配，则找到了一个回边，这个回边的目标节点（当前块）就是循环头。
 
-找到循环头后，我们需要查找对应的循环和子循环，对应了`LICM.cpp`中的`discover_loop_and_sub_loops`函数。创建Loop对象并使用工作表法（worklist algorithm）从回边的源节点（latch）开始向上遍历CFG，将遇到的未分配节点加入当前循环。如果遇到已属于其他循环的节点，说明发现了循环嵌套，此时需要建立正确的父子关系。整个过程通过bb_to_loop_映射维护节点归属关系，通过Loop对象的parent和sub_loops字段维护循环的层次结构。更多的内容详见代码。
+找到循环头后，我们需要查找对应的循环和子循环，对应了 `LICM.cpp` 中的 `discover_loop_and_sub_loops` 函数。创建Loop对象并使用工作表法 (worklist algorithm) 从回边的源节点 (latch) 开始向上遍历 CFG ，将遇到的未分配节点加入当前循环。如果遇到已属于其他循环的节点，说明发现了循环嵌套，此时需要建立正确的父子关系。整个过程通过bb_to_loop_映射维护节点归属关系，通过 Loop 对象的 parent 和 sub_loops 字段维护循环的层次结构。更多的内容详见代码。
 
-![discover](./figs/discover.gif)
+![discover](./figs/discover.gif){width="400"}
 
 ## 循环不变代码外提
 
@@ -119,18 +119,53 @@ $$
 
 ### 测试脚本
 
-`tests/4-mem2reg` 目录的结构如下：
+`tests/4-opt` 目录的结构如下：
 
 ```
 .
-├── functional-cases	# 功能测试样例
-├── loop-inv-hoist	# 性能测试样例
 ├── cleanup.sh
-├── eval_lab4.sh		# lab4 评测脚本
-└── test_perf.sh		# 性能比较脚本
+├── eval_lab4.py
+├── eval_lab4.sh            # 功能测试脚本
+├── test_perf_licm.sh       # 性能测试脚本 (licm)
+├── test_perf_mem2reg.sh    # 性能测试脚本 (mem2reg)
+└── testcases
+    ├── ...
+    ├── functional-cases    # 功能测试用例
+    └── loop                # 性能测试用例
 ```
 
 其中本地测评脚本 `eval_lab4.sh` 与 Lab3 一致，使用方法可以回顾 [Lab3 测试](../lab3/guidance.md#测试)，要求通过的测例目录：
 
 - `tests/testcases_general`
-- `tests/4-LICM/functional-cases`
+- `tests/4-opt/testcases/functional-cases`
+
+此外，为了让你能够体会 LICM 的效果，我们还提供了 3 个性能测试样例，在 `testcases/loop` 中。你可以使用脚本 `test_perf_licm.sh` 来进行性能比较，使用示例如下所示。
+
+??? info "`test_perf_licm.sh` 使用示例"
+
+    ```shell
+    $ ./testcases/licm.sh
+    [info] Start testing, using testcase dir: ./testcases/loop
+    ==========./testcases/loop/loop-1.cminus==========
+    ...
+
+    ```
+
+## 编译与运行
+
+按照如下示例进行项目编译：
+
+```shell
+$ cd 2024ustc-jianmu-compiler
+$ mkdir build
+$ cd build
+# 使用 cmake 生成 makefile 等文件
+$ cmake ..
+# 使用 make 进行编译，指定 install 以正确测试
+$ sudo make install
+```
+
+现在你可以 `-licm` 使用来指定开启 LICM 优化：
+
+- 将 `test.cminus` 编译到 IR：`cminusfc -emit-llvm -mem2reg -licm test.cminus`
+- 将 `test.cminus` 编译到汇编：`cminusfc -S -mem2reg -licm test.cminus`
