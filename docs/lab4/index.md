@@ -35,15 +35,14 @@
 │       └── Mem2Reg.cpp         <-- Mem2Reg 实现，需要补全
 └── tests
     ├── ...
-    ├── 4-licm                  # LICM 本地测试
-    └── 4-mem2reg               # Mem2Reg 本地测试
+    └── 4-opt               # Mem2Reg 本地测试
 ```
 
 ## 实验内容
 
 ### 阶段一 Mem2Reg
 
-阅读章节[Mem2Reg](./Mem2Reg.md)，完成 Dominators 支配树分析 与 Mem2Reg 访存优化 两个Pass。
+阅读章节 [Mem2Reg](./Mem2Reg.md) ，完成 Dominators 支配树分析 与 Mem2Reg 访存优化 两个Pass。
 
 !!! warning "Deadline"
 

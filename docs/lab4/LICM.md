@@ -2,7 +2,7 @@
 
 要进行循环相关的优化，我们首先要进行对循环的识别。循环检测基于支配树分析。我们根据支配树后序遍历所有基本块，这确保了先处理内层循环再处理外层循环。对每个基本块，检查其所有前驱，如果存在前驱被当前块支配，则找到了一个回边，这个回边的目标节点（当前块）就是循环头。
 
-找到循环头后，我们需要查找对应的循环和子循环，对应了`LICM.cpp`中的`discover_loop_and_sub_loops`函数。创建Loop对象并使用工作表法（worklist algorithm）从回边的源节点（latch）开始向上遍历CFG，将遇到的未分配节点加入当前循环。如果遇到已属于其他循环的节点，说明发现了循环嵌套，此时需要建立正确的父子关系。整个过程通过bb_to_loop_映射维护节点归属关系，通过Loop对象的parent和sub_loops字段维护循环的层次结构。更多的内容详见代码。
+找到循环头后，我们需要查找对应的循环和子循环，对应了 `LICM.cpp` 中的 `discover_loop_and_sub_loops` 函数。创建Loop对象并使用工作表法 (worklist algorithm) 从回边的源节点 (latch) 开始向上遍历 CFG ，将遇到的未分配节点加入当前循环。如果遇到已属于其他循环的节点，说明发现了循环嵌套，此时需要建立正确的父子关系。整个过程通过bb_to_loop_映射维护节点归属关系，通过 Loop 对象的 parent 和 sub_loops 字段维护循环的层次结构。更多的内容详见代码。
 
 ![discover](./figs/discover.gif){width="400"}
 
@@ -70,6 +70,7 @@ if (n > 0) { // loop guard
 ├── test_perf_licm.sh       # 性能测试脚本 (licm)
 ├── test_perf_mem2reg.sh    # 性能测试脚本 (mem2reg)
 └── testcases
+    ├── ...
     ├── functional-cases    # 功能测试用例
     └── loop                # 性能测试用例
 ```
