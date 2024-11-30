@@ -49,21 +49,24 @@ if (n > 0) { // loop guard
     } while (i < n);
 }
 ```
-这一过程被称之为[Loop Rotate](https://llvm.org/docs/Passes.html#passes-loop-rotate)。但我们在本次实验中不要求实现，你可以假设**所有的代码都会进入循环**。
+这一过程被称之为 [Loop Rotate](https://llvm.org/docs/Passes.html#passes-loop-rotate)。但我们在本次实验中不要求实现，你可以假设**所有的代码都会进入循环**。
 
 ## 如何识别循环不变量？
 
-我们使用更标准的语言来表达循环不变计算检测的算法，在这里我们暂且并不考虑`load`，`store`可能会引入副作用的指令。
+我们使用更标准的语言来表达循环不变计算检测的算法，在这里我们暂且并不考虑 `load`，`store` 可能会引入副作用的指令。
 
-给定一个循环体内的指令集合$\mathcal{I} = \{ I_1, I_2, \dots, I_n \}$，每条指令$I_i$具有操作数集合$\text{Operands}(I_i)$和结果$\text{Result}(I_i)$。我们的目标是标记所有循环不变的计算指令。
+给定一个循环体内的指令集合 $\mathcal{I} = \{ I_1, I_2, \dots, I_n \}$，每条指令$I_i$具有操作数集合 $\text{Operands}(I_i)$ 和结果 $\text{Result}(I_i)$。我们的目标是标记所有循环不变的计算指令。
 
-一条指令$I_i$被标记为不变的，如果：
-1. 对于所有操作数$x \in \text{Operands}(I_i)$，$x$要么是常量，要么是循环外部的变量（不依赖于循环中的变量）；或者
+一条指令 $I_i$ 被标记为不变的，如果：
 
-2. $I_i$的所有操作数要么是常量，要么是之前已标记为不变的指令的结果。
+1. 对于所有操作数 $x \in \text{Operands}(I_i)$，$x$ 要么是常量，要么是循环外部的变量（不依赖于循环中的变量）；或者
+
+2. $I_i$ 的所有操作数要么是常量，要么是之前已标记为不变的指令的结果。
 
 我们可以给出如下算法：
-$$
+
+
+
 \begin{aligned}
 &\textbf{Input:} \\
 &\quad \text{- A set of instructions } \mathcal{I} = \{I_1, I_2, \ldots, I_n\} \\
@@ -83,30 +86,31 @@ $$
 \\
 &\quad \text{For each instruction } I_i \in \mathcal{I}\text{:} \\
 &\quad\quad \text{If } I_i \notin \mathcal{I}_{\text{inv}}\text{: } \quad \text{// If not already marked invariant} \\
-&\quad\quad\quad \text{operands\_are\_invariant} = \text{True} \\
+&\quad\quad\quad \text{operands_are_invariant} = \text{True} \\
 \\
 &\quad\quad\quad \text{For each operand } x \in \text{Operands}(I_i)\text{:} \\
 &\quad\quad\quad\quad \text{If } x \text{ is a loop variable:} \\
-&\quad\quad\quad\quad\quad \text{operands\_are\_invariant} = \text{False} \\
+&\quad\quad\quad\quad\quad \text{operands_are_invariant} = \text{False} \\
 &\quad\quad\quad\quad\quad \text{Break} \\
 \\
-&\quad\quad\quad \text{If } \text{operands\_are\_invariant} = \text{True}\text{:} \\
+&\quad\quad\quad \text{If } \text{operands_are_invariant} = \text{True}\text{:} \\
 &\quad\quad\quad\quad \text{Add } I_i \text{ to } \mathcal{I}_{\text{inv}} \\
 &\quad\quad\quad\quad \text{changed} = \text{True} \\
 \\
 &\textbf{3. Return } \mathcal{I}_{\text{inv}} \quad \text{// Set of loop-invariant instructions}
 \end{aligned}
-$$
 
-当然，以上的算法并不完整。同学们需要考虑`load`，`store`指令，以及如何处理函数调用等可能引入副作用的指令。当然，完整地考虑上述情况可能还需要引入额外的[别名分析](https://en.wikipedia.org/wiki/Alias_analysis)等技术，这超出了本次实验的范围。在这里，我们的实现较为简单，详情请参考`LICM.cpp`。
+
+
+当然，以上的算法并不完整。同学们需要考虑 `load`，`store` 指令，以及如何处理函数调用等可能引入副作用的指令。当然，完整地考虑上述情况可能还需要引入额外的 [别名分析](https://en.wikipedia.org/wiki/Alias_analysis) 等技术，这超出了本次实验的范围。在这里，我们的实现较为简单，详情请参考 `LICM.cpp` 。
 
 ## 如何进行外提？
 
-在识别出了循环不变量后，我们还要考虑如何将这些循环不变量外提。这似乎是一件简单的问题，我们只需要将循环不变的指令**按照顺序**移动到循环之前即可。那么问题来了，在控制流图中，我们如何找到这个位置呢？
+在识别出了循环不变量后，我们还要考虑如何将这些循环不变量外提。这似乎是一件简单的问题，我们只需要将循环不变的指令 **按照顺序** 移动到循环之前即可。那么问题来了，在控制流图中，我们如何找到这个位置呢？
 
-我们的循环保证了`header`节点是循环的入口，那我们只要找到一个支配`header`的前驱节点即可，这也被称为`preheader`。我们将循环不变的指令移动到`preheader`节点之后，这样就保证了循环不变量在循环执行之前被计算。
+我们的循环保证了 `header` 节点是循环的入口，那我们只要找到一个支配 `header` 的前驱节点即可，这也被称为 `preheader`。我们将循环不变的指令移动到 `preheader` 节点之后，这样就保证了循环不变量在循环执行之前被计算。
 
-但是，这样的`preheader`并不一定存在。在这种情况下，我们就需要额外插入一个`preheader`节点。这个节点的前驱是循环外部的节点，后继是`header`节点。注意我们要在这里维护所有的前驱后继关系，修改`phi`，`br`等指令。随后，我们将循环不变的指令移动到这个新插入的`preheader`节点之中即可。
+但是，这样的 `preheader` 并不一定存在。在这种情况下，我们就需要额外插入一个`preheader`节点。这个节点的前驱是循环外部的节点，后继是 `header` 节点。注意我们要在这里维护所有的前驱后继关系，修改 `phi`，`br` 等指令。随后，我们将循环不变的指令移动到这个新插入的 `preheader` 节点之中即可。
 
 ![loop_preheader](./figs/loop_preheader.svg)
 
