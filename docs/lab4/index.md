@@ -50,7 +50,7 @@
 
 ### 阶段二 LICM
 
-阅读章节 [LICM](./LICM.md)，完成 LoopDetection 循环分析 与 LICM 循环不变量外提 两个Pass。
+阅读章节[循环相关介绍](./loop.md) 和 [LICM](./LICM.md)，完成 LoopDetection 循环分析 与 LICM 循环不变量外提 两个Pass。
 
 !!! warning "Deadline"
 
