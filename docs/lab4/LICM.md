@@ -130,7 +130,6 @@ if (n > 0) { // loop guard
 ```
 .
 ├── cleanup.sh
-├── eval_lab4.py
 ├── eval_lab4.sh            # 功能测试脚本
 ├── test_perf.sh            # 性能测试脚本
 └── testcases
