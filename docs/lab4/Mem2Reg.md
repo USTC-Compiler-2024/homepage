@@ -104,8 +104,7 @@ $ dot .cmp.dot -Tpng > cmp.png
 ├── cleanup.sh
 ├── eval_lab4.py
 ├── eval_lab4.sh            # 功能测试脚本
-├── test_perf_licm.sh       # 性能测试脚本 (licm)
-├── test_perf_mem2reg.sh    # 性能测试脚本 (mem2reg)
+├── test_perf.sh            # 性能测试脚本
 └── testcases
     ├── ...
     ├── functional-cases    # 功能测试用例
@@ -117,12 +116,12 @@ $ dot .cmp.dot -Tpng > cmp.png
 - `tests/testcases_general`
 - `tests/4-licm/testcases/functional-cases`
 
-此外，为了让你能够体会 Mem2Reg 的效果，我们还提供了 3 个性能测试样例，在 `testcases/mem2reg` 中。你可以使用脚本 `test_perf_mem2reg.sh` 来进行性能比较，使用示例如下所示。
+此外，为了让你能够体会 Mem2Reg 的效果，我们还提供了 3 个性能测试样例，在 `testcases/mem2reg` 中。你可以使用脚本 `test_perf.sh` 来进行性能比较，使用示例如下所示。
 
-??? info "`test_perf_mem2reg.sh` 使用示例"
+??? info "`test_perf.sh` 使用示例"
 
     ```shell
-    $ ./testcases/test_perf_mem2reg.sh
+    $ ./test_perf.sh mem2reg
     [info] Start testing, using testcase dir: ./testcases/mem2reg
     ==========./testcases/mem2reg/mem2reg-1.cminus==========
     ...
