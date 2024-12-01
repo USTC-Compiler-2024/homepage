@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+        <link rel="prev" href="../Mem2Reg/">
       
       
-        <link rel="next" href="../Bison/">
+        <link rel="next" href="../LICM/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Flex - USTC 编译原理和技术 2024</title>
+        <title>循环相关介绍 - USTC 编译原理和技术 2024</title>
       
     
     
@@ -89,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#flex" class="md-skip">
+        <a href="#循环相关介绍" class="md-skip">
           跳转至
         </a>
       
@@ -125,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Flex
+              循环相关介绍
             
           </span>
         </div>
@@ -264,13 +264,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../lab1/" class="md-tabs__link">
           
   
   Lab1
@@ -320,11 +318,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../lab4/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   Lab4
@@ -608,28 +608,25 @@
       
   
   
-    
   
   
-  
     
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -640,7 +637,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Lab1
@@ -654,7 +651,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../lab1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -675,7 +672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="md-nav__link">
+      <a href="../../lab1/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -693,30 +690,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Flex
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../lab1/Flex/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -725,71 +702,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#简介" class="md-nav__link">
-    <span class="md-ellipsis">
-      简介
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#flex-语言" class="md-nav__link">
-    <span class="md-ellipsis">
-      Flex 语言
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#编译和执行" class="md-nav__link">
-    <span class="md-ellipsis">
-      编译和执行
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#扩展阅读" class="md-nav__link">
-    <span class="md-ellipsis">
-      扩展阅读
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#思考题" class="md-nav__link">
-    <span class="md-ellipsis">
-      思考题
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -802,7 +714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Bison/" class="md-nav__link">
+      <a href="../../lab1/Bison/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -823,7 +735,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E8%AF%8D%E6%B3%95%E8%AF%AD%E6%B3%95%E8%A7%A3%E6%9E%90/" class="md-nav__link">
+      <a href="../../lab1/%E8%AF%8D%E6%B3%95%E8%AF%AD%E6%B3%95%E8%A7%A3%E6%9E%90/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -844,7 +756,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../AST/" class="md-nav__link">
+      <a href="../../lab1/AST/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -865,7 +777,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../AST%E7%94%9F%E6%88%90/" class="md-nav__link">
+      <a href="../../lab1/AST%E7%94%9F%E6%88%90/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1278,25 +1190,28 @@
       
   
   
+    
   
   
+  
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
-        
-          
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -1307,7 +1222,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             Lab4
@@ -1321,7 +1236,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lab4/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1342,7 +1257,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lab4/Mem2Reg/" class="md-nav__link">
+      <a href="../Mem2Reg/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1360,10 +1275,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../lab4/loop/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    循环相关介绍
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1372,6 +1307,59 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#循环定义" class="md-nav__link">
+    <span class="md-ellipsis">
+      循环定义
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="循环定义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#一些额外的定义" class="md-nav__link">
+    <span class="md-ellipsis">
+      一些额外的定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#一些其他的说明" class="md-nav__link">
+    <span class="md-ellipsis">
+      一些其他的说明
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1384,7 +1372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lab4/LICM/" class="md-nav__link">
+      <a href="../LICM/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1452,47 +1440,35 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#简介" class="md-nav__link">
+  <a href="#循环定义" class="md-nav__link">
     <span class="md-ellipsis">
-      简介
+      循环定义
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="循环定义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#一些额外的定义" class="md-nav__link">
+    <span class="md-ellipsis">
+      一些额外的定义
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#flex-语言" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#一些其他的说明" class="md-nav__link">
     <span class="md-ellipsis">
-      Flex 语言
+      一些其他的说明
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#编译和执行" class="md-nav__link">
-    <span class="md-ellipsis">
-      编译和执行
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#扩展阅读" class="md-nav__link">
-    <span class="md-ellipsis">
-      扩展阅读
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#思考题" class="md-nav__link">
-    <span class="md-ellipsis">
-      思考题
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1511,128 +1487,45 @@
                   
 
 
-<h1 id="flex">Flex<a class="headerlink" href="#flex" title="Permanent link">&para;</a></h1>
-<h2 id="简介">简介<a class="headerlink" href="#简介" title="Permanent link">&para;</a></h2>
-<p>最初的词法分析器生成程序 Lex 由 Mike Lesk 和当时在 AT&amp;T 实习的 Eric Schmidt 于 1975 年合作完成。Lex 可单独使用或与 Johnson 的 yacc 协同工作。然而，Lex 以低效率和 bug 而闻名。在 20 世纪 80 年代，Lawrence Berkeley 实验室的 Vern Paxson 以 C 重新编写了 Lex，命名为 Flex（Fast Lexical Analyzer Generator）。Flex 现在是 SourceForge 的一个项目，用于 C/C++ 的词法扫描生成器。Flex 支持使用正则表达式描述词法模式。</p>
-<p>Flex 执行过程如下：</p>
-<p><a class="glightbox" href="../assets/flex.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="img" src="../assets/flex.jpg" /></a></p>
+<h1 id="循环相关介绍">循环相关介绍<a class="headerlink" href="#循环相关介绍" title="Permanent link">&para;</a></h1>
+<h2 id="循环定义">循环定义<a class="headerlink" href="#循环定义" title="Permanent link">&para;</a></h2>
+<p>在中文语境中，loop 和 cycle 都能被翻译为循环，但一般而言，<a href="https://llvm.org/docs/CycleTerminology.html#cycle-terminology">cycle</a> 指的是一个更加宽泛的概念。为了避免混淆，我们在下文中所描述的循环都指的是 loop。</p>
+<p>循环是代码优化中的一个重要概念。我们仿照 <code>LLVM</code> 中的实现，给出具体定义如下：</p>
+<p>一个循环是控制流图（CFG : 其中每个节点代表了一个基本块）中具备以下特性的节点形成的子集：</p>
 <ol>
-<li>
-<p>首先，Flex 源程序中的规则被转换成状态转换图，生成对应的代码，包括核心的 <code>yylex()</code> 函数，保存在 <code>lex.yy.c</code> 文件中。Flex 源程序通常以 <code>.l</code> 为后缀，按照 Flex 语法编写，用于描述词法分析器。</p>
-</li>
-<li>
-<p>生成的 <code>lex.yy.c</code> 文件可以通过 C 编译为可执行文件。</p>
-</li>
-<li>
-<p>最终，可执行文件将输入流解析成一系列的标记（tokens）。</p>
-</li>
+<li>导出子图（即 CFG 中循环和他们之间的边形成的子图）是强连通的（Strongly Connected）。这意味着，从循环内任意节点出发，都可以到达循环内的任意节点。</li>
+<li>所有从循环外部指向该子集的边都指向同一个节点，这个节点被称为<strong>header</strong>。因此，头节点支配整个循环中的所有节点（即，任何到达循环内任意节点的路径，都会经过头节点）。</li>
+<li>该子集是符合以上条件的最大子集。也就是说，我们无法在该子集中添加更多的节点，且保持子图仍然是强连通的，并且头节点不变。</li>
 </ol>
-<h2 id="flex-语言">Flex 语言<a class="headerlink" href="#flex-语言" title="Permanent link">&para;</a></h2>
-<p>Flex 源程序的结构如下：</p>
-<div class="highlight"><pre><span></span><code><span class="n">声明部分</span>
-
-<span class="n">规则部分</span>
-
-<span class="n">C</span><span class="w"> </span><span class="n">代码部分</span>
-</code></pre></div>
+<p>在我们的课程中，这通常被称为<strong>自然循环</strong>。</p>
+<h3 id="一些额外的定义">一些额外的定义<a class="headerlink" href="#一些额外的定义" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>声明部分</strong> 包含名称声明和选项设置，<code>%{</code> 和 <code>%}</code> 之间的内容会被原样复制到生成的 C 文件头部，可用于编写 C 代码，如头文件声明和变量定义等。</li>
-<li><strong>规则部分</strong> 位于两个 <code>%%</code> 之间，包括多条规则，每个规则由正则表达式定义的模式和与之匹配的 C 代码动作组成。当词法分析程序识别出某模式时，执行相应的 C 代码。</li>
-<li><strong>C 代码部分</strong> 可包括 <code>main()</code> 函数，用于调用 <code>yylex()</code> 执行词法分析。<code>yylex()</code> 是由 Flex 生成的词法分析例程，默认从 stdin 读取输入文本。</li>
+<li><strong>Entering block</strong> (或 Loop Predecessor) : 指的是一个不在循环中的节点，它有一条边指向循环的头节点。如果只有一个进入块，并且这条边唯一指向头节点，那么这个进入块也叫做<strong>preheader</strong>。<strong>preheader</strong> 支配循环中的所有节点，但它本身不是循环的一部分。</li>
+<li><strong>Latch</strong>：有一条边指向头节点（header）的循环内节点。</li>
+<li><strong>Backedge</strong>：从 Latch 指向 header 的边。</li>
+<li><strong>Exiting Edge</strong>：从 loop 内部指向外部的边。它从 <strong>exiting block</strong> 指向 <strong>exit block</strong>。</li>
 </ul>
-<p>下面我们结合具体的例子，来看 Flex 的源程序的三部分结构：</p>
-<div class="highlight"><pre><span></span><code><span class="cm">/* %option noyywrap 功能较为复杂，同学们自行了解 */</span>
-<span class="o">%</span><span class="n">option</span><span class="w"> </span><span class="n">noyywrap</span>
-<span class="o">%</span><span class="p">{</span>
-<span class="cm">/* Flex 源程序采样类 C 的语法和规则 */</span>
-<span class="cm">/* 以下是声明部分，`%{` 和 `%}` 之间的内容会被原样复制到生成的 C 文件头部</span>
-<span class="cm">    包括该条注释内容 */</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">chars</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">words</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="o">%</span><span class="p">}</span>
-
-<span class="cm">/* 以下是规则部分，在规则部分写注释不能顶格写 */</span>
-<span class="cm">/* 每条规则由正则表达式和动作组成 */</span>
-<span class="cm">/* 第一条规则匹配纯字母的字符串，并统计字母个数和字符串个数</span>
-<span class="cm">                              其中 yytext 为匹配到的 token */</span>
-<span class="cm">/* 第二条规则匹配其他字符或字符串并执行空动作 */</span>
-<span class="o">%%</span>
-<span class="w"> </span><span class="cm">/* 在规则部分，不要顶格写注释 */</span>
-<span class="p">[</span><span class="n">a</span><span class="o">-</span><span class="n">zA</span><span class="o">-</span><span class="n">Z</span><span class="p">]</span><span class="o">+</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="n">chars</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">yytext</span><span class="p">);</span><span class="w"> </span><span class="n">words</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<span class="p">.</span><span class="w">          </span><span class="p">{}</span>
-<span class="o">%%</span>
-
-<span class="cm">/* 以下为 C 代码部分 */</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">     </span><span class="cm">/* yylex() 是由 Flex 自行生成的，用于执行 */</span>
-<span class="w">     </span><span class="n">yylex</span><span class="p">();</span>
-<span class="w">     </span><span class="cm">/* 对于 stdin 输入匹配结束，执行其他操作 */</span>
-<span class="w">     </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;look, I find %d words of %d chars</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">words</span><span class="p">,</span><span class="w"> </span><span class="n">chars</span><span class="p">);</span>
-<span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<p><a class="glightbox" href="../figs/loop-terminology.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="loop-terminology" src="../figs/loop-terminology.svg" /></a></p>
+<h3 id="一些其他的说明">一些其他的说明<a class="headerlink" href="#一些其他的说明" title="Permanent link">&para;</a></h3>
+<ul>
+<li>每个节点最多只能是一个循环的头节点，因此一个循环可以通过其头节点来唯一标识。</li>
+<li>对于从函数入口不可达的基本块，循环的概念是未定义的，因为支配关系也未定义。</li>
+<li>最小的循环是由一个指向自己的基本块。在这种情况下，这个块既是 header 也是 latch (如果有指向其他基本块的边还是 exiting block)。
+<a class="glightbox" href="../figs/loop-single.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="loop-single" src="../figs/loop-single.svg" /></a></li>
+<li>循环可以相互嵌套。也就是说一个循环可以是另一个循环的子集，并且它们具有不同的头节点。一个函数中循环的层次结构形成了一个森林，其中每个顶层循环都是它内部嵌套循环的根节点。</li>
+<li>两个循环不可能只有部分节点相同。两个循环要么完全不重叠，要么是一个嵌套在另一个里面。在下面的例子中，左边的子集和右边的子集都不是循环，他们都违反了循环定义中的第三条，即不是极大的子集。两个子集的并集才是一个循环。
+<a class="glightbox" href="../figs/loop-nonmaximal.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="loop-nonmaximal" src="../figs/loop-nonmaximal.svg" /></a></li>
+<li>有时，两个语义上的循环可能共享同一个头节点，但在这里会被视为一个单独的循环。例如，下面的嵌套循环：</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">128</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">128</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">j</span><span class="p">)</span>
+<span class="w">    </span><span class="n">body</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">);</span>
 </code></pre></div>
-<h2 id="编译和执行">编译和执行<a class="headerlink" href="#编译和执行" title="Permanent link">&para;</a></h2>
-<p>下面，我们将演示如何在 Ubuntu 系统上编译和运行 Flex 源程序，假设以上的 Flex 源程序被保存为 <code>wc.l</code>。</p>
-<p>首先，我们执行以下命令将 Flex 源程序转化为 c 程序：</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>flex<span class="w"> </span>wc.l
-</code></pre></div>
-<p>接着，我们查看生成的 <code>lex.yy.c</code> 文件：</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>lex.yy.c
-lex.yy.c
-</code></pre></div>
-<p><code>lex.yy.c</code> 文件比较复杂，你可以简要浏览一下：</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cat<span class="w"> </span>lex.yy.c
-......
-</code></pre></div>
-<p>接下来，我们编译 <code>lex.yy.c</code> 生成可执行文件：</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>gcc<span class="w"> </span>lex.yy.c<span class="w"> </span>-o<span class="w"> </span>lexer
-</code></pre></div>
-<p>此时，将生成一个可执行文件 <code>lexer</code>：</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>lexer
-lexer
-</code></pre></div>
-<p>最后，执行可执行文件并输入 <code>hello world!</code>：</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./lexer
-hello<span class="w"> </span>world!
-^D<span class="w"> </span><span class="c1"># 如果使用 stdin 作为输入，按 Ctrl+D 退出</span>
-look,<span class="w"> </span>I<span class="w"> </span>find<span class="w"> </span><span class="m">2</span><span class="w"> </span>words<span class="w"> </span>of<span class="w"> </span><span class="m">10</span><span class="w"> </span>chars
-</code></pre></div>
-<p>恭喜，你已成功使用 Flex 创建了一个简单的分析器！</p>
-<h2 id="扩展阅读">扩展阅读<a class="headerlink" href="#扩展阅读" title="Permanent link">&para;</a></h2>
-<p>Flex 自带详细手册，通过以下终端命令打开：</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>info<span class="w"> </span>flex
-<span class="c1"># 按 q 键退出</span>
-</code></pre></div>
-<p>特别推荐仔细阅读章节 <code>Pattern</code> 和 <code>Matching</code>。</p>
-<h2 id="思考题">思考题<a class="headerlink" href="#思考题" title="Permanent link">&para;</a></h2>
-<ol>
-<li>如果存在同时以下规则和动作，对于字符串 <code>+=</code>，哪条规则会被触发，并尝试解释理由。</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="o">%%</span>
-<span class="err">\</span><span class="o">+</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">ADD</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">ASSIGN</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<span class="err">\</span><span class="o">+=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">ASSIGNADD</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<span class="o">%%</span>
-</code></pre></div>
-<ol>
-<li>如果存在同时以下规则和动作，对于字符串 <code>ABC</code>，哪条规则会被触发，并尝试解释理由。</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="o">%%</span>
-<span class="n">ABC</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<span class="p">[</span><span class="n">a</span><span class="o">-</span><span class="n">zA</span><span class="o">-</span><span class="n">Z</span><span class="p">]</span><span class="o">+</span><span class="w"> </span><span class="p">{</span><span class="k">return</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<span class="o">%%</span>
-</code></pre></div>
-<ol>
-<li>如果存在同时以下规则和动作，对于字符串 <code>ABC</code>，哪条规则会被触发，并尝试解释理由。</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="o">%%</span>
-<span class="p">[</span><span class="n">a</span><span class="o">-</span><span class="n">zA</span><span class="o">-</span><span class="n">Z</span><span class="p">]</span><span class="o">+</span><span class="w"> </span><span class="p">{</span><span class="k">return</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<span class="n">ABC</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<span class="o">%%</span>
-</code></pre></div>
-<p>提示：你可以编写相关程序，实际进行执行。具体原因在 Flex 自带手册的 <code>Matching</code> 章节中有详细说明。</p>
+<pre><code>在 `LLVM-IR` 中他们可能会被如下的方式所表示。这里只有一个头节点，因此会被视为一个循环。
+</code></pre>
+<p><a class="glightbox" href="../figs/loop-merge.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="loop-merge" src="../figs/loop-merge.svg" /></a></p>
+<p>在 <code>LLVM</code> 中，<a href="https://llvm.org/docs/LoopTerminology.html#loop-terminology-loop-simplify">LoopSimplify</a>会将这个循环分解为两个循环。但为了简化实验，我们在这里<strong>并不涉及该pass</strong>。</p>
+<p><a class="glightbox" href="../figs/loop-separate.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="loop-separate" src="../figs/loop-separate.svg" /></a></p>
 
 
 
@@ -1653,7 +1546,7 @@ look,<span class="w"> </span>I<span class="w"> </span>find<span class="w"> </spa
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年10月7日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年12月1日</span>
   </span>
 
     
@@ -1669,8 +1562,8 @@ look,<span class="w"> </span>I<span class="w"> </span>find<span class="w"> </spa
     </span>
     <nav>
       
-        <a href="mailto:95729892+jyjsxx@users.noreply.github.com">JYJSXX</a>, 
-        <a href="mailto:liuruibo21@mail.ustc.edu.cn">JYJSXX</a>
+        <a href="mailto:liuruibo21@mail.ustc.edu.cn">JYJSXX</a>, 
+        <a href="mailto:zox@mail.ustc.edu.cn">zox</a>
     </nav>
   </span>
 
@@ -1699,7 +1592,7 @@ look,<span class="w"> </span>I<span class="w"> </span>find<span class="w"> </spa
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 正则表达式">
+          <a href="../Mem2Reg/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Mem2Reg">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1709,20 +1602,20 @@ look,<span class="w"> </span>I<span class="w"> </span>find<span class="w"> </spa
                 上一页
               </span>
               <div class="md-ellipsis">
-                正则表达式
+                Mem2Reg
               </div>
             </div>
           </a>
         
         
           
-          <a href="../Bison/" class="md-footer__link md-footer__link--next" aria-label="下一页: Bison">
+          <a href="../LICM/" class="md-footer__link md-footer__link--next" aria-label="下一页: LICM">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                Bison
+                LICM
               </div>
             </div>
             <div class="md-footer__button md-icon">
