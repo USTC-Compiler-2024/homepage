@@ -4,6 +4,8 @@
 
 找到循环头后，我们需要查找对应的循环和子循环，对应了 `LICM.cpp` 中的 `discover_loop_and_sub_loops` 函数。创建Loop对象并使用工作表法 (worklist algorithm) 从回边的源节点 (latch) 开始向上遍历 CFG ，将遇到的未分配节点加入当前循环。如果遇到已属于其他循环的节点，说明发现了循环嵌套，此时需要建立正确的父子关系。整个过程通过bb_to_loop_映射维护节点归属关系，通过 Loop 对象的 parent 和 sub_loops 字段维护循环的层次结构。更多的内容详见代码。
 
+
+下面的动图可能对你理解这个 pass 有所帮助：
 ![discover](./figs/discover.gif){width="400"}
 
 ## 循环不变代码外提
@@ -128,10 +130,8 @@ if (n > 0) { // loop guard
 ```
 .
 ├── cleanup.sh
-├── eval_lab4.py
 ├── eval_lab4.sh            # 功能测试脚本
-├── test_perf_licm.sh       # 性能测试脚本 (licm)
-├── test_perf_mem2reg.sh    # 性能测试脚本 (mem2reg)
+├── test_perf.sh            # 性能测试脚本
 └── testcases
     ├── ...
     ├── functional-cases    # 功能测试用例
@@ -143,12 +143,12 @@ if (n > 0) { // loop guard
 - `tests/testcases_general`
 - `tests/4-opt/testcases/functional-cases`
 
-此外，为了让你能够体会 LICM 的效果，我们还提供了 3 个性能测试样例，在 `testcases/loop` 中。你可以使用脚本 `test_perf_licm.sh` 来进行性能比较，使用示例如下所示。
+此外，为了让你能够体会 LICM 的效果，我们还提供了 3 个性能测试样例，在 `testcases/loop` 中。你可以使用脚本 `test_perf.sh` 来进行性能比较，使用示例如下所示。
 
-??? info "`test_perf_licm.sh` 使用示例"
+??? info "`test_perf.sh` 使用示例"
 
     ```shell
-    $ ./testcases/licm.sh
+    $ ./test_perf.sh licm
     [info] Start testing, using testcase dir: ./testcases/loop
     ==========./testcases/loop/loop-1.cminus==========
     ...
